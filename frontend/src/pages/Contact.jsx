@@ -42,44 +42,44 @@ const Contact = () => {
   };
 
   return (
-    <div style={{ animation: 'fadeIn 0.4s ease-out' }}>
+    <div className="animate-[fadeIn_0.4s_ease-out] w-full">
       
       {/* Header section */}
-      <section style={{ background: 'linear-gradient(135deg, #FFF9F5 0%, #FFFFFF 100%)', padding: '4rem 0 3rem 0', borderBottom: '1px solid rgba(0,0,0,0.04)' }}>
+      <section className="bg-gradient-to-br from-[#FFF9F5] to-white pt-16 pb-12 border-b border-black/5 w-full">
         <div className="container">
-          <div className="badge badge-orange" style={{ marginBottom: '1rem' }}>Consultation</div>
-          <h1 style={{ fontSize: 'clamp(1.8rem, 5vw, 2.75rem)', marginBottom: '1rem' }}>Connect With Us</h1>
-          <p style={{ color: 'var(--text-medium)', fontSize: '1.15rem', maxWidth: '850px', lineHeight: '1.6' }}>
+          <div className="badge badge-orange bg-[#FFF0E6] text-[#FF6B00] mb-4 inline-flex px-3 py-1 text-xs font-bold font-title rounded-full tracking-wider uppercase">Consultation</div>
+          <h1 className="text-[clamp(1.8rem,5vw,2.75rem)] mb-4 font-bold font-title text-gray-900 leading-tight">Connect With Us</h1>
+          <p className="text-gray-500 text-[1.15rem] max-w-[850px] leading-relaxed">
             Looking to transition your property to a clean, intelligent energy ecosystem? Drop us a line below or contact our headquarters in Coimbatore, Tamil Nadu.
           </p>
         </div>
       </section>
 
       {/* Main Form & details section */}
-      <section className="section">
-        <div className="container grid-2" style={{ alignItems: 'flex-start' }}>
+      <section className="py-[clamp(4rem,6vw,7.5rem)] w-full">
+        <div className="container grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
           
           {/* Contact Details */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
+          <div className="flex flex-col gap-10">
             <div>
-              <h2 style={{ fontSize: '1.8rem', position: 'relative', marginBottom: '1rem' }}>
+              <h2 className="text-[1.8rem] relative mb-4 font-extrabold font-title text-gray-900">
                 Headquarters Office
-                <span style={{ position: 'absolute', bottom: '-8px', left: 0, width: '40px', height: '3px', backgroundColor: 'var(--brand-orange)' }} />
+                <span className="absolute -bottom-2 left-0 w-10 h-1 bg-[#FF6B00]" />
               </h2>
-              <p style={{ color: 'var(--text-medium)', fontSize: '0.95rem', marginTop: '0.5rem' }}>
+              <p className="text-gray-500 text-[0.95rem] mt-2 leading-relaxed">
                 We deploy services across Coimbatore, Chennai, Bangalore, and surrounding regional hubs.
               </p>
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+            <div className="flex flex-col gap-6">
               
-              <div style={{ display: 'flex', gap: '15px', alignItems: 'flex-start' }}>
-                <div style={{ backgroundColor: 'var(--brand-orange-light)', color: 'var(--brand-orange)', padding: '0.6rem', borderRadius: '10px', display: 'flex' }}>
+              <div className="flex gap-4 items-start">
+                <div className="bg-[#FFF0E6] text-[#FF6B00] p-2.5 rounded-xl flex shrink-0">
                   <MapPin size={22} />
                 </div>
                 <div>
-                  <h4 style={{ fontWeight: 700, fontSize: '1.05rem' }}>Location</h4>
-                  <p style={{ fontSize: '0.9rem', color: 'var(--text-medium)', marginTop: '2px', lineHeight: '1.5' }}>
+                  <h4 className="font-bold text-[1.05rem] font-title text-gray-900">Location</h4>
+                  <p className="text-[0.9rem] text-gray-500 mt-1 leading-[1.5]">
                     Sunloop Energy HQ,<br />
                     Avinashi Road, Coimbatore,<br />
                     Tamil Nadu - 641018, India
@@ -87,26 +87,26 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div style={{ display: 'flex', gap: '15px', alignItems: 'flex-start' }}>
-                <div style={{ backgroundColor: 'var(--brand-orange-light)', color: 'var(--brand-orange)', padding: '0.6rem', borderRadius: '10px', display: 'flex' }}>
+              <div className="flex gap-4 items-start">
+                <div className="bg-[#FFF0E6] text-[#FF6B00] p-2.5 rounded-xl flex shrink-0">
                   <Phone size={22} />
                 </div>
                 <div>
-                  <h4 style={{ fontWeight: 700, fontSize: '1.05rem' }}>Phone Channels</h4>
-                  <p style={{ fontSize: '0.9rem', color: 'var(--text-medium)', marginTop: '2px' }}>
+                  <h4 className="font-bold text-[1.05rem] font-title text-gray-900">Phone Channels</h4>
+                  <p className="text-[0.9rem] text-gray-500 mt-1 leading-[1.5]">
                     Office desk: +91 422 1234567<br />
                     Support: +91 98765 43210
                   </p>
                 </div>
               </div>
 
-              <div style={{ display: 'flex', gap: '15px', alignItems: 'flex-start' }}>
-                <div style={{ backgroundColor: 'var(--brand-orange-light)', color: 'var(--brand-orange)', padding: '0.6rem', borderRadius: '10px', display: 'flex' }}>
+              <div className="flex gap-4 items-start">
+                <div className="bg-[#FFF0E6] text-[#FF6B00] p-2.5 rounded-xl flex shrink-0">
                   <Mail size={22} />
                 </div>
                 <div>
-                  <h4 style={{ fontWeight: 700, fontSize: '1.05rem' }}>Email Queries</h4>
-                  <p style={{ fontSize: '0.9rem', color: 'var(--text-medium)', marginTop: '2px' }}>
+                  <h4 className="font-bold text-[1.05rem] font-title text-gray-900">Email Queries</h4>
+                  <p className="text-[0.9rem] text-gray-500 mt-1 leading-[1.5]">
                     General Info: info@sunloopenergy.com<br />
                     Engineering Proposal: sales@sunloopenergy.com
                   </p>
@@ -117,35 +117,29 @@ const Contact = () => {
           </div>
 
           {/* Contact / Proposal Form */}
-          <div 
-            className="glass-card" 
-            style={{ 
-              padding: '2.5rem', 
-              boxShadow: 'var(--shadow-xl)', 
-              border: '1px solid rgba(0,0,0,0.06)', 
-              background: '#FFFFFF',
-              width: '100%'
-            }}
-          >
+          <div className="bg-white/90 backdrop-blur-md p-10 shadow-xl border border-black/5 rounded-[18px] w-full">
             {submitted ? (
-              <div style={{ textAlign: 'center', padding: '2rem 0', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.25rem' }}>
-                <CheckCircle2 size={54} style={{ color: 'var(--color-storage)' }} />
+              <div className="text-center py-8 flex flex-col items-center gap-5">
+                <CheckCircle2 size={54} className="text-[#10B981]" />
                 <div>
-                  <h3 style={{ fontSize: '1.5rem', fontWeight: 700 }}>Proposal Request Logged!</h3>
-                  <p style={{ color: 'var(--text-medium)', fontSize: '0.95rem', marginTop: '0.5rem', lineHeight: '1.5' }}>
-                    Thank you, <strong>{formData.name}</strong>. An engineering consultant from our Coimbatore office will review your requirements and reach out within 24 working hours.
+                  <h3 className="text-2xl font-bold font-title text-gray-900">Proposal Request Logged!</h3>
+                  <p className="text-gray-500 text-[0.95rem] mt-2 leading-[1.5]">
+                    Thank you, <strong className="text-gray-900">{formData.name}</strong>. An engineering consultant from our Coimbatore office will review your requirements and reach out within 24 working hours.
                   </p>
                 </div>
-                <button className="btn btn-primary" onClick={() => setSubmitted(false)} style={{ marginTop: '1rem' }}>
+                <button 
+                  className="bg-[#FF6B00] text-white px-6 py-3 rounded-full font-bold text-sm hover:bg-[#E56000] hover:-translate-y-0.5 transition-all mt-4 shadow-[0_4px_14px_rgba(255,107,0,0.3)]" 
+                  onClick={() => setSubmitted(false)}
+                >
                   Submit Another Inquiry
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-                <h3 style={{ fontSize: '1.35rem', fontWeight: 700, marginBottom: '0.25rem' }}>Request System Consultation</h3>
+              <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+                <h3 className="text-[1.35rem] font-bold font-title text-gray-900 mb-1">Request System Consultation</h3>
                 
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-medium)', marginBottom: '0.4rem' }}>
+                  <label className="block text-[0.8rem] font-semibold text-gray-500 mb-1.5 uppercase tracking-wide">
                     Full Name
                   </label>
                   <input 
@@ -155,13 +149,13 @@ const Contact = () => {
                     placeholder="e.g. Rajesh Kumar"
                     value={formData.name}
                     onChange={handleChange}
-                    className="form-input"
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-[0.95rem] text-gray-900 font-medium transition-all focus:border-[#FF6B00] focus:bg-white focus:outline-none focus:shadow-[0_0_0_4px_rgba(255,107,0,0.1)] placeholder:text-gray-400"
                   />
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }} className="grid-2">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-medium)', marginBottom: '0.4rem' }}>
+                    <label className="block text-[0.8rem] font-semibold text-gray-500 mb-1.5 uppercase tracking-wide">
                       Email Address
                     </label>
                     <input 
@@ -171,11 +165,11 @@ const Contact = () => {
                       placeholder="name@company.com"
                       value={formData.email}
                       onChange={handleChange}
-                      className="form-input"
+                      className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-[0.95rem] text-gray-900 font-medium transition-all focus:border-[#FF6B00] focus:bg-white focus:outline-none focus:shadow-[0_0_0_4px_rgba(255,107,0,0.1)] placeholder:text-gray-400"
                     />
                   </div>
                   <div>
-                    <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-medium)', marginBottom: '0.4rem' }}>
+                    <label className="block text-[0.8rem] font-semibold text-gray-500 mb-1.5 uppercase tracking-wide">
                       Phone Number
                     </label>
                     <input 
@@ -185,21 +179,20 @@ const Contact = () => {
                       placeholder="+91 XXXXX XXXXX"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="form-input"
+                      className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-[0.95rem] text-gray-900 font-medium transition-all focus:border-[#FF6B00] focus:bg-white focus:outline-none focus:shadow-[0_0_0_4px_rgba(255,107,0,0.1)] placeholder:text-gray-400"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-medium)', marginBottom: '0.4rem' }}>
+                  <label className="block text-[0.8rem] font-semibold text-gray-500 mb-1.5 uppercase tracking-wide">
                     Primary Technology Interest
                   </label>
                   <select 
                     name="interest"
                     value={formData.interest}
                     onChange={handleChange}
-                    className="form-input"
-                    style={{ backgroundColor: '#FFFFFF', fontWeight: 500, cursor: 'pointer' }}
+                    className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-[0.95rem] text-gray-900 font-medium transition-all focus:border-[#FF6B00] focus:outline-none focus:shadow-[0_0_0_4px_rgba(255,107,0,0.1)] cursor-pointer"
                   >
                     <option value="solar">Solar Power Plant Installation</option>
                     <option value="storage">Energy Storage Systems (ESS)</option>
@@ -210,15 +203,14 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-medium)', marginBottom: '0.4rem' }}>
+                  <label className="block text-[0.8rem] font-semibold text-gray-500 mb-1.5 uppercase tracking-wide">
                     Estimated Monthly Utility Budget
                   </label>
                   <select 
                     name="energyBill"
                     value={formData.energyBill}
                     onChange={handleChange}
-                    className="form-input"
-                    style={{ backgroundColor: '#FFFFFF', fontWeight: 500, cursor: 'pointer' }}
+                    className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-[0.95rem] text-gray-900 font-medium transition-all focus:border-[#FF6B00] focus:outline-none focus:shadow-[0_0_0_4px_rgba(255,107,0,0.1)] cursor-pointer"
                   >
                     <option value="under-5000">Under ₹5,000 / month</option>
                     <option value="5000-15000">₹5,000 - ₹15,000 / month</option>
@@ -228,7 +220,7 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-medium)', marginBottom: '0.4rem' }}>
+                  <label className="block text-[0.8rem] font-semibold text-gray-500 mb-1.5 uppercase tracking-wide">
                     Installation Site / City Location
                   </label>
                   <input 
@@ -238,12 +230,12 @@ const Contact = () => {
                     placeholder="e.g. Singanallur, Coimbatore"
                     value={formData.location}
                     onChange={handleChange}
-                    className="form-input"
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-[0.95rem] text-gray-900 font-medium transition-all focus:border-[#FF6B00] focus:bg-white focus:outline-none focus:shadow-[0_0_0_4px_rgba(255,107,0,0.1)] placeholder:text-gray-400"
                   />
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-medium)', marginBottom: '0.4rem' }}>
+                  <label className="block text-[0.8rem] font-semibold text-gray-500 mb-1.5 uppercase tracking-wide">
                     Specific Request Notes
                   </label>
                   <textarea 
@@ -252,12 +244,14 @@ const Contact = () => {
                     placeholder="Briefly tell us about your roof space, current load, or EV fleet details..."
                     value={formData.message}
                     onChange={handleChange}
-                    className="form-input"
-                    style={{ resize: 'vertical' }}
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-[0.95rem] text-gray-900 font-medium transition-all focus:border-[#FF6B00] focus:bg-white focus:outline-none focus:shadow-[0_0_0_4px_rgba(255,107,0,0.1)] placeholder:text-gray-400 resize-y"
                   />
                 </div>
 
-                <button type="submit" className="btn btn-primary" style={{ width: '100%', padding: '0.8rem', marginTop: '0.5rem' }}>
+                <button 
+                  type="submit" 
+                  className="w-full bg-[#FF6B00] text-white px-6 py-4 rounded-full font-bold text-sm hover:bg-[#E56000] hover:-translate-y-0.5 transition-all shadow-[0_4px_14px_rgba(255,107,0,0.3)] flex items-center justify-center gap-2 mt-2"
+                >
                   Submit Inquiry Proposal
                   <ArrowRight size={18} />
                 </button>

@@ -29,99 +29,89 @@ const EVCharging = () => {
   ];
 
   return (
-    <div style={{ animation: 'fadeIn 0.4s ease-out' }}>
+    <div className="animate-[fadeIn_0.4s_ease-out] w-full">
       
       {/* Page Header */}
-      <section style={{ background: 'linear-gradient(135deg, #F3E8FF 0%, #FFFFFF 100%)', padding: '4rem 0 3rem 0', borderBottom: '1px solid rgba(0,0,0,0.04)' }}>
+      <section className="bg-gradient-to-br from-[#F3E8FF] to-white pt-16 pb-12 border-b border-black/5 w-full">
         <div className="container">
-          <div className="badge badge-ev" style={{ marginBottom: '1rem' }}>Drive</div>
-          <h1 style={{ fontSize: 'clamp(1.8rem, 5vw, 2.75rem)', marginBottom: '1rem' }}>EV Charging Infrastructure</h1>
-          <p style={{ color: 'var(--text-medium)', fontSize: '1.15rem', maxWidth: '850px', lineHeight: '1.6' }}>
+          <div className="badge badge-ev bg-[#EDE9FE] text-[#8B5CF6] mb-4 inline-flex px-3 py-1 text-xs font-bold font-title rounded-full tracking-wider uppercase">Drive</div>
+          <h1 className="text-[clamp(1.8rem,5vw,2.75rem)] mb-4 font-bold font-title text-gray-900 leading-tight">EV Charging Infrastructure</h1>
+          <p className="text-gray-500 text-[1.15rem] max-w-[850px] leading-relaxed">
             Smart AC and DC charging solutions for residential communities, commercial buildings, industries, fleet operators, and public highway charging networks. Powering the future of electric mobility in India.
           </p>
         </div>
       </section>
 
       {/* Main Content Info */}
-      <section className="section">
-        <div className="container grid-2" style={{ alignItems: 'flex-start' }}>
+      <section className="py-[clamp(4rem,6vw,7.5rem)] w-full">
+        <div className="container grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
           
           {/* EV Charging Core Info */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-            <h2 style={{ fontSize: '1.8rem', position: 'relative' }}>
+          <div className="flex flex-col gap-8">
+            <h2 className="text-[1.8rem] relative font-extrabold font-title text-gray-900">
               High-Speed Charger Specifications
-              <span style={{ position: 'absolute', bottom: '-8px', left: 0, width: '40px', height: '3px', backgroundColor: 'var(--color-ev)' }} />
+              <span className="absolute -bottom-2 left-0 w-10 h-1 bg-[#8B5CF6]" />
             </h2>
             
-            <p style={{ color: 'var(--text-medium)', fontSize: '1rem' }}>
+            <p className="text-gray-500 text-[1rem] leading-relaxed">
               We install OCPP 1.6J compliant smart chargers equipped with dynamic load balancing, RFID authentication, and cellular/Wi-Fi connectivity. Integrating directly into the Sunloop AI Portal, property managers can handle tariff billing, monitor grid utilization, and schedule charging sessions.
             </p>
 
-            <div style={{ width: '100%', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(0,0,0,0.06)', boxShadow: 'var(--shadow-md)' }}>
-              <img src="/assets/pdf/sunloop-pdf-p13-02.png" alt="EV Charging Station" style={{ width: '100%', height: 'auto', display: 'block' }} />
+            <div className="w-full rounded-xl overflow-hidden border border-black/5 shadow-md">
+              <img src="/assets/pdf/sunloop-pdf-p13-02.png" alt="EV Charging Station" className="w-full h-auto block" />
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-              <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: 'var(--dark-charcoal)' }}>Available Configurations</h3>
+            <div className="flex flex-col gap-4">
+              <h3 className="text-[1.2rem] font-bold font-title text-gray-900">Available Configurations</h3>
               
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
-                <div style={{ backgroundColor: 'var(--off-white)', padding: '1.25rem', borderRadius: '12px', borderLeft: '4px solid var(--color-ev)' }}>
-                  <span className="badge badge-ev" style={{ marginBottom: '0.5rem' }}>EVC AC</span>
-                  <h4 style={{ fontSize: '1.3rem', color: 'var(--color-ev)' }}>7.4 to 22 kW</h4>
-                  <p style={{ fontSize: '0.8rem', color: 'var(--text-medium)', marginTop: '0.5rem' }}>Compact wallbox designs suitable for residential overnight charging and workplace parking lots.</p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="bg-gray-50 p-5 rounded-xl border-l-4 border-l-[#8B5CF6] shadow-sm">
+                  <span className="badge badge-ev bg-[#EDE9FE] text-[#8B5CF6] px-2 py-1 text-xs font-bold font-title rounded-md mb-2 inline-block">EVC AC</span>
+                  <h4 className="text-[1.3rem] font-bold text-[#8B5CF6]">7.4 to 22 kW</h4>
+                  <p className="text-[0.8rem] text-gray-500 mt-2 leading-relaxed">Compact wallbox designs suitable for residential overnight charging and workplace parking lots.</p>
                 </div>
                 
-                <div style={{ backgroundColor: 'var(--off-white)', padding: '1.25rem', borderRadius: '12px', borderLeft: '4px solid var(--color-ev)' }}>
-                  <span className="badge badge-ev" style={{ marginBottom: '0.5rem' }}>EVC DC</span>
-                  <h4 style={{ fontSize: '1.3rem', color: 'var(--color-ev)' }}>30 to 240 kW</h4>
-                  <p style={{ fontSize: '0.8rem', color: 'var(--text-medium)', marginTop: '0.5rem' }}>Liquid-cooled CCS2 dual-gun configurations designed for rapid commercial corridor top-ups.</p>
+                <div className="bg-gray-50 p-5 rounded-xl border-l-4 border-l-[#8B5CF6] shadow-sm">
+                  <span className="badge badge-ev bg-[#EDE9FE] text-[#8B5CF6] px-2 py-1 text-xs font-bold font-title rounded-md mb-2 inline-block">EVC DC</span>
+                  <h4 className="text-[1.3rem] font-bold text-[#8B5CF6]">30 to 240 kW</h4>
+                  <p className="text-[0.8rem] text-gray-500 mt-2 leading-relaxed">Liquid-cooled CCS2 dual-gun configurations designed for rapid commercial corridor top-ups.</p>
                 </div>
               </div>
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginTop: '1rem' }}>
+            <div className="flex flex-col gap-3 mt-4">
               {[
                 'CCS Type-2 standard connector compatibility',
                 'IP54 weatherproofing for outdoor installation',
                 'Over-the-air (OTA) software and diagnostic updates',
                 'Integration with solar canopy carports'
               ].map((pt, idx) => (
-                <div key={idx} style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-                  <CheckCircle2 size={18} style={{ color: 'var(--color-ev)' }} />
-                  <span style={{ fontSize: '0.88rem', color: 'var(--text-medium)', fontWeight: 500 }}>{pt}</span>
+                <div key={idx} className="flex gap-2 items-center">
+                  <CheckCircle2 size={18} className="text-[#8B5CF6]" />
+                  <span className="text-[0.88rem] text-gray-500 font-medium">{pt}</span>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Calculator Block */}
-          <div 
-            className="glass-card" 
-            style={{ 
-              padding: '2.5rem', 
-              boxShadow: 'var(--shadow-xl)', 
-              border: '1px solid rgba(139,92,246,0.1)', 
-              background: 'rgba(255, 255, 255, 0.95)',
-              position: 'sticky',
-              top: '100px'
-            }}
-          >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '1.5rem' }}>
-              <div style={{ backgroundColor: 'var(--color-ev-light)', color: 'var(--color-ev)', padding: '0.5rem', borderRadius: '8px', display: 'flex' }}>
+          <div className="bg-white/95 backdrop-blur-md p-8 shadow-xl border border-[#8B5CF6]/20 rounded-[18px] lg:sticky lg:top-[100px] w-full">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="bg-[#EDE9FE] text-[#8B5CF6] p-2.5 rounded-xl flex shrink-0">
                 <Clock size={22} />
               </div>
-              <h3 style={{ fontSize: '1.35rem', fontWeight: 700 }}>EV Charging Time Estimator</h3>
+              <h3 className="text-[1.35rem] font-bold font-title text-gray-900">EV Charging Time Estimator</h3>
             </div>
 
             {/* Inputs */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', marginBottom: '2rem' }}>
+            <div className="flex flex-col gap-6 mb-8">
               
               <div>
-                <div style={{ display: 'flex', justifySelf: 'stretch', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
-                  <label style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-medium)' }}>
+                <div className="flex justify-between items-end mb-2">
+                  <label className="text-[0.85rem] font-semibold text-gray-500 uppercase tracking-wide">
                     EV Battery Size (Capacity in kWh)
                   </label>
-                  <span style={{ fontWeight: 700, color: 'var(--color-ev)' }}>{batterySize} kWh</span>
+                  <span className="font-bold text-[1.2rem] text-[#8B5CF6]">{batterySize} kWh</span>
                 </div>
                 <input 
                   type="range" 
@@ -130,14 +120,10 @@ const EVCharging = () => {
                   step="5" 
                   value={batterySize}
                   onChange={(e) => setBatterySize(Number(e.target.value))}
-                  style={{ 
-                    width: '100%', 
-                    accentColor: 'var(--color-ev)',
-                    cursor: 'pointer'
-                  }}
+                  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#8B5CF6]"
                   id="battery-range"
                 />
-                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', color: 'var(--text-light)', marginTop: '4px' }}>
+                <div className="flex justify-between text-[0.75rem] text-gray-400 mt-2 font-medium">
                   <span>20 kWh (Hatch)</span>
                   <span>60 kWh (Sedan)</span>
                   <span>100 kWh (Premium SUV)</span>
@@ -145,14 +131,13 @@ const EVCharging = () => {
               </div>
 
               <div>
-                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-medium)', marginBottom: '0.5rem' }}>
+                <label className="block text-[0.85rem] font-semibold text-gray-500 mb-2 uppercase tracking-wide">
                   Select Charger Power Output
                 </label>
                 <select 
                   value={chargerPower} 
                   onChange={(e) => setChargerPower(Number(e.target.value))}
-                  className="form-input"
-                  style={{ fontWeight: 600, cursor: 'pointer' }}
+                  className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-[0.95rem] text-gray-900 font-semibold transition-all focus:border-[#8B5CF6] focus:outline-none focus:shadow-[0_0_0_4px_rgba(139,92,246,0.1)] cursor-pointer"
                   id="charger-select"
                 >
                   {chargerTypes.map((c) => (
@@ -166,43 +151,43 @@ const EVCharging = () => {
             </div>
 
             {/* Calculations Output */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', borderTop: '1px solid rgba(0,0,0,0.06)', paddingTop: '1.5rem' }}>
+            <div className="flex flex-col gap-4 border-t border-black/5 pt-6">
               
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
-                <div style={{ backgroundColor: 'var(--off-white)', padding: '0.85rem', borderRadius: '8px' }}>
-                  <p style={{ fontSize: '0.75rem', color: 'var(--text-light)', fontWeight: 600 }}>TARGET RANGE</p>
-                  <h4 style={{ fontSize: '1.15rem', color: 'var(--dark-charcoal)' }}>10% to 80% SOC</h4>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-gray-50 p-4 rounded-xl border border-black/5">
+                  <p className="text-[0.75rem] text-gray-400 font-bold mb-1 tracking-wide">TARGET RANGE</p>
+                  <h4 className="text-[1.15rem] font-bold text-gray-900">10% to 80% SOC</h4>
                 </div>
-                <div style={{ backgroundColor: 'var(--off-white)', padding: '0.85rem', borderRadius: '8px' }}>
-                  <p style={{ fontSize: '0.75rem', color: 'var(--text-light)', fontWeight: 600 }}>ENERGY TO ADD</p>
-                  <h4 style={{ fontSize: '1.15rem', color: 'var(--dark-charcoal)' }}>{(batterySize * chargePercentNeeded).toFixed(1)} kWh</h4>
+                <div className="bg-gray-50 p-4 rounded-xl border border-black/5">
+                  <p className="text-[0.75rem] text-gray-400 font-bold mb-1 tracking-wide">ENERGY TO ADD</p>
+                  <h4 className="text-[1.15rem] font-bold text-gray-900">{(batterySize * chargePercentNeeded).toFixed(1)} kWh</h4>
                 </div>
               </div>
 
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', backgroundColor: '#F5F3FF', padding: '1.25rem', borderRadius: '12px', border: '1px solid #DDD6FE' }}>
+              <div className="flex justify-between items-center bg-[#F5F3FF] p-5 rounded-xl border border-[#DDD6FE] mt-2">
                 <div>
-                  <p style={{ fontSize: '0.75rem', color: 'var(--color-ev)', fontWeight: 700 }}>ESTIMATED TIME TO CHARGE</p>
-                  <h4 style={{ fontSize: '1.8rem', color: 'var(--color-ev)' }}>
+                  <p className="text-[0.75rem] text-[#8B5CF6] font-bold mb-1 tracking-wide">ESTIMATED TIME TO CHARGE</p>
+                  <h4 className="text-[1.8rem] font-bold text-[#8B5CF6]">
                     {hours > 0 ? `${hours} hr ` : ''}{minutes} min
                   </h4>
                 </div>
-                <div style={{ fontSize: '2rem' }}>🚗</div>
+                <div className="text-3xl">🚗</div>
               </div>
 
               {chargerPower <= 22 && (
-                <div style={{ display: 'flex', gap: '8px', padding: '0.75rem', backgroundColor: 'rgba(255,107,0,0.04)', borderRadius: '8px', border: '1px dashed rgba(255,107,0,0.2)' }}>
-                  <ShieldAlert size={16} style={{ color: 'var(--brand-orange)', flexShrink: 0, marginTop: '2px' }} />
-                  <p style={{ fontSize: '0.72rem', color: 'var(--brand-orange)', lineHeight: '1.3' }}>
+                <div className="flex gap-2 p-3 bg-orange-50/50 rounded-xl border border-orange-200 border-dashed mt-2">
+                  <ShieldAlert size={16} className="text-[#FF6B00] shrink-0 mt-[2px]" />
+                  <p className="text-[0.72rem] text-[#FF6B00] leading-[1.4]">
                     Note: Charging speeds on AC chargers depend on your electric vehicle's internal onboard charger capacity (e.g. capped at 3.3 kW, 7.2 kW or 11 kW).
                   </p>
                 </div>
               )}
             </div>
 
-            <Link to="/contact?interest=ev" style={{ display: 'block', marginTop: '1.5rem' }}>
-              <button className="btn btn-ev" style={{ width: '100%', padding: '0.85rem' }}>
+            <Link to="/contact?interest=ev" className="block mt-6">
+              <button className="w-full bg-[#8B5CF6] text-white px-6 py-4 rounded-full font-bold text-sm hover:bg-[#7C3AED] hover:-translate-y-0.5 transition-all shadow-[0_4px_14px_rgba(139,92,246,0.3)] flex items-center justify-center gap-2">
                 Request Charging Installation
-                <ArrowRight size={16} />
+                <ArrowRight size={18} />
               </button>
             </Link>
           </div>

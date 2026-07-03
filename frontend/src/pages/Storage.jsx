@@ -23,91 +23,64 @@ const Storage = () => {
   if (load > 8000) loadDescription = "Full luxury home or commercial office setup, including multiple HVACs";
 
   return (
-    <div style={{ animation: 'fadeIn 0.4s ease-out' }}>
+    <div className="animate-[fadeIn_0.4s_ease-out] w-full">
       
       {/* Page Header */}
-      <section style={{ background: 'linear-gradient(135deg, #ECFDF5 0%, #FFFFFF 100%)', padding: '4rem 0 3rem 0', borderBottom: '1px solid rgba(0,0,0,0.04)' }}>
+      <section className="bg-gradient-to-br from-[#ECFDF5] to-white pt-16 pb-12 border-b border-black/5 w-full">
         <div className="container">
-          <div className="badge badge-storage" style={{ marginBottom: '1rem' }}>Store</div>
-          <h1 style={{ fontSize: 'clamp(1.8rem, 5vw, 2.75rem)', marginBottom: '1rem' }}>Energy Storage Systems (ESS)</h1>
-          <p style={{ color: 'var(--text-medium)', fontSize: '1.15rem', maxWidth: '850px', lineHeight: '1.6' }}>
+          <div className="badge badge-storage bg-[#E6F8F3] text-[#10B981] mb-4 inline-flex px-3 py-1 text-xs font-bold font-title rounded-full tracking-wider uppercase">Store</div>
+          <h1 className="text-[clamp(1.8rem,5vw,2.75rem)] mb-4 font-bold font-title text-gray-900 leading-tight">Energy Storage Systems (ESS)</h1>
+          <p className="text-gray-500 text-[1.15rem] max-w-[850px] leading-relaxed">
             Advanced battery storage solutions powered by Lithium-Ion and LiFePO4 cells. Ensure uninterrupted power backup, maximize self-consumption of your solar energy, support peak shaving, and secure complete energy independence.
           </p>
         </div>
       </section>
 
       {/* Main Grid content */}
-      <section className="section">
-        <div className="container grid-2" style={{ alignItems: 'flex-start' }}>
+      <section className="py-[clamp(4rem,6vw,7.5rem)] w-full">
+        <div className="container grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
           
           {/* ESS Core Info */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-            <h2 style={{ fontSize: '1.8rem', position: 'relative' }}>
+          <div className="flex flex-col gap-8">
+            <h2 className="text-[1.8rem] relative font-extrabold font-title text-gray-900">
               Advanced Battery Stack Technology
-              <span style={{ position: 'absolute', bottom: '-8px', left: 0, width: '40px', height: '3px', backgroundColor: 'var(--color-storage)' }} />
+              <span className="absolute -bottom-2 left-0 w-10 h-1 bg-[#10B981]" />
             </h2>
             
-            <p style={{ color: 'var(--text-medium)', fontSize: '1rem' }}>
+            <p className="text-gray-500 text-[1rem] leading-relaxed">
               Our energy storage enclosures utilize premium Lithium Iron Phosphate (LiFePO4) cylindrical cells. Renowned for their safety, thermal stability, and long cycle life, these systems retain over 80% capacity even after 6,000 charge/discharge cycles.
             </p>
 
-            <div style={{ width: '100%', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(0,0,0,0.06)', boxShadow: 'var(--shadow-md)' }}>
-              <img src="/assets/pdf/clean/ess-photos.png" alt="Battery Storage Enclosure" style={{ width: '100%', height: 'auto', display: 'block' }} />
+            <div className="w-full rounded-xl overflow-hidden border border-black/5 shadow-md">
+              <img src="/assets/pdf/clean/ess-photos.png" alt="Battery Storage Enclosure" className="w-full h-auto block" />
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-              <div 
-                style={{ 
-                  display: 'flex', 
-                  gap: '15px', 
-                  padding: '1.25rem', 
-                  backgroundColor: 'var(--off-white)', 
-                  borderRadius: '12px',
-                  borderLeft: '4px solid var(--color-storage)' 
-                }}
-              >
-                <Layers style={{ color: 'var(--color-storage)', flexShrink: 0 }} size={24} />
+            <div className="flex flex-col gap-5">
+              <div className="flex gap-4 p-5 bg-gray-50 rounded-xl border-l-4 border-l-[#10B981] border border-black/5 shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5">
+                <Layers className="text-[#10B981] shrink-0" size={24} />
                 <div>
-                  <h4 style={{ fontWeight: 700, fontSize: '1.05rem', marginBottom: '0.25rem' }}>Modular Stacking (5 kWh to 50 kWh)</h4>
-                  <p style={{ fontSize: '0.85rem', color: 'var(--text-medium)' }}>
+                  <h4 className="font-bold text-[1.05rem] font-title text-gray-900 mb-1">Modular Stacking (5 kWh to 50 kWh)</h4>
+                  <p className="text-[0.85rem] text-gray-500 leading-relaxed">
                     Start small and expand. Each module contains a dedicated Battery Management System (BMS). Up to 10 modules can be stacked in parallel to scale up power output as household demand grows.
                   </p>
                 </div>
               </div>
 
-              <div 
-                style={{ 
-                  display: 'flex', 
-                  gap: '15px', 
-                  padding: '1.25rem', 
-                  backgroundColor: 'var(--off-white)', 
-                  borderRadius: '12px',
-                  borderLeft: '4px solid var(--color-storage)' 
-                }}
-              >
-                <Zap style={{ color: 'var(--color-storage)', flexShrink: 0 }} size={24} />
+              <div className="flex gap-4 p-5 bg-gray-50 rounded-xl border-l-4 border-l-[#10B981] border border-black/5 shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5">
+                <Zap className="text-[#10B981] shrink-0" size={24} />
                 <div>
-                  <h4 style={{ fontWeight: 700, fontSize: '1.05rem', marginBottom: '0.25rem' }}>Peak Shaving & Load Shifting</h4>
-                  <p style={{ fontSize: '0.85rem', color: 'var(--text-medium)' }}>
+                  <h4 className="font-bold text-[1.05rem] font-title text-gray-900 mb-1">Peak Shaving & Load Shifting</h4>
+                  <p className="text-[0.85rem] text-gray-500 leading-relaxed">
                     Program the system to charge during low-tariff off-peak hours (or via surplus solar) and discharge during peak grid hours. Slashes demand charges and maximum demand penalties for commercial businesses.
                   </p>
                 </div>
               </div>
 
-              <div 
-                style={{ 
-                  display: 'flex', 
-                  gap: '15px', 
-                  padding: '1.25rem', 
-                  backgroundColor: 'var(--off-white)', 
-                  borderRadius: '12px',
-                  borderLeft: '4px solid var(--color-storage)' 
-                }}
-              >
-                <RefreshCw style={{ color: 'var(--color-storage)', flexShrink: 0 }} size={24} />
+              <div className="flex gap-4 p-5 bg-gray-50 rounded-xl border-l-4 border-l-[#10B981] border border-black/5 shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5">
+                <RefreshCw className="text-[#10B981] shrink-0" size={24} />
                 <div>
-                  <h4 style={{ fontWeight: 700, fontSize: '1.05rem', marginBottom: '0.25rem' }}>Micro-Grid Controller Integration</h4>
-                  <p style={{ fontSize: '0.85rem', color: 'var(--text-medium)' }}>
+                  <h4 className="font-bold text-[1.05rem] font-title text-gray-900 mb-1">Micro-Grid Controller Integration</h4>
+                  <p className="text-[0.85rem] text-gray-500 leading-relaxed">
                     Communicates in real-time with the local grid, diesel generators, and solar arrays to route energy via the most economical pathway, operating entirely automatically.
                   </p>
                 </div>
@@ -116,32 +89,22 @@ const Storage = () => {
           </div>
 
           {/* Calculator Block */}
-          <div 
-            className="glass-card" 
-            style={{ 
-              padding: '2.5rem', 
-              boxShadow: 'var(--shadow-xl)', 
-              border: '1px solid rgba(16,185,129,0.1)', 
-              background: 'rgba(255, 255, 255, 0.95)',
-              position: 'sticky',
-              top: '100px'
-            }}
-          >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '1.5rem' }}>
-              <div style={{ backgroundColor: 'var(--color-storage-light)', color: 'var(--color-storage)', padding: '0.5rem', borderRadius: '8px', display: 'flex' }}>
+          <div className="bg-white/95 backdrop-blur-md p-8 shadow-xl border border-[#10B981]/20 rounded-[18px] lg:sticky lg:top-[100px] w-full">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="bg-[#E6F8F3] text-[#10B981] p-2.5 rounded-xl flex shrink-0">
                 <Battery size={22} />
               </div>
-              <h3 style={{ fontSize: '1.35rem', fontWeight: 700 }}>ESS Backup Calculator</h3>
+              <h3 className="text-[1.35rem] font-bold font-title text-gray-900">ESS Backup Calculator</h3>
             </div>
 
             {/* Inputs */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', marginBottom: '2rem' }}>
+            <div className="flex flex-col gap-6 mb-8">
               <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
-                  <label style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-medium)' }}>
+                <div className="flex justify-between items-end mb-2">
+                  <label className="text-[0.85rem] font-semibold text-gray-500 uppercase tracking-wide">
                     Battery Stack Capacity (kWh)
                   </label>
-                  <span style={{ fontWeight: 700, color: 'var(--color-storage)' }}>{capacity} kWh</span>
+                  <span className="font-bold text-[1.2rem] text-[#10B981]">{capacity} kWh</span>
                 </div>
                 <input 
                   type="range" 
@@ -150,14 +113,10 @@ const Storage = () => {
                   step="5" 
                   value={capacity}
                   onChange={(e) => setCapacity(Number(e.target.value))}
-                  style={{ 
-                    width: '100%', 
-                    accentColor: 'var(--color-storage)',
-                    cursor: 'pointer'
-                  }}
+                  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#10B981]"
                   id="capacity-range"
                 />
-                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', color: 'var(--text-light)', marginTop: '4px' }}>
+                <div className="flex justify-between text-[0.75rem] text-gray-400 mt-2 font-medium">
                   <span>5 kWh (1 Module)</span>
                   <span>25 kWh</span>
                   <span>50 kWh (10 Modules)</span>
@@ -165,11 +124,11 @@ const Storage = () => {
               </div>
 
               <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
-                  <label style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-medium)' }}>
+                <div className="flex justify-between items-end mb-2">
+                  <label className="text-[0.85rem] font-semibold text-gray-500 uppercase tracking-wide">
                     Continuous Power Load (Watts)
                   </label>
-                  <span style={{ fontWeight: 700, color: 'var(--color-storage)' }}>{load.toLocaleString()} W</span>
+                  <span className="font-bold text-[1.2rem] text-[#10B981]">{load.toLocaleString()} W</span>
                 </div>
                 <input 
                   type="range" 
@@ -178,14 +137,10 @@ const Storage = () => {
                   step="250" 
                   value={load}
                   onChange={(e) => setLoad(Number(e.target.value))}
-                  style={{ 
-                    width: '100%', 
-                    accentColor: 'var(--color-storage)',
-                    cursor: 'pointer'
-                  }}
+                  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#10B981]"
                   id="load-range"
                 />
-                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', color: 'var(--text-light)', marginTop: '4px' }}>
+                <div className="flex justify-between text-[0.75rem] text-gray-400 mt-2 font-medium">
                   <span>500 W</span>
                   <span>5,000 W</span>
                   <span>10,000 W</span>
@@ -194,38 +149,38 @@ const Storage = () => {
             </div>
 
             {/* Calculations Output */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', borderTop: '1px solid rgba(0,0,0,0.06)', paddingTop: '1.5rem' }}>
+            <div className="flex flex-col gap-4 border-t border-black/5 pt-6">
               
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
-                <div style={{ backgroundColor: 'var(--off-white)', padding: '0.85rem', borderRadius: '8px' }}>
-                  <p style={{ fontSize: '0.75rem', color: 'var(--text-light)', fontWeight: 600 }}>USABLE STORAGE</p>
-                  <h4 style={{ fontSize: '1.15rem', color: 'var(--dark-charcoal)' }}>{(capacity * depthOfDischarge).toFixed(1)} kWh (90% DoD)</h4>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-gray-50 p-4 rounded-xl border border-black/5">
+                  <p className="text-[0.75rem] text-gray-400 font-bold mb-1 tracking-wide">USABLE STORAGE</p>
+                  <h4 className="text-[1.15rem] font-bold text-gray-900">{(capacity * depthOfDischarge).toFixed(1)} kWh (90% DoD)</h4>
                 </div>
-                <div style={{ backgroundColor: 'var(--off-white)', padding: '0.85rem', borderRadius: '8px' }}>
-                  <p style={{ fontSize: '0.75rem', color: 'var(--text-light)', fontWeight: 600 }}>DISCHARGE RATE</p>
-                  <h4 style={{ fontSize: '1.15rem', color: 'var(--dark-charcoal)' }}>{loadKw.toFixed(2)} kW / hour</h4>
+                <div className="bg-gray-50 p-4 rounded-xl border border-black/5">
+                  <p className="text-[0.75rem] text-gray-400 font-bold mb-1 tracking-wide">DISCHARGE RATE</p>
+                  <h4 className="text-[1.15rem] font-bold text-gray-900">{loadKw.toFixed(2)} kW / hour</h4>
                 </div>
               </div>
 
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', backgroundColor: '#ECFDF5', padding: '1.25rem', borderRadius: '12px', border: '1px solid #A7F3D0' }}>
+              <div className="flex justify-between items-center bg-[#ECFDF5] p-5 rounded-xl border border-[#A7F3D0] mt-2">
                 <div>
-                  <p style={{ fontSize: '0.75rem', color: 'var(--color-storage)', fontWeight: 700 }}>ESTIMATED BACKUP DURATION</p>
-                  <h4 style={{ fontSize: '1.8rem', color: 'var(--color-storage)' }}>{backupHours} Hours</h4>
+                  <p className="text-[0.75rem] text-[#10B981] font-bold mb-1 tracking-wide">ESTIMATED BACKUP DURATION</p>
+                  <h4 className="text-[1.8rem] font-bold text-[#10B981]">{backupHours} Hours</h4>
                 </div>
-                <div style={{ fontSize: '2rem' }}>⚡</div>
+                <div className="text-3xl">⚡</div>
               </div>
 
               {/* Dynamic load context box */}
-              <div style={{ fontSize: '0.8rem', padding: '0.75rem', backgroundColor: 'rgba(0,0,0,0.02)', borderRadius: '8px', borderLeft: '3px solid var(--text-light)', color: 'var(--text-medium)' }}>
-                <strong style={{ display: 'block', marginBottom: '2px', color: 'var(--dark-charcoal)' }}>Example devices for a {load}W load:</strong>
+              <div className="text-[0.8rem] p-4 bg-black/5 rounded-xl border-l-4 border-l-gray-400 text-gray-500 mt-2">
+                <strong className="block mb-1 text-gray-900 font-bold">Example devices for a {load}W load:</strong>
                 {loadDescription}
               </div>
             </div>
 
-            <Link to="/contact?interest=storage" style={{ display: 'block', marginTop: '1.5rem' }}>
-              <button className="btn btn-storage" style={{ width: '100%', padding: '0.85rem' }}>
+            <Link to="/contact?interest=storage" className="block mt-6">
+              <button className="w-full bg-[#10B981] text-white px-6 py-4 rounded-full font-bold text-sm hover:bg-[#0E9F6E] hover:-translate-y-0.5 transition-all shadow-[0_4px_14px_rgba(16,185,129,0.3)] flex items-center justify-center gap-2">
                 Inquire About ESS Stack
-                <ArrowRight size={16} />
+                <ArrowRight size={18} />
               </button>
             </Link>
           </div>
@@ -234,11 +189,11 @@ const Storage = () => {
       </section>
 
       {/* Safety Section */}
-      <section style={{ backgroundColor: 'var(--dark-charcoal)', color: 'var(--white)', padding: '5rem 0' }}>
-        <div className="container" style={{ maxWidth: '800px', textAlign: 'center', display: 'flex', flexDirection: 'column', gap: '1.5rem', alignItems: 'center' }}>
-          <ShieldCheck size={48} style={{ color: 'var(--color-storage)' }} />
-          <h2 style={{ color: 'var(--white)', fontSize: '2rem' }}>Engineered for Extreme Safety</h2>
-          <p style={{ color: 'var(--text-light)', fontSize: '1.05rem', lineHeight: '1.6' }}>
+      <section className="bg-[#1F2937] text-white py-20 w-full">
+        <div className="container max-w-[800px] text-center flex flex-col gap-6 items-center">
+          <ShieldCheck size={48} className="text-[#10B981]" />
+          <h2 className="text-white text-3xl font-extrabold font-title">Engineered for Extreme Safety</h2>
+          <p className="text-gray-400 text-[1.05rem] leading-relaxed">
             LiFePO4 chemistry contains no cobalt and poses zero fire risk from thermal runaway. Combined with our digital Battery Management System (BMS), the system monitors cell voltages, internal temperature, and overcurrent protection 24/7, delivering alerts directly to the Sunloop AI Portal.
           </p>
         </div>
