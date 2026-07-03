@@ -2,9 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { CTA, DashboardMockup, ServiceGrid } from "@/components/Shared";
 import { industries, portalFeatures, process } from "@/app/content";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
-import { Chatbot } from "@/components/Chatbot";
 
 const stats = [
   ["2016", "Building energy systems since"],
@@ -15,59 +12,42 @@ const stats = [
 
 export default function Home() {
   return (
-    <>
-      <Header />
-      <div className="site-shell">
-      <section className="pt-8 pb-16 section-pad flex flex-col gap-10 lg:gap-16 mt-8">
-        {/* Top Banner Image */}
-        <div className="w-full h-[300px] md:h-[450px] lg:h-[550px] relative rounded-sm overflow-hidden">
+    <div className="site-shell">
+      <section className="hero section-pad">
+        <div className="hero-copy">
+          <p className="eyebrow">AI Powered Renewable Energy</p>
+          <h1 className="italic">Solar, storage, EV charging, and AI energy management.</h1>
+          <p className="hero-text italic">
+            Sunloop Energy helps homes, businesses, industries, and institutions
+            build complete renewable energy infrastructure, from power generation
+            to intelligent monitoring.
+          </p>
+          <div className="hero-actions">
+            <Link className="button primary italic" href="/services/solar-power-plants">
+              Explore services
+            </Link>
+            <Link className="button secondary italic" href="/ai-portal">
+              View AI portal
+            </Link>
+          </div>
+        </div>
+        <div className="hero-visual clean-visual rounded-sm">
           <Image
             src="/images/ecosystem-hero.webp"
             alt="Solar canopy with EV charging and battery storage"
-            fill
-            className="object-cover"
+            width={900}
+            height={450}
             priority
+            sizes="(max-width: 900px) 100vw, 50vw"
+            className="rounded-sm"
           />
-        </div>
-
-        {/* Bottom 2-Column Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
-          {/* Left: Text and Accent Line */}
-          <div className="lg:col-span-7 flex flex-col items-start gap-5">
-            <div className="w-10 h-1 bg-red-600 mb-2"></div>
-            <h1 className="text-4xl lg:text-5xl font-extrabold text-[#101624] leading-tight tracking-tight">
-              It wasn’t built today. It was built 10 years ago.
-            </h1>
-            <p className="hero-text italic text-lg text-gray-600 max-w-2xl mt-2">
-              Since 2016, Sunloop Energy has been designing complete renewable energy ecosystems, combining solar, storage, and EV charging under one intelligent platform for tomorrow’s energy grid.
-            </p>
-            <div className="hero-actions flex gap-4 mt-2">
-              <Link className="button primary italic" href="/services/solar-power-plants">
-                Explore services
-              </Link>
-              <Link className="button secondary italic" href="/ai-portal">
-                View AI portal
-              </Link>
-            </div>
+          <div className="floating-note note-one rounded-sm border-gray-200 border-2">
+            <strong className="italic">Integrated ecosystem</strong>
+            <span className="italic">Solar, ESS, EV charging, and AI monitoring</span>
           </div>
-
-          {/* Right: Video Thumbnail / Secondary Visual */}
-          <div className="lg:col-span-5 relative rounded-sm group cursor-pointer animate-float animated-orange-border">
-            <div className="relative h-[220px] md:h-[280px] w-full rounded-sm overflow-hidden bg-[#101624]">
-               <Image
-                 src="/images/ai-home-site.webp"
-                 alt="Watch how Sunloop works"
-                 fill
-                 className="object-cover transition-transform duration-700 group-hover:scale-105"
-               />
-               <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors flex items-center justify-center">
-                 <div className="w-16 h-16 bg-black/60 rounded-full flex items-center justify-center border-2 border-white backdrop-blur-sm group-hover:scale-110 transition-transform">
-                   <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white ml-1" viewBox="0 0 24 24" fill="currentColor">
-                     <path d="M8 5v14l11-7z" />
-                   </svg>
-                 </div>
-               </div>
-            </div>
+          <div className="floating-note note-two rounded-sm border-gray-200 border-2">
+            <strong className="italic">Built to scale</strong>
+            <span className="italic">Start with one service and expand over time</span>
           </div>
         </div>
       </section>
@@ -172,8 +152,5 @@ export default function Home() {
 
       <CTA />
     </div>
-    <Footer />
-    <Chatbot />
-    </>
   );
 }
