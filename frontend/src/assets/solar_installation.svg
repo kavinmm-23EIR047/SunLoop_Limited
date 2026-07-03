@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <!-- Definitions for gradients and filters -->
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFDFB"/>
+      <stop offset="100%" stop-color="#FFF2EA"/>
+    </linearGradient>
+    
+    <!-- Solar Blue/Dark Grid Gradient -->
+    <linearGradient id="solarGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+
+    <!-- Solar Highlight Gradient -->
+    <linearGradient id="solarHighlight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF5C00" stop-opacity="0.8"/>
+      <stop offset="50%" stop-color="#FF8A3D" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#FF5C00" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Sky Gradient -->
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#E0F2FE"/>
+      <stop offset="100%" stop-color="#BAE6FD"/>
+    </linearGradient>
+
+    <!-- Sun Glow Filter -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="15" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <!-- Shadow Filter -->
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#0F172A" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Sky and Sun Background -->
+  <rect width="800" height="300" fill="url(#skyGrad)"/>
+  
+  <!-- Sun -->
+  <circle cx="650" cy="100" r="60" fill="#FFA500" opacity="0.3" filter="url(#glow)"/>
+  <circle cx="650" cy="100" r="45" fill="#FFB732" opacity="0.6" filter="url(#glow)"/>
+  <circle cx="650" cy="100" r="30" fill="#FFF2CC"/>
+
+  <!-- Sun Rays (Stylized) -->
+  <path d="M650 20 L650 40 M650 160 L650 180 M570 100 L590 100 M710 100 L730 100 M593 43 L607 57 M693 143 L707 157 M593 157 L607 143 M693 57 L707 43" stroke="#FFB732" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
+
+  <!-- Background Clouds -->
+  <path d="M 120 180 A 25 25 0 0 1 160 160 A 35 35 0 0 1 220 160 A 25 25 0 0 1 260 180 L 120 180 Z" fill="#FFFFFF" opacity="0.8"/>
+  <path d="M 400 150 A 20 20 0 0 1 430 135 A 30 30 0 0 1 480 135 A 20 20 0 0 1 510 150 L 400 150 Z" fill="#FFFFFF" opacity="0.6"/>
+
+  <!-- Modern House / Rooftop -->
+  <!-- Base Walls -->
+  <path d="M 100 450 L 100 600 L 700 600 L 700 450 Z" fill="#F1F5F9"/>
+  <!-- Windows -->
+  <rect x="180" y="490" width="120" height="110" rx="4" fill="#334155" opacity="0.9"/>
+  <rect x="240" y="490" width="4" height="110" fill="#64748B"/>
+  <rect x="500" y="490" width="120" height="110" rx="4" fill="#334155" opacity="0.9"/>
+  <rect x="560" y="490" width="4" height="110" fill="#64748B"/>
+  <!-- Fascia / Roof Line (Angle) -->
+  <path d="M 60 450 L 740 450 L 680 320 L 120 320 Z" fill="#E2E8F0"/>
+  <!-- Roof Surface (Perspective Flat Roof) -->
+  <path d="M 120 320 L 680 320 L 740 450 L 60 450 Z" fill="#94A3B8" filter="url(#shadow)"/>
+
+  <!-- Solar Panels Array (Perspective) -->
+  <!-- Back Row Panels -->
+  <!-- Panel 1 -->
+  <path d="M 160 330 L 270 330 L 290 380 L 170 380 Z" fill="url(#solarGrad)" stroke="#64748B" stroke-width="1.5"/>
+  <path d="M 160 330 L 270 330 L 290 380 L 170 380 Z" fill="url(#solarHighlight)"/>
+  <!-- Grid Lines for Panel 1 -->
+  <path d="M 215 330 L 230 380 M 165 355 L 280 355" stroke="#94A3B8" stroke-width="0.5" opacity="0.5"/>
+
+  <!-- Panel 2 -->
+  <path d="M 290 330 L 400 330 L 420 380 L 300 380 Z" fill="url(#solarGrad)" stroke="#64748B" stroke-width="1.5"/>
+  <path d="M 290 330 L 400 330 L 420 380 L 300 380 Z" fill="url(#solarHighlight)"/>
+  <!-- Grid Lines for Panel 2 -->
+  <path d="M 345 330 L 360 380 M 295 355 L 410 355" stroke="#94A3B8" stroke-width="0.5" opacity="0.5"/>
+
+  <!-- Panel 3 -->
+  <path d="M 420 330 L 530 330 L 550 380 L 430 380 Z" fill="url(#solarGrad)" stroke="#64748B" stroke-width="1.5"/>
+  <path d="M 420 330 L 530 330 L 550 380 L 430 380 Z" fill="url(#solarHighlight)"/>
+  <!-- Grid Lines for Panel 3 -->
+  <path d="M 475 330 L 490 380 M 425 355 L 540 355" stroke="#94A3B8" stroke-width="0.5" opacity="0.5"/>
+
+  <!-- Panel 4 -->
+  <path d="M 550 330 L 660 330 L 680 380 L 560 380 Z" fill="url(#solarGrad)" stroke="#64748B" stroke-width="1.5"/>
+  <path d="M 550 330 L 660 330 L 680 380 L 560 380 Z" fill="url(#solarHighlight)"/>
+  <!-- Grid Lines for Panel 4 -->
+  <path d="M 605 330 L 620 380 M 555 355 L 670 355" stroke="#94A3B8" stroke-width="0.5" opacity="0.5"/>
+
+  <!-- Front Row Panels (Larger, closer) -->
+  <!-- Panel 5 -->
+  <path d="M 140 395 L 260 395 L 285 445 L 155 445 Z" fill="url(#solarGrad)" stroke="#475569" stroke-width="2"/>
+  <path d="M 140 395 L 260 395 L 285 445 L 155 445 Z" fill="url(#solarHighlight)"/>
+  <path d="M 200 395 L 220 445 M 147 420 L 272 420" stroke="#94A3B8" stroke-width="0.75" opacity="0.6"/>
+
+  <!-- Panel 6 -->
+  <path d="M 285 395 L 405 395 L 430 445 L 300 445 Z" fill="url(#solarGrad)" stroke="#475569" stroke-width="2"/>
+  <path d="M 285 395 L 405 395 L 430 445 L 300 445 Z" fill="url(#solarHighlight)"/>
+  <path d="M 345 395 L 365 445 M 292 420 L 417 420" stroke="#94A3B8" stroke-width="0.75" opacity="0.6"/>
+
+  <!-- Panel 7 -->
+  <path d="M 430 395 L 550 395 L 575 445 L 445 445 Z" fill="url(#solarGrad)" stroke="#475569" stroke-width="2"/>
+  <path d="M 430 395 L 550 395 L 575 445 L 445 445 Z" fill="url(#solarHighlight)"/>
+  <path d="M 490 395 L 510 445 M 437 420 L 562 420" stroke="#94A3B8" stroke-width="0.75" opacity="0.6"/>
+
+  <!-- Panel 8 -->
+  <path d="M 575 395 L 695 395 L 720 445 L 590 445 Z" fill="url(#solarGrad)" stroke="#475569" stroke-width="2"/>
+  <path d="M 575 395 L 695 395 L 720 445 L 590 445 Z" fill="url(#solarHighlight)"/>
+  <path d="M 635 395 L 655 445 M 582 420 L 707 420" stroke="#94A3B8" stroke-width="0.75" opacity="0.6"/>
+
+  <!-- Green leaf eco details -->
+  <g transform="translate(50, 480)">
+    <path d="M10 20 Q 20 0, 40 10 Q 30 30, 10 20 Z" fill="#10B981" opacity="0.8"/>
+    <path d="M10 20 L 40 10" stroke="#059669" stroke-width="1.5"/>
+    <path d="M5 25 Q 18 8, 35 22 Q 22 38, 5 25 Z" fill="#059669" opacity="0.7" transform="rotate(-15)"/>
+  </g>
+
+  <!-- Glowing Sunloop Branding Overlay tag -->
+  <rect x="580" y="240" width="160" height="40" rx="8" fill="rgba(252, 85, 2, 0.95)" filter="url(#shadow)"/>
+  <text x="660" y="265" fill="#FFFFFF" font-family="Outfit, sans-serif" font-weight="700" font-size="14" text-anchor="middle" letter-spacing="1">SUNLOOP SOLAR</text>
+
+  <!-- Title Badge in Image -->
+  <rect x="30" y="30" width="220" height="50" rx="10" fill="rgba(78, 78, 77, 0.9)"/>
+  <circle cx="55" cy="55" r="12" fill="#fc5502"/>
+  <path d="M51 55 L54 58 L60 52" stroke="#FFFFFF" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="78" y="52" fill="#FFFFFF" font-family="Outfit, sans-serif" font-weight="700" font-size="13">High-Yield PV System</text>
+  <text x="78" y="66" fill="#939393" font-family="Inter, sans-serif" font-size="10">COIMBATORE DIVISION</text>
+</svg>

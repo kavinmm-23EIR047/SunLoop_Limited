@@ -12,7 +12,7 @@ const Footer = () => {
         
         {/* Company Column */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-          <Logo height={42} showText={true} />
+          <Logo height={56} showText={true} />
           <p style={{ color: 'var(--text-light)', fontSize: '0.9rem', lineHeight: '1.6', marginTop: '0.5rem' }}>
             Sunloop Energy is a next-generation clean energy company started in 2016. We specialize in delivering AI-powered integrated energy systems.
           </p>

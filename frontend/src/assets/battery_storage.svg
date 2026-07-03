@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <!-- Background Wall Gradients -->
+    <linearGradient id="wallGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8f4f2"/>
+      <stop offset="100%" stop-color="#fdcfb2"/>
+    </linearGradient>
+
+    <!-- Battery Case Metallic Gradient -->
+    <linearGradient id="metalGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4e4e4d"/>
+      <stop offset="30%" stop-color="#939393"/>
+      <stop offset="70%" stop-color="#939393"/>
+      <stop offset="100%" stop-color="#4e4e4d"/>
+    </linearGradient>
+
+    <!-- Glass Overlay Reflection -->
+    <linearGradient id="glassReflection" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.15"/>
+      <stop offset="40%" stop-color="#FFFFFF" stop-opacity="0.05"/>
+      <stop offset="40.1%" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- LED Pulse Glow Filter -->
+    <filter id="ledGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <!-- Large Drop Shadow -->
+    <filter id="boxShadow" x="-20%" y="-10%" width="140%" height="130%">
+      <feDropShadow dx="0" dy="25" stdDeviation="20" flood-color="#4e4e4d" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Wall Background -->
+  <rect width="800" height="600" fill="url(#wallGrad)"/>
+  
+  <!-- Subtle tech lines on the wall -->
+  <line x1="100" y1="0" x2="100" y2="600" stroke="#fcab7a" stroke-width="1" stroke-dasharray="10 15" opacity="0.3"/>
+  <line x1="700" y1="0" x2="700" y2="600" stroke="#fcab7a" stroke-width="1" stroke-dasharray="10 15" opacity="0.3"/>
+  <line x1="0" y1="450" x2="800" y2="450" stroke="#fcab7a" stroke-width="1" opacity="0.2"/>
+
+  <!-- Battery Stacks Enclosure (Perspective Center-Left) -->
+  <g transform="translate(240, 50)" filter="url(#boxShadow)">
+    
+    <!-- Outer Cabinet Body -->
+    <rect x="0" y="0" width="320" height="480" rx="16" fill="url(#metalGrad)" stroke="#4e4e4d" stroke-width="3"/>
+    
+    <!-- Outer Cabinet Bezel (Front Panel Plate) -->
+    <rect x="12" y="12" width="296" height="456" rx="8" fill="#1C1C1E"/>
+
+    <!-- Inside Stack Modules (4 stacked battery units) -->
+    
+    <!-- Module 1 (Top) -->
+    <g transform="translate(20, 24)">
+      <rect x="0" y="0" width="256" height="85" rx="6" fill="#2C2C2E" stroke="#4e4e4d" stroke-width="1"/>
+      <rect x="10" y="10" width="236" height="65" rx="4" fill="#111827"/>
+      <!-- Grille vents -->
+      <line x1="20" y1="42" x2="140" y2="42" stroke="#2C2C2E" stroke-width="12" stroke-dasharray="2 4"/>
+      <!-- LED indicators -->
+      <circle cx="180" cy="42" r="5" fill="#10B981" filter="url(#ledGlow)"/>
+      <circle cx="195" cy="42" r="5" fill="#10B981" filter="url(#ledGlow)"/>
+      <circle cx="210" cy="42" r="5" fill="#10B981" filter="url(#ledGlow)"/>
+      <circle cx="225" cy="42" r="5" fill="#10B981" filter="url(#ledGlow)"/>
+      <circle cx="240" cy="42" r="5" fill="#10B981" filter="url(#ledGlow)"/>
+      <!-- Label -->
+      <text x="20" y="24" fill="#939393" font-family="Outfit, sans-serif" font-size="9" font-weight="700" letter-spacing="0.5">SUNLOOP ESS-STACK // UNIT 1</text>
+    </g>
+
+    <!-- Module 2 -->
+    <g transform="translate(20, 131)">
+      <rect x="0" y="0" width="256" height="85" rx="6" fill="#2C2C2E" stroke="#4e4e4d" stroke-width="1"/>
+      <rect x="10" y="10" width="236" height="65" rx="4" fill="#111827"/>
+      <line x1="20" y1="42" x2="140" y2="42" stroke="#2C2C2E" stroke-width="12" stroke-dasharray="2 4"/>
+      <circle cx="180" cy="42" r="5" fill="#10B981" filter="url(#ledGlow)"/>
+      <circle cx="195" cy="42" r="5" fill="#10B981" filter="url(#ledGlow)"/>
+      <circle cx="210" cy="42" r="5" fill="#10B981" filter="url(#ledGlow)"/>
+      <circle cx="225" cy="42" r="5" fill="#10B981" filter="url(#ledGlow)"/>
+      <circle cx="240" cy="42" r="5" fill="#10B981" filter="url(#ledGlow)"/>
+      <text x="20" y="24" fill="#939393" font-family="Outfit, sans-serif" font-size="9" font-weight="700" letter-spacing="0.5">SUNLOOP ESS-STACK // UNIT 2</text>
+    </g>
+
+    <!-- Module 3 -->
+    <g transform="translate(20, 238)">
+      <rect x="0" y="0" width="256" height="85" rx="6" fill="#2C2C2E" stroke="#4e4e4d" stroke-width="1"/>
+      <rect x="10" y="10" width="236" height="65" rx="4" fill="#111827"/>
+      <line x1="20" y1="42" x2="140" y2="42" stroke="#2C2C2E" stroke-width="12" stroke-dasharray="2 4"/>
+      <circle cx="180" cy="42" r="5" fill="#10B981" filter="url(#ledGlow)"/>
+      <circle cx="195" cy="42" r="5" fill="#10B981" filter="url(#ledGlow)"/>
+      <circle cx="210" cy="42" r="5" fill="#10B981" filter="url(#ledGlow)"/>
+      <circle cx="225" cy="42" r="5" fill="#10B981" filter="url(#ledGlow)"/>
+      <circle cx="240" cy="42" r="5" fill="#10B981" opacity="0.3"/>
+      <text x="20" y="24" fill="#939393" font-family="Outfit, sans-serif" font-size="9" font-weight="700" letter-spacing="0.5">SUNLOOP ESS-STACK // UNIT 3</text>
+    </g>
+
+    <!-- Module 4 (Bottom) -->
+    <g transform="translate(20, 345)">
+      <rect x="0" y="0" width="256" height="85" rx="6" fill="#2C2C2E" stroke="#4e4e4d" stroke-width="1"/>
+      <rect x="10" y="10" width="236" height="65" rx="4" fill="#111827"/>
+      <line x1="20" y1="42" x2="140" y2="42" stroke="#2C2C2E" stroke-width="12" stroke-dasharray="2 4"/>
+      <circle cx="180" cy="42" r="5" fill="#10B981" filter="url(#ledGlow)"/>
+      <circle cx="195" cy="42" r="5" fill="#10B981" filter="url(#ledGlow)"/>
+      <circle cx="210" cy="42" r="5" fill="#10B981" filter="url(#ledGlow)"/>
+      <circle cx="225" cy="42" r="5" fill="#EAB308" filter="url(#ledGlow)"/>
+      <circle cx="240" cy="42" r="5" fill="#94A3B8" opacity="0.2"/>
+      <text x="20" y="24" fill="#939393" font-family="Outfit, sans-serif" font-size="9" font-weight="700" letter-spacing="0.5">SUNLOOP ESS-STACK // UNIT 4</text>
+    </g>
+
+    <!-- Glass Reflection Sheet -->
+    <rect x="12" y="12" width="296" height="456" rx="8" fill="url(#glassReflection)" pointer-events="none"/>
+
+    <!-- Cabinet Logo Badge -->
+    <rect x="120" y="442" width="80" height="18" rx="4" fill="#4e4e4d"/>
+    <text x="160" y="454" fill="#10B981" font-family="Outfit, sans-serif" font-weight="700" font-size="8" text-anchor="middle" letter-spacing="1">SUNLOOP ESS</text>
+  </g>
+
+  <!-- Floating Info Card on the Side (Premium HUD) -->
+  <g transform="translate(50, 100)" filter="url(#boxShadow)">
+    <rect x="0" y="0" width="160" height="200" rx="12" fill="rgba(78, 78, 77, 0.95)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+    
+    <text x="24" y="80" fill="#FFFFFF" font-family="Outfit, sans-serif" font-weight="700" font-size="14">LiFePO4 Cell</text>
+    <text x="24" y="96" fill="#939393" font-family="Inter, sans-serif" font-size="10">High Thermal Safety</text>
+
+    <!-- Divider -->
+    <line x1="24" y1="115" x2="136" y2="115" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+
+    <!-- Capacity info -->
+    <text x="24" y="138" fill="#10B981" font-family="Outfit, sans-serif" font-weight="700" font-size="18">20 kWh</text>
+    <text x="24" y="154" fill="#939393" font-family="Inter, sans-serif" font-size="10">Stacked Capacity</text>
+    <text x="24" y="172" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="9" font-weight="700">6000+ Cycles (80%)</text>
+  </g>
+
+  <!-- Green Leaf & Spark Eco Badge in Top Right -->
+  <rect x="580" y="40" width="180" height="50" rx="10" fill="#FFFFFF" filter="url(#boxShadow)"/>
+  <circle cx="610" cy="65" r="16" fill="#E6F8F3"/>
+  <path d="M604 68 Q 612 52, 620 58 Q 616 70, 604 68 Z M604 68 L 620 58" stroke="#10B981" stroke-width="1.5" fill="none"/>
+  <text x="636" y="60" fill="#4e4e4d" font-family="Outfit, sans-serif" font-weight="700" font-size="12">100% Autonomy</text>
+  <text x="636" y="73" fill="#939393" font-family="Inter, sans-serif" font-size="9">Peak Shaving Active</text>
+</svg>

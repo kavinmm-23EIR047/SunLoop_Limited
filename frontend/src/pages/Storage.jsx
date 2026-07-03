@@ -29,7 +29,7 @@ const Storage = () => {
       <section style={{ background: 'linear-gradient(135deg, #ECFDF5 0%, #FFFFFF 100%)', padding: '4rem 0 3rem 0', borderBottom: '1px solid rgba(0,0,0,0.04)' }}>
         <div className="container">
           <div className="badge badge-storage" style={{ marginBottom: '1rem' }}>Store</div>
-          <h1 style={{ fontSize: '2.75rem', marginBottom: '1rem' }}>Energy Storage Systems (ESS)</h1>
+          <h1 style={{ fontSize: 'clamp(1.8rem, 5vw, 2.75rem)', marginBottom: '1rem' }}>Energy Storage Systems (ESS)</h1>
           <p style={{ color: 'var(--text-medium)', fontSize: '1.15rem', maxWidth: '850px', lineHeight: '1.6' }}>
             Advanced battery storage solutions powered by Lithium-Ion and LiFePO4 cells. Ensure uninterrupted power backup, maximize self-consumption of your solar energy, support peak shaving, and secure complete energy independence.
           </p>
@@ -50,6 +50,10 @@ const Storage = () => {
             <p style={{ color: 'var(--text-medium)', fontSize: '1rem' }}>
               Our energy storage enclosures utilize premium Lithium Iron Phosphate (LiFePO4) cylindrical cells. Renowned for their safety, thermal stability, and long cycle life, these systems retain over 80% capacity even after 6,000 charge/discharge cycles.
             </p>
+
+            <div style={{ width: '100%', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(0,0,0,0.06)', boxShadow: 'var(--shadow-md)' }}>
+              <img src="/assets/pdf/clean/ess-photos.png" alt="Battery Storage Enclosure" style={{ width: '100%', height: 'auto', display: 'block' }} />
+            </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
               <div 

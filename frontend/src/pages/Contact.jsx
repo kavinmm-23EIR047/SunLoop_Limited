@@ -48,7 +48,7 @@ const Contact = () => {
       <section style={{ background: 'linear-gradient(135deg, #FFF9F5 0%, #FFFFFF 100%)', padding: '4rem 0 3rem 0', borderBottom: '1px solid rgba(0,0,0,0.04)' }}>
         <div className="container">
           <div className="badge badge-orange" style={{ marginBottom: '1rem' }}>Consultation</div>
-          <h1 style={{ fontSize: '2.75rem', marginBottom: '1rem' }}>Connect With Us</h1>
+          <h1 style={{ fontSize: 'clamp(1.8rem, 5vw, 2.75rem)', marginBottom: '1rem' }}>Connect With Us</h1>
           <p style={{ color: 'var(--text-medium)', fontSize: '1.15rem', maxWidth: '850px', lineHeight: '1.6' }}>
             Looking to transition your property to a clean, intelligent energy ecosystem? Drop us a line below or contact our headquarters in Coimbatore, Tamil Nadu.
           </p>
@@ -155,7 +155,7 @@ const Contact = () => {
                     placeholder="e.g. Rajesh Kumar"
                     value={formData.name}
                     onChange={handleChange}
-                    style={{ width: '100%', padding: '0.65rem', borderRadius: '8px', border: '1px solid rgba(0,0,0,0.1)', outline: 'none' }}
+                    className="form-input"
                   />
                 </div>
 
@@ -171,7 +171,7 @@ const Contact = () => {
                       placeholder="name@company.com"
                       value={formData.email}
                       onChange={handleChange}
-                      style={{ width: '100%', padding: '0.65rem', borderRadius: '8px', border: '1px solid rgba(0,0,0,0.1)', outline: 'none' }}
+                      className="form-input"
                     />
                   </div>
                   <div>
@@ -185,7 +185,7 @@ const Contact = () => {
                       placeholder="+91 XXXXX XXXXX"
                       value={formData.phone}
                       onChange={handleChange}
-                      style={{ width: '100%', padding: '0.65rem', borderRadius: '8px', border: '1px solid rgba(0,0,0,0.1)', outline: 'none' }}
+                      className="form-input"
                     />
                   </div>
                 </div>
@@ -198,7 +198,8 @@ const Contact = () => {
                     name="interest"
                     value={formData.interest}
                     onChange={handleChange}
-                    style={{ width: '100%', padding: '0.65rem', borderRadius: '8px', border: '1px solid rgba(0,0,0,0.1)', outline: 'none', backgroundColor: '#FFFFFF', fontWeight: 500 }}
+                    className="form-input"
+                    style={{ backgroundColor: '#FFFFFF', fontWeight: 500, cursor: 'pointer' }}
                   >
                     <option value="solar">Solar Power Plant Installation</option>
                     <option value="storage">Energy Storage Systems (ESS)</option>
@@ -216,7 +217,8 @@ const Contact = () => {
                     name="energyBill"
                     value={formData.energyBill}
                     onChange={handleChange}
-                    style={{ width: '100%', padding: '0.65rem', borderRadius: '8px', border: '1px solid rgba(0,0,0,0.1)', outline: 'none', backgroundColor: '#FFFFFF', fontWeight: 500 }}
+                    className="form-input"
+                    style={{ backgroundColor: '#FFFFFF', fontWeight: 500, cursor: 'pointer' }}
                   >
                     <option value="under-5000">Under ₹5,000 / month</option>
                     <option value="5000-15000">₹5,000 - ₹15,000 / month</option>
@@ -236,7 +238,7 @@ const Contact = () => {
                     placeholder="e.g. Singanallur, Coimbatore"
                     value={formData.location}
                     onChange={handleChange}
-                    style={{ width: '100%', padding: '0.65rem', borderRadius: '8px', border: '1px solid rgba(0,0,0,0.1)', outline: 'none' }}
+                    className="form-input"
                   />
                 </div>
 
@@ -250,7 +252,8 @@ const Contact = () => {
                     placeholder="Briefly tell us about your roof space, current load, or EV fleet details..."
                     value={formData.message}
                     onChange={handleChange}
-                    style={{ width: '100%', padding: '0.65rem', borderRadius: '8px', border: '1px solid rgba(0,0,0,0.1)', outline: 'none', resize: 'vertical' }}
+                    className="form-input"
+                    style={{ resize: 'vertical' }}
                   />
                 </div>
 

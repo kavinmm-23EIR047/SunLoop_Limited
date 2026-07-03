@@ -41,79 +41,32 @@ const Header = () => {
 
   return (
     <header 
-      style={{
-        position: 'sticky',
-        top: 0,
-        zIndex: 1000,
-        height: 'var(--header-height)',
-        display: 'flex',
-        alignItems: 'center',
-        background: scrolled ? 'rgba(255, 255, 255, 0.85)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(12px)' : 'none',
-        WebkitBackdropFilter: scrolled ? 'blur(12px)' : 'none',
-        borderBottom: scrolled ? '1px solid rgba(0, 0, 0, 0.05)' : '1px solid transparent',
-        boxShadow: scrolled ? 'var(--shadow-sm)' : 'none',
-        transition: 'all var(--transition-normal)'
-      }}
+      className={`sticky top-0 z-[1000] h-[var(--header-height)] flex items-center transition-all duration-300 ${
+        scrolled 
+          ? 'bg-white/85 backdrop-blur-md border-b border-black/5 shadow-sm' 
+          : 'bg-transparent border-transparent shadow-none'
+      }`}
     >
-      <div 
-        className="container" 
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          width: '100%'
-        }}
-      >
+      <div className="container flex items-center justify-between w-full">
         {/* Brand Logo */}
         <Link to="/" id="logo-link">
-          <Logo height={44} />
+          <Logo height={62} />
         </Link>
 
         {/* Desktop Navbar */}
-        <nav 
-          style={{
-            display: 'none',
-            alignItems: 'center',
-            gap: '1.75rem'
-          }}
-          className="desktop-nav"
-        >
-          <ul 
-            style={{
-              display: 'flex',
-              listStyle: 'none',
-              gap: '1.5rem',
-              alignItems: 'center'
-            }}
-          >
+        <nav className="hidden lg:flex items-center gap-7">
+          <ul className="flex list-none gap-6 items-center">
             {navLinks.map((link) => (
               <li key={link.path}>
                 <Link
                   to={link.path}
-                  style={{
-                    fontFamily: 'var(--font-title)',
-                    fontWeight: 500,
-                    fontSize: '0.95rem',
-                    color: isActive(link.path) ? 'var(--brand-orange)' : 'var(--text-dark)',
-                    position: 'relative',
-                    padding: '0.25rem 0'
-                  }}
-                  className="nav-link"
+                  className={`font-title font-medium text-[0.95rem] relative py-1 transition-colors hover:text-[#FF6B00] ${
+                    isActive(link.path) ? 'text-[#FF6B00]' : 'text-gray-900'
+                  }`}
                 >
                   {link.name}
                   {isActive(link.path) && (
-                    <span 
-                      style={{
-                        position: 'absolute',
-                        bottom: 0,
-                        left: 0,
-                        width: '100%',
-                        height: '2px',
-                        backgroundColor: 'var(--brand-orange)',
-                        borderRadius: '2px'
-                      }}
-                    />
+                    <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#FF6B00] rounded-sm" />
                   )}
                 </Link>
               </li>
@@ -121,7 +74,7 @@ const Header = () => {
           </ul>
 
           <Link to="/ai-portal" id="ai-portal-btn">
-            <button className="btn btn-portal" style={{ padding: '0.5rem 1.25rem', fontSize: '0.85rem' }}>
+            <button className="btn btn-portal px-5 py-2 text-[0.85rem]">
               <Activity size={15} />
               AI Portal Demo
               <ArrowRight size={14} />
@@ -132,14 +85,7 @@ const Header = () => {
         {/* Mobile Hamburguer Toggler */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          style={{
-            display: 'flex',
-            background: 'none',
-            border: 'none',
-            cursor: 'pointer',
-            color: 'var(--dark-charcoal)'
-          }}
-          className="mobile-toggler"
+          className="flex lg:hidden bg-transparent border-none cursor-pointer text-[#1C1C1E]"
           aria-label="Toggle navigation menu"
         >
           {isOpen ? <X size={26} /> : <Menu size={26} />}
@@ -148,41 +94,20 @@ const Header = () => {
 
       {/* Mobile Nav Menu Dropdown */}
       {isOpen && (
-        <div
-          style={{
-            position: 'absolute',
-            top: 'var(--header-height)',
-            left: 0,
-            width: '100%',
-            backgroundColor: 'var(--white)',
-            borderBottom: '1px solid rgba(0, 0, 0, 0.08)',
-            boxShadow: 'var(--shadow-lg)',
-            display: 'flex',
-            flexDirection: 'column',
-            padding: '1.5rem',
-            gap: '1.25rem',
-            animation: 'floatUp 0.25s ease-out forwards',
-            zIndex: 999
-          }}
-        >
+        <div className="absolute top-[var(--header-height)] left-0 w-full bg-white border-b border-black/10 shadow-lg flex flex-col p-6 gap-5 animate-float z-[999]">
           {navLinks.map((link) => (
             <Link
               key={link.path}
               to={link.path}
-              style={{
-                fontFamily: 'var(--font-title)',
-                fontWeight: 600,
-                fontSize: '1.1rem',
-                color: isActive(link.path) ? 'var(--brand-orange)' : 'var(--dark-charcoal)',
-                padding: '0.5rem 0',
-                borderBottom: '1px solid rgba(0, 0, 0, 0.03)'
-              }}
+              className={`font-title font-semibold text-lg pb-2 border-b border-black/5 ${
+                isActive(link.path) ? 'text-[#FF6B00]' : 'text-[#1C1C1E]'
+              }`}
             >
               {link.name}
             </Link>
           ))}
-          <Link to="/ai-portal" style={{ width: '100%' }}>
-            <button className="btn btn-portal" style={{ width: '100%', padding: '0.75rem' }}>
+          <Link to="/ai-portal" className="w-full mt-2">
+            <button className="btn btn-portal w-full p-3 justify-center">
               <Activity size={18} />
               AI Portal Demo
               <ArrowRight size={16} />
@@ -190,21 +115,6 @@ const Header = () => {
           </Link>
         </div>
       )}
-
-      {/* Extra styles for media queries handling since CSS is in index.css */}
-      <style>{`
-        @media (min-width: 900px) {
-          .desktop-nav {
-            display: flex !important;
-          }
-          .mobile-toggler {
-            display: none !important;
-          }
-        }
-        .nav-link:hover {
-          color: var(--brand-orange) !important;
-        }
-      `}</style>
     </header>
   );
 };

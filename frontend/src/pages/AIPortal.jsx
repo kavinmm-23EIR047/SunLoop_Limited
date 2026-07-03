@@ -314,10 +314,13 @@ const AIPortal = () => {
             alignItems: 'center',
             justifyContent: 'space-around',
             padding: '0 2rem',
-            overflow: 'hidden'
+            overflow: 'hidden',
+            maxWidth: '720px',
+            margin: '0 auto',
+            width: '100%'
           }}>
             {/* Grid flow paths underlaid */}
-            <svg style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none' }}>
+            <svg style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none' }} className="portal-flow-lines">
               {/* Solar to Load */}
               {data.flowSolarToLoad && (
                 <path d="M 120,120 L 330,120" stroke="var(--color-solar)" strokeWidth="3" strokeDasharray="6, 6" style={{ animation: 'dash 10s linear infinite' }} />
@@ -456,6 +459,11 @@ const AIPortal = () => {
         @media (min-width: 900px) {
           .portal-sidebar {
             display: flex !important;
+          }
+        }
+        @media (max-width: 768px) {
+          .portal-flow-lines {
+            display: none !important;
           }
         }
         @keyframes dash {

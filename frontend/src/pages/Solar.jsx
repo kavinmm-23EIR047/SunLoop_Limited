@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Sun, CheckCircle2, Calculator, Info, HelpCircle, ArrowRight, Zap, ShieldAlert } from 'lucide-react';
+import { Sun, CheckCircle2, Calculator, Info, HelpCircle, ArrowRight, Zap, ShieldAlert, Home as HomeIcon, Building2 } from 'lucide-react';
 
 const Solar = () => {
   // Calculator state
@@ -34,6 +34,27 @@ const Solar = () => {
     { name: 'Utility Scale', capacity: '1 MW & above', desc: 'Ground-mounted high-voltage evacuation systems. Designed for maximum yield and power purchase agreements (PPA).', suitability: 'Solar parks, heavy manufacturing plants, IPPs' }
   ];
 
+  const solarTypes = [
+    {
+      title: 'Rooftop Solar (Elevated)',
+      desc: 'Elevated rooftop solar system for Indian residential homes',
+      image: '/assets/pdf/clean/solar-rooftop-elevated.png',
+      icon: <HomeIcon size={30} />,
+    },
+    {
+      title: 'Rooftop Solar (Industrial)',
+      desc: 'Industrial rooftop solar system for factories and commercial buildings',
+      image: '/assets/pdf/clean/solar-rooftop-industrial.png',
+      icon: <Building2 size={30} />,
+    },
+    {
+      title: 'Ground Mount Solar Plant',
+      desc: 'Large scale ground mounted solar plant for maximum energy generation',
+      image: '/assets/pdf/clean/solar-ground-mount.png',
+      icon: <Sun size={30} />,
+    },
+  ];
+
   return (
     <div style={{ animation: 'fadeIn 0.4s ease-out' }}>
       
@@ -41,10 +62,31 @@ const Solar = () => {
       <section style={{ background: 'linear-gradient(135deg, #FFF6F0 0%, #FFFFFF 100%)', padding: '4rem 0 3rem 0', borderBottom: '1px solid rgba(0,0,0,0.04)' }}>
         <div className="container">
           <div className="badge badge-solar" style={{ marginBottom: '1rem' }}>Generate</div>
-          <h1 style={{ fontSize: '2.75rem', marginBottom: '1rem' }}>Solar Power Plants</h1>
+          <h1 style={{ fontSize: 'clamp(1.8rem, 5vw, 2.75rem)', marginBottom: '1rem' }}>Solar Power Plants</h1>
           <p style={{ color: 'var(--text-medium)', fontSize: '1.15rem', maxWidth: '850px', lineHeight: '1.6' }}>
             High-efficiency solar panels with rooftop system options for residential, and rooftop or ground-mounted system options for commercial, industrial, and utility-scale solar solutions. Designed for maximum energy generation and long-term financial savings.
           </p>
+        </div>
+      </section>
+
+      <section className="section solar-slide-section">
+        <div className="container">
+          <div className="solar-slide">
+            <div className="solar-slide__grid">
+              {solarTypes.map((item) => (
+                <article className="solar-type-card" key={item.title}>
+                  <div className="solar-type-card__image">
+                    <img src={item.image} alt={item.title} />
+                  </div>
+                  <div className="solar-type-card__content">
+                    <div className="solar-type-card__icon">{item.icon}</div>
+                    <h2>{item.title}</h2>
+                    <p>{item.desc}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -62,6 +104,10 @@ const Solar = () => {
             <p style={{ color: 'var(--text-medium)', fontSize: '1rem' }}>
               We partner with Tier-1 manufacturers to supply mono-PERC and half-cut bi-facial solar modules that capture maximum irradiance even on cloudy days. Combined with smart micro or string inverters, our solar plants deliver continuous grid-synchronized AC power.
             </p>
+
+            <div style={{ width: '100%', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(0,0,0,0.06)', boxShadow: 'var(--shadow-md)' }}>
+              <img src="/assets/pdf/clean/solar-photos.png" alt="Solar Panel Installation" style={{ width: '100%', height: 'auto', display: 'block' }} />
+            </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
               {tiers.map((tier, idx) => (

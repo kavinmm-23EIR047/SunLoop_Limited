@@ -20,7 +20,7 @@ const About = () => {
       <section style={{ background: 'linear-gradient(135deg, #FFF9F5 0%, #FFFFFF 100%)', padding: '4rem 0 3rem 0', borderBottom: '1px solid rgba(0,0,0,0.04)' }}>
         <div className="container">
           <div className="badge badge-orange" style={{ marginBottom: '1rem' }}>Our Profile</div>
-          <h1 style={{ fontSize: '2.75rem', marginBottom: '1rem' }}>About Sunloop Energy</h1>
+          <h1 style={{ fontSize: 'clamp(1.8rem, 5vw, 2.75rem)', marginBottom: '1rem' }}>About Sunloop Energy</h1>
           <p style={{ color: 'var(--text-medium)', fontSize: '1.15rem', maxWidth: '850px', lineHeight: '1.6' }}>
             A next-generation clean energy company started in 2016, dedicated to transforming how energy is generated, stored, managed, and consumed. Headquartered in Coimbatore, Tamil Nadu.
           </p>

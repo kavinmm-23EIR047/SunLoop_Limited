@@ -35,7 +35,7 @@ const EVCharging = () => {
       <section style={{ background: 'linear-gradient(135deg, #F3E8FF 0%, #FFFFFF 100%)', padding: '4rem 0 3rem 0', borderBottom: '1px solid rgba(0,0,0,0.04)' }}>
         <div className="container">
           <div className="badge badge-ev" style={{ marginBottom: '1rem' }}>Drive</div>
-          <h1 style={{ fontSize: '2.75rem', marginBottom: '1rem' }}>EV Charging Infrastructure</h1>
+          <h1 style={{ fontSize: 'clamp(1.8rem, 5vw, 2.75rem)', marginBottom: '1rem' }}>EV Charging Infrastructure</h1>
           <p style={{ color: 'var(--text-medium)', fontSize: '1.15rem', maxWidth: '850px', lineHeight: '1.6' }}>
             Smart AC and DC charging solutions for residential communities, commercial buildings, industries, fleet operators, and public highway charging networks. Powering the future of electric mobility in India.
           </p>
@@ -56,6 +56,10 @@ const EVCharging = () => {
             <p style={{ color: 'var(--text-medium)', fontSize: '1rem' }}>
               We install OCPP 1.6J compliant smart chargers equipped with dynamic load balancing, RFID authentication, and cellular/Wi-Fi connectivity. Integrating directly into the Sunloop AI Portal, property managers can handle tariff billing, monitor grid utilization, and schedule charging sessions.
             </p>
+
+            <div style={{ width: '100%', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(0,0,0,0.06)', boxShadow: 'var(--shadow-md)' }}>
+              <img src="/assets/pdf/sunloop-pdf-p13-02.png" alt="EV Charging Station" style={{ width: '100%', height: 'auto', display: 'block' }} />
+            </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: 'var(--dark-charcoal)' }}>Available Configurations</h3>
@@ -147,16 +151,8 @@ const EVCharging = () => {
                 <select 
                   value={chargerPower} 
                   onChange={(e) => setChargerPower(Number(e.target.value))}
-                  style={{
-                    width: '100%',
-                    padding: '0.75rem',
-                    borderRadius: '8px',
-                    border: '1px solid rgba(0,0,0,0.1)',
-                    backgroundColor: 'var(--white)',
-                    outline: 'none',
-                    fontWeight: 600,
-                    cursor: 'pointer'
-                  }}
+                  className="form-input"
+                  style={{ fontWeight: 600, cursor: 'pointer' }}
                   id="charger-select"
                 >
                   {chargerTypes.map((c) => (
