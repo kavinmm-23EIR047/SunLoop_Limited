@@ -7,26 +7,26 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer style={{ backgroundColor: 'var(--dark-charcoal)', color: 'var(--white)', padding: '5rem 0 2rem 0', borderTop: '1px solid rgba(255, 255, 255, 0.05)' }}>
-      <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '3rem', marginBottom: '4rem' }}>
+    <footer className="bg-[#1C1C1E] text-white pt-20 pb-8 border-t border-white/5">
+      <div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
         
         {/* Company Column */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+        <div className="flex flex-col gap-5">
           <Logo height={56} showText={true} />
-          <p style={{ color: 'var(--text-light)', fontSize: '0.9rem', lineHeight: '1.6', marginTop: '0.5rem' }}>
+          <p className="text-[#9CA3AF] text-[0.9rem] leading-relaxed mt-2">
             Sunloop Energy is a next-generation clean energy company started in 2016. We specialize in delivering AI-powered integrated energy systems.
           </p>
-          <div style={{ display: 'flex', gap: '0.75rem', marginTop: '0.5rem' }}>
-            <span style={{ backgroundColor: 'rgba(255, 255, 255, 0.05)', padding: '0.5rem', borderRadius: '50%', color: 'var(--brand-orange)', display: 'inline-flex' }}>
+          <div className="flex gap-3 mt-2">
+            <span className="bg-white/5 p-2 rounded-full text-[#FF6B00] inline-flex">
               <Compass size={18} />
             </span>
-            <span style={{ backgroundColor: 'rgba(255, 255, 255, 0.05)', padding: '0.5rem', borderRadius: '50%', color: 'var(--color-storage)', display: 'inline-flex' }}>
+            <span className="bg-white/5 p-2 rounded-full text-[#10B981] inline-flex">
               <Battery size={18} />
             </span>
-            <span style={{ backgroundColor: 'rgba(255, 255, 255, 0.05)', padding: '0.5rem', borderRadius: '50%', color: 'var(--color-portal)', display: 'inline-flex' }}>
+            <span className="bg-white/5 p-2 rounded-full text-[#007AFF] inline-flex">
               <Cpu size={18} />
             </span>
-            <span style={{ backgroundColor: 'rgba(255, 255, 255, 0.05)', padding: '0.5rem', borderRadius: '50%', color: 'var(--color-solar)', display: 'inline-flex' }}>
+            <span className="bg-white/5 p-2 rounded-full text-[#FF5C00] inline-flex">
               <Zap size={18} />
             </span>
           </div>
@@ -34,27 +34,27 @@ const Footer = () => {
 
         {/* Solutions Column */}
         <div>
-          <h4 style={{ fontFamily: 'var(--font-title)', fontSize: '1.1rem', marginBottom: '1.5rem', fontWeight: 600, color: 'var(--brand-orange)' }}>
+          <h4 className="font-title text-[1.1rem] mb-6 font-semibold text-[#FF6B00]">
             Solutions
           </h4>
-          <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+          <ul className="flex flex-col gap-3 list-none">
             <li>
-              <Link to="/solar" style={{ color: 'var(--text-light)', fontSize: '0.9rem' }} className="footer-link">
+              <Link to="/solar" className="text-[#9CA3AF] text-[0.9rem] transition-all duration-300 hover:text-[#FF6B00] hover:pl-1">
                 Solar Power Plants
               </Link>
             </li>
             <li>
-              <Link to="/ess" style={{ color: 'var(--text-light)', fontSize: '0.9rem' }} className="footer-link">
+              <Link to="/ess" className="text-[#9CA3AF] text-[0.9rem] transition-all duration-300 hover:text-[#FF6B00] hover:pl-1">
                 Energy Storage Systems (ESS)
               </Link>
             </li>
             <li>
-              <Link to="/ev-charging" style={{ color: 'var(--text-light)', fontSize: '0.9rem' }} className="footer-link">
+              <Link to="/ev-charging" className="text-[#9CA3AF] text-[0.9rem] transition-all duration-300 hover:text-[#FF6B00] hover:pl-1">
                 EV Charging Stations
               </Link>
             </li>
             <li>
-              <Link to="/ai-portal" style={{ color: 'var(--text-light)', fontSize: '0.9rem' }} className="footer-link">
+              <Link to="/ai-portal" className="text-[#9CA3AF] text-[0.9rem] transition-all duration-300 hover:text-[#FF6B00] hover:pl-1">
                 Sunloop AI Energy Portal
               </Link>
             </li>
@@ -63,27 +63,27 @@ const Footer = () => {
 
         {/* Company Links Column */}
         <div>
-          <h4 style={{ fontFamily: 'var(--font-title)', fontSize: '1.1rem', marginBottom: '1.5rem', fontWeight: 600, color: 'var(--brand-orange)' }}>
+          <h4 className="font-title text-[1.1rem] mb-6 font-semibold text-[#FF6B00]">
             Company
           </h4>
-          <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+          <ul className="flex flex-col gap-3 list-none">
             <li>
-              <Link to="/" style={{ color: 'var(--text-light)', fontSize: '0.9rem' }} className="footer-link">
+              <Link to="/" className="text-[#9CA3AF] text-[0.9rem] transition-all duration-300 hover:text-[#FF6B00] hover:pl-1">
                 Home
               </Link>
             </li>
             <li>
-              <Link to="/about" style={{ color: 'var(--text-light)', fontSize: '0.9rem' }} className="footer-link">
+              <Link to="/about" className="text-[#9CA3AF] text-[0.9rem] transition-all duration-300 hover:text-[#FF6B00] hover:pl-1">
                 About Us
               </Link>
             </li>
             <li>
-              <Link to="/contact" style={{ color: 'var(--text-light)', fontSize: '0.9rem' }} className="footer-link">
+              <Link to="/contact" className="text-[#9CA3AF] text-[0.9rem] transition-all duration-300 hover:text-[#FF6B00] hover:pl-1">
                 Contact & Support
               </Link>
             </li>
             <li>
-              <a href="https://www.sunloopenergy.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-light)', fontSize: '0.9rem' }} className="footer-link">
+              <a href="https://www.sunloopenergy.com" target="_blank" rel="noopener noreferrer" className="text-[#9CA3AF] text-[0.9rem] transition-all duration-300 hover:text-[#FF6B00] hover:pl-1">
                 Official Website
               </a>
             </li>
@@ -92,22 +92,22 @@ const Footer = () => {
 
         {/* Head Office Column */}
         <div>
-          <h4 style={{ fontFamily: 'var(--font-title)', fontSize: '1.1rem', marginBottom: '1.5rem', fontWeight: 600, color: 'var(--brand-orange)' }}>
+          <h4 className="font-title text-[1.1rem] mb-6 font-semibold text-[#FF6B00]">
             Headquarters
           </h4>
-          <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1rem', color: 'var(--text-light)', fontSize: '0.9rem' }}>
-            <li style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
-              <MapPin size={18} style={{ color: 'var(--brand-orange)', flexShrink: 0, marginTop: '2px' }} />
+          <ul className="flex flex-col gap-4 list-none text-[#9CA3AF] text-[0.9rem]">
+            <li className="flex gap-3 items-start">
+              <MapPin size={18} className="text-[#FF6B00] shrink-0 mt-[2px]" />
               <span>
                 Coimbatore,<br />Tamil Nadu, India
               </span>
             </li>
-            <li style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
-              <Phone size={18} style={{ color: 'var(--brand-orange)' }} />
+            <li className="flex gap-3 items-center">
+              <Phone size={18} className="text-[#FF6B00]" />
               <span>+91 422 1234567</span>
             </li>
-            <li style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
-              <Mail size={18} style={{ color: 'var(--brand-orange)' }} />
+            <li className="flex gap-3 items-center">
+              <Mail size={18} className="text-[#FF6B00]" />
               <span>info@sunloopenergy.com</span>
             </li>
           </ul>
@@ -115,26 +115,18 @@ const Footer = () => {
 
       </div>
 
-      <hr style={{ border: 0, borderTop: '1px solid rgba(255, 255, 255, 0.05)', marginBottom: '2rem' }} />
+      <hr className="border-0 border-t border-white/5 mb-8" />
 
       {/* Legal & Copyright */}
-      <div className="container" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '1rem' }}>
-        <p style={{ color: 'var(--text-light)', fontSize: '0.85rem' }}>
+      <div className="container flex flex-wrap justify-between items-center gap-4">
+        <p className="text-[#9CA3AF] text-[0.85rem]">
           &copy; {currentYear} Sunloop Energy. All rights reserved. Headquartered in Coimbatore, TN.
         </p>
-        <p style={{ color: 'var(--text-light)', fontSize: '0.85rem', display: 'flex', gap: '1.5rem' }}>
+        <p className="text-[#9CA3AF] text-[0.85rem] flex gap-6 flex-wrap">
           <span>"Powering Tomorrow, Sustainably"</span>
-          <span style={{ color: 'var(--brand-orange)' }}>Clean. Intelligent. Integrated.</span>
+          <span className="text-[#FF6B00]">Clean. Intelligent. Integrated.</span>
         </p>
       </div>
-
-      {/* Inline styles for hover effects */}
-      <style>{`
-        .footer-link:hover {
-          color: var(--brand-orange) !important;
-          padding-left: 4px;
-        }
-      `}</style>
     </footer>
   );
 };

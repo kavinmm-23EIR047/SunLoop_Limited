@@ -128,49 +128,28 @@ const AIPortal = () => {
   ];
 
   return (
-    <div style={{ display: 'flex', minHeight: 'calc(100vh - var(--header-height))', backgroundColor: '#111827', color: '#F3F4F6' }}>
+    <div className="flex min-h-[calc(100vh-var(--header-height))] bg-gray-900 text-gray-100">
       
       {/* Sidebar Navigation */}
-      <aside 
-        style={{ 
-          width: '260px', 
-          backgroundColor: '#1F2937', 
-          borderRight: '1px solid #374151', 
-          display: 'none', 
-          flexDirection: 'column', 
-          padding: '1.5rem 0' 
-        }}
-        className="portal-sidebar"
-      >
-        <div style={{ padding: '0 1.5rem 1.5rem 1.5rem', borderBottom: '1px solid #374151', marginBottom: '1.5rem' }}>
-          <h4 style={{ color: '#F9FAFB', fontSize: '0.8rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>System Nodes</h4>
-          <p style={{ color: 'var(--brand-orange)', fontSize: '0.9rem', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '5px', marginTop: '4px' }}>
-            <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'var(--color-storage)', display: 'inline-block' }} />
+      <aside className="hidden lg:flex flex-col w-[260px] bg-gray-800 border-r border-gray-700 py-6">
+        <div className="px-6 pb-6 border-b border-gray-700 mb-6">
+          <h4 className="text-gray-100 text-xs tracking-widest uppercase">System Nodes</h4>
+          <p className="text-[#FF6B00] text-sm font-bold flex items-center gap-1.5 mt-1">
+            <span className="w-2 h-2 rounded-full bg-[#10B981] inline-block" />
             HQ - Coimbatore
           </p>
         </div>
 
-        <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.25rem', padding: '0 0.75rem' }}>
+        <ul className="flex flex-col gap-1 px-3 list-none">
           {menuItems.map((item) => (
             <li key={item.id}>
               <button
                 onClick={() => setActiveTab(item.id)}
-                style={{
-                  width: '100%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.75rem',
-                  padding: '0.75rem 1rem',
-                  borderRadius: '8px',
-                  border: 'none',
-                  backgroundColor: activeTab === item.id ? 'var(--brand-orange)' : 'transparent',
-                  color: activeTab === item.id ? '#FFFFFF' : '#9CA3AF',
-                  textAlign: 'left',
-                  cursor: 'pointer',
-                  fontWeight: 600,
-                  fontSize: '0.9rem',
-                  transition: 'all 0.2s'
-                }}
+                className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg border-none text-left cursor-pointer font-semibold text-sm transition-all duration-200 ${
+                  activeTab === item.id 
+                    ? 'bg-[#FF6B00] text-white' 
+                    : 'bg-transparent text-gray-400 hover:bg-gray-700 hover:text-white'
+                }`}
               >
                 {item.icon}
                 {item.name}
@@ -180,47 +159,39 @@ const AIPortal = () => {
         </ul>
 
         {/* Info panel in sidebar */}
-        <div style={{ marginTop: 'auto', padding: '1rem 1.5rem' }}>
-          <div style={{ backgroundColor: '#111827', padding: '1rem', borderRadius: '8px', border: '1px solid #374151' }}>
-            <p style={{ fontSize: '0.7rem', color: '#9CA3AF', fontWeight: 700 }}>TELEMETRY HOST</p>
-            <p style={{ fontSize: '0.8rem', color: '#10B981', fontWeight: 600, marginTop: '2px' }}>v2.4.1 - Connected</p>
+        <div className="mt-auto px-6 py-4">
+          <div className="bg-gray-900 p-4 rounded-lg border border-gray-700">
+            <p className="text-[0.7rem] text-gray-400 font-bold">TELEMETRY HOST</p>
+            <p className="text-xs text-[#10B981] font-semibold mt-0.5">v2.4.1 - Connected</p>
           </div>
         </div>
       </aside>
 
       {/* Main Panel Content */}
-      <main style={{ flex: 1, padding: '2rem', display: 'flex', flexDirection: 'column', gap: '1.5rem', overflowY: 'auto' }}>
+      <main className="flex-1 p-6 md:p-8 flex flex-col gap-6 overflow-y-auto w-full">
         
         {/* Dashboard Top bar */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
+        <div className="flex justify-between items-center flex-wrap gap-4">
           <div>
-            <span style={{ fontSize: '0.8rem', color: 'var(--brand-orange)', fontWeight: 700, textTransform: 'uppercase' }}>
+            <span className="text-xs text-[#FF6B00] font-bold uppercase">
               Proprietary AI Energy Portal
             </span>
-            <h1 style={{ color: '#FFFFFF', fontSize: '1.8rem', fontWeight: 700, marginTop: '2px' }}>
+            <h1 className="text-white text-2xl md:text-3xl font-bold mt-1">
               Welcome to Sunloop AI Portal
             </h1>
           </div>
 
           {/* Scenario simulator selector */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', backgroundColor: '#1F2937', padding: '0.5rem 1rem', borderRadius: '12px', border: '1px solid #374151' }}>
-            <span style={{ fontSize: '0.8rem', color: '#9CA3AF', fontWeight: 600 }}>Simulate Scenario:</span>
-            <div style={{ display: 'flex', gap: '4px' }}>
+          <div className="flex items-center gap-2 bg-gray-800 px-4 py-2 rounded-xl border border-gray-700 overflow-x-auto max-w-full">
+            <span className="text-xs text-gray-400 font-semibold whitespace-nowrap">Simulate Scenario:</span>
+            <div className="flex gap-1">
               {Object.keys(scenarios).map((key) => (
                 <button
                   key={key}
                   onClick={() => selectScenario(key)}
-                  style={{
-                    padding: '0.35rem 0.65rem',
-                    borderRadius: '6px',
-                    border: 'none',
-                    backgroundColor: activeScenario === key ? 'var(--brand-orange)' : '#374151',
-                    color: '#FFFFFF',
-                    fontSize: '0.75rem',
-                    fontWeight: 700,
-                    cursor: 'pointer',
-                    transition: 'background-color 0.2s'
-                  }}
+                  className={`px-2.5 py-1.5 rounded-md border-none text-white text-xs font-bold cursor-pointer transition-colors whitespace-nowrap ${
+                    activeScenario === key ? 'bg-[#FF6B00]' : 'bg-gray-700 hover:bg-gray-600'
+                  }`}
                   id={`scenario-${key}`}
                 >
                   {key.toUpperCase()}
@@ -231,65 +202,65 @@ const AIPortal = () => {
         </div>
 
         {/* Telemetry Dials / Cards */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1rem' }}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
           
           {/* Solar Gen Dial */}
-          <div style={{ backgroundColor: '#1F2937', padding: '1.5rem', borderRadius: '14px', border: '1px solid #374151', borderTop: '4px solid var(--color-solar)' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', color: '#9CA3AF', fontSize: '0.8rem', fontWeight: 600 }}>
+          <div className="bg-gray-800 p-6 rounded-2xl border border-gray-700 border-t-4 border-t-[#FF5C00]">
+            <div className="flex justify-between text-gray-400 text-xs font-semibold">
               <span>Solar Generation</span>
-              <Sun size={16} style={{ color: 'var(--color-solar)' }} />
+              <Sun size={16} className="text-[#FF5C00]" />
             </div>
-            <h3 style={{ fontSize: '1.75rem', color: '#FFFFFF', margin: '0.5rem 0' }}>
+            <h3 className="text-3xl text-white my-2">
               {data.solar.toFixed(1)} kW
             </h3>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '4px', fontSize: '0.75rem', color: '#10B981', fontWeight: 700 }}>
+            <div className="flex items-center gap-1 text-xs text-[#10B981] font-bold">
               <TrendingUp size={12} /> Today's Gen: +12.5%
             </div>
           </div>
 
           {/* Storage Dial */}
-          <div style={{ backgroundColor: '#1F2937', padding: '1.5rem', borderRadius: '14px', border: '1px solid #374151', borderTop: '4px solid var(--color-storage)' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', color: '#9CA3AF', fontSize: '0.8rem', fontWeight: 600 }}>
+          <div className="bg-gray-800 p-6 rounded-2xl border border-gray-700 border-t-4 border-t-[#10B981]">
+            <div className="flex justify-between text-gray-400 text-xs font-semibold">
               <span>Energy Storage SOC</span>
-              <Battery size={16} style={{ color: 'var(--color-storage)' }} />
+              <Battery size={16} className="text-[#10B981]" />
             </div>
-            <h3 style={{ fontSize: '1.75rem', color: '#FFFFFF', margin: '0.5rem 0' }}>
+            <h3 className="text-3xl text-white my-2">
               {data.batterySoc.toFixed(1)}%
             </h3>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-              <div style={{ width: '100%', height: '6px', backgroundColor: '#374151', borderRadius: '3px', overflow: 'hidden' }}>
-                <div style={{ width: `${data.batterySoc}%`, height: '100%', backgroundColor: 'var(--color-storage)', transition: 'width 0.5s' }} />
+            <div className="flex flex-col gap-1">
+              <div className="w-full h-1.5 bg-gray-700 rounded-full overflow-hidden">
+                <div className="h-full bg-[#10B981] transition-all duration-500" style={{ width: `${data.batterySoc}%` }} />
               </div>
-              <span style={{ fontSize: '0.7rem', color: '#9CA3AF', alignSelf: 'flex-end', marginTop: '2px' }}>
+              <span className="text-[0.7rem] text-gray-400 self-end mt-0.5">
                 Status: {data.batteryStatus}
               </span>
             </div>
           </div>
 
           {/* EV Charging Dial */}
-          <div style={{ backgroundColor: '#1F2937', padding: '1.5rem', borderRadius: '14px', border: '1px solid #374151', borderTop: '4px solid var(--color-ev)' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', color: '#9CA3AF', fontSize: '0.8rem', fontWeight: 600 }}>
+          <div className="bg-gray-800 p-6 rounded-2xl border border-gray-700 border-t-4 border-t-[#8B5CF6]">
+            <div className="flex justify-between text-gray-400 text-xs font-semibold">
               <span>EV charging Load</span>
-              <Car size={16} style={{ color: 'var(--color-ev)' }} />
+              <Car size={16} className="text-[#8B5CF6]" />
             </div>
-            <h3 style={{ fontSize: '1.75rem', color: '#FFFFFF', margin: '0.5rem 0' }}>
+            <h3 className="text-3xl text-white my-2">
               {data.evLoad.toFixed(1)} kW
             </h3>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '4px', fontSize: '0.75rem', color: '#10B981', fontWeight: 700 }}>
+            <div className="flex items-center gap-1 text-xs text-[#10B981] font-bold">
               <TrendingUp size={12} /> Daily Delivered: 42.7 kWh
             </div>
           </div>
 
           {/* System Health */}
-          <div style={{ backgroundColor: '#1F2937', padding: '1.5rem', borderRadius: '14px', border: '1px solid #374151', borderTop: '4px solid var(--color-portal)' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', color: '#9CA3AF', fontSize: '0.8rem', fontWeight: 600 }}>
+          <div className="bg-gray-800 p-6 rounded-2xl border border-gray-700 border-t-4 border-t-[#007AFF]">
+            <div className="flex justify-between text-gray-400 text-xs font-semibold">
               <span>System Health</span>
-              <Cpu size={16} style={{ color: 'var(--color-portal)' }} />
+              <Cpu size={16} className="text-[#007AFF]" />
             </div>
-            <h3 style={{ fontSize: '1.75rem', color: '#FFFFFF', margin: '0.5rem 0' }}>
+            <h3 className="text-3xl text-white my-2">
               {data.health}%
             </h3>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '4px', fontSize: '0.75rem', color: '#10B981', fontWeight: 700 }}>
+            <div className="flex items-center gap-1 text-xs text-[#10B981] font-bold">
               <CheckCircle2 size={12} /> All Nodes Operating Optimally
             </div>
           </div>
@@ -297,120 +268,105 @@ const AIPortal = () => {
         </div>
 
         {/* Interactive Energy Flow Diagram (High-End CSS SVG Flow) */}
-        <div style={{ backgroundColor: '#1F2937', padding: '2rem', borderRadius: '14px', border: '1px solid #374151', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+        <div className="bg-gray-800 p-6 md:p-8 rounded-2xl border border-gray-700 flex flex-col gap-6">
           <div>
-            <h3 style={{ color: '#FFFFFF', fontSize: '1.25rem', fontWeight: 700 }}>Active Energy Flow Overview</h3>
-            <p style={{ color: '#9CA3AF', fontSize: '0.85rem' }}>Visualizing dynamic micro-grid distribution vectors.</p>
+            <h3 className="text-white text-xl font-bold">Active Energy Flow Overview</h3>
+            <p className="text-gray-400 text-sm">Visualizing dynamic micro-grid distribution vectors.</p>
           </div>
 
           {/* Animated Graphic Box */}
-          <div style={{ 
-            position: 'relative', 
-            height: '240px', 
-            border: '1px dashed #4B5563', 
-            borderRadius: '10px', 
-            backgroundColor: '#111827',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-around',
-            padding: '0 2rem',
-            overflow: 'hidden',
-            maxWidth: '720px',
-            margin: '0 auto',
-            width: '100%'
-          }}>
+          <div className="relative h-[240px] border border-dashed border-gray-600 rounded-xl bg-gray-900 flex items-center justify-around px-8 overflow-hidden max-w-[720px] mx-auto w-full">
             {/* Grid flow paths underlaid */}
-            <svg style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none' }} className="portal-flow-lines">
+            <svg className="absolute top-0 left-0 w-full h-full pointer-events-none hidden md:block">
               {/* Solar to Load */}
               {data.flowSolarToLoad && (
-                <path d="M 120,120 L 330,120" stroke="var(--color-solar)" strokeWidth="3" strokeDasharray="6, 6" style={{ animation: 'dash 10s linear infinite' }} />
+                <path d="M 120,120 L 330,120" stroke="#FF5C00" strokeWidth="3" strokeDasharray="6, 6" className="animate-[dash_10s_linear_infinite]" />
               )}
               {/* Solar to Battery */}
               {data.flowSolarToBattery && (
-                <path d="M 120,120 L 220,180" stroke="var(--color-storage)" strokeWidth="3" strokeDasharray="6, 6" style={{ animation: 'dash 10s linear infinite' }} />
+                <path d="M 120,120 L 220,180" stroke="#10B981" strokeWidth="3" strokeDasharray="6, 6" className="animate-[dash_10s_linear_infinite]" />
               )}
               {/* Battery to Load */}
               {data.flowBatteryToLoad && (
-                <path d="M 220,180 L 330,120" stroke="var(--color-storage)" strokeWidth="3" strokeDasharray="6, 6" style={{ animation: 'dash-reverse 10s linear infinite' }} />
+                <path d="M 220,180 L 330,120" stroke="#10B981" strokeWidth="3" strokeDasharray="6, 6" className="animate-[dash-reverse_10s_linear_infinite]" />
               )}
               {/* Grid to Load */}
               {data.flowGridToLoad && (
-                <path d="M 220,50 L 330,120" stroke="var(--color-portal)" strokeWidth="3" strokeDasharray="6, 6" style={{ animation: 'dash 10s linear infinite' }} />
+                <path d="M 220,50 L 330,120" stroke="#007AFF" strokeWidth="3" strokeDasharray="6, 6" className="animate-[dash_10s_linear_infinite]" />
               )}
               {/* Load to EV */}
-              <path d="M 330,120 L 450,120" stroke="var(--color-ev)" strokeWidth="3" strokeDasharray="6, 6" style={{ animation: 'dash 8s linear infinite' }} />
+              <path d="M 330,120 L 450,120" stroke="#8B5CF6" strokeWidth="3" strokeDasharray="6, 6" className="animate-[dash_8s_linear_infinite]" />
             </svg>
 
             {/* Nodes */}
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', zIndex: 1 }} className="flow-node">
-              <div style={{ width: '56px', height: '56px', borderRadius: '50%', backgroundColor: 'var(--color-solar-light)', color: 'var(--color-solar)', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '2px solid var(--color-solar)' }}>
+            <div className="flex flex-col items-center z-[1]">
+              <div className="w-14 h-14 rounded-full bg-[#FFF2EB] text-[#FF5C00] flex items-center justify-center border-2 border-[#FF5C00]">
                 <Sun size={28} />
               </div>
-              <span style={{ fontSize: '0.75rem', fontWeight: 700, marginTop: '8px' }}>SOLAR</span>
-              <span style={{ fontSize: '0.7rem', color: 'var(--color-solar)', fontWeight: 600 }}>{data.solar.toFixed(0)} kW</span>
+              <span className="text-xs font-bold mt-2 text-white">SOLAR</span>
+              <span className="text-[0.7rem] text-[#FF5C00] font-semibold">{data.solar.toFixed(0)} kW</span>
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', zIndex: 1, gap: '40px' }}>
+            <div className="flex flex-col items-center z-[1] gap-10">
               {/* Grid Node (Top) */}
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                <div style={{ width: '48px', height: '48px', borderRadius: '50%', backgroundColor: 'rgba(0,122,255,0.1)', color: 'var(--color-portal)', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '2px solid var(--color-portal)' }}>
+              <div className="flex flex-col items-center">
+                <div className="w-12 h-12 rounded-full bg-[#007AFF]/10 text-[#007AFF] flex items-center justify-center border-2 border-[#007AFF]">
                   <Cpu size={22} />
                 </div>
-                <span style={{ fontSize: '0.75rem', fontWeight: 700, marginTop: '4px' }}>GRID</span>
-                <span style={{ fontSize: '0.65rem', color: '#9CA3AF' }}>{data.flowGridToLoad ? 'IMPORT' : 'EXPORT'}</span>
+                <span className="text-xs font-bold mt-1 text-white">GRID</span>
+                <span className="text-[0.65rem] text-gray-400">{data.flowGridToLoad ? 'IMPORT' : 'EXPORT'}</span>
               </div>
 
               {/* Battery Node (Bottom) */}
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                <div style={{ width: '48px', height: '48px', borderRadius: '50%', backgroundColor: 'var(--color-storage-light)', color: 'var(--color-storage)', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '2px solid var(--color-storage)' }}>
+              <div className="flex flex-col items-center">
+                <div className="w-12 h-12 rounded-full bg-[#E6F8F3] text-[#10B981] flex items-center justify-center border-2 border-[#10B981]">
                   <Battery size={22} />
                 </div>
-                <span style={{ fontSize: '0.75rem', fontWeight: 700, marginTop: '4px' }}>STORAGE</span>
-                <span style={{ fontSize: '0.65rem', color: 'var(--color-storage)' }}>{data.batterySoc.toFixed(0)}% SOC</span>
+                <span className="text-xs font-bold mt-1 text-white">STORAGE</span>
+                <span className="text-[0.65rem] text-[#10B981]">{data.batterySoc.toFixed(0)}% SOC</span>
               </div>
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', zIndex: 1 }} className="flow-node">
-              <div style={{ width: '56px', height: '56px', borderRadius: '50%', backgroundColor: 'rgba(255,255,255,0.1)', color: '#FFFFFF', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '2px solid #9CA3AF' }}>
+            <div className="flex flex-col items-center z-[1]">
+              <div className="w-14 h-14 rounded-full bg-white/10 text-white flex items-center justify-center border-2 border-gray-400">
                 <TrendingUp size={28} />
               </div>
-              <span style={{ fontSize: '0.75rem', fontWeight: 700, marginTop: '8px' }}>BUILDING</span>
-              <span style={{ fontSize: '0.7rem', color: '#FFFFFF' }}>Load Center</span>
+              <span className="text-xs font-bold mt-2 text-white">BUILDING</span>
+              <span className="text-[0.7rem] text-white">Load Center</span>
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', zIndex: 1 }} className="flow-node">
-              <div style={{ width: '56px', height: '56px', borderRadius: '50%', backgroundColor: 'var(--color-ev-light)', color: 'var(--color-ev)', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '2px solid var(--color-ev)' }}>
+            <div className="flex flex-col items-center z-[1]">
+              <div className="w-14 h-14 rounded-full bg-[#F3E8FF] text-[#8B5CF6] flex items-center justify-center border-2 border-[#8B5CF6]">
                 <Car size={28} />
               </div>
-              <span style={{ fontSize: '0.75rem', fontWeight: 700, marginTop: '8px' }}>EV CHARGING</span>
-              <span style={{ fontSize: '0.7rem', color: 'var(--color-ev)', fontWeight: 600 }}>{data.evLoad.toFixed(0)} kW</span>
+              <span className="text-xs font-bold mt-2 text-white">EV CHARGING</span>
+              <span className="text-[0.7rem] text-[#8B5CF6] font-semibold">{data.evLoad.toFixed(0)} kW</span>
             </div>
 
           </div>
         </div>
 
         {/* Double Column: Savings & Event Console */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: '1rem' }} className="grid-2">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-4 w-full">
           
           {/* Financials & Savings card */}
-          <div style={{ backgroundColor: '#1F2937', padding: '1.5rem', borderRadius: '14px', border: '1px solid #374151', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-            <h3 style={{ color: '#FFFFFF', fontSize: '1.2rem', fontWeight: 700 }}>Month-to-Date Value</h3>
+          <div className="bg-gray-800 p-6 rounded-2xl border border-gray-700 flex flex-col gap-5">
+            <h3 className="text-white text-xl font-bold">Month-to-Date Value</h3>
             
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-              <div style={{ padding: '1rem', backgroundColor: '#111827', borderRadius: '10px' }}>
-                <span style={{ fontSize: '0.7rem', color: '#9CA3AF', fontWeight: 600 }}>TOTAL SAVINGS (THIS MONTH)</span>
-                <h4 style={{ fontSize: '1.6rem', color: '#10B981', marginTop: '2px' }}>₹{data.savings.toLocaleString()}</h4>
+            <div className="flex flex-col gap-3">
+              <div className="p-4 bg-gray-900 rounded-xl">
+                <span className="text-[0.7rem] text-gray-400 font-semibold">TOTAL SAVINGS (THIS MONTH)</span>
+                <h4 className="text-[1.6rem] text-[#10B981] mt-0.5 font-bold">₹{data.savings.toLocaleString()}</h4>
               </div>
 
-              <div style={{ padding: '1rem', backgroundColor: '#111827', borderRadius: '10px' }}>
-                <span style={{ fontSize: '0.7rem', color: '#9CA3AF', fontWeight: 600 }}>CO₂ DISPLACEMENT CUMULATIVE</span>
-                <h4 style={{ fontSize: '1.4rem', color: 'var(--color-solar)', marginTop: '2px' }}>14.85 Tons</h4>
+              <div className="p-4 bg-gray-900 rounded-xl">
+                <span className="text-[0.7rem] text-gray-400 font-semibold">CO₂ DISPLACEMENT CUMULATIVE</span>
+                <h4 className="text-[1.4rem] text-[#FF5C00] mt-0.5 font-bold">14.85 Tons</h4>
               </div>
             </div>
             
             <button 
-              className="btn btn-secondary" 
-              style={{ color: '#FFFFFF', borderColor: '#374151', padding: '0.6rem', fontSize: '0.85rem' }}
+              className="btn btn-secondary text-white border-gray-600 p-2.5 text-sm hover:bg-gray-700" 
               onClick={() => alert('Feature simulated. In production, this compiles utility bills, net-metering schedules, and tariff structures into PDF reports.')}
             >
               <FileText size={15} />
@@ -419,31 +375,16 @@ const AIPortal = () => {
           </div>
 
           {/* Event Logger Console */}
-          <div style={{ backgroundColor: '#1F2937', padding: '1.5rem', borderRadius: '14px', border: '1px solid #374151', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <h3 style={{ color: '#FFFFFF', fontSize: '1.2rem', fontWeight: 700 }}>Real-Time System Log</h3>
-              <div style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: '#10B981' }} />
+          <div className="bg-gray-800 p-6 rounded-2xl border border-gray-700 flex flex-col gap-4">
+            <div className="flex justify-between items-center">
+              <h3 className="text-white text-xl font-bold">Real-Time System Log</h3>
+              <div className="w-2.5 h-2.5 rounded-full bg-[#10B981] animate-pulse" />
             </div>
 
-            <div 
-              style={{ 
-                flex: 1, 
-                backgroundColor: '#111827', 
-                borderRadius: '10px', 
-                padding: '1rem', 
-                fontFamily: 'monospace', 
-                fontSize: '0.75rem', 
-                color: '#9CA3AF',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '0.5rem',
-                maxHeight: '180px',
-                overflowY: 'auto'
-              }}
-            >
+            <div className="flex-1 bg-gray-900 rounded-xl p-4 font-mono text-xs text-gray-400 flex flex-col gap-2 max-h-[180px] overflow-y-auto">
               {logHistory.map((log, idx) => (
-                <div key={idx} style={{ borderBottom: '1px solid #1f2937', paddingBottom: '4px', color: idx === 0 ? '#FFFFFF' : '#9CA3AF' }}>
-                  {idx === 0 && <span style={{ color: 'var(--brand-orange)', marginRight: '4px' }}>&gt;</span>}
+                <div key={idx} className={`border-b border-gray-800 pb-1 ${idx === 0 ? 'text-white' : 'text-gray-400'}`}>
+                  {idx === 0 && <span className="text-[#FF6B00] mr-1">&gt;</span>}
                   {log}
                 </div>
               ))}
@@ -453,30 +394,6 @@ const AIPortal = () => {
         </div>
 
       </main>
-
-      {/* Embedded Styles for custom portal behaviors */}
-      <style>{`
-        @media (min-width: 900px) {
-          .portal-sidebar {
-            display: flex !important;
-          }
-        }
-        @media (max-width: 768px) {
-          .portal-flow-lines {
-            display: none !important;
-          }
-        }
-        @keyframes dash {
-          to {
-            stroke-dashoffset: -100;
-          }
-        }
-        @keyframes dash-reverse {
-          to {
-            stroke-dashoffset: 100;
-          }
-        }
-      `}</style>
     </div>
   );
 };
