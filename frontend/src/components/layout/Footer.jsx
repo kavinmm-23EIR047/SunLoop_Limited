@@ -44,15 +44,6 @@ export function Footer() {
                 <span>Future Ready</span>
               </div>
             </div>
-            <div className="footer-visual-container">
-              <img
-                src="/images/clean-contact-sheet.jpg"
-                alt="Sunloop energy systems"
-                className="footer-visual-img"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
           </div>
 
           {/* Column 2: Services */}

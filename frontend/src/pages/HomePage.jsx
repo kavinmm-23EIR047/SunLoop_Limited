@@ -1,6 +1,7 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { CTA, DashboardMockup, Reveal, ServiceGrid } from "@/components/Shared";
-import { industries, portalFeatures, process } from "@/data/siteContent";
+import { industries, portalFeatures } from "@/data/siteContent";
 
 const stats = [
   ["2016", "Building energy systems since"],
@@ -9,7 +10,36 @@ const stats = [
   ["AI", "Optimization layer"],
 ];
 
+const faqs = [
+  {
+    question: "What integrated energy services does Sunloop provide?",
+    answer: "Sunloop designs, commissions, and optimizes fully integrated renewable energy systems. We offer custom commercial and residential solar power plants, scalable battery energy storage systems (BESS), and intelligent EV charging networks, all connected and managed under our proprietary AI Energy Portal."
+  },
+  {
+    question: "How does the AI Energy Portal optimize my power usage?",
+    answer: "The AI Energy Portal links solar, storage, load demand, and EV charging into a single operating view. It uses machine learning to forecast solar yield, optimize battery charging cycles according to real-time grid pricing, trigger predictive maintenance warnings, and generate unified savings reports."
+  },
+  {
+    question: "What is the timeline for system design and installation?",
+    answer: "Project schedules depend on design complexity and system scale. A typical residential setup spans 2 to 4 weeks from audit to grid connection. Commercial systems generally require 2 to 3 months. Our engineering team manages all steps, including permit approvals, utility interconnections, and final compliance checks."
+  },
+  {
+    question: "Can I start with one service and expand the system later?",
+    answer: "Yes, our hardware and software stack is built modularly. You can start with solar generation and seamlessly add storage batteries or EV charging stations as your requirements grow. The AI portal will automatically detect and integrate new assets into your dashboard."
+  },
+  {
+    question: "How do I request an energy audit or consultation?",
+    answer: "You can book an audit by clicking any of our CTA buttons, navigating to our Contact Page, or using our interactive AI support widget. We will schedule a site visit to assess your energy usage patterns, examine structural capacity, and create a tailored blueprint."
+  }
+];
+
 export function HomePage() {
+  const [activeFaq, setActiveFaq] = useState(null);
+
+  const toggleFaq = (index) => {
+    setActiveFaq(activeFaq === index ? null : index);
+  };
+
   return (
     <>
       <section className="hero">
@@ -86,6 +116,17 @@ export function HomePage() {
       </section>
 
       <Reveal as="section" className="section section-pad story bg-custom-energy">
+        <div className="story-content">
+          <p className="eyebrow">What Sunloop Does</p>
+          <h2>We design the full energy stack, not just one product.</h2>
+        </div>
+        <p className="story-desc">
+          Most vendors sell you a panel, a battery, or a charger and leave the
+          rest to you. Sunloop plans, installs, and connects every asset on
+          site — so your building generates power, stores it, charges
+          vehicles, and reports on all three from a single intelligence layer.
+        </p>
+
         {/* Background decorative animations */}
         <div className="bg-decorations" aria-hidden="true">
           <div className="circle-primary"></div>
@@ -99,17 +140,6 @@ export function HomePage() {
             <ellipse cx="50" cy="50" rx="45" ry="18" transform="rotate(150 50 50)" />
           </svg>
         </div>
-
-        <div className="story-content">
-          <p className="eyebrow">What Sunloop Does</p>
-          <h2>We design the full energy stack, not just one product.</h2>
-        </div>
-        <p className="story-desc">
-          Most vendors sell you a panel, a battery, or a charger and leave the
-          rest to you. Sunloop plans, installs, and connects every asset on
-          site — so your building generates power, stores it, charges
-          vehicles, and reports on all three from a single intelligence layer.
-        </p>
       </Reveal>
 
       <section className="section section-pad">
@@ -158,18 +188,56 @@ export function HomePage() {
         </div>
       </Reveal>
 
-      <section className="section section-pad bg-surface" id="process">
-        <div className="section-heading">
-          <p className="eyebrow">How We Work</p>
-          <h2>From consultation to continuous optimization.</h2>
+      <section className="section section-pad bg-surface" id="faq">
+        <div className="section-heading text-center flex flex-col items-center">
+          <p className="eyebrow self-center">FAQ</p>
+          <h2>Frequently Asked Questions</h2>
+          <p className="section-desc max-w-[600px] mt-3 mx-auto text-[16px] text-gray-500">
+            Got questions about our solar, storage, EV charging integration, or AI portal? Find answers below.
+          </p>
         </div>
-        <div className="process-row">
-          {process.map((step, index) => (
-            <div className="process-step" key={step}>
-              <span className="process-step-number">{String(index + 1).padStart(2, "0")}</span>
-              <strong>{step}</strong>
-            </div>
-          ))}
+
+        <div className="faq-container max-w-[800px] mt-10 mx-auto flex flex-col gap-4 w-full">
+          {faqs.map((faq, index) => {
+            const isOpen = activeFaq === index;
+            return (
+              <div 
+                key={index} 
+                className={`faq-item ${isOpen ? "open" : ""}`}
+              >
+                <button
+                  onClick={() => toggleFaq(index)}
+                  className="faq-question-btn"
+                  aria-expanded={isOpen}
+                >
+                  <span className="question-text">{faq.question}</span>
+                  <span className="faq-toggle-icon">
+                    <svg 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      width="18" 
+                      height="18" 
+                      viewBox="0 0 24 24" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      strokeWidth="2.5" 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round"
+                    >
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </span>
+                </button>
+                <div 
+                  className="faq-answer-wrapper"
+                  style={{
+                    maxHeight: isOpen ? "220px" : "0px"
+                  }}
+                >
+                  <p>{faq.answer}</p>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </section>
 

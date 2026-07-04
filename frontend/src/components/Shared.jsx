@@ -53,6 +53,9 @@ export function PageHero({ eyebrow, title, text, image, imageAlt }) {
 }
 
 export function ServiceGrid() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const scrollContainerRef = useRef(null);
+
   const getRibbonText = (slug) => {
     if (slug.includes("solar")) return "SOLAR POWER";
     if (slug.includes("storage")) return "ENERGY STORAGE";
@@ -60,28 +63,93 @@ export function ServiceGrid() {
     return "SERVICES";
   };
 
+  const handleScroll = () => {
+    if (!scrollContainerRef.current) return;
+    const container = scrollContainerRef.current;
+    const scrollPosition = container.scrollLeft;
+    const cardWidth = container.clientWidth;
+    // Calculate current slide index based on scroll position
+    const newIndex = Math.round(scrollPosition / (cardWidth || 1));
+    if (newIndex >= 0 && newIndex < services.length) {
+      setActiveIndex(newIndex);
+    }
+  };
+
+  const scrollToCard = (index) => {
+    if (!scrollContainerRef.current) return;
+    const container = scrollContainerRef.current;
+    const cardWidth = container.clientWidth;
+    container.scrollTo({
+      left: index * cardWidth,
+      behavior: "smooth",
+    });
+    setActiveIndex(index);
+  };
+
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
-      {services.map((service) => (
-        <Link
-          className="service-card project-gallery-card"
-          to={`/services/${service.slug}`}
-          key={service.slug}
-        >
-          <img
-            src={service.image}
-            alt={service.title}
-            loading="lazy"
-            decoding="async"
+    <div className="w-full flex flex-col items-center gap-6">
+      {/* Scroll container: flex-row slider on mobile, standard grid on desktop */}
+      <div
+        ref={scrollContainerRef}
+        onScroll={handleScroll}
+        className="w-full flex md:grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 overflow-x-auto md:overflow-visible snap-x snap-mandatory no-scrollbar px-4 md:px-0"
+        style={{
+          scrollbarWidth: "none",
+          msOverflowStyle: "none",
+        }}
+      >
+        {services.map((service) => (
+          <Link
+            className="clean-service-card snap-center shrink-0 w-[85vw] md:w-full"
+            to={`/services/${service.slug}`}
+            key={service.slug}
+          >
+            <div className="card-image-wrapper">
+              <img
+                src={service.image}
+                alt={service.title}
+                loading="lazy"
+                decoding="async"
+              />
+              <div className="card-tag">{getRibbonText(service.slug)}</div>
+            </div>
+            
+            <div className="card-body">
+              <h3>{service.title}</h3>
+              <p>{service.summary}</p>
+              <div className="card-learn-more">
+                <span>Learn More</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="arrow-icon"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </div>
+            </div>
+          </Link>
+        ))}
+      </div>
+
+      {/* Pagination Dots on Mobile */}
+      <div className="flex md:hidden items-center gap-2 mt-2">
+        {services.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => scrollToCard(index)}
+            className={`swiper-dot ${activeIndex === index ? "active" : ""}`}
+            aria-label={`Go to slide ${index + 1}`}
           />
-          <div className="card-ribbon">{getRibbonText(service.slug)}</div>
-          
-          <div className="card-overlay">
-            <h3>{service.title}</h3>
-            <p>{service.summary}</p>
-          </div>
-        </Link>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }
