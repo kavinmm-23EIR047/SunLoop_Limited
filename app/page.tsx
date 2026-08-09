@@ -28,10 +28,10 @@ export default function Home() {
               <div className="grid items-center gap-8 lg:grid-cols-[1fr_1.7fr]">
                 <div className="space-y-3">
                   <p className="eyebrow flex items-center gap-2">
-                    <span className="h-2 w-2 animate-pulse rounded-full bg-brand-primary" /> Integrated Clean Energy
+                    <span className="h-2 w-2 animate-pulse rounded-full bg-brand-primary" /> 10 YEARS OF ENERGY EXPERTISE
                   </p>
                   <h2 className="text-2xl leading-tight text-brand-ink md:text-3xl 2xl:text-4xl">
-                    Building a sustainable future with <span className="text-brand-primary">unified energy</span> ecosystems.
+                    We didn't just start today. We've been <span className="text-brand-primary">powering progress</span> for over a decade.
                   </h2>
                 </div>
                 <div className="grid grid-cols-2 gap-5 sm:grid-cols-4 sm:gap-0 sm:divide-x sm:divide-black/10">

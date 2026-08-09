@@ -22,24 +22,18 @@ export default function SunloopWaySection() {
         {/* LEFT COLUMN: Text Content */}
         <div className="flex flex-col justify-center lg:col-span-4 lg:pt-4">
           <span className="text-xs md:text-sm font-bold uppercase tracking-widest text-orange-600">
-            THE SUNLOOP WAY
+            10 YEARS OF ENERGY EXPERTISE · ONE SMARTER FUTURE
           </span>
           <div className="mt-2 h-[3px] w-8 rounded-full bg-orange-600" />
-          <h2 className="mt-5 text-4xl font-extrabold tracking-tight text-neutral-900 sm:text-5xl">
-            Energy that <br />
-            thinks <span className="text-orange-600">ahead.</span>
+          <h2 className="mt-5 text-3xl sm:text-4xl font-extrabold tracking-tight text-neutral-900 leading-tight">
+            We Didn't Just Start Today. <br />
+            <span className="text-orange-600">We've Been Powering Progress for Over a Decade.</span>
           </h2>
-          <p className="mt-6 text-sm md:text-base leading-relaxed text-neutral-600">
-            Sunloop Energy is a next-generation clean energy company started in
-            2016 by a young and dynamic team dedicated to transforming the way
-            energy is generated, stored, managed and consumed.
+          <p className="mt-6 text-sm md:text-base leading-relaxed text-neutral-600 font-medium">
+            Sunloop Energy was started in 2016 by a dynamic team dedicated to transforming the way clean energy is generated, stored, managed, and consumed.
           </p>
           <p className="mt-4 text-sm md:text-base leading-relaxed text-neutral-600">
-            We are headquartered in Coimbatore, Tamil Nadu. We specialize in delivering
-            intelligent and sustainable energy solutions through Solar Power
-            Plants, Energy Storage Systems (ESS) and EV Charging Infrastructure —
-            all seamlessly connected through our proprietary AI Energy Management
-            Portal.
+            Headquartered in Coimbatore, Tamil Nadu, we specialize in delivering intelligent solar power plants, lithium ESS energy storage, and smart EV charging infrastructure — all unified through our AI Energy Portal.
           </p>
           <a
             href="#about"

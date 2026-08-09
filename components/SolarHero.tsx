@@ -276,8 +276,8 @@ export default function SolarHero() {
       >
         <div className="max-w-xl">
           <Reveal>
-            <div className="inline-flex items-center gap-2 rounded-full border border-orange-100 bg-white/80 px-4 py-2 text-xs font-semibold text-brand-ink shadow-sm mb-5">
-              <span className="text-amber-300">✦</span> Next-Gen Solar PV + ESS + EV Ecosystem
+            <div className="inline-flex items-center gap-2 rounded-full border border-orange-200/80 bg-white/90 px-4 py-2 text-xs font-bold text-brand-ink shadow-sm mb-5">
+              <span className="text-amber-500">✦</span> 10 Years of Energy Expertise · One Smarter Future
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 leading-[1.12]">
@@ -286,7 +286,7 @@ export default function SolarHero() {
             </h1>
 
             <p className="mt-4 text-sm sm:text-base text-slate-700 max-w-md font-normal leading-relaxed">
-              Clean. Intelligent. Integrated. Generate, store, and manage your renewable energy through Sunloop Energy's unified AI platform.
+              We didn't just start today. We've been powering progress for over a decade — generating, storing, and managing clean energy through Sunloop Energy's unified AI platform.
             </p>
 
             <div className="mt-6 flex flex-wrap items-center gap-3">
@@ -303,8 +303,8 @@ export default function SolarHero() {
               <div className="flex items-center gap-2 sm:border-r sm:border-white/15 sm:px-5 sm:first:pl-0">
                 <ShieldCheck className="h-4 w-4 text-amber-300 shrink-0" />
                 <div>
-                  <b className="text-white">Est. 2016</b>
-                  <small className="block text-[10px] text-white/80 leading-tight">Coimbatore, TN</small>
+                  <b className="text-white">10+ Yrs Expertise</b>
+                  <small className="block text-[10px] text-white/80 leading-tight">Established 2016</small>
                 </div>
               </div>
 
