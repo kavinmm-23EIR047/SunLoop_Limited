@@ -160,16 +160,19 @@ export function Button({
   children,
   href = '/contact',
   secondary = false,
+  variant,
   className = '',
   onClick,
 }: {
   children: ReactNode;
   href?: string;
   secondary?: boolean;
+  variant?: 'primary' | 'secondary' | 'outline' | string;
   className?: string;
   onClick?: () => void;
 }) {
-  const base = secondary
+  const isSecondary = secondary || variant === 'secondary';
+  const base = isSecondary
     ? `soft-btn soft-btn--secondary ${className}`
     : `soft-btn ${className}`;
   return (
