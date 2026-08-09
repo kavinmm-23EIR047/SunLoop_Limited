@@ -503,7 +503,7 @@ export default function BusinessOwnersSolutionPage() {
             <Reveal direction="scale" delay={0.15} className="relative">
               <div className="relative h-[320px] sm:h-[380px] w-full overflow-hidden rounded-2xl border border-black/[0.06] bg-white p-6 shadow-sm flex items-center justify-center">
                 <img
-                  src="/images/hero-product.png"
+                  src="/images/solar-panels.png"
                   alt="Smart Solar Module Render"
                   className="h-full w-full object-contain object-center drop-shadow-md"
                   onError={(e) => {
@@ -519,7 +519,7 @@ export default function BusinessOwnersSolutionPage() {
             <Reveal direction="scale" delay={0.15} className="order-2 md:order-1 relative">
               <div className="relative h-[320px] sm:h-[380px] w-full overflow-hidden rounded-2xl border border-black/[0.06] bg-white p-6 shadow-sm flex items-center justify-center">
                 <img
-                  src="/images/hero-ess.png"
+                  src="/images/energy-storage.png"
                   alt="Smart Hybrid Inverter Render"
                   className="h-full w-full object-contain object-center drop-shadow-md"
                   onError={(e) => {
