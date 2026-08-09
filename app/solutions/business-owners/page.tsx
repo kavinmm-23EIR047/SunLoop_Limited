@@ -110,7 +110,7 @@ export default function BusinessOwnersSolutionPage() {
             {comProducts?.map((prod, idx) => (
               <Reveal key={prod.id} className="h-full">
                 <div className="grid gap-8 md:grid-cols-2 items-center rounded-2xl border border-black/10 bg-white p-6 sm:p-8 shadow-xs hover:shadow-md transition">
-                  <div className={`space-y-4 ${idx % 2 === 1 ? 'md:order-2' : 'md:order-1'}`}>
+                  <motion.div initial={{ opacity: 0, x: -60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ duration: 0.6, ease: 'easeOut' }} className={`space-y-4 ${idx % 2 === 1 ? 'md:order-2' : 'md:order-1'}`}>
                     <div className="flex items-center justify-between">
                       <span className="rounded-md bg-blue-100 px-2.5 py-0.5 text-[10px] font-bold text-blue-700 uppercase">
                         {prod.series}
@@ -166,15 +166,15 @@ export default function BusinessOwnersSolutionPage() {
                         Get Quote
                       </Link>
                     </div>
-                  </div>
+                  </motion.div>
 
                   {/* PRODUCT IMAGE CARD */}
-                  <div className={`relative ${idx % 2 === 1 ? 'md:order-1' : 'md:order-2'}`}>
-                    <div className="group relative h-[280px] sm:h-[340px] w-full overflow-hidden rounded-xl border border-black/10 bg-[#FAFAF5] p-4 shadow-2xs hover:shadow-md transition duration-300 flex items-center justify-center">
+                  <motion.div initial={{ opacity: 0, x: 60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }} className={`relative ${idx % 2 === 1 ? 'md:order-1' : 'md:order-2'}`}>
+                    <div className="group relative h-[280px] sm:h-[340px] w-full p-6 flex items-center justify-center">
                       <img
-                        src={prod.image || '/images/hero-product.png'}
+                        src={prod.image}
                         alt={prod.title}
-                        className="h-full w-full object-cover rounded-lg filter brightness-95 group-hover:scale-103 transition-transform duration-500"
+                        className="h-full w-full object-contain drop-shadow-[0_4px_30px_rgba(120,120,120,0.15)] group-hover:scale-105 transition-transform duration-500"
                         onError={(e) => {
                           (e.target as HTMLElement).setAttribute('src', prod.fallbackImage || '/images/commercial-energy.png');
                         }}
@@ -183,7 +183,7 @@ export default function BusinessOwnersSolutionPage() {
                         COMMERCIAL ESS
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
               </Reveal>
             ))}
@@ -210,7 +210,7 @@ export default function BusinessOwnersSolutionPage() {
             {comEVProducts?.map((prod, idx) => (
               <Reveal key={prod.id} className="h-full">
                 <div className="grid gap-8 md:grid-cols-2 items-center rounded-2xl border border-black/10 bg-[#FAFAF5] p-6 sm:p-8 shadow-xs hover:shadow-md transition">
-                  <div className={`space-y-4 ${idx % 2 === 1 ? 'md:order-2' : 'md:order-1'}`}>
+                  <motion.div initial={{ opacity: 0, x: -60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ duration: 0.6, ease: 'easeOut' }} className={`space-y-4 ${idx % 2 === 1 ? 'md:order-2' : 'md:order-1'}`}>
                     <div className="flex items-center justify-between">
                       <span className="rounded-md bg-blue-100 px-2.5 py-0.5 text-[10px] font-bold text-blue-800 uppercase">
                         {prod.category} · {prod.type}
@@ -266,15 +266,15 @@ export default function BusinessOwnersSolutionPage() {
                         Get Commercial Quote
                       </Link>
                     </div>
-                  </div>
+                  </motion.div>
 
                   {/* PRODUCT IMAGE CARD */}
-                  <div className={`relative ${idx % 2 === 1 ? 'md:order-1' : 'md:order-2'}`}>
-                    <div className="group relative h-[280px] sm:h-[340px] w-full overflow-hidden rounded-xl border border-black/10 bg-white p-4 shadow-2xs hover:shadow-md transition duration-300 flex items-center justify-center">
+                  <motion.div initial={{ opacity: 0, x: 60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }} className={`relative ${idx % 2 === 1 ? 'md:order-1' : 'md:order-2'}`}>
+                    <div className="group relative h-[280px] sm:h-[340px] w-full p-6 flex items-center justify-center">
                       <img
-                        src={prod.image || '/images/hero-product.png'}
+                        src={prod.image}
                         alt={prod.title}
-                        className="h-full w-full object-cover rounded-lg filter brightness-95 group-hover:scale-103 transition-transform duration-500"
+                        className="h-full w-full object-contain drop-shadow-[0_4px_30px_rgba(120,120,120,0.15)] group-hover:scale-105 transition-transform duration-500"
                         onError={(e) => {
                           (e.target as HTMLElement).setAttribute('src', prod.fallbackImage || '/images/ev-charger.png');
                         }}
@@ -283,7 +283,7 @@ export default function BusinessOwnersSolutionPage() {
                         COMMERCIAL EV HUB
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
               </Reveal>
             ))}
@@ -310,7 +310,7 @@ export default function BusinessOwnersSolutionPage() {
             {bizSolarProducts?.map((prod, idx) => (
               <Reveal key={prod.id} className="h-full">
                 <div className="grid gap-8 md:grid-cols-2 items-center rounded-2xl border border-black/10 bg-[#FAFAF5] p-6 sm:p-8 shadow-xs hover:shadow-md transition">
-                  <div className={`space-y-4 ${idx % 2 === 1 ? 'md:order-2' : 'md:order-1'}`}>
+                  <motion.div initial={{ opacity: 0, x: -60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ duration: 0.6, ease: 'easeOut' }} className={`space-y-4 ${idx % 2 === 1 ? 'md:order-2' : 'md:order-1'}`}>
                     <div className="flex flex-wrap items-center justify-between gap-2">
                       <span className="rounded-md bg-amber-100 px-2.5 py-0.5 text-[10px] font-bold text-amber-900 uppercase">
                         {prod.categoryLabel || prod.category} · {prod.series}
@@ -376,15 +376,15 @@ export default function BusinessOwnersSolutionPage() {
                         Request Audit
                       </Link>
                     </div>
-                  </div>
+                  </motion.div>
 
                   {/* PRODUCT IMAGE CARD */}
-                  <div className={`relative ${idx % 2 === 1 ? 'md:order-1' : 'md:order-2'}`}>
-                    <div className="group relative h-[300px] sm:h-[360px] w-full overflow-hidden rounded-xl border border-black/10 bg-white p-4 shadow-2xs hover:shadow-md transition duration-300 flex items-center justify-center">
+                  <motion.div initial={{ opacity: 0, x: 60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }} className={`relative ${idx % 2 === 1 ? 'md:order-1' : 'md:order-2'}`}>
+                    <div className="group relative h-[300px] sm:h-[360px] w-full p-6 flex items-center justify-center">
                       <img
-                        src={prod.image || '/images/hero-product.png'}
+                        src={prod.image}
                         alt={prod.title}
-                        className="h-full w-full object-cover rounded-lg filter brightness-95 group-hover:scale-103 transition-transform duration-500"
+                        className="h-full w-full object-contain drop-shadow-[0_4px_30px_rgba(120,120,120,0.15)] group-hover:scale-105 transition-transform duration-500"
                         onError={(e) => {
                           (e.target as HTMLElement).setAttribute('src', prod.fallbackImage || '/images/commercial-energy.png');
                         }}
@@ -393,7 +393,7 @@ export default function BusinessOwnersSolutionPage() {
                         COMMERCIAL SOLAR KIT
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
               </Reveal>
             ))}

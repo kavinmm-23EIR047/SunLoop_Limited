@@ -48,7 +48,7 @@ export const solarProducts: SolarProductVariant[] = [
       'Real-Time Home Energy Generation & Consumption Dispatch',
       'All-in-One Pre-Engineered Kit for Fast Installation',
     ],
-    image: '/images/hero-product.png',
+    image: '/products/Solar power/3-50kW Hybrid Residential Solar System Kits.png',
     fallbackImage: '/images/residential-energy.png',
   },
   {
@@ -77,7 +77,7 @@ export const solarProducts: SolarProductVariant[] = [
       'Low Maintenance & High-Durability Roof Mounts',
       'Smart App Real-Time Solar Yield Tracking',
     ],
-    image: '/images/hero-product.png',
+    image: '/products/Solar power/3-50kW On Grid Residential Solar System Kits.png',
     fallbackImage: '/images/residential-energy.png',
   },
   {
@@ -106,7 +106,7 @@ export const solarProducts: SolarProductVariant[] = [
       'Pre-Engineered All-in-One Packaging for Rapid On-Site Setup',
       'Heavy-Duty Weather-Resistant Battery & Inverter Cabinet',
     ],
-    image: '/images/hero-product.png',
+    image: '/products/Solar power/3-50kW Off Grid Residential Solar System Kits.png',
     fallbackImage: '/images/residential-energy.png',
   },
 
@@ -137,7 +137,7 @@ export const solarProducts: SolarProductVariant[] = [
       'Zero Carbon Emissions & Quiet Indoor/Outdoor Cabinetry',
       'Scalable Parallel Expansion up to Megawatt Capacity',
     ],
-    image: '/images/hero-product.png',
+    image: '/products/Solar power/30-500kW Hybrid Commercial Solar System Kits.png',
     fallbackImage: '/images/commercial-energy.png',
   },
   {
@@ -166,7 +166,7 @@ export const solarProducts: SolarProductVariant[] = [
       'High-Yield Industrial Inverters with Multi-MPPT Tracking',
       'Accelerated Tax Depreciation & Corporate ESG Carbon Compliance',
     ],
-    image: '/images/hero-product.png',
+    image: '/products/Solar power/50-1000kW On Grid Commercial Solar System Kits.png',
     fallbackImage: '/images/commercial-energy.png',
   },
   {
@@ -195,7 +195,7 @@ export const solarProducts: SolarProductVariant[] = [
       'Autonomous Remote Station Monitoring & Telemetry',
       'Ideal for Mining, Agricultural, Resort & Remote Industrial Sites',
     ],
-    image: '/images/hero-product.png',
+    image: '/products/Solar power/30-500kW Off Grid Commercial Solar System Kits.png',
     fallbackImage: '/images/commercial-energy.png',
   },
 ];
