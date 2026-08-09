@@ -129,21 +129,11 @@ export function Navbar() {
       <div className="container flex items-center justify-between">
         {/* Brand Logo */}
         <Link href="/" className="flex items-center gap-2 group">
-<<<<<<< HEAD
-          <div className="transition-all duration-300">
-            <img
-              src="/images/logo.png"
-              alt="Sunloop Energy"
-              className="h-8 sm:h-9 w-auto object-contain transition-transform group-hover:scale-105"
-            />
-          </div>
-=======
           <img
             src="/images/logo.png"
             alt="Sunloop Energy"
             className="h-9 sm:h-10 w-auto object-contain transition-transform group-hover:scale-105"
           />
->>>>>>> 694df5f53c8a0874b0e112bbb239a52e67ed5dd1
         </Link>
 
         {/* Desktop Navigation Links */}
