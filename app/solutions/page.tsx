@@ -13,6 +13,7 @@ const solutionImages = [
   '/images/ecosystem-hero.png', // Remote & Microgrid
 ];
 
+
 export default function Solutions() {
   return (
     <main className="font-sans bg-white">
