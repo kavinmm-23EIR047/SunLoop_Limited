@@ -78,65 +78,65 @@ export default function Home() {
   };
 
   return (
-    <main className="font-sans">
+    <main className="font-sans bg-white overflow-hidden">
       {/* STATIC SOLAR HERO SECTION */}
       <SolarHero />
 
-      {/* FLOATING STATS BANNER CARD (From Image 1 Layout) */}
-      <section className="relative z-30 -mt-10 mb-16">
+      {/* FLOATING STATS BANNER CARD (Refined Modern UI Layout) */}
+      <section className="relative z-30 -mt-4 md:-mt-6 mb-20">
         <div className="container">
           <Reveal>
-            <div className="rounded-3xl border border-black/10 bg-white p-6 md:p-8 shadow-2xl">
+            <div className="rounded-3xl border border-black/[0.08] bg-white p-8 md:p-10 shadow-[0_20px_50px_rgba(15,23,42,0.08)] backdrop-blur-xl">
               <div className="grid gap-8 lg:grid-cols-[1.1fr_1.9fr] items-center">
                 {/* Left Heading */}
-                <div>
-                  <p className="eyebrow text-emerald-600 font-bold mb-2 flex items-center gap-2">
-                    <span className="h-1.5 w-6 rounded-full bg-emerald-500" /> Generate. Store. Drive.
+                <div className="space-y-2">
+                  <p className="eyebrow flex items-center gap-2">
+                    <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" /> Integrated Clean Energy
                   </p>
-                  <h3 className="text-xl md:text-2xl font-bold text-brand-ink leading-snug">
+                  <h3 className="text-2xl md:text-3xl font-extrabold text-brand-ink leading-snug tracking-tight">
                     Building a sustainable future with{' '}
-                    <span className="text-brand-primary relative inline-block font-extrabold">
-                      integrated energy
-                      <svg className="absolute left-0 -bottom-1 w-full h-2 text-emerald-500" viewBox="0 0 100 20" preserveAspectRatio="none">
+                    <span className="text-brand-primary relative inline-block">
+                      unified energy
+                      <svg className="absolute left-0 -bottom-1 w-full h-2 text-emerald-500/70" viewBox="0 0 100 20" preserveAspectRatio="none">
                         <path d="M0,10 Q50,20 100,10" fill="none" stroke="currentColor" strokeWidth="4" />
                       </svg>
                     </span>{' '}
-                    solutions.
+                    ecosystems.
                   </h3>
                 </div>
 
                 {/* Right 4 Stat Columns */}
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 divide-y sm:divide-y-0 sm:divide-x divide-black/10 pt-4 sm:pt-0">
-                  <div className="text-center sm:px-3 pt-3 sm:pt-0">
-                    <div className="mx-auto mb-2 grid h-10 w-10 place-items-center rounded-2xl bg-orange-100 text-brand-primary">
+                  <div className="text-center sm:px-3 pt-3 sm:pt-0 group">
+                    <div className="mx-auto mb-2.5 grid h-11 w-11 place-items-center rounded-2xl bg-orange-50 text-brand-primary border border-orange-100 group-hover:scale-105 transition-transform">
                       <Sun className="h-5 w-5" />
                     </div>
-                    <strong className="text-sm md:text-base font-bold text-brand-ink block">Solar Power</strong>
+                    <strong className="text-sm md:text-base font-bold text-brand-ink block tracking-tight">Solar Power</strong>
                     <span className="text-xs text-brand-slate font-medium">3 kW to MW+</span>
                   </div>
 
-                  <div className="text-center sm:px-3 pt-3 sm:pt-0">
-                    <div className="mx-auto mb-2 grid h-10 w-10 place-items-center rounded-2xl bg-emerald-100 text-emerald-600">
+                  <div className="text-center sm:px-3 pt-3 sm:pt-0 group">
+                    <div className="mx-auto mb-2.5 grid h-11 w-11 place-items-center rounded-2xl bg-emerald-50 text-emerald-600 border border-emerald-100 group-hover:scale-105 transition-transform">
                       <Zap className="h-5 w-5" />
                     </div>
-                    <strong className="text-sm md:text-base font-bold text-brand-ink block">ESS Storage</strong>
+                    <strong className="text-sm md:text-base font-bold text-brand-ink block tracking-tight">ESS Storage</strong>
                     <span className="text-xs text-brand-slate font-medium">5 to 500 kWh</span>
                   </div>
 
-                  <div className="text-center sm:px-3 pt-3 sm:pt-0">
-                    <div className="mx-auto mb-2 grid h-10 w-10 place-items-center rounded-2xl bg-blue-100 text-blue-600">
+                  <div className="text-center sm:px-3 pt-3 sm:pt-0 group">
+                    <div className="mx-auto mb-2.5 grid h-11 w-11 place-items-center rounded-2xl bg-blue-50 text-blue-600 border border-blue-100 group-hover:scale-105 transition-transform">
                       <CarFront className="h-5 w-5" />
                     </div>
-                    <strong className="text-sm md:text-base font-bold text-brand-ink block">EV Chargers</strong>
+                    <strong className="text-sm md:text-base font-bold text-brand-ink block tracking-tight">EV Chargers</strong>
                     <span className="text-xs text-brand-slate font-medium">7.4 to 240 kW</span>
                   </div>
 
-                  <div className="text-center sm:px-3 pt-3 sm:pt-0">
-                    <div className="mx-auto mb-2 grid h-10 w-10 place-items-center rounded-2xl bg-amber-100 text-amber-600">
+                  <div className="text-center sm:px-3 pt-3 sm:pt-0 group">
+                    <div className="mx-auto mb-2.5 grid h-11 w-11 place-items-center rounded-2xl bg-amber-50 text-amber-600 border border-amber-100 group-hover:scale-105 transition-transform">
                       <ShieldCheck className="h-5 w-5" />
                     </div>
-                    <strong className="text-sm md:text-base font-bold text-brand-ink block">AI Portal</strong>
-                    <span className="text-xs text-brand-slate font-medium">Free & Included</span>
+                    <strong className="text-sm md:text-base font-bold text-brand-ink block tracking-tight">AI Portal</strong>
+                    <span className="text-xs text-brand-slate font-medium">Included 24/7</span>
                   </div>
                 </div>
               </div>
@@ -146,17 +146,19 @@ export default function Home() {
       </section>
 
       {/* THE SUNLOOP WAY SECTION (RIGHT BELOW HERO) */}
-      <section className="py-16 md:py-24 bg-white border-b border-black/5">
-        <div className="container grid gap-12 md:grid-cols-[.85fr_1.15fr] items-center">
-          <Reveal>
-            <span className="eyebrow mb-2 inline-block">The Sunloop way</span>
-            <h2 className="text-2xl font-semibold leading-tight md:text-3xl text-brand-ink">
+      <section className="py-20 md:py-28 bg-[#F8FAFC] border-y border-black/[0.06]">
+        <div className="container grid gap-12 md:grid-cols-[.9fr_1.1fr] items-center">
+          <Reveal className="space-y-4">
+            <span className="eyebrow">The Sunloop Way</span>
+            <h2 className="text-3xl md:text-4xl font-extrabold leading-tight text-brand-ink tracking-tight">
               Energy that thinks ahead.
             </h2>
-            <p className="mt-3 text-xs md:text-sm leading-relaxed text-brand-slate font-normal">{about}</p>
-            <Link href="/company" className="mt-5 inline-flex items-center gap-2 font-semibold text-xs text-brand-primary hover:underline">
-              More about Sunloop <ArrowUpRight className="h-4 w-4" />
-            </Link>
+            <p className="text-sm md:text-base leading-relaxed text-brand-slate font-normal">{about}</p>
+            <div className="pt-2">
+              <Link href="/company" className="inline-flex items-center gap-2 font-bold text-xs text-brand-primary hover:text-brand-secondary group">
+                More about Sunloop Energy <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              </Link>
+            </div>
           </Reveal>
           <Reveal>
             <Stats />
@@ -165,15 +167,15 @@ export default function Home() {
       </section>
 
       {/* SCROLL-DRIVEN REVEAL PRODUCT SHOWCASE */}
-      <section className="bg-white border-b border-black/5">
-        <div className="pt-12 pb-2 md:pt-16 md:pb-6 text-center max-w-2xl mx-auto px-4">
+      <section className="bg-white border-b border-black/[0.06]">
+        <div className="pt-16 pb-4 md:pt-20 md:pb-8 text-center max-w-3xl mx-auto px-4 space-y-3">
           <Reveal>
-            <span className="eyebrow mb-1.5 inline-block">OUR CORE SOLUTIONS</span>
-            <h2 className="text-2xl md:text-3xl font-semibold text-brand-ink">
+            <span className="eyebrow justify-center">OUR CORE SOLUTIONS</span>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-brand-ink tracking-tight">
               Integrated Clean Energy Ecosystem
             </h2>
-            <p className="mt-2 text-xs md:text-sm text-brand-slate font-normal">
-              Generate. Store. Drive. Scroll down to experience each solution.
+            <p className="text-sm md:text-base text-brand-slate font-normal max-w-xl mx-auto">
+              Generate. Store. Drive. Experience each clean technology solution designed to work together seamlessly.
             </p>
           </Reveal>
         </div>
@@ -184,32 +186,33 @@ export default function Home() {
       {/* ONE CONNECTED JOURNEY STAGES (SCROLL-DRIVEN CARD SPREAD SHOWCASE) */}
       <ConnectedJourneyScrollShowcase />
 
-
-
       {/* STANDALONE FLOATING CTA BANNER */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-20 md:py-28 bg-white">
         <div className="container">
-          <Reveal className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#E86526] via-[#F95738] to-[#D45214] text-white p-8 md:p-16 shadow-2xl border border-orange-500/20">
+          <Reveal className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#E86526] via-[#F95738] to-[#D45214] text-white p-10 md:p-20 shadow-[0_25px_60px_rgba(232,101,38,0.25)] border border-orange-500/20">
+            {/* Background Light Effects */}
+            <div className="absolute -right-20 -bottom-20 w-96 h-96 bg-white/10 rounded-full blur-3xl pointer-events-none" />
+            
             {/* Foreground Content */}
             <div className="relative z-10 text-center max-w-4xl mx-auto space-y-6">
-              <span className="eyebrow inline-flex items-center gap-2 rounded-full bg-white/15 border border-white/20 px-4 py-1 text-xs font-bold text-white uppercase tracking-widest">
-                <Sparkles className="h-3.5 w-3.5 text-white" /> Pathway to Sustainable Future
+              <span className="inline-flex items-center gap-2 rounded-full bg-white/15 border border-white/25 px-4.5 py-1.5 text-xs font-bold text-white uppercase tracking-widest backdrop-blur-md">
+                <Sparkles className="h-4 w-4 text-white" /> Sustainable Energy Ecosystem
               </span>
 
-              <h2 className="text-3xl font-extrabold leading-tight md:text-5xl text-white tracking-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-[1.15] text-white tracking-tight">
                 “We don’t just install energy systems, we create intelligent energy ecosystems.”
               </h2>
 
-              <p className="text-xs md:text-base text-white/95 font-medium max-w-2xl mx-auto leading-relaxed">
+              <p className="text-sm md:text-base text-white/90 font-normal max-w-2xl mx-auto leading-relaxed">
                 Connect your Solar, ESS Battery Storage, and EV Charging infrastructure under Sunloop's proprietary AI Portal.
               </p>
 
               <div className="pt-4 flex flex-wrap justify-center gap-4">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-xs font-extrabold text-[#E86526] shadow-xl hover:bg-neutral-100 transition transform hover:-translate-y-0.5"
+                  className="inline-flex items-center gap-2.5 rounded-full bg-white px-9 py-4 text-xs sm:text-sm font-extrabold text-[#E86526] shadow-xl hover:bg-neutral-50 transition transform hover:-translate-y-0.5"
                 >
-                  Start Your Energy Journey <ArrowUpRight className="h-4 w-4 text-[#E86526]" />
+                  Start Your Energy Journey <ArrowUpRight className="h-4.5 w-4.5 text-[#E86526]" />
                 </Link>
               </div>
             </div>

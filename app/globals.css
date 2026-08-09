@@ -8,7 +8,7 @@
 	--color-primary: #E86526;
 	--color-secondary: #D45214;
 	--color-bg: #FFFFFF;
-	--color-bg-subtle: #FBFBFD;
+	--color-bg-subtle: #F8FAFC;
 	--color-ink: #0F172A;
 	--color-apricot: #E86526;
 	--color-slate: #475569;
@@ -33,19 +33,20 @@ body {
 	color: var(--color-ink);
 	font-family: var(--font-body);
 	font-weight: 400;
-	line-height: 1.6;
+	line-height: 1.65;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
 }
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: var(--font-heading);
 	font-weight: 700;
-	letter-spacing: -0.025em;
+	letter-spacing: -0.03em;
 	color: inherit;
 }
 
-.dark-panel, [class*="bg-brand-ink"], [class*="bg-neutral-900"], [class*="bg-slate-900"], [class*="bg-[#1E293B]"] {
+.dark-panel, [class*="bg-brand-ink"], [class*="bg-neutral-900"], [class*="bg-slate-900"], [class*="bg-[#121417]"] {
 	color: #FFFFFF;
 }
 
@@ -55,56 +56,112 @@ a {
 }
 
 .container {
-	width: min(1280px, calc(100% - 40px));
+	width: min(1280px, calc(100% - 48px));
 	margin: auto;
 }
 
+/* Modern Clean Eyebrow Badge */
 .eyebrow {
 	font-size: 11px;
-	letter-spacing: 0.12em;
+	letter-spacing: 0.14em;
 	text-transform: uppercase;
 	color: var(--color-primary);
-	font-weight: 600;
+	font-weight: 700;
 	font-family: var(--font-heading);
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
 }
 
-/* Elegant Soft Cards (Refined Borders & Shadows) */
+/* Premium Clean Cards & Panels */
 .panel {
-	border: 1px solid rgba(0, 0, 0, 0.06);
-	border-radius: 16px;
+	border: 1px solid rgba(15, 23, 42, 0.08);
+	border-radius: 20px;
 	background: #ffffff;
-	box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.03);
+	box-shadow: 0 4px 24px -4px rgba(15, 23, 42, 0.04), 0 1px 2px rgba(15, 23, 42, 0.02);
+	transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.panel:hover {
+	border-color: rgba(232, 101, 38, 0.25);
+	box-shadow: 0 12px 32px -8px rgba(15, 23, 42, 0.08);
 }
 
 .dark-panel {
-	border: 1px solid rgba(255, 255, 255, 0.08);
-	border-radius: 16px;
-	background: #181B20;
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 20px;
+	background: #0F172A;
+	box-shadow: 0 8px 32px -8px rgba(0, 0, 0, 0.3);
 }
 
 .soft-card {
-	border-radius: 16px;
-	padding: 20px;
+	border-radius: 20px;
+	padding: 24px;
 	background: #ffffff;
-	box-shadow: 0 2px 12px -2px rgba(0, 0, 0, 0.03);
-	border: 1px solid rgba(0, 0, 0, 0.05);
+	box-shadow: 0 2px 16px -2px rgba(15, 23, 42, 0.04);
+	border: 1px solid rgba(15, 23, 42, 0.06);
+	transition: all 0.25s ease;
 }
 
+.soft-card:hover {
+	box-shadow: 0 8px 24px -4px rgba(15, 23, 42, 0.08);
+}
+
+/* World-Class Buttons */
 .soft-btn {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	border-radius: 10px;
-	padding: 10px 20px;
-	font-weight: 600;
+	gap: 8px;
+	border-radius: 12px;
+	padding: 12px 24px;
+	font-weight: 700;
 	font-family: var(--font-body);
 	font-size: 13px;
-	transition: all 0.2s ease;
+	letter-spacing: -0.01em;
+	transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 	background-color: var(--color-primary);
 	color: #ffffff;
+	box-shadow: 0 2px 8px rgba(232, 101, 38, 0.25);
+	cursor: pointer;
 }
 
 .soft-btn:hover {
-	background-color: #c95315;
+	background-color: #d45214;
 	transform: translateY(-1px);
+	box-shadow: 0 6px 16px rgba(232, 101, 38, 0.35);
 }
+
+.soft-btn--secondary {
+	background-color: #ffffff;
+	color: var(--color-ink);
+	border: 1px solid rgba(15, 23, 42, 0.12);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.soft-btn--secondary:hover {
+	background-color: #F8FAFC;
+	border-color: var(--color-primary);
+	color: var(--color-primary);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+
+::-webkit-scrollbar-track {
+	background: #F1F5F9;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #CBD5E1;
+	border-radius: 99px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #94A3B8;
+}
+

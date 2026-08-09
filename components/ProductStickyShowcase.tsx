@@ -188,46 +188,46 @@ function ScrollRevealCard({ item, index }: { item: ProductItem; index: number })
             >
               {/* Header Badges */}
               <div className="flex items-center gap-3">
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-orange-500/10 px-3 py-1 text-[11px] font-semibold tracking-wider text-[#E86526] uppercase">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-orange-50 px-3.5 py-1 text-[11px] font-bold tracking-wider text-[#E86526] uppercase border border-orange-100">
                   <span className="h-1.5 w-1.5 rounded-full bg-[#E86526]" />
                   {item.eyebrow}
                 </span>
-                <span className="text-[11px] font-medium tracking-wide text-neutral-400 uppercase">
+                <span className="text-[11px] font-bold tracking-wide text-brand-slate uppercase">
                   {item.tagline}
                 </span>
               </div>
 
               {/* Title & Description */}
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-neutral-900 leading-[1.2]">
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-brand-ink leading-[1.2]">
                 {item.title}
               </h3>
 
-              <p className="text-xs sm:text-base font-normal text-neutral-600 leading-relaxed">
+              <p className="text-xs sm:text-base font-normal text-brand-slate leading-relaxed">
                 {item.desc}
               </p>
 
               {/* Spec Cards */}
-              <div className="grid grid-cols-2 gap-3 pt-1">
-                <div className="rounded-2xl border border-neutral-200/80 bg-white/80 p-3 sm:p-3.5 backdrop-blur-md shadow-sm transition hover:border-orange-500/30">
-                  <div className="flex items-start gap-2.5">
-                    <div className="p-2 rounded-xl bg-orange-500/10 text-[#E86526]">
+              <div className="grid grid-cols-2 gap-3 pt-2">
+                <div className="rounded-2xl border border-black/[0.08] bg-white p-3.5 sm:p-4 backdrop-blur-md shadow-xs transition hover:border-orange-500/30">
+                  <div className="flex items-start gap-3">
+                    <div className="p-2.5 rounded-xl bg-orange-50 text-[#E86526] border border-orange-100">
                       <Zap className="h-4 w-4" />
                     </div>
                     <div>
-                      <strong className="block text-xs sm:text-sm font-bold text-neutral-900">{item.spec1.title}</strong>
-                      <span className="text-[10px] sm:text-[11px] text-neutral-500 font-medium">{item.spec1.desc}</span>
+                      <strong className="block text-xs sm:text-sm font-bold text-brand-ink">{item.spec1.title}</strong>
+                      <span className="text-[10px] sm:text-[11px] text-brand-slate font-medium">{item.spec1.desc}</span>
                     </div>
                   </div>
                 </div>
 
-                <div className="rounded-2xl border border-neutral-200/80 bg-white/80 p-3 sm:p-3.5 backdrop-blur-md shadow-sm transition hover:border-orange-500/30">
-                  <div className="flex items-start gap-2.5">
-                    <div className="p-2 rounded-xl bg-orange-500/10 text-[#E86526]">
-                      <Cpu className="h-4 w-4" />
+                <div className="rounded-2xl border border-black/[0.08] bg-white p-3.5 sm:p-4 backdrop-blur-md shadow-xs transition hover:border-emerald-500/30">
+                  <div className="flex items-start gap-3">
+                    <div className="p-2.5 rounded-xl bg-emerald-50 text-emerald-600 border border-emerald-100">
+                      <ShieldCheck className="h-4 w-4" />
                     </div>
                     <div>
-                      <strong className="block text-xs sm:text-sm font-bold text-neutral-900">{item.spec2.title}</strong>
-                      <span className="text-[10px] sm:text-[11px] text-neutral-500 font-medium">{item.spec2.desc}</span>
+                      <strong className="block text-xs sm:text-sm font-bold text-brand-ink">{item.spec2.title}</strong>
+                      <span className="text-[10px] sm:text-[11px] text-brand-slate font-medium">{item.spec2.desc}</span>
                     </div>
                   </div>
                 </div>

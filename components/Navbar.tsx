@@ -101,6 +101,9 @@ export function Navbar() {
     }, 200);
   };
 
+<<<<<<< HEAD
+  const isDarkHeader = isHome && !scrolled;
+=======
   const handleSolutionsMouseEnter = () => {
     if (solutionsTimeoutRef.current) clearTimeout(solutionsTimeoutRef.current);
     setSolutionsOpen(true);
@@ -111,6 +114,7 @@ export function Navbar() {
       setSolutionsOpen(false);
     }, 200);
   };
+>>>>>>> 3171eca72d3646f7352139783e111f36f34ce4bc
 
   return (
     <header
@@ -123,7 +127,7 @@ export function Navbar() {
     >
       <div className="container flex items-center justify-between">
         {/* Brand Logo */}
-        <Link href="/" className="flex items-center gap-3 font-sans text-lg font-bold text-brand-ink group">
+        <Link href="/" className={`flex items-center gap-3 font-sans text-lg font-bold group ${isDarkHeader ? 'text-white' : 'text-brand-ink'}`}>
           <span className="grid h-9 w-9 place-items-center rounded-xl bg-brand-primary text-white font-extrabold text-sm shadow-sm group-hover:scale-105 transition-transform">
             S
           </span>
@@ -133,7 +137,7 @@ export function Navbar() {
         </Link>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden items-center gap-7 text-sm font-medium text-brand-ink md:flex">
+        <nav className={`hidden items-center gap-7 text-sm font-medium md:flex ${isDarkHeader ? 'text-white' : 'text-brand-ink'}`}>
           <Link href="/" className="transition hover:text-brand-primary">
             Home
           </Link>
@@ -194,9 +198,9 @@ export function Navbar() {
             >
               <span>Products</span>
               <ChevronDown
-                className={`h-4 w-4 text-brand-slate transition-transform duration-200 ${
-                  dropdownOpen ? 'rotate-180 text-brand-primary' : ''
-                }`}
+                className={`h-4 w-4 transition-transform duration-200 ${
+                  isDarkHeader ? 'text-white/80' : 'text-brand-slate'
+                } ${dropdownOpen ? 'rotate-180 text-brand-primary' : ''}`}
               />
             </button>
 
@@ -258,7 +262,11 @@ export function Navbar() {
           {/* Solid Clean AI Portal Link */}
           <Link
             href="/ai-portal"
-            className="flex items-center gap-2 rounded-xl border border-black/10 bg-white/80 px-3.5 py-1.5 text-xs font-semibold text-brand-ink hover:border-brand-primary hover:bg-white shadow-2xs transition backdrop-blur-xs"
+            className={`flex items-center gap-2 rounded-xl px-3.5 py-1.5 text-xs font-semibold shadow-2xs transition backdrop-blur-md ${
+              isDarkHeader
+                ? 'border border-white/20 bg-white/10 text-white hover:bg-white/20 hover:border-white/40'
+                : 'border border-black/10 bg-white/80 text-brand-ink hover:border-brand-primary hover:bg-white'
+            }`}
           >
             <Bot className="h-4 w-4 text-brand-primary" />
             AI Portal Dashboard
@@ -281,7 +289,7 @@ export function Navbar() {
 
         {/* Mobile Hamburger Button */}
         <button
-          className="md:hidden p-2 text-brand-ink"
+          className={`md:hidden p-2 ${isDarkHeader ? 'text-white' : 'text-brand-ink'}`}
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
