@@ -63,11 +63,11 @@ const productServices: ProductDropdownItem[] = [
 ];
 
 const solutionServices = [
-  'Solar PV Solution',
-  'Solar & Storage Solution',
-  'Solar & Storage & EV Charging Solution',
-  'Solar Water Pumping Solution',
-  'Smart Microgrid Solution',
+  { title: 'Solar PV Solution', href: '/solutions/solar-pv' },
+  { title: 'Solar & Storage Solution', href: '/products/solar-power#solar-storage-solution' },
+  { title: 'Solar & Storage & EV Charging Solution', href: '/products/solar-power#solar-storage-ev-charging-solution' },
+  { title: 'Solar Water Pumping Solution', href: '/solutions' },
+  { title: 'Smart Microgrid Solution', href: '/solutions' },
 ];
 
 export function Navbar() {
@@ -170,14 +170,14 @@ export function Navbar() {
                 >
                   <div className="space-y-1">
                     {solutionServices.map((solution) => (
-                      <button
-                        key={solution}
-                        type="button"
+                      <Link
+                        key={solution.title}
+                        href={solution.href}
                         onClick={() => setSolutionsOpen(false)}
                         className="block w-full rounded-xl px-4 py-2.5 text-left text-xs font-semibold text-brand-ink transition hover:bg-orange-50/60 hover:text-brand-primary"
                       >
-                        {solution}
-                      </button>
+                        {solution.title}
+                      </Link>
                     ))}
                   </div>
                 </motion.div>
@@ -316,14 +316,14 @@ export function Navbar() {
             {mobileSolutionsExpanded && (
               <div className="ml-3 mt-1 space-y-1 border-l-2 border-brand-primary/20 py-2 pl-4">
                 {solutionServices.map((solution) => (
-                  <button
-                    key={solution}
-                    type="button"
+                  <Link
+                    key={solution.title}
+                    href={solution.href}
                     onClick={() => setMobileOpen(false)}
                     className="block w-full rounded-lg p-2 text-left text-brand-ink hover:bg-orange-50/50 hover:text-brand-primary"
                   >
-                    {solution}
-                  </button>
+                    {solution.title}
+                  </Link>
                 ))}
               </div>
             )}

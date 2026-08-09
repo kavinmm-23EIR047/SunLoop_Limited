@@ -18,6 +18,68 @@ import {
 import { Reveal, Button } from '../../../components/UI';
 import { solarProducts, solarPVIntro, SolarProductVariant } from '../../../data/solarProducts';
 
+const energySolutionSections = [
+  {
+    id: 'solar-pv-solution',
+    eyebrow: '01 / GENERATE',
+    title: 'Solar PV Solution',
+    description: 'Harness the power of the sun with efficient, reliable solar PV systems tailored to every energy need.',
+    accent: 'bg-amber-500',
+    solutions: [
+      {
+        title: 'Residential Solar PV System Solution',
+        description: 'Transform your home into a powerhouse with SunEvo’s residential PV system, harnessing the power of the sun to provide sustainable and green electricity for your life.',
+      },
+      {
+        title: 'Commercial & Industrial Solar PV System Solution',
+        description: 'The high-performance commercial PV system from SunEvo can lower energy costs and carbon emissions of your office building or commercial building.',
+      },
+      {
+        title: 'Utility-Scale PV Power Plant Solutions',
+        description: 'Designed to adapt to diverse environments such as deserts, plateaus, and coastal regions, our solutions enhance power generation efficiency while reducing O&M costs. With lower LCOE and advanced grid-forming capabilities, we empower the stable operation of the next-generation power system.',
+      },
+    ],
+  },
+  {
+    id: 'solar-storage-solution',
+    eyebrow: '02 / STORE',
+    title: 'Solar & Storage Solution',
+    description: 'A Solar & Storage Solution combines photovoltaic (PV) systems with energy storage, usually batteries, to create a more resilient, efficient, and sustainable energy system. Store excess solar power for later use to improve energy independence, reduce electricity bills, and ensure backup during outages.',
+    accent: 'bg-brand-primary',
+    solutions: [
+      {
+        title: 'Residential Solar + Storage System Solution',
+        description: 'SunEvo Smart Home PV and Energy Storage System provides an all-in-one solution that covers power generation, energy storage, charging, and power consumption. With efficiency and safety at its core, it delivers clean energy to more households, empowering a better, smarter, and more sustainable future.',
+      },
+      {
+        title: 'C&I Solar + Energy Storage Solution',
+        description: 'Maximize energy utilization efficiency with an intelligent solar-plus-storage hybrid system. Seamlessly integrate solar power, batteries, and the grid to achieve uninterrupted power supply, reduced energy costs, and sustainable energy management.',
+      },
+      {
+        title: 'Utility-Scale Solar + Energy Storage Solution',
+        description: 'By integrating solar and storage, the system enhances renewable energy utilization and ensures stable and reliable grid support.',
+      },
+    ],
+  },
+  {
+    id: 'solar-storage-ev-charging-solution',
+    eyebrow: '03 / CHARGE',
+    title: 'Solar & Storage & EV Charging Solution',
+    description: 'A Solar + Storage + EV Charging Solution is a smart, future-proof energy ecosystem combining clean power generation, battery storage, and EV charging infrastructure in one optimized system. It is ideal for homes, commercial buildings, industrial parks, fleet depots, and public charging hubs.',
+    accent: 'bg-emerald-500',
+    solutions: [
+      {
+        title: 'Residential Solar + Storage + EV Charging Solution',
+        description: 'SunEvo’s all-in-one home energy solution integrates PV inverters, energy storage systems, and EV chargers, enabling your home to be fully powered by clean energy—day or night, rain or shine.',
+      },
+      {
+        title: 'Commercial Solar + Storage + EV Charging Solution',
+        description: 'Reduce traditional energy consumption and lower charging costs by providing customers with a one-stop zero-carbon charging station that integrates solar generation, energy storage, and EV charging, enabling higher returns.',
+      },
+    ],
+  },
+];
+
 export default function SolarPowerPage() {
   const [activeModal, setActiveModal] = useState<SolarProductVariant | null>(null);
   const [filter, setFilter] = useState<'All' | 'Residential' | 'Commercial'>('All');
@@ -76,13 +138,46 @@ export default function SolarPowerPage() {
         </div>
       </section>
 
+      {/* INTEGRATED ENERGY SOLUTIONS */}
+      <section className="py-14 md:py-20">
+        <div className="container mx-auto max-w-5xl space-y-16 px-4">
+          {energySolutionSections.slice(1).map((section) => (
+            <div key={section.title} id={section.id} className="scroll-mt-28">
+              <Reveal className="space-y-7">
+                <div className="max-w-3xl space-y-3">
+                  <span className="eyebrow inline-block">{section.eyebrow}</span>
+                  <h2 className="text-2xl font-bold tracking-tight text-brand-ink md:text-3xl">{section.title}</h2>
+                  <p className="text-xs font-normal leading-relaxed text-brand-slate md:text-sm">{section.description}</p>
+                </div>
+
+                <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                  {section.solutions.map((solution, index) => (
+                    <article key={solution.title} className="flex min-h-60 flex-col rounded-2xl border border-black/[0.06] bg-white p-5 shadow-2xs">
+                      <span className={`mb-5 h-1.5 w-10 rounded-full ${section.accent}`} />
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-brand-primary">Solution {String(index + 1).padStart(2, '0')}</span>
+                      <h3 className="mt-2 text-base font-bold leading-snug text-brand-ink">{solution.title}</h3>
+                      <p className="mt-3 text-xs font-normal leading-relaxed text-brand-slate">{solution.description}</p>
+                      {section.title !== 'Solar PV Solution' && (
+                        <button type="button" className="mt-auto pt-5 text-left text-xs font-bold text-brand-primary transition hover:text-[#c95315]">
+                          Learn More <ArrowUpRight className="ml-1 inline h-3.5 w-3.5" />
+                        </button>
+                      )}
+                    </article>
+                  ))}
+                </div>
+              </Reveal>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* CATALOG SECTION */}
       <section className="py-14 md:py-20">
         <div className="container max-w-5xl mx-auto px-4 space-y-12">
           <Reveal className="text-center max-w-2xl mx-auto space-y-4">
             <span className="eyebrow inline-block">SOLAR PV KITS PORTFOLIO</span>
             <h2 className="text-2xl md:text-3xl font-bold text-brand-ink">
-              Solar PV Solution
+              Solar PV Product Portfolio
             </h2>
             <p className="text-xs md:text-sm text-brand-slate font-normal">
               Pre-engineered residential and commercial solar PV system kits designed for on-grid, off-grid, and hybrid energy independence.
