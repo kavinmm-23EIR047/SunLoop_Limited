@@ -1,8 +1,10 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
   BatteryCharging,
   CheckCircle2,
@@ -23,23 +25,52 @@ import {
 import { Reveal, Button } from '../../../components/UI';
 import { essProducts, ESSProduct } from '../../../data/essProducts';
 
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
 export default function EnergyStoragePage() {
   const [activeModal, setActiveModal] = useState<ESSProduct | null>(null);
   const [selectedFilter, setSelectedFilter] = useState<'all' | 'residential' | 'commercial'>('all');
+  const catalogRef = useRef<HTMLDivElement>(null);
 
   const productsList = essProducts || [];
   const filteredProducts = selectedFilter === 'all'
     ? productsList
     : productsList.filter(p => p && p.keyword === selectedFilter);
 
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.utils.toArray<HTMLElement>('.ess-product-image').forEach((image) => {
+        gsap.fromTo(
+          image,
+          { autoAlpha: 0, x: 100 },
+          {
+            autoAlpha: 1,
+            x: 0,
+            duration: 0.7,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: image,
+              start: 'top 86%',
+              once: true,
+            },
+          }
+        );
+      });
+    }, catalogRef);
+
+    return () => ctx.revert();
+  }, [selectedFilter]);
+
   return (
     <main className="min-h-screen bg-[#FAFAF5] pt-16 pb-16 font-sans">
       {/* FULL-BLEED HIGH-IMPACT HERO BANNER */}
       <section className="relative w-full h-[380px] sm:h-[460px] md:h-[500px] overflow-hidden bg-brand-ink text-white flex items-center">
         <div
-          className="absolute inset-0 bg-cover bg-center pointer-events-none opacity-40 scale-105 transition-transform duration-1000"
+          className="absolute inset-0 bg-cover bg-center pointer-events-none opacity-50 scale-105 transition-transform duration-1000"
           style={{
-            backgroundImage: `url('/images/products/product-ess-0.png')`,
+            backgroundImage: `url('/products/product-ess-0.png')`,
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/30 pointer-events-none" />
@@ -88,7 +119,7 @@ export default function EnergyStoragePage() {
       </section>
       {/* CATALOG SECTION WITH GROUPED CATEGORIES */}
       <section className="py-14 md:py-20 bg-white">
-        <div className="container max-w-5xl mx-auto px-4 space-y-24">
+        <div ref={catalogRef} className="container max-w-5xl mx-auto px-4 space-y-24">
           
           {/* RESIDENTIAL ESS GROUP */}
           <div className="space-y-12">
@@ -135,22 +166,18 @@ export default function EnergyStoragePage() {
                       </div>
                     </motion.div>
 
-                    <motion.div
-                      initial={{ opacity: 0, x: isEven ? 30 : -30 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true, margin: '-40px' }}
-                      transition={{ duration: 0.5, delay: 0.1, ease: 'easeOut' }}
-                      className={`bg-[#E6E6E6] rounded-xl overflow-hidden aspect-[4/3] flex items-center justify-center p-6 ${isEven ? 'order-2' : 'order-2 md:order-1'}`}
+                    <div
+                      className={`ess-product-image aspect-[4/3] flex items-center justify-center ${isEven ? 'order-2' : 'order-2 md:order-1'}`}
                     >
                       <img
                         src={prod.image}
                         alt={prod.title}
-                        className="w-full h-full object-contain mix-blend-multiply"
+                        className="h-full w-full object-contain drop-shadow-[0_16px_22px_rgba(71,85,105,0.28)] transition-transform duration-500 hover:scale-105"
                         onError={(e) => {
                           (e.target as HTMLImageElement).src = prod.fallbackImage;
                         }}
                       />
-                    </motion.div>
+                    </div>
                   </div>
                 );
               })}
@@ -202,22 +229,18 @@ export default function EnergyStoragePage() {
                       </div>
                     </motion.div>
 
-                    <motion.div
-                      initial={{ opacity: 0, x: isEven ? 30 : -30 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true, margin: '-40px' }}
-                      transition={{ duration: 0.5, delay: 0.1, ease: 'easeOut' }}
-                      className={`bg-[#E6E6E6] rounded-xl overflow-hidden aspect-[4/3] flex items-center justify-center p-6 ${isEven ? 'order-2' : 'order-2 md:order-1'}`}
+                    <div
+                      className={`ess-product-image aspect-[4/3] flex items-center justify-center ${isEven ? 'order-2' : 'order-2 md:order-1'}`}
                     >
                       <img
                         src={prod.image}
                         alt={prod.title}
-                        className="w-full h-full object-contain mix-blend-multiply"
+                        className="h-full w-full object-contain drop-shadow-[0_16px_22px_rgba(71,85,105,0.28)] transition-transform duration-500 hover:scale-105"
                         onError={(e) => {
                           (e.target as HTMLImageElement).src = prod.fallbackImage;
                         }}
                       />
-                    </motion.div>
+                    </div>
                   </div>
                 );
               })}

@@ -1,8 +1,10 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
   Sun,
   CheckCircle2,
@@ -16,7 +18,11 @@ import {
   Check
 } from 'lucide-react';
 import { Reveal, Button } from '../../../components/UI';
-import { solarProducts, solarPVIntro, SolarProductVariant } from '../../../data/solarProducts';
+import { solarProducts, SolarProductVariant } from '../../../data/solarProducts';
+
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 const energySolutionSections = [
   {
@@ -83,20 +89,36 @@ const energySolutionSections = [
 export default function SolarPowerPage() {
   const [activeModal, setActiveModal] = useState<SolarProductVariant | null>(null);
   const [filter, setFilter] = useState<'All' | 'Residential' | 'Commercial'>('All');
+  const catalogRef = useRef<HTMLDivElement>(null);
 
   const filteredProducts = solarProducts.filter((p) => {
     if (filter === 'All') return true;
     return p.category === filter.toLowerCase();
   });
 
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.utils.toArray<HTMLElement>('.solar-product-image').forEach((image) => {
+        gsap.fromTo(image, { autoAlpha: 0, x: 100 }, {
+          autoAlpha: 1,
+          x: 0,
+          duration: 0.7,
+          ease: 'power3.out',
+          scrollTrigger: { trigger: image, start: 'top 86%', once: true },
+        });
+      });
+    }, catalogRef);
+    return () => ctx.revert();
+  }, [filter]);
+
   return (
     <main className="min-h-screen bg-[#FAFAF5] pt-16 pb-16 font-sans">
       {/* HERO BANNER */}
       <section className="relative w-full h-[400px] sm:h-[480px] md:h-[520px] overflow-hidden bg-brand-ink text-white flex items-center">
         <div
-          className="absolute inset-0 bg-cover bg-center pointer-events-none opacity-40 scale-105 transition-transform duration-1000"
+          className="absolute inset-0 bg-cover bg-center pointer-events-none opacity-50 scale-105 transition-transform duration-1000"
           style={{
-            backgroundImage: `url('/images/solar-panels.png')`,
+            backgroundImage: `url('/products/Solar power/30-500kW Hybrid Commercial Solar System Kits.png')`,
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/30 pointer-events-none" />
@@ -104,43 +126,19 @@ export default function SolarPowerPage() {
         <div className="container relative z-10 max-w-5xl mx-auto px-4">
           <Reveal className="max-w-2xl space-y-4">
             <span className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/15 px-3.5 py-1 text-[11px] font-semibold text-brand-apricot uppercase tracking-wider">
-              <Sun className="h-3.5 w-3.5" /> SOLAR PV SOLUTIONS
+              <Sun className="h-3.5 w-3.5" /> SOLAR POWER
             </span>
 
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-white tracking-tight leading-tight">
-              {solarPVIntro.title}
+              Solar Power
             </h1>
-
-            <p className="text-xs sm:text-sm text-white/90 font-normal leading-relaxed">
-              {solarPVIntro.desc}
-            </p>
-
-            <div className="flex items-center gap-3 pt-2">
-              <div className="rounded-xl border border-white/15 bg-white/10 backdrop-blur-xs px-3.5 py-1.5 text-xs">
-                <span className="text-white/60 text-[10px] block">SOLAR KITS</span>
-                <strong className="text-white font-semibold">Residential &amp; Commercial</strong>
-              </div>
-              <div className="rounded-xl border border-white/15 bg-white/10 backdrop-blur-xs px-3.5 py-1.5 text-xs">
-                <span className="text-white/60 text-[10px] block">SYSTEM TYPE</span>
-                <strong className="text-brand-apricot font-semibold">Hybrid, On-Grid &amp; Off-Grid</strong>
-              </div>
-            </div>
-
-            <div className="pt-3 flex flex-wrap gap-3">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 rounded-xl bg-[#E86526] px-6 py-3 text-xs font-semibold text-white shadow-md hover:bg-[#c95315] transition"
-              >
-                Request Solar Quote <ArrowUpRight className="h-3.5 w-3.5" />
-              </Link>
-            </div>
           </Reveal>
         </div>
       </section>
 
       {/* CATALOG SECTION */}
       <section className="py-14 md:py-20">
-        <div className="container max-w-5xl mx-auto px-4 space-y-12">
+        <div ref={catalogRef} className="container max-w-5xl mx-auto px-4 space-y-12">
           <Reveal className="text-center max-w-2xl mx-auto space-y-4">
             <span className="eyebrow inline-block">SOLAR PV KITS PORTFOLIO</span>
             <h2 className="text-2xl md:text-3xl font-bold text-brand-ink">
@@ -247,18 +245,12 @@ export default function SolarPowerPage() {
                 </motion.div>
 
                 {/* RIGHT IMAGE */}
-                <motion.div
-                  initial={{ opacity: 0, x: isEven ? 30 : -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: '-40px' }}
-                  transition={{ duration: 0.5, ease: 'easeOut' }}
-                  className={`relative ${isEven ? 'order-2' : 'order-2 md:order-1'}`}
-                >
-                  <div className="group relative h-[320px] sm:h-[380px] w-full overflow-hidden rounded-2xl border border-black/[0.06] bg-white p-6 shadow-sm hover:shadow-md transition-all duration-300 flex items-center justify-center">
+                <div className={`solar-product-image relative h-[320px] w-full sm:h-[380px] ${isEven ? 'order-2' : 'order-2 md:order-1'}`}>
+                  <div className="group relative flex h-full w-full items-center justify-center">
                     <img
                       src={prod.image}
                       alt={prod.title}
-                      className="h-full w-full object-contain object-center drop-shadow-md group-hover:scale-103 transition-transform duration-500"
+                      className="h-full w-full object-contain object-center drop-shadow-[0_16px_22px_rgba(71,85,105,0.28)] transition-transform duration-500 group-hover:scale-103"
                       onError={(e) => {
                         (e.target as HTMLElement).setAttribute('src', prod.fallbackImage);
                       }}
@@ -267,7 +259,7 @@ export default function SolarPowerPage() {
                       30-YEAR PV WARRANTY
                     </div>
                   </div>
-                </motion.div>
+                </div>
               </div>
             );
           })}

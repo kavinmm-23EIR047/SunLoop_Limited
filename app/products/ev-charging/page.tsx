@@ -1,8 +1,10 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
   Zap,
   CheckCircle2,
@@ -22,24 +24,43 @@ import { Reveal, Button } from '../../../components/UI';
 
 import { evProducts, EVProductVariant } from '../../../data/evProducts';
 
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export default function EVChargingPage() {
   const [activeModal, setActiveModal] = useState<EVProductVariant | null>(null);
   const [filter, setFilter] = useState<'All' | 'Residential' | 'Commercial'>('All');
+  const catalogRef = useRef<HTMLDivElement>(null);
 
   const filteredProducts = evProducts.filter((p) => {
     if (filter === 'All') return true;
     return p.keywords.includes(filter.toLowerCase() as 'residential' | 'commercial');
   });
 
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.utils.toArray<HTMLElement>('.ev-product-image').forEach((image) => {
+        gsap.fromTo(image, { autoAlpha: 0, x: 100 }, {
+          autoAlpha: 1,
+          x: 0,
+          duration: 0.7,
+          ease: 'power3.out',
+          scrollTrigger: { trigger: image, start: 'top 86%', once: true },
+        });
+      });
+    }, catalogRef);
+    return () => ctx.revert();
+  }, [filter]);
+
   return (
     <main className="min-h-screen bg-[#FAFAF5] pt-16 pb-16 font-sans">
       {/* FULL-BLEED HIGH-IMPACT HERO BANNER */}
       <section className="relative w-full h-[380px] sm:h-[460px] md:h-[500px] overflow-hidden bg-brand-ink text-white flex items-center">
         <div
-          className="absolute inset-0 bg-cover bg-center pointer-events-none opacity-40 scale-105 transition-transform duration-1000"
+          className="absolute inset-0 bg-cover bg-center pointer-events-none opacity-50 scale-105 transition-transform duration-1000"
           style={{
-            backgroundImage: `url('/images/dc-charging.png')`,
+            backgroundImage: `url('/products/EV charger/DC EV Charger.png')`,
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/30 pointer-events-none" />
@@ -89,7 +110,7 @@ export default function EVChargingPage() {
 
       {/* ALTERNATING LEFT-RIGHT SCROLL REVEAL CATALOG */}
       <section className="py-14 md:py-20">
-        <div className="container max-w-5xl mx-auto px-4 space-y-12">
+        <div ref={catalogRef} className="container max-w-5xl mx-auto px-4 space-y-12">
           <Reveal className="text-center max-w-2xl mx-auto space-y-4">
             <span className="eyebrow inline-block">EV CHARGERS CATALOG</span>
             <h2 className="text-2xl md:text-3xl font-bold text-brand-ink">
@@ -193,18 +214,12 @@ export default function EVChargingPage() {
                 </motion.div>
 
                 {/* IMAGE CARD */}
-                <motion.div
-                  initial={{ opacity: 0, x: isEven ? 30 : -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: '-40px' }}
-                  transition={{ duration: 0.5, ease: 'easeOut' }}
-                  className={`relative ${isEven ? 'order-2' : 'order-2 md:order-1'}`}
-                >
-                  <div className="group relative h-[320px] sm:h-[380px] w-full overflow-hidden rounded-2xl border border-black/[0.06] bg-white p-6 shadow-sm hover:shadow-md transition-all duration-300 flex items-center justify-center">
+                <div className={`ev-product-image relative h-[320px] w-full sm:h-[380px] ${isEven ? 'order-2' : 'order-2 md:order-1'}`}>
+                  <div className="group relative flex h-full w-full items-center justify-center">
                     <img
                       src={prod.image}
                       alt={prod.title}
-                      className="h-full w-full object-contain object-center drop-shadow-md group-hover:scale-103 transition-transform duration-500"
+                      className="h-full w-full object-contain object-center drop-shadow-[0_16px_22px_rgba(71,85,105,0.28)] transition-transform duration-500 group-hover:scale-103"
                       onError={(e) => {
                         (e.target as HTMLElement).setAttribute('src', prod.fallbackImage);
                       }}
@@ -213,7 +228,7 @@ export default function EVChargingPage() {
                       OCPP COMPLIANT
                     </div>
                   </div>
-                </motion.div>
+                </div>
               </div>
             );
           })}

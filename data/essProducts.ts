@@ -42,7 +42,7 @@ export const essProducts: ESSProduct[] = [
       'Parallel Expansion Support up to 15 Units',
       'Compatible with Deye, Victron, Growatt & Solis Inverters',
     ],
-    image: '/images/products/product-ess-1.png',
+    image: '/products/Wall Mount Low Voltage Pack.png',
     fallbackImage: '/images/commercial-energy.png',
   },
   {
@@ -67,7 +67,7 @@ export const essProducts: ESSProduct[] = [
       'Instant < 10ms UPS Backup Switchover',
       'IP65 Rated Outdoor & Indoor Protection',
     ],
-    image: '/images/products/product-ess-2.png',
+    image: '/products/Stackable High Voltage Pack.png',
     fallbackImage: '/images/commercial-energy.png',
   },
 
@@ -94,7 +94,7 @@ export const essProducts: ESSProduct[] = [
       'Sunloop AI Portal Telemetry for Autonomous Peak Shaving',
       'Multi-Tier Fire Suppression & Thermal Safety Management',
     ],
-    image: '/images/products/product-ess-3.png',
+    image: '/products/Rack Mount High Voltage PackRack Mount High Voltage Pack.png',
     fallbackImage: '/images/commercial-energy.png',
   },
   {
@@ -119,7 +119,7 @@ export const essProducts: ESSProduct[] = [
       'Automated TOD Peak Shaving & Commercial Tariff Arbitrage',
       'Subsecond Response Grid Support & Demand Charge Reduction',
     ],
-    image: '/images/products/product-ess-4.png',
+    image: '/products/Energy Storage Cabinet.png',
     fallbackImage: '/images/commercial-energy.png',
   },
   {
@@ -127,7 +127,7 @@ export const essProducts: ESSProduct[] = [
     category: 'commercial',
     categoryLabel: 'Commercial & Utility ESS',
     keyword: 'commercial',
-    series: 'CubeArk Series',
+    series: 'BlockArk Series',
     title: 'Energy Storage Container',
     power: '100kW - 5000kW',
     capacity: '100kWh ~ 10000kWh',
@@ -144,7 +144,7 @@ export const essProducts: ESSProduct[] = [
       'Grid Substation Frequency Regulation & Peak Load Shifting',
       'MW-Scale PCS Integration with Black-Start Capability',
     ],
-    image: '/images/products/product-ess-5.png',
+    image: '/products/Energy Storage Container.png',
     fallbackImage: '/images/commercial-energy.png',
   },
 ];
