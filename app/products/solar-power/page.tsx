@@ -18,6 +18,68 @@ import {
 import { Reveal, Button } from '../../../components/UI';
 import { solarProducts, solarPVIntro, SolarProductVariant } from '../../../data/solarProducts';
 
+const energySolutionSections = [
+  {
+    id: 'solar-pv-solution',
+    eyebrow: '01 / GENERATE',
+    title: 'Solar PV Solution',
+    description: 'Harness the power of the sun with efficient, reliable solar PV systems tailored to every energy need.',
+    accent: 'bg-amber-500',
+    solutions: [
+      {
+        title: 'Residential Solar PV System Solution',
+        description: 'Transform your home into a powerhouse with SunEvo’s residential PV system, harnessing the power of the sun to provide sustainable and green electricity for your life.',
+      },
+      {
+        title: 'Commercial & Industrial Solar PV System Solution',
+        description: 'The high-performance commercial PV system from SunEvo can lower energy costs and carbon emissions of your office building or commercial building.',
+      },
+      {
+        title: 'Utility-Scale PV Power Plant Solutions',
+        description: 'Designed to adapt to diverse environments such as deserts, plateaus, and coastal regions, our solutions enhance power generation efficiency while reducing O&M costs. With lower LCOE and advanced grid-forming capabilities, we empower the stable operation of the next-generation power system.',
+      },
+    ],
+  },
+  {
+    id: 'solar-storage-solution',
+    eyebrow: '02 / STORE',
+    title: 'Solar & Storage Solution',
+    description: 'A Solar & Storage Solution combines photovoltaic (PV) systems with energy storage, usually batteries, to create a more resilient, efficient, and sustainable energy system. Store excess solar power for later use to improve energy independence, reduce electricity bills, and ensure backup during outages.',
+    accent: 'bg-brand-primary',
+    solutions: [
+      {
+        title: 'Residential Solar + Storage System Solution',
+        description: 'SunEvo Smart Home PV and Energy Storage System provides an all-in-one solution that covers power generation, energy storage, charging, and power consumption. With efficiency and safety at its core, it delivers clean energy to more households, empowering a better, smarter, and more sustainable future.',
+      },
+      {
+        title: 'C&I Solar + Energy Storage Solution',
+        description: 'Maximize energy utilization efficiency with an intelligent solar-plus-storage hybrid system. Seamlessly integrate solar power, batteries, and the grid to achieve uninterrupted power supply, reduced energy costs, and sustainable energy management.',
+      },
+      {
+        title: 'Utility-Scale Solar + Energy Storage Solution',
+        description: 'By integrating solar and storage, the system enhances renewable energy utilization and ensures stable and reliable grid support.',
+      },
+    ],
+  },
+  {
+    id: 'solar-storage-ev-charging-solution',
+    eyebrow: '03 / CHARGE',
+    title: 'Solar & Storage & EV Charging Solution',
+    description: 'A Solar + Storage + EV Charging Solution is a smart, future-proof energy ecosystem combining clean power generation, battery storage, and EV charging infrastructure in one optimized system. It is ideal for homes, commercial buildings, industrial parks, fleet depots, and public charging hubs.',
+    accent: 'bg-emerald-500',
+    solutions: [
+      {
+        title: 'Residential Solar + Storage + EV Charging Solution',
+        description: 'SunEvo’s all-in-one home energy solution integrates PV inverters, energy storage systems, and EV chargers, enabling your home to be fully powered by clean energy—day or night, rain or shine.',
+      },
+      {
+        title: 'Commercial Solar + Storage + EV Charging Solution',
+        description: 'Reduce traditional energy consumption and lower charging costs by providing customers with a one-stop zero-carbon charging station that integrates solar generation, energy storage, and EV charging, enabling higher returns.',
+      },
+    ],
+  },
+];
+
 export default function SolarPowerPage() {
   const [activeModal, setActiveModal] = useState<SolarProductVariant | null>(null);
   const [filter, setFilter] = useState<'All' | 'Residential' | 'Commercial'>('All');
@@ -82,7 +144,7 @@ export default function SolarPowerPage() {
           <Reveal className="text-center max-w-2xl mx-auto space-y-4">
             <span className="eyebrow inline-block">SOLAR PV KITS PORTFOLIO</span>
             <h2 className="text-2xl md:text-3xl font-bold text-brand-ink">
-              Solar PV Solution
+              Solar PV Product Portfolio
             </h2>
             <p className="text-xs md:text-sm text-brand-slate font-normal">
               Pre-engineered residential and commercial solar PV system kits designed for on-grid, off-grid, and hybrid energy independence.

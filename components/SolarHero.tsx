@@ -27,10 +27,10 @@ export default function SolarHero() {
       // Ensure site header and robot assistant are always visible and interactive
       gsap.set('#site-header, #robot-assistant', { opacity: 1, pointerEvents: 'auto' });
 
-      // Target position in upper-left clear sky area (~150px X, ~110px Y) avoiding all text/badges
+      // Shared target position in the clear sky, above and right of the hero copy.
       const isMobile = window.innerWidth < 768;
-      const targetX = isMobile ? window.innerWidth * -0.25 : window.innerWidth * -0.32;
-      const targetY = isMobile ? window.innerHeight * -0.28 : window.innerHeight * -0.34;
+      const targetX = isMobile ? window.innerWidth * -0.28 : window.innerWidth * -0.31;
+      const targetY = isMobile ? window.innerHeight * -0.28 : window.innerHeight * -0.36;
 
       // Master Timeline scrubbed with ScrollTrigger
       const tl = gsap.timeline({
@@ -149,26 +149,26 @@ export default function SolarHero() {
         ref={planetsRef}
         className="absolute inset-0 z-10 pointer-events-none transition-opacity duration-300"
       >
-        {/* Subtle Orbital Ring Lines */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] h-[340px] rounded-full border border-amber-500/20 border-dashed" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[480px] h-[480px] rounded-full border border-cyan-500/15 border-dashed" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[640px] h-[640px] rounded-full border border-blue-500/15 border-dashed" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full border border-white/10" />
+        {/* Subtle orbital rings aligned with the offset Sun */}
+        <div className="absolute top-[56%] left-[55%] -translate-x-1/2 -translate-y-1/2 w-[340px] h-[340px] rounded-full border border-amber-500/20 border-dashed" />
+        <div className="absolute top-[56%] left-[55%] -translate-x-1/2 -translate-y-1/2 w-[480px] h-[480px] rounded-full border border-cyan-500/15 border-dashed" />
+        <div className="absolute top-[56%] left-[55%] -translate-x-1/2 -translate-y-1/2 w-[640px] h-[640px] rounded-full border border-blue-500/15 border-dashed" />
+        <div className="absolute top-[56%] left-[55%] -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full border border-white/10" />
 
         {/* Planet 1: Mercury */}
-        <div className="absolute top-[38%] left-[43%] -translate-x-1/2 -translate-y-1/2 flex items-center gap-1.5">
+        <div className="absolute top-[38%] left-[51%] -translate-x-1/2 -translate-y-1/2 flex items-center gap-1.5">
           <div className="w-5 h-5 rounded-full bg-gradient-to-tr from-amber-800 via-amber-600 to-amber-300 shadow-[0_0_10px_rgba(217,119,6,0.8)] border border-amber-300/40" />
           <span className="text-[10px] font-bold text-amber-200/90 tracking-wider uppercase backdrop-blur-xs px-1.5 py-0.5 rounded bg-black/50 border border-white/10">Mercury</span>
         </div>
 
         {/* Planet 2: Venus */}
-        <div className="absolute top-[28%] left-[58%] -translate-x-1/2 -translate-y-1/2 flex items-center gap-1.5">
+        <div className="absolute top-[28%] left-[66%] -translate-x-1/2 -translate-y-1/2 flex items-center gap-1.5">
           <div className="w-7 h-7 rounded-full bg-gradient-to-tr from-orange-600 via-amber-400 to-yellow-100 shadow-[0_0_14px_rgba(251,191,36,0.9)] border border-orange-200/40" />
           <span className="text-[10px] font-bold text-orange-200/90 tracking-wider uppercase backdrop-blur-xs px-1.5 py-0.5 rounded bg-black/50 border border-white/10">Venus</span>
         </div>
 
         {/* Planet 3: Earth */}
-        <div className="absolute top-[66%] left-[38%] -translate-x-1/2 -translate-y-1/2 flex items-center gap-1.5">
+        <div className="absolute top-[66%] left-[46%] -translate-x-1/2 -translate-y-1/2 flex items-center gap-1.5">
           <div className="relative w-9 h-9 rounded-full bg-gradient-to-tr from-blue-700 via-cyan-400 to-emerald-400 shadow-[0_0_18px_rgba(56,189,248,0.9)] border border-cyan-200/50">
             {/* Moon */}
             <div className="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-slate-200 shadow-[0_0_6px_#fff]" />
@@ -177,19 +177,19 @@ export default function SolarHero() {
         </div>
 
         {/* Planet 4: Mars */}
-        <div className="absolute top-[72%] left-[55%] -translate-x-1/2 -translate-y-1/2 flex items-center gap-1.5">
+        <div className="absolute top-[72%] left-[63%] -translate-x-1/2 -translate-y-1/2 flex items-center gap-1.5">
           <div className="w-6 h-6 rounded-full bg-gradient-to-tr from-red-800 via-orange-600 to-amber-500 shadow-[0_0_14px_rgba(239,68,68,0.9)] border border-red-300/40" />
           <span className="text-[10px] font-bold text-red-200/90 tracking-wider uppercase backdrop-blur-xs px-1.5 py-0.5 rounded bg-black/50 border border-white/10">Mars</span>
         </div>
 
         {/* Planet 5: Jupiter */}
-        <div className="absolute top-[22%] left-[69%] -translate-x-1/2 -translate-y-1/2 flex items-center gap-1.5">
+        <div className="absolute top-[22%] left-[77%] -translate-x-1/2 -translate-y-1/2 flex items-center gap-1.5">
           <div className="w-12 h-12 rounded-full bg-gradient-to-b from-amber-700 via-amber-400 to-orange-800 shadow-[0_0_24px_rgba(245,158,11,0.7)] border border-amber-300/40" />
           <span className="text-[10px] font-bold text-amber-100 tracking-wider uppercase backdrop-blur-xs px-1.5 py-0.5 rounded bg-black/50 border border-white/10">Jupiter</span>
         </div>
 
         {/* Planet 6: Saturn */}
-        <div className="absolute top-[70%] left-[70%] -translate-x-1/2 -translate-y-1/2 flex items-center gap-2">
+        <div className="absolute top-[70%] left-[78%] -translate-x-1/2 -translate-y-1/2 flex items-center gap-2">
           <div className="relative w-10 h-10 rounded-full bg-gradient-to-tr from-amber-400 via-amber-200 to-yellow-100 shadow-[0_0_20px_rgba(252,211,77,0.8)] border border-amber-200/50 flex items-center justify-center">
             {/* Saturn Ring */}
             <div className="absolute w-16 h-5 rounded-full border-2 border-amber-300/70 rotate-[-25deg] shadow-[0_0_8px_rgba(252,211,77,0.6)]" />
@@ -198,19 +198,19 @@ export default function SolarHero() {
         </div>
 
         {/* Planet 7: Uranus */}
-        <div className="absolute top-[18%] left-[33%] -translate-x-1/2 -translate-y-1/2 flex items-center gap-1.5">
+        <div className="absolute top-[18%] left-[41%] -translate-x-1/2 -translate-y-1/2 flex items-center gap-1.5">
           <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-teal-700 via-cyan-400 to-sky-200 shadow-[0_0_16px_rgba(45,212,191,0.8)] border border-teal-200/40" />
           <span className="text-[10px] font-bold text-teal-200/90 tracking-wider uppercase backdrop-blur-xs px-1.5 py-0.5 rounded bg-black/50 border border-white/10">Uranus</span>
         </div>
       </div>
 
-      {/* FOREGROUND TRANSPARENT SUN: Centered in the middle of the screen */}
+      {/* FOREGROUND SUN: offset below Mercury to keep both labels unobstructed */}
       <div
         ref={sunRef}
-        className="absolute z-20 pointer-events-none w-52 h-52 sm:w-64 sm:h-64 md:w-[300px] md:h-[300px]"
+        className="absolute z-20 pointer-events-none w-52 h-52 sm:w-60 sm:h-60 md:w-[280px] md:h-[280px]"
         style={{
-          top: '50%',
-          left: '50%',
+          top: '56%',
+          left: '55%',
           transform: 'translate(-50%, -50%)',
         }}
       >
@@ -221,10 +221,14 @@ export default function SolarHero() {
         />
       </div>
 
-      {/* SUBTLE NATURAL SUNLIGHT RAYS SVG: Dynamically synchronized to Sun position */}
+      {/* Ray source is aligned to the Sun's 55% / 56% starting position. */}
       <svg
         ref={raysRef}
         className="absolute inset-0 w-full h-full z-10 pointer-events-none opacity-0 transition-opacity duration-300"
+        style={{
+          top: '6%',
+          left: '5%',
+        }}
         viewBox="0 0 1000 1000"
         preserveAspectRatio="none"
       >
