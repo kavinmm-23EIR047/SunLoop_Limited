@@ -28,7 +28,7 @@ const integratedSolutions = [
     badge: 'Residential All-In-One',
     capacity: '3kW - 15kW PV · 5kWh - 20kWh ESS · 7.4kW - 22kW EV',
     description: 'SunEvo’s all-in-one home energy solution integrates PV inverters, energy storage systems, and EV chargers, enabling your home to be fully powered by clean energy—day or night, rain or shine.',
-    image: '/images/Residential Solar + Storage + EV Charging Solution.png',
+    image: '/images/residential-solar-storage-ev-charging-solution.png',
     fallbackImage: '/images/residential-energy.png',
     imageAlt: 'Residential solar, storage and EV charging solution',
     specs: [
@@ -55,7 +55,7 @@ const integratedSolutions = [
     badge: 'Commercial Microgrid Hub',
     capacity: '30kW - 500kW PV · 50kWh - 1000kWh ESS · 30kW - 240kW DC',
     description: 'Reduce traditional energy consumption and lower charging costs by providing customers with a one-stop zero-carbon charging station that integrates solar generation, energy storage, and EV charging, enabling higher returns.',
-    image: '/images/Commercial Solar + Storage + EV Charging Solution.png',
+    image: '/images/commercial-solar-storage-ev-charging-solution.png',
     fallbackImage: '/images/commercial-energy.png',
     imageAlt: 'Commercial solar, storage and EV charging solution',
     specs: [

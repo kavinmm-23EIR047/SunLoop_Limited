@@ -180,7 +180,7 @@ export default function SolarWaterPumpingPage() {
             >
               <div className="group relative h-[340px] sm:h-[400px] w-full overflow-hidden rounded-2xl border border-black/[0.06] bg-white p-6 shadow-sm hover:shadow-md transition-all duration-300 flex items-center justify-center">
                 <img
-                  src="/images/Solar AC Water Pumping Solution.png"
+                  src="/images/solar-ac-water-pumping-solution.png"
                   alt="Solar AC Water Pumping Solution"
                   className="h-full w-full object-cover rounded-xl filter brightness-95 group-hover:scale-103 transition-transform duration-500"
                   onError={(e) => {
@@ -206,7 +206,7 @@ export default function SolarWaterPumpingPage() {
             >
               <div className="group relative h-[340px] sm:h-[400px] w-full overflow-hidden rounded-2xl border border-black/[0.06] bg-white p-6 shadow-sm hover:shadow-md transition-all duration-300 flex items-center justify-center">
                 <img
-                  src="/images/Solar DC Water Pumping Solution.png"
+                  src="/images/solar-dc-water-pumping-solution.png"
                   alt="Solar DC Water Pumping Solution"
                   className="h-full w-full object-cover rounded-xl filter brightness-95 group-hover:scale-103 transition-transform duration-500"
                   onError={(e) => {

@@ -27,7 +27,7 @@ const storageSolutions = [
     badge: 'Residential ESS',
     capacity: '3kW - 15kW PV · 5kWh - 20kWh Battery',
     description: 'SunEvo Smart Home PV and Energy Storage System provides an all-in-one solution that covers power generation, energy storage, charging, and power consumption. With efficiency and safety at its core, it delivers clean energy to more households, empowering a better, smarter, and more sustainable future.',
-    image: '/images/Residential Solar + Storage System Solution.jpg',
+    image: '/images/residential-solar-storage-system-solution.jpg',
     fallbackImage: '/images/residential-energy.png',
     imageAlt: 'Residential solar and battery storage system',
     specs: [
@@ -53,7 +53,7 @@ const storageSolutions = [
     badge: 'Commercial ESS',
     capacity: '30kW - 500kW PV · 50kWh - 1000kWh Storage',
     description: 'Maximize energy utilization efficiency with an intelligent solar-plus-storage hybrid system. Seamlessly integrate solar power, batteries, and the grid to achieve uninterrupted power supply, reduced energy costs, and sustainable energy management.',
-    image: '/images/C&I Solar + Energy Storage Solution.png',
+    image: '/images/ci-solar-energy-storage-solution.png',
     fallbackImage: '/images/commercial-energy.png',
     imageAlt: 'Commercial solar and energy storage system',
     specs: [
@@ -79,7 +79,7 @@ const storageSolutions = [
     badge: 'Utility ESS Container',
     capacity: '100kW - 5MW · 100kWh - 10MWh Container',
     description: 'By integrating solar and storage, the system enhances renewable energy utilization and ensures stable and reliable grid support. Containerized LiFePO4 battery banks stabilize utility grid frequency and deliver megawatt-scale power backup.',
-    image: '/images/Utility-Scale Solar + Energy Storage Solution.jpg',
+    image: '/images/utility-scale-solar-energy-storage-solution.jpg',
     fallbackImage: '/images/microgrid-battery-container.png',
     imageAlt: 'Utility-scale solar and energy storage solution',
     specs: [

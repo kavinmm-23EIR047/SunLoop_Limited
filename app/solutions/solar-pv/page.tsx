@@ -11,14 +11,14 @@ const solarPVSolutions = [
     number: '01',
     title: 'Residential Solar PV System Solution',
     description: 'Transform your home into a powerhouse with SunEvo’s residential PV system, harnessing the power of the sun to provide sustainable and green electricity for your life.',
-    image: '/images/Residential Solar PV System Solution.png',
+    image: '/images/residential-solar-pv-system-solution.png',
     imageAlt: 'Residential rooftop solar PV system',
   },
   {
     number: '02',
     title: 'Commercial & Industrial Solar PV System Solution',
     description: 'The high-performance commercial PV system from SunEvo can lower energy costs and carbon emissions of your office building or commercial building.',
-    image: '/images/Commercial & Industrial Solar PV System Solution.jpg',
+    image: '/images/commercial-industrial-solar-pv-system-solution.jpg',
     imageAlt: 'Commercial and industrial solar PV system',
   },
   {
