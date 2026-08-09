@@ -2,7 +2,8 @@
 
 import React, { useRef, useEffect } from 'react';
 import Link from 'next/link';
-import { ArrowUpRight, Sparkles, ShieldCheck, Zap, Leaf, Headphones } from 'lucide-react';
+import { ArrowUpRight, Sparkles, ShieldCheck, Zap, Leaf, Headphones, Sun } from 'lucide-react';
+import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Reveal } from './UI';
@@ -314,6 +315,64 @@ export default function SolarHero() {
               </div>
             </div>
           </Reveal>
+        </div>
+
+        {/* FLOATING SPREAD DASHBOARD UI CARDS */}
+        <div className="hidden lg:block absolute top-[25%] right-[5%] z-40 w-72 space-y-10 pointer-events-none">
+          
+          {/* Card 1: Solar Yield */}
+          <motion.div 
+            initial={{ opacity: 0, x: 50, rotate: 10 }}
+            animate={{ opacity: 1, x: 0, rotate: -3 }}
+            transition={{ duration: 1, delay: 1.5, type: "spring" }}
+            className="relative bg-white/10 backdrop-blur-xl border border-white/20 p-5 rounded-[20px] shadow-[0_20px_50px_rgba(0,0,0,0.3)] transform transition-transform duration-300"
+          >
+            <div className="flex items-center justify-between mb-4">
+               <div className="flex items-center gap-2">
+                  <div className="bg-amber-400/20 p-1.5 rounded-lg">
+                    <Sun className="h-4 w-4 text-amber-400" />
+                  </div>
+                  <span className="text-[11px] font-extrabold text-white uppercase tracking-widest">Live Yield</span>
+               </div>
+               <span className="flex h-2.5 w-2.5 relative">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+               </span>
+            </div>
+            <div className="flex items-baseline gap-1.5">
+               <span className="text-4xl font-black text-white tracking-tighter leading-none">124.5</span>
+               <span className="text-sm font-semibold text-white/70">kW</span>
+            </div>
+            <div className="mt-3 text-[10px] font-bold text-amber-300/80 uppercase tracking-wider">↑ 12% higher than yesterday</div>
+          </motion.div>
+
+          {/* Card 2: Battery ESS */}
+          <motion.div 
+            initial={{ opacity: 0, x: 50, rotate: -10 }}
+            animate={{ opacity: 1, x: 0, rotate: 4 }}
+            transition={{ duration: 1, delay: 1.8, type: "spring" }}
+            className="relative bg-white/10 backdrop-blur-xl border border-white/20 p-5 rounded-[20px] shadow-[0_20px_50px_rgba(0,0,0,0.3)] translate-x-16 transform transition-transform duration-300"
+          >
+            <div className="flex items-center justify-between mb-4">
+               <div className="flex items-center gap-2">
+                  <div className="bg-emerald-400/20 p-1.5 rounded-lg">
+                    <Zap className="h-4 w-4 text-emerald-400" />
+                  </div>
+                  <span className="text-[11px] font-extrabold text-white uppercase tracking-widest">ESS Status</span>
+               </div>
+               <span className="text-[9px] font-black px-2 py-0.5 rounded-md bg-emerald-500/20 text-emerald-300 uppercase tracking-widest border border-emerald-500/20">Active</span>
+            </div>
+            <div className="w-full bg-black/40 rounded-full h-2.5 mb-2.5 border border-white/10">
+               <div className="bg-gradient-to-r from-emerald-500 to-emerald-300 h-2.5 rounded-full w-[82%] relative">
+                  <div className="absolute right-0 top-0 bottom-0 w-4 bg-white/30 rounded-full blur-[2px]"></div>
+               </div>
+            </div>
+            <div className="flex justify-between text-[10px] font-bold uppercase tracking-wider">
+               <span className="text-white">82% Charged</span>
+               <span className="text-white/50">4h remaining</span>
+            </div>
+          </motion.div>
+
         </div>
       </div>
     </section>

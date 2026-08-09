@@ -177,7 +177,7 @@ export default function Products() {
                         View Dedicated {product.title} Page <ArrowUpRight className="ml-1 h-4 w-4" />
                       </Button>
                       <Button href="/contact" secondary>
-                        Get Quote
+                        Get Quote <ArrowUpRight className="h-4 w-4" />
                       </Button>
                     </div>
                   </div>

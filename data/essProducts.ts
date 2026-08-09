@@ -42,7 +42,7 @@ export const essProducts: ESSProduct[] = [
       'Parallel Expansion Support up to 15 Units',
       'Compatible with Deye, Victron, Growatt & Solis Inverters',
     ],
-    image: '/images/energy-storage.png',
+    image: '/images/products/product-ess-1.png',
     fallbackImage: '/images/commercial-energy.png',
   },
   {
@@ -67,7 +67,7 @@ export const essProducts: ESSProduct[] = [
       'Instant < 10ms UPS Backup Switchover',
       'IP65 Rated Outdoor & Indoor Protection',
     ],
-    image: '/images/energy-storage.png',
+    image: '/images/products/product-ess-2.png',
     fallbackImage: '/images/commercial-energy.png',
   },
 
@@ -94,7 +94,7 @@ export const essProducts: ESSProduct[] = [
       'Sunloop AI Portal Telemetry for Autonomous Peak Shaving',
       'Multi-Tier Fire Suppression & Thermal Safety Management',
     ],
-    image: '/images/energy-storage.png',
+    image: '/images/products/product-ess-3.png',
     fallbackImage: '/images/commercial-energy.png',
   },
   {
@@ -119,7 +119,7 @@ export const essProducts: ESSProduct[] = [
       'Automated TOD Peak Shaving & Commercial Tariff Arbitrage',
       'Subsecond Response Grid Support & Demand Charge Reduction',
     ],
-    image: '/images/energy-storage.png',
+    image: '/images/products/product-ess-4.png',
     fallbackImage: '/images/commercial-energy.png',
   },
   {
@@ -144,7 +144,7 @@ export const essProducts: ESSProduct[] = [
       'Grid Substation Frequency Regulation & Peak Load Shifting',
       'MW-Scale PCS Integration with Black-Start Capability',
     ],
-    image: '/images/energy-storage.png',
+    image: '/images/products/product-ess-5.png',
     fallbackImage: '/images/commercial-energy.png',
   },
 ];
