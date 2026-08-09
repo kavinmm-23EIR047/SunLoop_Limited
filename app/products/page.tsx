@@ -176,7 +176,7 @@ export default function Products() {
                       <Button href={product.id === 'ev' ? '/products/ev-charging' : product.id === 'lithium' ? '/products/energy-storage' : '/products/solar-power'}>
                         View Dedicated {product.title} Page <ArrowUpRight className="ml-1 h-4 w-4" />
                       </Button>
-                      <Button href="/contact" variant="secondary">
+                      <Button href="/contact" secondary>
                         Get Quote
                       </Button>
                     </div>
