@@ -63,13 +63,11 @@ export function Footer() {
           {/* COLUMN 1: BRAND & MISSION */}
           <div className="space-y-4 lg:col-span-1">
             <Link href="/" className="inline-flex items-center gap-2.5 font-bold text-xl text-white group">
-              <div className="bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-xs border border-white/20 transition-transform group-hover:scale-105">
-                <img
-                  src="/images/logo.png"
-                  alt="Sunloop Energy"
-                  className="h-8 w-auto object-contain"
-                />
-              </div>
+              <img
+                src="/images/logo.png"
+                alt="Sunloop Energy"
+                className="h-9 sm:h-10 w-auto object-contain transition-transform group-hover:scale-105"
+              />
             </Link>
 
             <p className="text-xs text-white/60 font-normal leading-relaxed">

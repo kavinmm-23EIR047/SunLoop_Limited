@@ -126,13 +126,11 @@ export function Navbar() {
       <div className="container flex items-center justify-between">
         {/* Brand Logo */}
         <Link href="/" className="flex items-center gap-2 group">
-          <div className={`transition-all duration-300 ${isDarkHeader ? 'bg-white/95 backdrop-blur-md px-2.5 py-1 rounded-xl shadow-xs border border-white/20' : ''}`}>
-            <img
-              src="/images/logo.png"
-              alt="Sunloop Energy"
-              className="h-8 sm:h-9 w-auto object-contain transition-transform group-hover:scale-105"
-            />
-          </div>
+          <img
+            src="/images/logo.png"
+            alt="Sunloop Energy"
+            className="h-9 sm:h-10 w-auto object-contain transition-transform group-hover:scale-105"
+          />
         </Link>
 
         {/* Desktop Navigation Links */}
@@ -203,7 +201,7 @@ export function Navbar() {
               />
             </button>
 
-            {/* DROPDOWN VERTICAL LIST PANEL (MATCHES IMAGE 2) */}
+            {/* DROPDOWN VERTICAL LIST PANEL */}
             <AnimatePresence>
               {dropdownOpen && (
                 <motion.div
