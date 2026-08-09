@@ -1,12 +1,36 @@
 'use client';
 
 import { FormEvent, useState } from 'react';
-import { ArrowUpRight, Check, MapPin } from 'lucide-react';
-import { Button, Reveal, SectionTitle } from '../../components/UI';
+import { ArrowUpRight, Check, MapPin, Plus, Minus, Mail, Phone, Clock, MessageSquare } from 'lucide-react';
+import { Reveal, SectionTitle } from '../../components/UI';
 import { contact } from '../../data/content';
+
+const faqs = [
+  {
+    q: 'What solar & energy storage systems do you engineer?',
+    a: 'We design and deploy turnkey Solar PV plants (3kW to MW+ scale), LiFePO4 Lithium Battery ESS (5kWh to 1000kWh+), and AC/DC EV Fast Charging Hubs for homes, commercial complexes, and industrial manufacturing facilities.'
+  },
+  {
+    q: 'How does the AI Portal Energy Dashboard work?',
+    a: 'Our AI Portal provides 24/7 real-time telemetry, automated Time-of-Day (TOD) tariff peak shaving, remote string diagnostics, and intelligent EV load balancing from a unified web interface.'
+  },
+  {
+    q: 'What is the typical ROI payback period for commercial solar & ESS?',
+    a: 'Commercial and industrial solar PV combined with peak-shaving ESS typically achieves a full payback within 3 to 4 years through utility bill reductions and accelerated tax depreciation benefits.'
+  },
+  {
+    q: 'Are your EV charging stations compatible with all EV models?',
+    a: 'Yes, our AC Wallbox and DC Fast Chargers support standard Type 2, CCS2, and OCPP 1.6/2.0 open protocol billing gateways compatible with 100% of EV cars, buses, and commercial fleets.'
+  },
+  {
+    q: 'How can I request a site audit or commercial quote?',
+    a: 'You can submit the inquiry form on this page or email us directly at info@sunloopenergy.com. Our engineering team will prepare a detailed solar yield & tariff saving report within 24 hours.'
+  }
+];
 
 export default function Contact() {
   const [sent, setSent] = useState(false);
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   function submit(e: FormEvent) {
     e.preventDefault();
@@ -14,134 +38,199 @@ export default function Contact() {
   }
 
   return (
-    <main className="font-sans bg-[#FAFAF3]">
-      <section className="pb-16 pt-36 md:pt-44 border-b border-black/5">
-        <div className="container">
-          <Reveal>
-            <p className="eyebrow mb-3">Let’s build what’s next</p>
-            <h1 className="text-4xl font-bold md:text-6xl text-brand-ink">
+    <main className="font-sans bg-[#F8FAFC]">
+      {/* HERO SECTION */}
+      <section className="pb-16 pt-36 md:pt-44 border-b border-black/[0.06] bg-white">
+        <div className="container max-w-6xl">
+          <Reveal className="space-y-3">
+            <span className="eyebrow">Let’s build what’s next</span>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-brand-ink tracking-tight leading-[1.1]">
               Start your energy <span className="text-brand-primary">journey.</span>
             </h1>
-            <p className="mt-4 max-w-xl text-base leading-relaxed text-brand-slate font-normal">
-              Tell us what you’re working toward. We’ll help you find the right place to begin.
+            <p className="max-w-xl text-base leading-relaxed text-brand-slate font-normal">
+              Tell us what you’re working toward. Our engineering team will analyze your requirements and recommend the optimal solution.
             </p>
           </Reveal>
         </div>
       </section>
 
-      <section className="container grid gap-10 py-16 md:grid-cols-[1.1fr_.9fr] md:py-24">
-        <Reveal className="panel p-6 md:p-9 bg-white shadow-card rounded-2xl">
+      {/* FORM & HQ CARDS */}
+      <section className="container max-w-6xl grid gap-10 py-16 md:grid-cols-[1.15fr_.85fr] md:py-24">
+        <Reveal className="panel p-8 md:p-10 bg-white shadow-[0_12px_40px_rgba(15,23,42,0.06)] rounded-3xl border border-black/[0.08]">
           {sent ? (
-            <div className="flex min-h-[400px] flex-col items-center justify-center text-center">
-              <span className="grid h-14 w-14 place-items-center rounded-full bg-green-500 text-white">
-                <Check className="h-6 w-6" />
+            <div className="flex min-h-[400px] flex-col items-center justify-center text-center space-y-4">
+              <span className="grid h-16 w-16 place-items-center rounded-full bg-emerald-500 text-white shadow-lg">
+                <Check className="h-8 w-8" />
               </span>
-              <h2 className="mt-6 text-2xl font-bold text-brand-ink">Thanks for reaching out.</h2>
-              <p className="mt-2 text-xs text-brand-slate font-normal">
-                Your message is received. Our engineering team will contact you shortly.
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-brand-ink tracking-tight">Thanks for reaching out.</h2>
+              <p className="text-sm text-brand-slate font-normal max-w-md">
+                Your message has been received. Our senior clean energy engineers will review your request and contact you within 24 hours.
               </p>
             </div>
           ) : (
-            <form onSubmit={submit} className="grid gap-4">
-              <div>
-                <p className="eyebrow mb-1">Get in touch</p>
-                <h2 className="text-2xl font-bold text-brand-ink">Let’s talk energy.</h2>
+            <form onSubmit={submit} className="grid gap-5">
+              <div className="space-y-1">
+                <span className="eyebrow">Get in touch</span>
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-brand-ink tracking-tight">Let’s talk energy.</h2>
               </div>
+
               <div className="grid gap-4 sm:grid-cols-2">
-                <label className="text-xs font-semibold text-brand-ink">
-                  Name
+                <label className="text-xs font-bold text-brand-ink space-y-1.5">
+                  <span>Your Full Name *</span>
                   <input
                     required
-                    className="mt-1.5 w-full rounded-xl border border-black/15 bg-[#FAFAF3] px-3.5 py-2.5 text-xs font-normal text-brand-ink outline-none focus:border-brand-primary"
-                    placeholder="Your name"
+                    className="w-full rounded-xl border border-black/10 bg-[#F8FAFC] px-4 py-3 text-xs font-normal text-brand-ink outline-none focus:border-brand-primary focus:bg-white focus:ring-2 focus:ring-orange-500/20 transition"
+                    placeholder="John Doe"
                   />
                 </label>
-                <label className="text-xs font-semibold text-brand-ink">
-                  Email
+                <label className="text-xs font-bold text-brand-ink space-y-1.5">
+                  <span>Business Email *</span>
                   <input
                     required
                     type="email"
-                    className="mt-1.5 w-full rounded-xl border border-black/15 bg-[#FAFAF3] px-3.5 py-2.5 text-xs font-normal text-brand-ink outline-none focus:border-brand-primary"
+                    className="w-full rounded-xl border border-black/10 bg-[#F8FAFC] px-4 py-3 text-xs font-normal text-brand-ink outline-none focus:border-brand-primary focus:bg-white focus:ring-2 focus:ring-orange-500/20 transition"
                     placeholder="you@company.com"
                   />
                 </label>
               </div>
+
               <div className="grid gap-4 sm:grid-cols-2">
-                <label className="text-xs font-semibold text-brand-ink">
-                  Phone
+                <label className="text-xs font-bold text-brand-ink space-y-1.5">
+                  <span>Phone Number</span>
                   <input
-                    className="mt-1.5 w-full rounded-xl border border-black/15 bg-[#FAFAF3] px-3.5 py-2.5 text-xs font-normal text-brand-ink outline-none focus:border-brand-primary"
-                    placeholder="Phone number"
+                    className="w-full rounded-xl border border-black/10 bg-[#F8FAFC] px-4 py-3 text-xs font-normal text-brand-ink outline-none focus:border-brand-primary focus:bg-white focus:ring-2 focus:ring-orange-500/20 transition"
+                    placeholder="+91 98765 43210"
                   />
                 </label>
-                <label className="text-xs font-semibold text-brand-ink">
-                  Company
+                <label className="text-xs font-bold text-brand-ink space-y-1.5">
+                  <span>Company / Organization</span>
                   <input
-                    className="mt-1.5 w-full rounded-xl border border-black/15 bg-[#FAFAF3] px-3.5 py-2.5 text-xs font-normal text-brand-ink outline-none focus:border-brand-primary"
-                    placeholder="Optional"
+                    className="w-full rounded-xl border border-black/10 bg-[#F8FAFC] px-4 py-3 text-xs font-normal text-brand-ink outline-none focus:border-brand-primary focus:bg-white focus:ring-2 focus:ring-orange-500/20 transition"
+                    placeholder="Company name"
                   />
                 </label>
               </div>
-              <label className="text-xs font-semibold text-brand-ink">
-                Interested solution
-                <select className="mt-1.5 w-full rounded-xl border border-black/15 bg-[#FAFAF3] px-3.5 py-2.5 text-xs font-normal text-brand-ink outline-none focus:border-brand-primary">
-                  <option>Solar Power Plant</option>
-                  <option>ESS Battery Storage</option>
-                  <option>EV Charging Infrastructure</option>
-                  <option>Full Clean Ecosystem</option>
+
+              <label className="text-xs font-bold text-brand-ink space-y-1.5">
+                <span>Interested Solution</span>
+                <select className="w-full rounded-xl border border-black/10 bg-[#F8FAFC] px-4 py-3 text-xs font-normal text-brand-ink outline-none focus:border-brand-primary focus:bg-white focus:ring-2 focus:ring-orange-500/20 transition">
+                  <option>Commercial &amp; Industrial Solar PV + ESS</option>
+                  <option>Residential Rooftop Solar System</option>
+                  <option>Lithium Battery Storage System (ESS)</option>
+                  <option>EV Charging Infrastructure (AC / DC Fast)</option>
+                  <option>Full Unified 3-in-1 Ecosystem</option>
                   <option>AI Portal Only</option>
                 </select>
               </label>
-              <label className="text-xs font-semibold text-brand-ink">
-                Message
+
+              <label className="text-xs font-bold text-brand-ink space-y-1.5">
+                <span>Message / Requirement Details *</span>
                 <textarea
                   required
                   rows={4}
-                  className="mt-1.5 w-full rounded-xl border border-black/15 bg-[#FAFAF3] px-3.5 py-2.5 text-xs font-normal text-brand-ink outline-none focus:border-brand-primary"
-                  placeholder="Tell us a little about your energy goals..."
+                  className="w-full rounded-xl border border-black/10 bg-[#F8FAFC] px-4 py-3 text-xs font-normal text-brand-ink outline-none focus:border-brand-primary focus:bg-white focus:ring-2 focus:ring-orange-500/20 transition"
+                  placeholder="Share details about your property, connected load, or timeline..."
                 />
               </label>
-              <button className="rounded-xl bg-brand-primary px-5 py-3 text-xs font-bold text-white hover:bg-[#c95315] transition">
-                Send enquiry <ArrowUpRight className="ml-2 inline h-4 w-4" />
+
+              <button className="soft-btn w-full sm:w-auto mt-2">
+                Send Enquiry <ArrowUpRight className="h-4 w-4" />
               </button>
             </form>
           )}
         </Reveal>
 
+        {/* HQ INFORMATION CARD */}
         <Reveal>
-          <div className="rounded-2xl bg-brand-ink p-8 text-white shadow-card relative overflow-hidden">
-            <img
-              src="https://images.unsplash.com/photo-1509391365360-2e959784a276?q=80&w=800&auto=format&fit=crop"
-              alt="Sunloop HQ"
-              className="absolute inset-0 h-full w-full object-cover opacity-20"
-            />
-            <div className="relative z-10">
-              <p className="eyebrow text-brand-apricot">Sunloop Energy</p>
-              <h2 className="mt-8 text-2xl font-bold">Come build a greener tomorrow with us.</h2>
-              <div className="mt-8 grid gap-5 text-xs font-normal">
-                <div className="flex gap-3">
-                  <MapPin className="h-5 w-5 shrink-0 text-brand-apricot" />
-                  <span>
-                    <b className="block text-white font-bold">Headquarters</b>
-                    <span className="text-white/70">{contact.hq}</span>
-                  </span>
+          <div className="rounded-3xl bg-[#0F172A] p-8 md:p-10 text-white shadow-[0_20px_50px_rgba(15,23,42,0.25)] relative overflow-hidden flex flex-col justify-between h-full border border-white/10">
+            <div className="relative z-10 space-y-8">
+              <div>
+                <span className="eyebrow text-[#E86526]">HEADQUARTERS</span>
+                <h2 className="mt-3 text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+                  Come build a greener tomorrow with us.
+                </h2>
+              </div>
+
+              <div className="space-y-6 text-xs sm:text-sm font-normal text-white/80">
+                <div className="flex gap-4 items-start">
+                  <div className="grid h-10 w-10 place-items-center rounded-xl bg-white/10 text-[#E86526] shrink-0 border border-white/10">
+                    <MapPin className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <strong className="block text-white font-bold text-sm mb-0.5">Primary Location</strong>
+                    <span className="text-white/70 leading-relaxed block">{contact.hq}</span>
+                  </div>
                 </div>
-                <div>
-                  <b className="block text-white font-bold">Website</b>
-                  <span className="text-white/70">{contact.website}</span>
+
+                <div className="flex gap-4 items-start">
+                  <div className="grid h-10 w-10 place-items-center rounded-xl bg-white/10 text-[#E86526] shrink-0 border border-white/10">
+                    <Mail className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <strong className="block text-white font-bold text-sm mb-0.5">Email Support</strong>
+                    <a href="mailto:info@sunloopenergy.com" className="text-white/70 hover:text-white transition">{contact.email}</a>
+                  </div>
                 </div>
-                <div>
-                  <b className="block text-white font-bold">Email / Phone</b>
-                  <span className="text-white/70">
-                    {contact.email}
-                    <br />
-                    {contact.phone}
-                  </span>
+
+                <div className="flex gap-4 items-start">
+                  <div className="grid h-10 w-10 place-items-center rounded-xl bg-white/10 text-[#E86526] shrink-0 border border-white/10">
+                    <Phone className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <strong className="block text-white font-bold text-sm mb-0.5">Direct Line</strong>
+                    <a href="tel:+914222987654" className="text-white/70 hover:text-white transition">{contact.phone}</a>
+                  </div>
                 </div>
+              </div>
+            </div>
+
+            <div className="relative z-10 pt-8 border-t border-white/10 mt-8">
+              <div className="flex items-center gap-3">
+                <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="text-xs text-white/60 font-medium">Engineers active mon–sat (9am–7pm IST)</span>
               </div>
             </div>
           </div>
         </Reveal>
+      </section>
+
+      {/* FREQUENTLY ASKED QUESTIONS SECTION (Matching Reference FAQ Style) */}
+      <section className="py-20 bg-white border-t border-black/[0.06]">
+        <div className="container max-w-4xl mx-auto px-4 space-y-12">
+          <Reveal className="text-center space-y-3">
+            <span className="eyebrow justify-center">GOT QUESTIONS?</span>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-brand-ink tracking-tight">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-sm text-brand-slate font-normal max-w-xl mx-auto">
+              Everything you need to know about our solar PV systems, battery storage, and AI telemetry platform.
+            </p>
+          </Reveal>
+
+          <div className="space-y-4">
+            {faqs.map((faq, idx) => {
+              const isOpen = openFaq === idx;
+              return (
+                <Reveal key={faq.q} className="rounded-2xl border border-black/[0.08] bg-white overflow-hidden shadow-2xs">
+                  <button
+                    onClick={() => setOpenFaq(isOpen ? null : idx)}
+                    className="w-full flex items-center justify-between p-6 text-left font-bold text-base text-brand-ink hover:text-brand-primary transition gap-4"
+                  >
+                    <span>{faq.q}</span>
+                    <span className="grid h-8 w-8 place-items-center rounded-full bg-[#F8FAFC] text-brand-ink shrink-0 border border-black/[0.06]">
+                      {isOpen ? <Minus className="h-4 w-4 text-[#E86526]" /> : <Plus className="h-4 w-4 text-brand-slate" />}
+                    </span>
+                  </button>
+                  {isOpen && (
+                    <div className="px-6 pb-6 pt-0 text-sm text-brand-slate font-normal leading-relaxed border-t border-black/[0.04]">
+                      {faq.a}
+                    </div>
+                  )}
+                </Reveal>
+              );
+            })}
+          </div>
+        </div>
       </section>
     </main>
   );

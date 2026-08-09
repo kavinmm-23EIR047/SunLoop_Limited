@@ -127,27 +127,27 @@ export default function ConnectedJourneyScrollShowcase() {
                     opacity: anim.opacity,
                     y: anim.y,
                   }}
-                  className={`relative flex flex-col justify-between rounded-3xl p-5 sm:p-6 transition-all duration-300 ${
+                  className={`relative flex flex-col justify-between rounded-3xl p-6 sm:p-7 transition-all duration-300 ${
                     stage.isDark
-                      ? 'bg-[#1E293B] text-white border border-slate-700 shadow-2xl ring-1 ring-white/10'
-                      : 'bg-white text-brand-ink border border-black/10 shadow-card hover:shadow-2xl'
+                      ? 'bg-[#0F172A] text-white border border-white/15 shadow-[0_20px_50px_rgba(15,23,42,0.25)] ring-1 ring-white/10'
+                      : 'bg-white text-brand-ink border border-black/[0.08] shadow-[0_8px_30px_rgba(15,23,42,0.04)] hover:shadow-2xl'
                   }`}
                 >
                   <div>
                     {/* Top Row: Number & Icon */}
-                    <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center justify-between mb-5">
                       <span
-                        className={`text-3xl font-extrabold tracking-tight ${
+                        className={`text-3xl sm:text-4xl font-extrabold tracking-tight ${
                           stage.isDark ? 'text-[#E86526]' : 'text-brand-primary'
                         }`}
                       >
                         {stage.num}
                       </span>
                       <div
-                        className={`grid h-10 w-10 place-items-center rounded-2xl ${
+                        className={`grid h-11 w-11 place-items-center rounded-2xl ${
                           stage.isDark
-                            ? 'bg-white/10 text-[#E86526]'
-                            : 'bg-orange-100 text-brand-primary'
+                            ? 'bg-white/10 text-[#E86526] border border-white/10'
+                            : 'bg-orange-50 text-brand-primary border border-orange-100'
                         }`}
                       >
                         <IconComp className="h-5 w-5" />
@@ -155,19 +155,19 @@ export default function ConnectedJourneyScrollShowcase() {
                     </div>
 
                     <span
-                      className={`text-[10px] font-bold uppercase tracking-widest block mb-1 ${
+                      className={`text-[10px] font-bold uppercase tracking-[0.14em] block mb-1.5 ${
                         stage.isDark ? 'text-[#E86526]' : 'text-brand-primary'
                       }`}
                     >
                       {stage.eyebrow}
                     </span>
 
-                    <h3 className={`text-lg sm:text-xl font-bold tracking-tight mb-2 leading-snug ${stage.isDark ? 'text-white' : 'text-brand-ink'}`}>
+                    <h3 className={`text-xl font-bold tracking-tight mb-2.5 leading-snug ${stage.isDark ? 'text-white' : 'text-brand-ink'}`}>
                       {stage.title}
                     </h3>
 
                     <p
-                      className={`text-xs font-normal leading-relaxed ${
+                      className={`text-xs sm:text-sm font-normal leading-relaxed ${
                         stage.isDark ? 'text-white/85' : 'text-brand-slate'
                       }`}
                     >
@@ -177,10 +177,10 @@ export default function ConnectedJourneyScrollShowcase() {
 
                   {/* Footer Tagline */}
                   <div
-                    className={`mt-6 border-t pt-3.5 text-[11px] font-semibold leading-relaxed ${
+                    className={`mt-6 border-t pt-4 text-[11px] font-bold leading-relaxed ${
                       stage.isDark
-                        ? 'border-white/15 text-[#E86526]'
-                        : 'border-black/10 text-[#E86526]'
+                        ? 'border-white/10 text-[#E86526]'
+                        : 'border-black/[0.06] text-[#E86526]'
                     }`}
                   >
                     {stage.foot}
