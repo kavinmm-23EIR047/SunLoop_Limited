@@ -32,7 +32,7 @@ export default function SolarWaterPumpingPage() {
       </div>
 
       {/* HERO BANNER */}
-      <section className="relative w-full h-[400px] sm:h-[480px] md:h-[500px] overflow-hidden bg-brand-ink text-white flex items-center">
+      <section className="relative w-full h-[460px] sm:h-[560px] md:h-[620px] overflow-hidden bg-brand-ink text-white flex items-center">
         <div
           className="absolute inset-0 bg-cover bg-center pointer-events-none opacity-35 scale-105 transition-transform duration-1000"
           style={{

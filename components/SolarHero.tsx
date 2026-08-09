@@ -18,6 +18,7 @@ export default function SolarHero() {
   const sunRef = useRef<HTMLDivElement>(null);
   const planetsRef = useRef<HTMLDivElement>(null);
   const raysRef = useRef<SVGSVGElement>(null);
+  const panelReflectionRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -103,11 +104,20 @@ export default function SolarHero() {
         .to(
           raysRef.current,
           {
-            opacity: 0.75,
+            opacity: 0,
             ease: 'power2.out',
             duration: 1.5,
           },
           2.0
+        )
+        .to(
+          panelReflectionRef.current,
+          {
+            opacity: 0.7,
+            ease: 'power2.out',
+            duration: 1.5,
+          },
+          1.8
         )
         .to(
           raysRef.current,
@@ -126,12 +136,12 @@ export default function SolarHero() {
   return (
     <section
       ref={heroRef}
-      className="relative w-full h-screen min-h-[700px] overflow-hidden bg-[#0A0D14] text-white flex items-center"
+      className="relative w-full h-screen min-h-[760px] overflow-hidden bg-[#f8f6f1] text-brand-ink flex items-center"
     >
       {/* BACKGROUND SCENE: Plain space initially (opacity 0), smoothly fades in & reveals landscape on scroll */}
       <div
         ref={bgRef}
-        className="absolute inset-0 w-full h-full z-0 overflow-hidden opacity-0 scale-[1.15]"
+        className="absolute inset-0 w-full h-full z-0 overflow-hidden opacity-100 scale-100"
         style={{ transformOrigin: 'center center' }}
       >
         <img
@@ -140,14 +150,14 @@ export default function SolarHero() {
           className="w-full h-full object-cover object-center filter brightness-100 contrast-[1.05]"
         />
         {/* Deep gradient overlay on left for optimal text contrast */}
-        <div className="absolute inset-y-0 left-0 w-full md:w-[60%] bg-gradient-to-r from-[#0A0D14]/95 via-[#0A0D14]/70 to-transparent pointer-events-none" />
-        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#0A0D14] to-transparent pointer-events-none" />
+        <div className="absolute inset-y-0 left-0 w-full md:w-[58%] bg-gradient-to-r from-white via-white/85 to-transparent pointer-events-none" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-white/95 to-transparent pointer-events-none" />
       </div>
 
       {/* 7 PLANETS SOLAR SYSTEM SPREAD: Floating around central Sun initially */}
       <div
         ref={planetsRef}
-        className="absolute inset-0 z-10 pointer-events-none transition-opacity duration-300"
+        className="hidden"
       >
         {/* Subtle orbital rings aligned with the offset Sun */}
         <div className="absolute top-[56%] left-[55%] -translate-x-1/2 -translate-y-1/2 w-[340px] h-[340px] rounded-full border border-amber-500/20 border-dashed" />
@@ -207,7 +217,7 @@ export default function SolarHero() {
       {/* FOREGROUND SUN: offset below Mercury to keep both labels unobstructed */}
       <div
         ref={sunRef}
-        className="absolute z-20 pointer-events-none w-52 h-52 sm:w-60 sm:h-60 md:w-[280px] md:h-[280px]"
+        className="hidden"
         style={{
           top: '56%',
           left: '55%',
@@ -224,7 +234,7 @@ export default function SolarHero() {
       {/* Ray source is aligned to the Sun's 55% / 56% starting position. */}
       <svg
         ref={raysRef}
-        className="absolute inset-0 w-full h-full z-10 pointer-events-none opacity-0 transition-opacity duration-300"
+        className="hidden"
         style={{
           top: '6%',
           left: '5%',
@@ -251,23 +261,31 @@ export default function SolarHero() {
         <polygon points="500,500 660,850 760,880" fill="url(#sunRayGrad1)" />
       </svg>
 
+      {/* Sunlight glint projected directly across the solar-panel surface. */}
+      <div
+        ref={panelReflectionRef}
+        className="pointer-events-none absolute left-[43%] top-[37%] z-10 h-[18%] w-[49%] -skew-x-[18deg] overflow-hidden opacity-0"
+      >
+        <div className="h-full w-full animate-[pulse_3s_ease-in-out_infinite] bg-[linear-gradient(110deg,transparent_12%,rgba(255,224,130,0.08)_30%,rgba(255,250,210,0.56)_48%,rgba(255,224,130,0.12)_66%,transparent_84%)]" />
+      </div>
+
       {/* HOMEPAGE HERO CONTENT: Fully visible on load with high z-index & perfect contrast */}
       <div
         ref={contentRef}
-        className="container relative z-30 mx-auto px-4 pt-20 md:pt-24 pb-12 opacity-100 translate-y-0"
+        className="container relative z-30 mx-auto px-4 pt-24 md:pt-28 pb-12 opacity-100 translate-y-0"
       >
         <div className="max-w-xl">
           <Reveal>
-            <div className="inline-flex items-center gap-2 rounded-full bg-white/15 border border-white/25 backdrop-blur-md px-4 py-1.5 text-xs font-semibold text-amber-300 shadow-md mb-5">
+            <div className="inline-flex items-center gap-2 rounded-full border border-orange-100 bg-white/80 px-4 py-2 text-xs font-semibold text-brand-ink shadow-sm mb-5">
               <span className="text-amber-300">✦</span> Next-Gen Solar PV + ESS + EV Ecosystem
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-white leading-[1.12] drop-shadow-lg">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 leading-[1.12]">
               Powering Tomorrow,<br />
-              <span className="text-[#E86526] drop-shadow-md">Sustainably.</span>
+              <span className="text-[#F26422]">Sustainably.</span>
             </h1>
 
-            <p className="mt-4 text-sm sm:text-base text-white/95 max-w-md font-normal leading-relaxed drop-shadow-sm">
+            <p className="mt-4 text-sm sm:text-base text-slate-700 max-w-md font-normal leading-relaxed">
               Clean. Intelligent. Integrated. Generate, store, and manage your renewable energy through Sunloop Energy's unified AI platform.
             </p>
 
@@ -281,8 +299,8 @@ export default function SolarHero() {
             </div>
 
             {/* 4 Micro-Features Row */}
-            <div className="mt-6 md:mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 border-t border-white/20 pt-5 text-xs text-white/95 font-medium">
-              <div className="flex items-center gap-2">
+            <div className="absolute bottom-5 left-4 right-4 z-40 grid grid-cols-2 gap-4 rounded-2xl border border-slate-600 bg-[#182431] p-5 text-xs text-white shadow-2xl sm:grid-cols-4 sm:gap-0 sm:p-6">
+              <div className="flex items-center gap-2 sm:border-r sm:border-white/15 sm:px-5 sm:first:pl-0">
                 <ShieldCheck className="h-4 w-4 text-amber-300 shrink-0" />
                 <div>
                   <b className="text-white">Est. 2016</b>
@@ -290,7 +308,7 @@ export default function SolarHero() {
                 </div>
               </div>
 
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 sm:border-r sm:border-white/15 sm:px-5">
                 <Zap className="h-4 w-4 text-amber-300 shrink-0" />
                 <div>
                   <b className="text-white">3-in-1 Tech</b>
@@ -298,7 +316,7 @@ export default function SolarHero() {
                 </div>
               </div>
 
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 sm:border-r sm:border-white/15 sm:px-5">
                 <Leaf className="h-4 w-4 text-emerald-300 shrink-0" />
                 <div>
                   <b className="text-white">100% Clean</b>
@@ -306,7 +324,7 @@ export default function SolarHero() {
                 </div>
               </div>
 
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 sm:pl-5">
                 <Headphones className="h-4 w-4 text-amber-300 shrink-0" />
                 <div>
                   <b className="text-white">AI Powered</b>
@@ -323,9 +341,9 @@ export default function SolarHero() {
           {/* Card 1: Solar Yield */}
           <motion.div 
             initial={{ opacity: 0, x: 50, rotate: 10 }}
-            animate={{ opacity: 1, x: 0, rotate: -3 }}
-            transition={{ duration: 1, delay: 1.5, type: "spring" }}
-            className="relative bg-white/10 backdrop-blur-xl border border-white/20 p-5 rounded-[20px] shadow-[0_20px_50px_rgba(0,0,0,0.3)] transform transition-transform duration-300"
+            animate={{ opacity: 1, x: 0, y: [0, -10, 0], rotate: [-3, -1, -3] }}
+            transition={{ duration: 3.5, delay: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            className="relative bg-[#273b4e] border border-white/20 p-5 rounded-[20px] shadow-[0_20px_50px_rgba(0,0,0,0.38)] transform transition-transform duration-300"
           >
             <div className="flex items-center justify-between mb-4">
                <div className="flex items-center gap-2">
@@ -349,9 +367,9 @@ export default function SolarHero() {
           {/* Card 2: Battery ESS */}
           <motion.div 
             initial={{ opacity: 0, x: 50, rotate: -10 }}
-            animate={{ opacity: 1, x: 0, rotate: 4 }}
-            transition={{ duration: 1, delay: 1.8, type: "spring" }}
-            className="relative bg-white/10 backdrop-blur-xl border border-white/20 p-5 rounded-[20px] shadow-[0_20px_50px_rgba(0,0,0,0.3)] translate-x-16 transform transition-transform duration-300"
+            animate={{ opacity: 1, x: 0, y: [0, 9, 0], rotate: [4, 2, 4] }}
+            transition={{ duration: 4, delay: 1.8, repeat: Infinity, ease: "easeInOut" }}
+            className="relative bg-[#283b32] border border-white/20 p-5 rounded-[20px] shadow-[0_20px_50px_rgba(0,0,0,0.38)] translate-x-16 transform transition-transform duration-300"
           >
             <div className="flex items-center justify-between mb-4">
                <div className="flex items-center gap-2">

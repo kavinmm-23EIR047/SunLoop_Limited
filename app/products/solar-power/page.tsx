@@ -114,21 +114,17 @@ export default function SolarPowerPage() {
   return (
     <main className="min-h-screen bg-[#FAFAF5] pt-16 pb-16 font-sans">
       {/* HERO BANNER */}
-      <section className="relative w-full h-[400px] sm:h-[480px] md:h-[520px] overflow-hidden bg-brand-ink text-white flex items-center">
+      <section className="relative w-full h-[460px] sm:h-[560px] md:h-[640px] overflow-hidden bg-brand-ink text-white flex items-center">
         <div
-          className="absolute inset-0 bg-cover bg-center pointer-events-none opacity-50 scale-105 transition-transform duration-1000"
+          className="absolute inset-0 bg-cover bg-center pointer-events-none transition-transform duration-1000"
           style={{
             backgroundImage: `url('/products/Solar power/30-500kW Hybrid Commercial Solar System Kits.png')`,
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/30 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent pointer-events-none" />
 
         <div className="container relative z-10 max-w-5xl mx-auto px-4">
           <Reveal className="max-w-2xl space-y-4">
-            <span className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/15 px-3.5 py-1 text-[11px] font-semibold text-brand-apricot uppercase tracking-wider">
-              <Sun className="h-3.5 w-3.5" /> SOLAR POWER
-            </span>
-
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-white tracking-tight leading-tight">
               Solar Power
             </h1>
@@ -199,33 +195,9 @@ export default function SolarPowerPage() {
                     </p>
                   </div>
 
-                  <p className="text-xs text-brand-slate leading-relaxed font-normal">
+                  <p className="max-w-md text-xs text-brand-slate leading-relaxed font-normal line-clamp-2">
                     {prod.desc}
                   </p>
-
-                  {/* SPECS GRID */}
-                  <div className="grid grid-cols-2 gap-2.5 pt-1">
-                    {prod.specs.map((spec) => (
-                      <div key={spec.label} className="rounded-xl border border-black/[0.06] bg-white p-2.5 shadow-2xs">
-                        <span className="block text-[9px] font-semibold text-brand-slate uppercase">{spec.label}</span>
-                        <strong className="block text-xs font-semibold text-brand-ink mt-0.5">{spec.value}</strong>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* WARRANTIES LIST */}
-                  <div className="rounded-xl bg-amber-500/10 border border-amber-500/20 p-3 space-y-1.5">
-                    <div className="flex items-center gap-1.5 text-xs font-bold text-amber-900">
-                      <Award className="h-4 w-4 text-amber-600 shrink-0" />
-                      <span>Product Warranties</span>
-                    </div>
-                    {prod.warranties.map((w) => (
-                      <div key={w} className="flex items-center gap-2 text-xs text-amber-950 font-medium">
-                        <Check className="h-3.5 w-3.5 text-amber-600 shrink-0" />
-                        <span>{w}</span>
-                      </div>
-                    ))}
-                  </div>
 
                   {/* ACTION BUTTONS */}
                   <div className="pt-2 flex items-center gap-3">
@@ -233,7 +205,7 @@ export default function SolarPowerPage() {
                       onClick={() => setActiveModal(prod)}
                       className="inline-flex items-center gap-2 rounded-xl border border-black/10 bg-white px-5 py-2.5 text-xs font-semibold text-brand-ink shadow-2xs hover:border-brand-primary hover:text-brand-primary transition"
                     >
-                      <Sliders className="h-3.5 w-3.5" /> Full Specifications
+                      <Sliders className="h-3.5 w-3.5" /> View Full Specifications
                     </button>
                     <Link
                       href="/contact"

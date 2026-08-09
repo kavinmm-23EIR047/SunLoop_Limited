@@ -6,21 +6,21 @@ const storageSolutions = [
   {
     number: '01',
     title: 'Residential Solar + Storage System Solution',
-    description: 'SunEvo Smart Home PV and Energy Storage System provides an all-in-one solution that covers power generation, energy storage, charging, and power consumption. With efficiency and safety at its core, it delivers clean energy to more households, empowering a better, smarter, and more sustainable future.',
+    description: 'Store daytime solar energy for use after sunset, with dependable backup power for the moments that matter.',
     image: '/images/residential-energy.png',
     imageAlt: 'Residential solar and battery storage system',
   },
   {
     number: '02',
     title: 'C&I Solar + Energy Storage Solution',
-    description: 'Maximize energy utilization efficiency with an intelligent solar-plus-storage hybrid system. Seamlessly integrate solar power, batteries, and the grid to achieve uninterrupted power supply, reduced energy costs, and sustainable energy management.',
+    description: 'Combine solar and storage to reduce peak-demand costs, improve resilience, and use more of the energy you generate.',
     image: '/images/commercial-energy.png',
     imageAlt: 'Commercial solar and energy storage system',
   },
   {
     number: '03',
     title: 'Utility-Scale Solar + Energy Storage Solution',
-    description: 'By integrating solar and storage, the system enhances renewable energy utilization and ensures stable and reliable grid support.',
+    description: 'Large-scale storage supports renewable generation, grid stability, and predictable energy supply.',
     image: '/images/solar-hero-bg-realistic.png',
     imageAlt: 'Utility-scale solar and energy storage solution',
   },
@@ -29,7 +29,7 @@ const storageSolutions = [
 export default function SolarStoragePage() {
   return (
     <main className="min-h-screen bg-[#FAFAF5] pb-16 pt-16 font-sans">
-      <section className="relative flex min-h-[390px] items-center overflow-hidden bg-brand-ink text-white sm:min-h-[460px]">
+      <section className="relative flex min-h-[460px] items-center overflow-hidden bg-brand-ink text-white sm:min-h-[560px]">
         <div className="absolute inset-0 bg-cover bg-center opacity-45" style={{ backgroundImage: "url('/images/hero-ess.png')" }} />
         <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/65 to-black/30" />
         <div className="container relative z-10 mx-auto max-w-5xl px-4">
@@ -44,12 +44,12 @@ export default function SolarStoragePage() {
       </section>
 
       <section className="py-14 md:py-20">
-        <div className="container mx-auto max-w-5xl space-y-16 px-4">
+        <div className="container mx-auto max-w-6xl space-y-16 px-4">
           {storageSolutions.map((solution, index) => (
             <Reveal key={solution.number} className="grid items-center gap-8 border-b border-black/[0.07] pb-16 last:border-0 last:pb-0 md:grid-cols-2 md:gap-12">
               <div className={index % 2 === 1 ? 'md:order-2' : ''}>
-                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-black/[0.07] bg-white shadow-sm">
-                  <img src={solution.image} alt={solution.imageAlt} className="h-full w-full object-cover" />
+                <div className="group relative aspect-[16/10] overflow-hidden rounded-2xl border border-black/[0.07] bg-white shadow-sm">
+                  <img src={solution.image} alt={solution.imageAlt} className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" />
                   <span className="absolute left-4 top-4 rounded-full bg-brand-ink px-3 py-1 text-[10px] font-bold text-white shadow-sm">SOLUTION {solution.number}</span>
                 </div>
               </div>

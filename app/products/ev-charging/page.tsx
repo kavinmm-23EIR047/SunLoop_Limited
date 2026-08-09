@@ -56,54 +56,20 @@ export default function EVChargingPage() {
   return (
     <main className="min-h-screen bg-[#FAFAF5] pt-16 pb-16 font-sans">
       {/* FULL-BLEED HIGH-IMPACT HERO BANNER */}
-      <section className="relative w-full h-[380px] sm:h-[460px] md:h-[500px] overflow-hidden bg-brand-ink text-white flex items-center">
+      <section className="relative w-full h-[460px] sm:h-[560px] md:h-[640px] overflow-hidden bg-brand-ink text-white flex items-center">
         <div
-          className="absolute inset-0 bg-cover bg-center pointer-events-none opacity-50 scale-105 transition-transform duration-1000"
+          className="absolute inset-0 bg-cover bg-center pointer-events-none transition-transform duration-1000"
           style={{
             backgroundImage: `url('/products/EV charger/DC EV Charger.png')`,
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/30 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent pointer-events-none" />
 
         <div className="container relative z-10 max-w-5xl mx-auto px-4">
           <Reveal className="max-w-xl space-y-4">
-            <span className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/15 px-3.5 py-1 text-[11px] font-semibold text-brand-apricot uppercase tracking-wider">
-              <Zap className="h-3.5 w-3.5" /> EV CHARGING STATIONS
-            </span>
-
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-white tracking-tight leading-tight">
               EV Chargers
             </h1>
-
-            <p className="text-xs sm:text-sm text-white/80 font-normal leading-relaxed max-w-lg">
-              Residential &amp; Commercial AC &amp; DC charging stations (3.5 kW to 480 kW) with smart load balancing, single/dual/split outputs &amp; OCPP billing telemetry.
-            </p>
-
-            <div className="flex items-center gap-3 pt-2">
-              <div className="rounded-xl border border-white/15 bg-white/10 backdrop-blur-xs px-3.5 py-1.5 text-xs">
-                <span className="text-white/60 text-[10px] block">POWER OUTPUT</span>
-                <strong className="text-white font-semibold">3.5 to 480 kW</strong>
-              </div>
-              <div className="rounded-xl border border-white/15 bg-white/10 backdrop-blur-xs px-3.5 py-1.5 text-xs">
-                <span className="text-white/60 text-[10px] block">PROTOCOL</span>
-                <strong className="text-emerald-400 font-semibold">OCPP 1.6 / 2.0</strong>
-              </div>
-            </div>
-
-            <div className="pt-3 flex flex-wrap gap-3">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 rounded-xl bg-[#E86526] px-6 py-3 text-xs font-semibold text-white shadow-md hover:bg-[#c95315] transition"
-              >
-                Request EV Quote <ArrowUpRight className="h-3.5 w-3.5" />
-              </Link>
-              <Link
-                href="/ai-portal"
-                className="inline-flex items-center gap-2 rounded-xl bg-white/10 border border-white/20 px-6 py-3 text-xs font-semibold text-white hover:bg-white/20 transition"
-              >
-                <Bot className="h-3.5 w-3.5 text-brand-apricot" /> Explore OCPP AI Portal
-              </Link>
-            </div>
           </Reveal>
         </div>
       </section>
@@ -172,29 +138,9 @@ export default function EVChargingPage() {
                     </p>
                   </div>
 
-                  <p className="text-xs text-brand-slate leading-relaxed font-normal">
+                  <p className="max-w-md text-xs text-brand-slate leading-relaxed font-normal line-clamp-2">
                     {prod.desc}
                   </p>
-
-                  {/* KEY SPECS GRID */}
-                  <div className="grid grid-cols-2 gap-2.5 pt-1">
-                    {prod.specs.map((spec) => (
-                      <div key={spec.label} className="rounded-xl border border-black/[0.06] bg-white p-2.5 shadow-2xs">
-                        <span className="block text-[9px] font-semibold text-brand-slate uppercase">{spec.label}</span>
-                        <strong className="block text-xs font-semibold text-brand-ink mt-0.5">{spec.value}</strong>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* TECH BULLETS */}
-                  <div className="space-y-1.5 pt-1">
-                    {prod.tech.map((t) => (
-                      <div key={t} className="flex items-center gap-2 text-xs text-brand-ink font-normal">
-                        <CheckCircle2 className="h-3.5 w-3.5 text-brand-primary shrink-0" />
-                        <span>{t}</span>
-                      </div>
-                    ))}
-                  </div>
 
                   {/* ACTION BUTTONS */}
                   <div className="pt-2 flex items-center gap-3">
@@ -202,7 +148,7 @@ export default function EVChargingPage() {
                       onClick={() => setActiveModal(prod)}
                       className="inline-flex items-center gap-2 rounded-xl border border-black/10 bg-white px-5 py-2.5 text-xs font-semibold text-brand-ink shadow-2xs hover:border-brand-primary hover:text-brand-primary transition"
                     >
-                      <Sliders className="h-3.5 w-3.5" /> Full Specifications
+                      <Sliders className="h-3.5 w-3.5" /> View Full Specifications
                     </button>
                     <Link
                       href="/contact"
