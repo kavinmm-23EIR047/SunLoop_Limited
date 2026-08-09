@@ -89,101 +89,9 @@ export default function HomeOwnersSolutionPage() {
           </Reveal>
         </div>
       </section>
-
-      {/* DEDICATED RESIDENTIAL SOLAR PV SOLUTION SECTION */}
-      <section className="py-14 md:py-20 bg-white border-b border-black/[0.06]">
-        <div className="container max-w-5xl mx-auto px-4 space-y-10">
-          <Reveal className="text-center max-w-2xl mx-auto space-y-2">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-100 px-3 py-1 text-[10px] font-bold text-amber-700 uppercase tracking-wider">
-              <Sun className="h-3.5 w-3.5" /> RESIDENTIAL SOLAR PV
-            </span>
-            <h2 className="text-2xl md:text-3xl font-extrabold text-brand-ink">
-              Residential Solar PV System Solution
-            </h2>
-            <p className="text-xs md:text-sm text-brand-slate font-normal">
-              Transform your home into a clean energy powerhouse with Sunloop’s residential PV systems, capturing the power of the sun for sustainable living.
-            </p>
-          </Reveal>
-
-          <div className="grid gap-8 md:grid-cols-1 max-w-3xl mx-auto">
-            {resSolarProducts?.map((prod) => (
-              <Reveal key={prod.id} className="h-full">
-                <div className="h-full rounded-2xl border border-black/10 bg-[#FAFAF5] p-6 sm:p-8 shadow-xs hover:shadow-md transition space-y-5">
-                  <div className="flex flex-wrap items-center justify-between gap-2">
-                    <span className="rounded-md bg-amber-100 px-2.5 py-0.5 text-[10px] font-bold text-amber-800 uppercase">
-                      {prod.series}
-                    </span>
-                    <span className="text-[11px] font-bold text-emerald-600 bg-emerald-50 px-2.5 py-0.5 rounded">
-                      {prod.capacity || (prod as any).power}
-                    </span>
-                  </div>
-
-                  <div className="space-y-2">
-                    <h3 className="text-xl sm:text-2xl font-bold text-brand-ink">
-                      {prod.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-brand-slate leading-relaxed font-normal">
-                      {prod.desc}
-                    </p>
-                  </div>
-
-                  {/* SPECS GRID */}
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-2">
-                    {prod.specs?.map((s) => (
-                      <div key={s.label} className="rounded-xl bg-white border border-black/5 p-3 text-xs shadow-2xs">
-                        <span className="text-[9px] text-brand-slate block font-medium uppercase">{s.label}</span>
-                        <strong className="text-brand-ink font-semibold mt-0.5 block">{s.value}</strong>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* WARRANTIES */}
-                  {prod.warranties && (
-                    <div className="rounded-xl bg-amber-50 border border-amber-200 p-3 space-y-1">
-                      <span className="text-[10px] font-bold text-amber-900 uppercase block">Product Warranties</span>
-                      {prod.warranties.map((w) => (
-                        <div key={w} className="flex items-center gap-2 text-xs text-amber-950 font-medium">
-                          <CheckCircle2 className="h-3.5 w-3.5 text-amber-600 shrink-0" />
-                          <span>{w}</span>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-
-                  {/* FEATURES */}
-                  <div className="space-y-2 pt-2">
-                    {(prod.features || (prod as any).tech)?.map((f: string) => (
-                      <div key={f} className="flex items-center gap-2 text-xs text-brand-ink font-normal">
-                        <CheckCircle2 className="h-4 w-4 text-[#E86526] shrink-0" />
-                        <span>{f}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="pt-4 border-t border-black/5 flex items-center justify-between">
-                    <Link
-                      href="/products/solar-power"
-                      className="inline-flex items-center gap-1 text-xs font-bold text-[#E86526] hover:underline"
-                    >
-                      Learn More <ArrowUpRight className="h-3.5 w-3.5" />
-                    </Link>
-                    <Link
-                      href="/contact"
-                      className="rounded-xl bg-[#E86526] px-5 py-2.5 text-xs font-semibold text-white hover:bg-[#c95315] transition shadow-xs"
-                    >
-                      Request Residential Quote
-                    </Link>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* DEDICATED LITHIUM BATTERIES SECTION FOR RESIDENTIAL */}
       <section className="py-14 md:py-20 bg-[#FAFAF5] border-b border-black/[0.06]">
-        <div className="container max-w-5xl mx-auto px-4 space-y-10">
+        <div className="container max-w-5xl mx-auto px-4 space-y-12">
           <Reveal className="text-center max-w-2xl mx-auto space-y-2">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-orange-100 px-3 py-1 text-[10px] font-bold text-[#E86526] uppercase tracking-wider">
               <BatteryCharging className="h-3.5 w-3.5" /> RESIDENTIAL ENERGY STORAGE
@@ -196,11 +104,11 @@ export default function HomeOwnersSolutionPage() {
             </p>
           </Reveal>
 
-          <div className="grid gap-8 md:grid-cols-2">
-            {resProducts?.map((prod) => (
+          <div className="space-y-12">
+            {resProducts?.map((prod, idx) => (
               <Reveal key={prod.id} className="h-full">
-                <div className="h-full rounded-2xl border border-black/10 bg-white p-6 shadow-xs hover:shadow-md transition flex flex-col justify-between space-y-5">
-                  <div className="space-y-3">
+                <div className="grid gap-8 md:grid-cols-2 items-center rounded-2xl border border-black/10 bg-white p-6 sm:p-8 shadow-xs hover:shadow-md transition">
+                  <div className={`space-y-4 ${idx % 2 === 1 ? 'md:order-2' : 'md:order-1'}`}>
                     <div className="flex items-center justify-between">
                       <span className="rounded-md bg-orange-100 px-2.5 py-0.5 text-[10px] font-bold text-[#E86526] uppercase">
                         {prod.series}
@@ -210,28 +118,30 @@ export default function HomeOwnersSolutionPage() {
                       </span>
                     </div>
 
-                    <h3 className="text-xl font-bold text-brand-ink">
-                      {prod.title}
-                    </h3>
-                    <p className="text-xs font-semibold text-[#E86526]">
-                      Voltage: {prod.voltage} · Capacity: {prod.capacity}
-                    </p>
-                    <p className="text-xs text-brand-slate leading-relaxed font-normal">
-                      {prod.desc}
-                    </p>
+                    <div className="space-y-1">
+                      <h3 className="text-xl sm:text-2xl font-bold text-brand-ink">
+                        {prod.title}
+                      </h3>
+                      <p className="text-xs font-semibold text-[#E86526]">
+                        Voltage: {prod.voltage} · Capacity: {prod.capacity}
+                      </p>
+                      <p className="text-xs sm:text-sm text-brand-slate leading-relaxed font-normal pt-1">
+                        {prod.desc}
+                      </p>
+                    </div>
 
                     {/* SPECS GRID */}
-                    <div className="grid grid-cols-2 gap-2 pt-2">
+                    <div className="grid grid-cols-2 gap-2 pt-1">
                       {prod.specs?.map((s) => (
-                        <div key={s.label} className="rounded-lg bg-[#FAFAF5] border border-black/5 p-2 text-xs">
+                        <div key={s.label} className="rounded-lg bg-[#FAFAF5] border border-black/5 p-2.5 text-xs">
                           <span className="text-[9px] text-brand-slate block font-medium uppercase">{s.label}</span>
-                          <strong className="text-brand-ink font-semibold">{s.value}</strong>
+                          <strong className="text-brand-ink font-semibold mt-0.5 block">{s.value}</strong>
                         </div>
                       ))}
                     </div>
 
                     {/* FEATURES */}
-                    <div className="space-y-1.5 pt-2">
+                    <div className="space-y-1.5 pt-1">
                       {prod.features?.map((f) => (
                         <div key={f} className="flex items-center gap-2 text-xs text-brand-ink">
                           <CheckCircle2 className="h-3.5 w-3.5 text-[#E86526] shrink-0" />
@@ -239,21 +149,38 @@ export default function HomeOwnersSolutionPage() {
                         </div>
                       ))}
                     </div>
+
+                    <div className="pt-3 border-t border-black/5 flex items-center justify-between">
+                      <Link
+                        href="/products/energy-storage"
+                        className="inline-flex items-center gap-1 text-xs font-bold text-[#E86526] hover:underline"
+                      >
+                        View Product Details <ArrowUpRight className="h-3.5 w-3.5" />
+                      </Link>
+                      <Link
+                        href="/contact"
+                        className="rounded-lg bg-[#E86526] px-5 py-2 text-xs font-semibold text-white hover:bg-[#c95315] transition"
+                      >
+                        Get Battery Quote
+                      </Link>
+                    </div>
                   </div>
 
-                  <div className="pt-3 border-t border-black/5 flex items-center justify-between">
-                    <Link
-                      href="/products/energy-storage"
-                      className="inline-flex items-center gap-1 text-xs font-bold text-[#E86526] hover:underline"
-                    >
-                      View Product Details <ArrowUpRight className="h-3.5 w-3.5" />
-                    </Link>
-                    <Link
-                      href="/contact"
-                      className="rounded-lg bg-[#E86526] px-4 py-2 text-xs font-semibold text-white hover:bg-[#c95315] transition"
-                    >
-                      Get Quote
-                    </Link>
+                  {/* PRODUCT IMAGE CARD */}
+                  <div className={`relative ${idx % 2 === 1 ? 'md:order-1' : 'md:order-2'}`}>
+                    <div className="group relative h-[280px] sm:h-[340px] w-full overflow-hidden rounded-xl border border-black/10 bg-[#FAFAF5] p-4 shadow-2xs hover:shadow-md transition duration-300 flex items-center justify-center">
+                      <img
+                        src={prod.image || '/images/hero-product.png'}
+                        alt={prod.title}
+                        className="h-full w-full object-cover rounded-lg filter brightness-95 group-hover:scale-103 transition-transform duration-500"
+                        onError={(e) => {
+                          (e.target as HTMLElement).setAttribute('src', prod.fallbackImage || '/images/residential-energy.png');
+                        }}
+                      />
+                      <div className="absolute top-4 right-4 rounded-full bg-orange-600 px-3 py-1 text-[10px] font-bold text-white shadow-md uppercase">
+                        RESIDENTIAL ESS
+                      </div>
+                    </div>
                   </div>
                 </div>
               </Reveal>
@@ -264,7 +191,7 @@ export default function HomeOwnersSolutionPage() {
 
       {/* DEDICATED RESIDENTIAL EV CHARGERS SECTION */}
       <section className="py-14 md:py-20 bg-white border-b border-black/[0.06]">
-        <div className="container max-w-5xl mx-auto px-4 space-y-10">
+        <div className="container max-w-5xl mx-auto px-4 space-y-12">
           <Reveal className="text-center max-w-2xl mx-auto space-y-2">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-100 px-3 py-1 text-[10px] font-bold text-emerald-700 uppercase tracking-wider">
               <Zap className="h-3.5 w-3.5" /> RESIDENTIAL EV CHARGING
@@ -277,11 +204,11 @@ export default function HomeOwnersSolutionPage() {
             </p>
           </Reveal>
 
-          <div className="grid gap-8 md:grid-cols-2">
-            {resEVProducts?.map((prod) => (
+          <div className="space-y-12">
+            {resEVProducts?.map((prod, idx) => (
               <Reveal key={prod.id} className="h-full">
-                <div className="h-full rounded-2xl border border-black/10 bg-[#FAFAF5] p-6 shadow-xs hover:shadow-md transition flex flex-col justify-between space-y-5">
-                  <div className="space-y-3">
+                <div className="grid gap-8 md:grid-cols-2 items-center rounded-2xl border border-black/10 bg-[#FAFAF5] p-6 sm:p-8 shadow-xs hover:shadow-md transition">
+                  <div className={`space-y-4 ${idx % 2 === 1 ? 'md:order-2' : 'md:order-1'}`}>
                     <div className="flex items-center justify-between">
                       <span className="rounded-md bg-emerald-100 px-2.5 py-0.5 text-[10px] font-bold text-emerald-800 uppercase">
                         {prod.category} · {prod.type} Charger
@@ -291,28 +218,30 @@ export default function HomeOwnersSolutionPage() {
                       </span>
                     </div>
 
-                    <h3 className="text-xl font-bold text-brand-ink">
-                      {prod.title}
-                    </h3>
-                    <p className="text-xs font-semibold text-[#E86526]">
-                      Power: {prod.power} · Voltage: {prod.voltage}
-                    </p>
-                    <p className="text-xs text-brand-slate leading-relaxed font-normal">
-                      {prod.desc}
-                    </p>
+                    <div className="space-y-1">
+                      <h3 className="text-xl sm:text-2xl font-bold text-brand-ink">
+                        {prod.title}
+                      </h3>
+                      <p className="text-xs font-semibold text-[#E86526]">
+                        Power: {prod.power} · Voltage: {prod.voltage}
+                      </p>
+                      <p className="text-xs sm:text-sm text-brand-slate leading-relaxed font-normal pt-1">
+                        {prod.desc}
+                      </p>
+                    </div>
 
                     {/* SPECS GRID */}
-                    <div className="grid grid-cols-2 gap-2 pt-2">
+                    <div className="grid grid-cols-2 gap-2 pt-1">
                       {prod.specs?.map((s) => (
-                        <div key={s.label} className="rounded-lg bg-white border border-black/5 p-2 text-xs">
+                        <div key={s.label} className="rounded-lg bg-white border border-black/5 p-2.5 text-xs shadow-2xs">
                           <span className="text-[9px] text-brand-slate block font-medium uppercase">{s.label}</span>
-                          <strong className="text-brand-ink font-semibold">{s.value}</strong>
+                          <strong className="text-brand-ink font-semibold mt-0.5 block">{s.value}</strong>
                         </div>
                       ))}
                     </div>
 
                     {/* FEATURES */}
-                    <div className="space-y-1.5 pt-2">
+                    <div className="space-y-1.5 pt-1">
                       {prod.tech?.map((f) => (
                         <div key={f} className="flex items-center gap-2 text-xs text-brand-ink">
                           <CheckCircle2 className="h-3.5 w-3.5 text-[#E86526] shrink-0" />
@@ -320,21 +249,148 @@ export default function HomeOwnersSolutionPage() {
                         </div>
                       ))}
                     </div>
+
+                    <div className="pt-3 border-t border-black/5 flex items-center justify-between">
+                      <Link
+                        href="/products/ev-charging"
+                        className="inline-flex items-center gap-1 text-xs font-bold text-[#E86526] hover:underline"
+                      >
+                        Explore EV Chargers <ArrowUpRight className="h-3.5 w-3.5" />
+                      </Link>
+                      <Link
+                        href="/contact"
+                        className="rounded-lg bg-[#E86526] px-5 py-2 text-xs font-semibold text-white hover:bg-[#c95315] transition"
+                      >
+                        Get EV Quote
+                      </Link>
+                    </div>
                   </div>
 
-                  <div className="pt-3 border-t border-black/5 flex items-center justify-between">
-                    <Link
-                      href="/products/ev-charging"
-                      className="inline-flex items-center gap-1 text-xs font-bold text-[#E86526] hover:underline"
-                    >
-                      Explore EV Chargers <ArrowUpRight className="h-3.5 w-3.5" />
-                    </Link>
-                    <Link
-                      href="/contact"
-                      className="rounded-lg bg-[#E86526] px-4 py-2 text-xs font-semibold text-white hover:bg-[#c95315] transition"
-                    >
-                      Get EV Quote
-                    </Link>
+                  {/* PRODUCT IMAGE CARD */}
+                  <div className={`relative ${idx % 2 === 1 ? 'md:order-1' : 'md:order-2'}`}>
+                    <div className="group relative h-[280px] sm:h-[340px] w-full overflow-hidden rounded-xl border border-black/10 bg-white p-4 shadow-2xs hover:shadow-md transition duration-300 flex items-center justify-center">
+                      <img
+                        src={prod.image || '/images/hero-product.png'}
+                        alt={prod.title}
+                        className="h-full w-full object-cover rounded-lg filter brightness-95 group-hover:scale-103 transition-transform duration-500"
+                        onError={(e) => {
+                          (e.target as HTMLElement).setAttribute('src', prod.fallbackImage || '/images/ev-charger.png');
+                        }}
+                      />
+                      <div className="absolute top-4 right-4 rounded-full bg-emerald-600 px-3 py-1 text-[10px] font-bold text-white shadow-md uppercase">
+                        SMART EV CHARGER
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* DEDICATED RESIDENTIAL SOLAR POWER SECTION */}
+      <section className="py-14 md:py-20 bg-white border-b border-black/[0.06]">
+        <div className="container max-w-5xl mx-auto px-4 space-y-12">
+          <Reveal className="text-center max-w-2xl mx-auto space-y-2">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-100 px-3 py-1 text-[10px] font-bold text-amber-800 uppercase tracking-wider">
+              <Sun className="h-3.5 w-3.5" /> RESIDENTIAL SOLAR PV
+            </span>
+            <h2 className="text-2xl md:text-3xl font-extrabold text-brand-ink">
+              Solar Power
+            </h2>
+            <p className="text-xs md:text-sm text-brand-slate font-normal">
+              High-performance residential solar PV system kits designed for on-grid, off-grid, and hybrid home energy independence.
+            </p>
+          </Reveal>
+
+          <div className="space-y-12">
+            {resSolarProducts?.map((prod, idx) => (
+              <Reveal key={prod.id} className="h-full">
+                <div className="grid gap-8 md:grid-cols-2 items-center rounded-2xl border border-black/10 bg-[#FAFAF5] p-6 sm:p-8 shadow-xs hover:shadow-md transition">
+                  <div className={`space-y-4 ${idx % 2 === 1 ? 'md:order-2' : 'md:order-1'}`}>
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <span className="rounded-md bg-amber-100 px-2.5 py-0.5 text-[10px] font-bold text-amber-800 uppercase">
+                        {prod.series}
+                      </span>
+                      <span className="text-[11px] font-bold text-emerald-600 bg-emerald-50 px-2.5 py-0.5 rounded">
+                        {prod.capacity || (prod as any).power}
+                      </span>
+                    </div>
+
+                    <div className="space-y-1.5">
+                      <h3 className="text-xl sm:text-2xl font-bold text-brand-ink">
+                        {prod.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-brand-slate leading-relaxed font-normal">
+                        {prod.desc}
+                      </p>
+                    </div>
+
+                    {/* SPECS GRID */}
+                    <div className="grid grid-cols-2 gap-2 pt-1">
+                      {prod.specs?.map((s) => (
+                        <div key={s.label} className="rounded-xl bg-white border border-black/5 p-2.5 text-xs shadow-2xs">
+                          <span className="text-[9px] text-brand-slate block font-medium uppercase">{s.label}</span>
+                          <strong className="text-brand-ink font-semibold mt-0.5 block">{s.value}</strong>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* WARRANTIES */}
+                    {prod.warranties && (
+                      <div className="rounded-xl bg-amber-50 border border-amber-200 p-3 space-y-1">
+                        <span className="text-[10px] font-bold text-amber-900 uppercase block">Product Warranties</span>
+                        {prod.warranties.map((w) => (
+                          <div key={w} className="flex items-center gap-2 text-xs text-amber-950 font-medium">
+                            <CheckCircle2 className="h-3.5 w-3.5 text-amber-600 shrink-0" />
+                            <span>{w}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* FEATURES */}
+                    <div className="space-y-1.5 pt-1">
+                      {(prod.features || (prod as any).tech)?.map((f: string) => (
+                        <div key={f} className="flex items-center gap-2 text-xs text-brand-ink font-normal">
+                          <CheckCircle2 className="h-4 w-4 text-[#E86526] shrink-0" />
+                          <span>{f}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="pt-3 border-t border-black/5 flex items-center justify-between">
+                      <Link
+                        href="/products/solar-power"
+                        className="inline-flex items-center gap-1 text-xs font-bold text-[#E86526] hover:underline"
+                      >
+                        Learn More <ArrowUpRight className="h-3.5 w-3.5" />
+                      </Link>
+                      <Link
+                        href="/contact"
+                        className="rounded-xl bg-[#E86526] px-5 py-2 text-xs font-semibold text-white hover:bg-[#c95315] transition shadow-xs"
+                      >
+                        Request Residential Quote
+                      </Link>
+                    </div>
+                  </div>
+
+                  {/* PRODUCT IMAGE CARD */}
+                  <div className={`relative ${idx % 2 === 1 ? 'md:order-1' : 'md:order-2'}`}>
+                    <div className="group relative h-[300px] sm:h-[360px] w-full overflow-hidden rounded-xl border border-black/10 bg-white p-4 shadow-2xs hover:shadow-md transition duration-300 flex items-center justify-center">
+                      <img
+                        src={prod.image || '/images/hero-product.png'}
+                        alt={prod.title}
+                        className="h-full w-full object-cover rounded-lg filter brightness-95 group-hover:scale-103 transition-transform duration-500"
+                        onError={(e) => {
+                          (e.target as HTMLElement).setAttribute('src', prod.fallbackImage || '/images/residential-energy.png');
+                        }}
+                      />
+                      <div className="absolute top-4 right-4 rounded-full bg-amber-600 px-3 py-1 text-[10px] font-bold text-white shadow-md uppercase">
+                        RESIDENTIAL SOLAR KIT
+                      </div>
+                    </div>
                   </div>
                 </div>
               </Reveal>

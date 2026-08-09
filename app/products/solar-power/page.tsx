@@ -138,39 +138,6 @@ export default function SolarPowerPage() {
         </div>
       </section>
 
-      {/* INTEGRATED ENERGY SOLUTIONS */}
-      <section className="py-14 md:py-20">
-        <div className="container mx-auto max-w-5xl space-y-16 px-4">
-          {energySolutionSections.slice(1).map((section) => (
-            <div key={section.title} id={section.id} className="scroll-mt-28">
-              <Reveal className="space-y-7">
-                <div className="max-w-3xl space-y-3">
-                  <span className="eyebrow inline-block">{section.eyebrow}</span>
-                  <h2 className="text-2xl font-bold tracking-tight text-brand-ink md:text-3xl">{section.title}</h2>
-                  <p className="text-xs font-normal leading-relaxed text-brand-slate md:text-sm">{section.description}</p>
-                </div>
-
-                <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-                  {section.solutions.map((solution, index) => (
-                    <article key={solution.title} className="flex min-h-60 flex-col rounded-2xl border border-black/[0.06] bg-white p-5 shadow-2xs">
-                      <span className={`mb-5 h-1.5 w-10 rounded-full ${section.accent}`} />
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-brand-primary">Solution {String(index + 1).padStart(2, '0')}</span>
-                      <h3 className="mt-2 text-base font-bold leading-snug text-brand-ink">{solution.title}</h3>
-                      <p className="mt-3 text-xs font-normal leading-relaxed text-brand-slate">{solution.description}</p>
-                      {section.title !== 'Solar PV Solution' && (
-                        <button type="button" className="mt-auto pt-5 text-left text-xs font-bold text-brand-primary transition hover:text-[#c95315]">
-                          Learn More <ArrowUpRight className="ml-1 inline h-3.5 w-3.5" />
-                        </button>
-                      )}
-                    </article>
-                  ))}
-                </div>
-              </Reveal>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* CATALOG SECTION */}
       <section className="py-14 md:py-20">
         <div className="container max-w-5xl mx-auto px-4 space-y-12">

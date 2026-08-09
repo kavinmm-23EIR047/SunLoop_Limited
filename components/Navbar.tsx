@@ -64,10 +64,10 @@ const productServices: ProductDropdownItem[] = [
 
 const solutionServices = [
   { title: 'Solar PV Solution', href: '/solutions/solar-pv' },
-  { title: 'Solar & Storage Solution', href: '/products/solar-power#solar-storage-solution' },
-  { title: 'Solar & Storage & EV Charging Solution', href: '/products/solar-power#solar-storage-ev-charging-solution' },
-  { title: 'Solar Water Pumping Solution', href: '/solutions' },
-  { title: 'Smart Microgrid Solution', href: '/solutions' },
+  { title: 'Solar & Storage Solution', href: '/solutions/solar-storage' },
+  { title: 'Solar & Storage & EV Charging Solution', href: '/solutions/solar-storage-ev-charging' },
+  { title: 'Solar Water Pumping Solution', href: '/solutions/solar-water-pumping' },
+  { title: 'Smart Microgrid Solution', href: '/solutions/smart-microgrid' },
 ];
 
 export function Navbar() {
