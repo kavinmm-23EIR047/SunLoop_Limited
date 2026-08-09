@@ -113,10 +113,10 @@ export default function BusinessOwnersSolutionPage() {
                   <div className="space-y-3">
                     <div className="flex items-center justify-between">
                       <span className="rounded-md bg-amber-100 px-2.5 py-0.5 text-[10px] font-bold text-amber-900 uppercase">
-                        {prod.category} · {prod.series}
+                        {prod.categoryLabel || prod.category} · {prod.series}
                       </span>
                       <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">
-                        {prod.power}
+                        {prod.capacity || (prod as any).power}
                       </span>
                     </div>
 
@@ -132,14 +132,27 @@ export default function BusinessOwnersSolutionPage() {
                       {prod.specs?.map((s) => (
                         <div key={s.label} className="rounded-lg bg-white border border-black/5 p-2 text-xs">
                           <span className="text-[9px] text-brand-slate block font-medium uppercase">{s.label}</span>
-                          <strong className="text-brand-ink font-semibold">{s.value}</strong>
+                          <strong className="text-brand-ink font-semibold block">{s.value}</strong>
                         </div>
                       ))}
                     </div>
 
+                    {/* WARRANTIES */}
+                    {prod.warranties && (
+                      <div className="rounded-xl bg-amber-50 border border-amber-200 p-2.5 space-y-1">
+                        <span className="text-[10px] font-bold text-amber-900 uppercase block">Product Warranties</span>
+                        {prod.warranties.map((w) => (
+                          <div key={w} className="flex items-center gap-1.5 text-[11px] text-amber-950 font-medium">
+                            <CheckCircle2 className="h-3 w-3 text-amber-600 shrink-0" />
+                            <span>{w}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
                     {/* FEATURES */}
                     <div className="space-y-1.5 pt-2">
-                      {prod.tech?.map((f) => (
+                      {(prod.features || (prod as any).tech)?.map((f: string) => (
                         <div key={f} className="flex items-center gap-2 text-xs text-brand-ink">
                           <CheckCircle2 className="h-3.5 w-3.5 text-[#E86526] shrink-0" />
                           <span>{f}</span>

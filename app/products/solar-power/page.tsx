@@ -8,32 +8,28 @@ import {
   CheckCircle2,
   ArrowUpRight,
   ShieldCheck,
-  Cpu,
-  BarChart3,
   Bot,
-  Sparkles,
   X,
   Sliders,
-  Home,
-  Building2,
-  Factory
+  Award,
+  Zap,
+  Check
 } from 'lucide-react';
 import { Reveal, Button } from '../../../components/UI';
-
 import { solarProducts, solarPVIntro, SolarProductVariant } from '../../../data/solarProducts';
 
 export default function SolarPowerPage() {
   const [activeModal, setActiveModal] = useState<SolarProductVariant | null>(null);
-  const [filter, setFilter] = useState<'All' | 'Residential' | 'Commercial' | 'Utility'>('All');
+  const [filter, setFilter] = useState<'All' | 'Residential' | 'Commercial'>('All');
 
   const filteredProducts = solarProducts.filter((p) => {
     if (filter === 'All') return true;
-    return p.keywords.includes(filter.toLowerCase() as 'residential' | 'commercial' | 'utility');
+    return p.category === filter.toLowerCase();
   });
 
   return (
     <main className="min-h-screen bg-[#FAFAF5] pt-16 pb-16 font-sans">
-      {/* FULL-BLEED HIGH-IMPACT HERO BANNER */}
+      {/* HERO BANNER */}
       <section className="relative w-full h-[400px] sm:h-[480px] md:h-[520px] overflow-hidden bg-brand-ink text-white flex items-center">
         <div
           className="absolute inset-0 bg-cover bg-center pointer-events-none opacity-40 scale-105 transition-transform duration-1000"
@@ -59,12 +55,12 @@ export default function SolarPowerPage() {
 
             <div className="flex items-center gap-3 pt-2">
               <div className="rounded-xl border border-white/15 bg-white/10 backdrop-blur-xs px-3.5 py-1.5 text-xs">
-                <span className="text-white/60 text-[10px] block">APPLICATIONS</span>
-                <strong className="text-white font-semibold">Residential, C&amp;I &amp; Utility</strong>
+                <span className="text-white/60 text-[10px] block">SOLAR KITS</span>
+                <strong className="text-white font-semibold">Residential &amp; Commercial</strong>
               </div>
               <div className="rounded-xl border border-white/15 bg-white/10 backdrop-blur-xs px-3.5 py-1.5 text-xs">
                 <span className="text-white/60 text-[10px] block">SYSTEM TYPE</span>
-                <strong className="text-brand-apricot font-semibold">Grid-Tied, Off-Grid &amp; Hybrid</strong>
+                <strong className="text-brand-apricot font-semibold">Hybrid, On-Grid &amp; Off-Grid</strong>
               </div>
             </div>
 
@@ -75,56 +71,49 @@ export default function SolarPowerPage() {
               >
                 Request Solar Quote <ArrowUpRight className="h-3.5 w-3.5" />
               </Link>
-              <Link
-                href="/ai-portal"
-                className="inline-flex items-center gap-2 rounded-xl bg-white/10 border border-white/20 px-6 py-3 text-xs font-semibold text-white hover:bg-white/20 transition"
-              >
-                <Bot className="h-3.5 w-3.5 text-brand-apricot" /> Solar Yield AI Portal
-              </Link>
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* ALTERNATING LEFT-RIGHT SCROLL REVEAL CATALOG */}
+      {/* CATALOG SECTION */}
       <section className="py-14 md:py-20">
         <div className="container max-w-5xl mx-auto px-4 space-y-12">
           <Reveal className="text-center max-w-2xl mx-auto space-y-4">
-            <span className="eyebrow inline-block">SOLAR PV PORTFOLIO</span>
+            <span className="eyebrow inline-block">SOLAR PV KITS PORTFOLIO</span>
             <h2 className="text-2xl md:text-3xl font-bold text-brand-ink">
               Solar PV Solution
             </h2>
             <p className="text-xs md:text-sm text-brand-slate font-normal">
-              Explore tailored solar PV system solutions engineered for every application.
+              Pre-engineered residential and commercial solar PV system kits designed for on-grid, off-grid, and hybrid energy independence.
             </p>
 
             {/* FILTER BUTTONS */}
             <div className="flex items-center justify-center gap-2 pt-2 flex-wrap">
-              {(['All', 'Residential', 'Commercial', 'Utility'] as const).map((cat) => (
+              {(['All', 'Residential', 'Commercial'] as const).map((cat) => (
                 <button
                   key={cat}
                   onClick={() => setFilter(cat)}
-                  className={`px-4 py-2 text-xs font-bold rounded-xl transition duration-200 ${
+                  className={`px-5 py-2 text-xs font-bold rounded-xl transition duration-200 ${
                     filter === cat
                       ? 'bg-[#E86526] text-white shadow-sm'
                       : 'bg-white border border-black/10 text-brand-slate hover:border-black/30'
                   }`}
                 >
-                  {cat === 'All' ? 'All Solutions (3)' : `${cat} Solution`}
+                  {cat === 'All' ? 'All Products' : `${cat} Solar`}
                 </button>
               ))}
             </div>
           </Reveal>
 
           {filteredProducts.map((prod, index) => {
-
             const isEven = index % 2 === 0;
             return (
               <div
                 key={prod.id}
-                className="grid gap-10 md:grid-cols-2 items-center py-4 border-b border-black/[0.06] last:border-0"
+                className="grid gap-10 md:grid-cols-2 items-center py-8 border-b border-black/[0.06] last:border-0"
               >
-                {/* LEFT CONTENT / RIGHT IMAGE ALTERNATING ORDER */}
+                {/* LEFT CONTENT */}
                 <motion.div
                   initial={{ opacity: 0, x: isEven ? -30 : 30 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -135,7 +124,7 @@ export default function SolarPowerPage() {
                   <div className="space-y-1">
                     <div className="flex items-center gap-2">
                       <span className="rounded-md bg-orange-100 px-2.5 py-0.5 text-[10px] font-bold text-brand-primary uppercase">
-                        {prod.category}
+                        {prod.categoryLabel}
                       </span>
                       <span className="text-[11px] font-semibold text-brand-slate uppercase tracking-wider">
                         {prod.series}
@@ -146,7 +135,7 @@ export default function SolarPowerPage() {
                       {prod.title}
                     </h3>
                     <p className="text-xs font-semibold text-brand-primary">
-                      {prod.power}
+                      {prod.capacity}
                     </p>
                   </div>
 
@@ -154,7 +143,7 @@ export default function SolarPowerPage() {
                     {prod.desc}
                   </p>
 
-                  {/* KEY SPECS GRID */}
+                  {/* SPECS GRID */}
                   <div className="grid grid-cols-2 gap-2.5 pt-1">
                     {prod.specs.map((spec) => (
                       <div key={spec.label} className="rounded-xl border border-black/[0.06] bg-white p-2.5 shadow-2xs">
@@ -164,12 +153,16 @@ export default function SolarPowerPage() {
                     ))}
                   </div>
 
-                  {/* TECH BULLETS */}
-                  <div className="space-y-1.5 pt-1">
-                    {prod.tech.map((t) => (
-                      <div key={t} className="flex items-center gap-2 text-xs text-brand-ink font-normal">
-                        <CheckCircle2 className="h-3.5 w-3.5 text-brand-primary shrink-0" />
-                        <span>{t}</span>
+                  {/* WARRANTIES LIST */}
+                  <div className="rounded-xl bg-amber-500/10 border border-amber-500/20 p-3 space-y-1.5">
+                    <div className="flex items-center gap-1.5 text-xs font-bold text-amber-900">
+                      <Award className="h-4 w-4 text-amber-600 shrink-0" />
+                      <span>Product Warranties</span>
+                    </div>
+                    {prod.warranties.map((w) => (
+                      <div key={w} className="flex items-center gap-2 text-xs text-amber-950 font-medium">
+                        <Check className="h-3.5 w-3.5 text-amber-600 shrink-0" />
+                        <span>{w}</span>
                       </div>
                     ))}
                   </div>
@@ -191,7 +184,7 @@ export default function SolarPowerPage() {
                   </div>
                 </motion.div>
 
-                {/* IMAGE CARD */}
+                {/* RIGHT IMAGE */}
                 <motion.div
                   initial={{ opacity: 0, x: isEven ? 30 : -30 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -209,7 +202,7 @@ export default function SolarPowerPage() {
                       }}
                     />
                     <div className="absolute top-3.5 right-3.5 rounded-full bg-brand-ink px-3 py-0.5 text-[9px] font-semibold text-white shadow-xs">
-                      25-YEAR WARRANTY
+                      30-YEAR PV WARRANTY
                     </div>
                   </div>
                 </motion.div>
@@ -219,7 +212,7 @@ export default function SolarPowerPage() {
         </div>
       </section>
 
-      {/* SPECIFICATIONS MODAL DIALOG */}
+      {/* SPECIFICATIONS MODAL */}
       <AnimatePresence>
         {activeModal && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-xs">
@@ -231,8 +224,8 @@ export default function SolarPowerPage() {
             >
               <div className="flex items-center justify-between border-b border-black/10 pb-3">
                 <div>
-                  <span className="text-[10px] font-semibold text-brand-primary uppercase">{activeModal.category} · {activeModal.series}</span>
-                  <h3 className="text-lg font-bold text-brand-ink">{activeModal.title} Specs</h3>
+                  <span className="text-[10px] font-semibold text-brand-primary uppercase">{activeModal.categoryLabel}</span>
+                  <h3 className="text-lg font-bold text-brand-ink">{activeModal.title}</h3>
                 </div>
                 <button
                   onClick={() => setActiveModal(null)}
@@ -244,6 +237,18 @@ export default function SolarPowerPage() {
 
               <div className="space-y-4 text-xs">
                 <p className="text-brand-slate font-normal">{activeModal.desc}</p>
+                
+                {/* Warranties */}
+                <div className="rounded-xl bg-amber-50 border border-amber-200 p-3 space-y-1">
+                  <h4 className="text-[11px] font-bold text-amber-900 uppercase">System Warranties</h4>
+                  {activeModal.warranties.map((w) => (
+                    <div key={w} className="flex items-center gap-2 text-amber-900 font-medium">
+                      <Check className="h-3.5 w-3.5 text-amber-600 shrink-0" />
+                      <span>{w}</span>
+                    </div>
+                  ))}
+                </div>
+
                 <div className="rounded-xl bg-[#FAFAF5] border border-black/[0.06] p-3.5 space-y-2">
                   <h4 className="text-[11px] font-semibold text-brand-ink uppercase tracking-wider mb-2">Technical Parameters</h4>
                   <div className="grid grid-cols-2 gap-2.5">
@@ -257,11 +262,11 @@ export default function SolarPowerPage() {
                 </div>
 
                 <div className="space-y-1.5">
-                  <h4 className="text-[11px] font-semibold text-brand-ink uppercase tracking-wider">Features &amp; Protections</h4>
-                  {activeModal.tech.map((t) => (
-                    <div key={t} className="flex items-center gap-2 text-brand-ink">
+                  <h4 className="text-[11px] font-semibold text-brand-ink uppercase tracking-wider">Features &amp; Highlights</h4>
+                  {activeModal.features.map((f) => (
+                    <div key={f} className="flex items-center gap-2 text-brand-ink">
                       <CheckCircle2 className="h-3.5 w-3.5 text-brand-primary shrink-0" />
-                      <span>{t}</span>
+                      <span>{f}</span>
                     </div>
                   ))}
                 </div>
@@ -269,7 +274,7 @@ export default function SolarPowerPage() {
 
               <div className="pt-3 border-t border-black/10 flex justify-end gap-3">
                 <Button href="/contact" onClick={() => setActiveModal(null)}>
-                  Request Formal Quotation <ArrowUpRight className="ml-1 h-3.5 w-3.5" />
+                  Request System Quotation <ArrowUpRight className="ml-1 h-3.5 w-3.5" />
                 </Button>
               </div>
             </motion.div>

@@ -114,7 +114,7 @@ export default function HomeOwnersSolutionPage() {
                       {prod.series}
                     </span>
                     <span className="text-[11px] font-bold text-emerald-600 bg-emerald-50 px-2.5 py-0.5 rounded">
-                      {prod.power}
+                      {prod.capacity || (prod as any).power}
                     </span>
                   </div>
 
@@ -137,9 +137,22 @@ export default function HomeOwnersSolutionPage() {
                     ))}
                   </div>
 
+                  {/* WARRANTIES */}
+                  {prod.warranties && (
+                    <div className="rounded-xl bg-amber-50 border border-amber-200 p-3 space-y-1">
+                      <span className="text-[10px] font-bold text-amber-900 uppercase block">Product Warranties</span>
+                      {prod.warranties.map((w) => (
+                        <div key={w} className="flex items-center gap-2 text-xs text-amber-950 font-medium">
+                          <CheckCircle2 className="h-3.5 w-3.5 text-amber-600 shrink-0" />
+                          <span>{w}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
                   {/* FEATURES */}
                   <div className="space-y-2 pt-2">
-                    {prod.tech?.map((f) => (
+                    {(prod.features || (prod as any).tech)?.map((f: string) => (
                       <div key={f} className="flex items-center gap-2 text-xs text-brand-ink font-normal">
                         <CheckCircle2 className="h-4 w-4 text-[#E86526] shrink-0" />
                         <span>{f}</span>

@@ -101,9 +101,8 @@ export function Navbar() {
     }, 200);
   };
 
-<<<<<<< HEAD
   const isDarkHeader = isHome && !scrolled;
-=======
+
   const handleSolutionsMouseEnter = () => {
     if (solutionsTimeoutRef.current) clearTimeout(solutionsTimeoutRef.current);
     setSolutionsOpen(true);
@@ -114,7 +113,6 @@ export function Navbar() {
       setSolutionsOpen(false);
     }, 200);
   };
->>>>>>> 3171eca72d3646f7352139783e111f36f34ce4bc
 
   return (
     <header
