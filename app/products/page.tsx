@@ -37,7 +37,7 @@ export default function Products() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-[#FAFAF3] pb-24 pt-28 md:pt-32 font-sans">
+    <main className="min-h-screen bg-[#FAFAF3] pb-8 pt-28 md:pt-32 font-sans">
       <div className="container mb-12">
         <p className="eyebrow mb-3">Clean energy hardware portfolio</p>
         <h1 className="max-w-3xl text-4xl font-bold leading-tight md:text-6xl text-brand-ink">
@@ -100,7 +100,7 @@ export default function Products() {
         </div>
       </div>
 
-      <div id="product-list" className="container mt-16 space-y-24">
+      <div id="product-list" className="container mt-8 space-y-12">
         <AnimatePresence mode="wait">
           {filteredProducts.map((product, index) => {
             const Icon = icons[products.findIndex((item) => item.id === product.id)];

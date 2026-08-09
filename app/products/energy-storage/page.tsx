@@ -66,39 +66,20 @@ export default function EnergyStoragePage() {
   return (
     <main className="min-h-screen bg-[#FAFAF5] pt-16 pb-16 font-sans">
       {/* FULL-BLEED HIGH-IMPACT HERO BANNER */}
-      <section className="relative w-full h-[380px] sm:h-[460px] md:h-[500px] overflow-hidden bg-brand-ink text-white flex items-center">
+      <section className="relative w-full h-[460px] sm:h-[560px] md:h-[640px] overflow-hidden bg-brand-ink text-white flex items-center">
         <div
-          className="absolute inset-0 bg-cover bg-center pointer-events-none opacity-50 scale-105 transition-transform duration-1000"
+          className="absolute inset-0 bg-cover bg-center pointer-events-none transition-transform duration-1000"
           style={{
             backgroundImage: `url('/products/product-ess-0.png')`,
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/30 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent pointer-events-none" />
 
         <div className="container relative z-10 max-w-5xl mx-auto px-4">
           <Reveal className="max-w-xl space-y-4">
-            <span className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/15 px-3.5 py-1 text-[11px] font-semibold text-brand-apricot uppercase tracking-wider">
-              <BatteryCharging className="h-3.5 w-3.5" /> LITHIUM BATTERY ESS
-            </span>
-
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-white tracking-tight leading-tight">
               Lithium Battery Storage Systems
             </h1>
-
-            <p className="text-xs sm:text-sm text-white/80 font-normal leading-relaxed max-w-lg">
-              Residential, Commercial &amp; Utility LiFePO4 energy storage packs (2.5 kWh to 10,000 kWh+) for 24/7 backup power &amp; peak shaving savings.
-            </p>
-
-            <div className="flex items-center gap-3 pt-2">
-              <div className="rounded-xl border border-white/15 bg-white/10 backdrop-blur-xs px-3.5 py-1.5 text-xs">
-                <span className="text-white/60 text-[10px] block">CAPACITY RANGE</span>
-                <strong className="text-white font-semibold">2.5 kWh to 10,000 kWh</strong>
-              </div>
-              <div className="rounded-xl border border-white/15 bg-white/10 backdrop-blur-xs px-3.5 py-1.5 text-xs">
-                <span className="text-white/60 text-[10px] block">CYCLE LIFE</span>
-                <strong className="text-emerald-400 font-semibold">6,000+ Cycles</strong>
-              </div>
-            </div>
 
             <div className="pt-3 flex flex-wrap gap-3">
               <Link
@@ -124,7 +105,7 @@ export default function EnergyStoragePage() {
           {/* RESIDENTIAL ESS GROUP */}
           <div className="space-y-12">
             <h2 className="text-3xl md:text-4xl font-bold text-[#222222] tracking-tight">
-              Residential ESS
+              Residential Energy Storage
             </h2>
             <div className="space-y-16">
               {productsList.filter(p => p.keyword === 'residential').map((prod, index) => {
@@ -148,21 +129,16 @@ export default function EnergyStoragePage() {
                       </div>
 
                       <div className="space-y-1">
-                        <p className="text-[15px] text-[#333333] font-medium">
-                          Voltage: <span className="font-normal">{prod.voltage || prod.power}</span>
-                        </p>
-                        <p className="text-[15px] text-[#333333] font-medium">
-                          Capacity: <span className="font-normal">{prod.capacity}</span>
-                        </p>
+                          <p className="text-[15px] text-[#333333] font-medium">Capacity: <span className="font-normal">{prod.capacity}</span></p>
                       </div>
 
                       <div className="pt-2">
-                        <Link
-                          href="/contact"
-                          className="inline-flex items-center justify-center rounded-full border border-[#999999] px-6 py-2 text-[13px] font-medium text-[#333333] hover:bg-black/5 transition-colors"
+                        <button
+                          onClick={() => setActiveModal(prod)}
+                          className="inline-flex items-center justify-center rounded-full border border-brand-primary/30 bg-orange-50 px-6 py-2 text-[13px] font-semibold text-brand-primary hover:bg-brand-primary hover:text-white transition-colors"
                         >
-                          More Detail
-                        </Link>
+                          View Full Specifications
+                        </button>
                       </div>
                     </motion.div>
 
@@ -187,7 +163,7 @@ export default function EnergyStoragePage() {
           {/* COMMERCIAL & UTILITY ESS GROUP */}
           <div className="space-y-12 pt-8 border-t border-black/5">
             <h2 className="text-3xl md:text-4xl font-bold text-[#222222] tracking-tight">
-              Commercial & Utility ESS
+              Commercial & Utility Energy Storage
             </h2>
             <div className="space-y-16">
               {productsList.filter(p => p.keyword === 'commercial').map((prod, index) => {
@@ -210,22 +186,17 @@ export default function EnergyStoragePage() {
                         </p>
                       </div>
 
-                      <div className="space-y-1">
-                        <p className="text-[15px] text-[#333333] font-medium">
-                          {prod.power ? 'Power:' : 'Voltage:'} <span className="font-normal">{prod.power || prod.voltage}</span>
-                        </p>
-                        <p className="text-[15px] text-[#333333] font-medium">
-                          Capacity: <span className="font-normal">{prod.capacity}</span>
-                        </p>
+                        <div className="space-y-1">
+                        <p className="text-[15px] text-[#333333] font-medium">Capacity: <span className="font-normal">{prod.capacity}</span></p>
                       </div>
 
                       <div className="pt-2">
-                        <Link
-                          href="/contact"
-                          className="inline-flex items-center justify-center rounded-full border border-[#999999] px-6 py-2 text-[13px] font-medium text-[#333333] hover:bg-black/5 transition-colors"
+                        <button
+                          onClick={() => setActiveModal(prod)}
+                          className="inline-flex items-center justify-center rounded-full border border-brand-primary/30 bg-orange-50 px-6 py-2 text-[13px] font-semibold text-brand-primary hover:bg-brand-primary hover:text-white transition-colors"
                         >
-                          More Detail
-                        </Link>
+                          View Full Specifications
+                        </button>
                       </div>
                     </motion.div>
 

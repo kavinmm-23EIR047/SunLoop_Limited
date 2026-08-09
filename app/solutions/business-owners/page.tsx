@@ -41,7 +41,7 @@ export default function BusinessOwnersSolutionPage() {
       {/* HERO BANNER */}
       <section className="relative w-full h-[400px] sm:h-[480px] md:h-[520px] overflow-hidden bg-white text-neutral-900 flex items-center border-b border-neutral-100">
         <div
-          className="absolute inset-0 bg-cover bg-center pointer-events-none opacity-20 scale-105 transition-transform duration-1000"
+          className="absolute inset-0 bg-cover bg-center pointer-events-none opacity-60 scale-105 transition-transform duration-1000"
           style={{
             backgroundImage: `url('/images/commercial-energy.png')`,
           }}
