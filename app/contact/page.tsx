@@ -142,7 +142,7 @@ export default function Contact() {
 
         {/* HQ INFORMATION CARD */}
         <Reveal>
-          <div className="rounded-3xl bg-[#0F172A] p-8 md:p-10 text-white shadow-[0_20px_50px_rgba(15,23,42,0.25)] relative overflow-hidden flex flex-col justify-between h-full border border-white/10">
+          <div className="rounded-3xl bg-brand-ink p-8 md:p-10 text-white shadow-[0_20px_50px_rgba(36,36,36,0.25)] relative overflow-hidden flex flex-col justify-between h-full border border-white/10">
             <div className="relative z-10 space-y-8">
               <div>
                 <span className="eyebrow text-[#E86526]">HEADQUARTERS</span>

@@ -75,7 +75,9 @@ export function Navbar() {
   const isHome = pathname === '/';
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [pastHero, setPastHero] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+
   const [solutionsOpen, setSolutionsOpen] = useState(false);
   const [mobileProductsExpanded, setMobileProductsExpanded] = useState(false);
   const [mobileSolutionsExpanded, setMobileSolutionsExpanded] = useState(false);
@@ -85,6 +87,7 @@ export function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
+      setPastHero(window.scrollY > (window.innerHeight - 80));
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -101,7 +104,7 @@ export function Navbar() {
     }, 200);
   };
 
-  const isDarkHeader = isHome && !scrolled;
+  const isDarkHeader = false; // Always use solid background colors for readability
 
   const handleSolutionsMouseEnter = () => {
     if (solutionsTimeoutRef.current) clearTimeout(solutionsTimeoutRef.current);
@@ -119,14 +122,14 @@ export function Navbar() {
       id="site-header"
       className={`fixed top-0 z-50 w-full transition-all duration-300 ${
         scrolled
-          ? 'bg-white/95 backdrop-blur-md border-b border-black/10 shadow-xs py-3'
-          : 'bg-transparent border-b border-transparent py-4'
+          ? 'bg-white/95 backdrop-blur-md border-b border-black/5 shadow-sm py-3'
+          : 'bg-white/95 backdrop-blur-md border-b border-black/5 shadow-sm py-4'
       }`}
     >
       <div className="container flex items-center justify-between">
         {/* Brand Logo */}
         <Link href="/" className="flex items-center gap-2 group">
-          <div className={`transition-all duration-300 ${isDarkHeader ? 'bg-white/95 backdrop-blur-md px-2.5 py-1 rounded-xl shadow-xs border border-white/20' : ''}`}>
+          <div className="transition-all duration-300">
             <img
               src="/images/logo.png"
               alt="Sunloop Energy"
@@ -136,7 +139,7 @@ export function Navbar() {
         </Link>
 
         {/* Desktop Navigation Links */}
-        <nav className={`hidden items-center gap-7 text-sm font-medium md:flex ${isDarkHeader ? 'text-white' : 'text-brand-ink'}`}>
+        <nav className="hidden items-center gap-7 text-sm font-medium md:flex text-slate-800">
           <Link href="/" className="transition hover:text-brand-primary">
             Home
           </Link>
@@ -153,9 +156,9 @@ export function Navbar() {
             >
               <span>Solutions</span>
               <ChevronDown
-                className={`h-4 w-4 text-brand-slate transition-transform duration-200 ${
-                  solutionsOpen ? 'rotate-180 text-brand-primary' : ''
-                }`}
+                className={`h-4 w-4 transition-transform duration-200 ${
+                  isDarkHeader ? 'text-white/80' : 'text-brand-slate'
+                } ${solutionsOpen ? 'rotate-180 text-brand-primary' : ''}`}
               />
             </button>
 
