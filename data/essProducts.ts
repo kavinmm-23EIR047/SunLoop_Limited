@@ -15,6 +15,9 @@ export interface ESSProduct {
   fallbackImage: string;
 }
 
+
+
+
 export const essProducts: ESSProduct[] = [
   // RESIDENTIAL ESS
   {
