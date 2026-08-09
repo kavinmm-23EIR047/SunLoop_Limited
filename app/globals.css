@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+	--color-primary: #E86526;
+	--color-secondary: #D45214;
+	--color-bg: #FFFFFF;
+	--color-bg-subtle: #FBFBFD;
+	--color-ink: #0F172A;
+	--color-apricot: #E86526;
+	--color-slate: #475569;
+	--color-muted: #94A3B8;
+	--color-peach: #FFEAD6;
+	--font-body: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+	--font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+	font-family: var(--font-body);
+}
+
+body {
+	margin: 0;
+	background: var(--color-bg);
+	color: var(--color-ink);
+	font-family: var(--font-body);
+	font-weight: 400;
+	line-height: 1.6;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: var(--font-heading);
+	font-weight: 700;
+	letter-spacing: -0.025em;
+	color: inherit;
+}
+
+.dark-panel, [class*="bg-brand-ink"], [class*="bg-neutral-900"], [class*="bg-slate-900"], [class*="bg-[#1E293B]"] {
+	color: #FFFFFF;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.container {
+	width: min(1280px, calc(100% - 40px));
+	margin: auto;
+}
+
+.eyebrow {
+	font-size: 11px;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--color-primary);
+	font-weight: 600;
+	font-family: var(--font-heading);
+}
+
+/* Elegant Soft Cards (Refined Borders & Shadows) */
+.panel {
+	border: 1px solid rgba(0, 0, 0, 0.06);
+	border-radius: 16px;
+	background: #ffffff;
+	box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.03);
+}
+
+.dark-panel {
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	border-radius: 16px;
+	background: #181B20;
+}
+
+.soft-card {
+	border-radius: 16px;
+	padding: 20px;
+	background: #ffffff;
+	box-shadow: 0 2px 12px -2px rgba(0, 0, 0, 0.03);
+	border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.soft-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px;
+	padding: 10px 20px;
+	font-weight: 600;
+	font-family: var(--font-body);
+	font-size: 13px;
+	transition: all 0.2s ease;
+	background-color: var(--color-primary);
+	color: #ffffff;
+}
+
+.soft-btn:hover {
+	background-color: #c95315;
+	transform: translateY(-1px);
+}
