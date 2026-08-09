@@ -41,7 +41,7 @@ export const solarProducts: SolarProductVariant[] = [
       'Sunloop Mobile App Real-Time Solar Yield Tracking',
     ],
     apps: ['Private Homes & Villas', 'Residential Rooftops', 'Housing Societies'],
-    image: '/images/hero-product.png',
+    image: '/images/solar-panels.png',
     fallbackImage: '/images/residential-energy.png',
   },
   {
@@ -65,7 +65,7 @@ export const solarProducts: SolarProductVariant[] = [
       'Integrated Power Factor Correction & Grid Stabilization',
     ],
     apps: ['Office Buildings', 'Manufacturing Factories', 'Warehouses & Retail Malls', 'Hospitals & Educational Campuses'],
-    image: '/images/hero-product.png',
+    image: '/images/solar-panels.png',
     fallbackImage: '/images/commercial-energy.png',
   },
   {
@@ -89,8 +89,8 @@ export const solarProducts: SolarProductVariant[] = [
       'Next-Gen Grid-Forming Synchronous Inverter Architecture',
     ],
     apps: ['Utility-Scale Solar Parks', 'High-Voltage Power Stations', 'Remote Off-Grid Industrial Microgrids'],
-    image: '/images/hero-product.png',
-    fallbackImage: '/images/solar-plant.png',
+    image: '/images/solar-panels.png',
+    fallbackImage: '/images/commercial-energy.png',
   },
 ];
 

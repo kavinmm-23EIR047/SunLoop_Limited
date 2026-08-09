@@ -39,7 +39,7 @@ export default function EVChargingPage() {
         <div
           className="absolute inset-0 bg-cover bg-center pointer-events-none opacity-40 scale-105 transition-transform duration-1000"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1558441719-67450885d7bc?q=80&w=1600&auto=format&fit=crop')`,
+            backgroundImage: `url('/images/dc-charging.png')`,
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/30 pointer-events-none" />

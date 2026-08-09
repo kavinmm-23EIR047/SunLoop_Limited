@@ -184,16 +184,16 @@ export default function AIPortalPage() {
           <div className="p-4">
             {/* Logo Header */}
             <div className="flex items-center justify-between mb-5 pb-4 border-b border-black/10">
-              <Link href="/" className="flex items-center gap-2.5 text-base font-bold text-brand-ink">
-                <span className="grid h-8 w-8 place-items-center rounded-xl bg-brand-primary text-white font-extrabold text-xs">
-                  S
-                </span>
-                <span>
-                  Katteb<span className="text-brand-primary">AI</span> Portal
-                </span>
+              <Link href="/" className="flex items-center gap-2 text-base font-bold text-brand-ink group">
+                <img
+                  src="/images/logo.png"
+                  alt="Sunloop Energy"
+                  className="h-7 w-auto object-contain transition-transform group-hover:scale-105"
+                />
+                <span className="text-xs font-semibold text-brand-slate">Portal</span>
               </Link>
               <span className="rounded-md bg-black/5 border border-black/10 px-2 py-0.5 text-[10px] font-semibold text-brand-slate uppercase">
-                Solid UI
+                AI Suite
               </span>
             </div>
 
@@ -660,7 +660,7 @@ export default function AIPortalPage() {
                   </div>
                   <div className="relative h-44 w-full rounded-xl overflow-hidden border border-black/5 bg-[#FAFAF3]">
                     <img
-                      src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop"
+                      src="/images/connected-portal.png"
                       alt="Telemetry graph background"
                       className="absolute inset-0 h-full w-full object-cover opacity-10"
                     />
