@@ -257,7 +257,7 @@ export default function SolarHero() {
               <span className="text-amber-300">✦</span> Next-Gen Solar PV + ESS + EV Ecosystem
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.12] drop-shadow-lg">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-white leading-[1.12] drop-shadow-lg">
               Powering Tomorrow,<br />
               <span className="text-[#E86526] drop-shadow-md">Sustainably.</span>
             </h1>

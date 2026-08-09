@@ -7,10 +7,10 @@ import { Button, Reveal, SectionTitle } from '../../components/UI';
 const icons = [House, Building2, Factory, Mountain];
 
 const solutionImages = [
-  'https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=800&auto=format&fit=crop', // Residential
-  'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop', // Commercial
-  'https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=800&auto=format&fit=crop', // Industrial
-  'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=800&auto=format&fit=crop', // Remote & Microgrid
+  '/images/residential-energy.png', // Residential
+  '/images/commercial-energy.png', // Commercial
+  '/images/solar-panels.png', // Industrial
+  '/images/ecosystem-hero.png', // Remote & Microgrid
 ];
 
 export default function Solutions() {

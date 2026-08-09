@@ -39,7 +39,7 @@ export const evProducts: EVProductVariant[] = [
     tech: ['RFID & App Smart Access', 'Dynamic Load Balancing', 'IP65 Weatherproof & IK10 Protection', 'OCPP 1.6J Telemetry'],
     apps: ['Private Homes & Villas', 'Residential Apartments', 'Private Garages'],
     image: '/images/ac-charging.png',
-    fallbackImage: '/images/hero-evcharger.png',
+    fallbackImage: '/images/dc-charging.png',
   },
   {
     id: 'ac-ev-charger-com',
@@ -61,7 +61,7 @@ export const evProducts: EVProductVariant[] = [
     ],
     tech: ['Dual Gun Simultaneous Charging', 'Commercial Billing & UPI Gateway', 'Vandal-proof Ground Pedestal', 'OCPP 1.6J / 2.0 Open Protocol'],
     apps: ['Commercial Office Parks', 'Hotels & Resorts', 'Shopping Malls & Workplaces'],
-    image: '/images/hero-evcharger.png',
+    image: '/images/ac-charging.png',
     fallbackImage: '/images/ac-charging.png',
   },
   {
@@ -84,7 +84,7 @@ export const evProducts: EVProductVariant[] = [
     ],
     tech: ['Fast DC Charging Module', 'Compact Wall / Column Footprint', 'Smart App Power Monitoring', 'Comprehensive Electrical Safeguards'],
     apps: ['Luxury Villas & Estates', 'Private Fleet Garages', 'Residential Community Plazas'],
-    image: '/images/hero-evcharger.png',
+    image: '/images/dc-charging.png',
     fallbackImage: '/images/ac-charging.png',
   },
   {
@@ -107,7 +107,7 @@ export const evProducts: EVProductVariant[] = [
     ],
     tech: ['Dynamic Power Sharing across 2 to 4 Guns', '7" HD Touchscreen & Multi-Payment Terminal', 'Heavy Duty Galvanized Enclosure', 'Sunloop AI Cloud Telemetry & OTA'],
     apps: ['Highway Super Charging Hubs', 'Commercial Fleets & Depots', 'Public EV Plazas & Petrol Pumps'],
-    image: '/images/hero-evcharger.png',
+    image: '/images/dc-charging.png',
     fallbackImage: '/images/ac-charging.png',
   },
   {
@@ -130,7 +130,7 @@ export const evProducts: EVProductVariant[] = [
     ],
     tech: ['Central Power Rectifier + Remote Dispensers', 'Flexible Multi-Gun Power Allocation', 'Liquid Cooling Compatible', 'OCPP 1.6 / 2.0 Cloud Dashboard'],
     apps: ['High-Density Commercial Depots', 'Highway Service Stations', 'Public Bus & Fleet Hubs'],
-    image: '/images/hero-evcharger.png',
+    image: '/images/dc-charging.png',
     fallbackImage: '/images/ac-charging.png',
   },
 ];

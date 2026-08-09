@@ -33,7 +33,7 @@ export default function Company() {
         <div className="grid gap-6 md:grid-cols-2">
           <Reveal className="panel bg-brand-ink p-8 text-white rounded-2xl shadow-card relative overflow-hidden">
             <img
-              src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=800&auto=format&fit=crop"
+              src="/images/ecosystem-hero.png"
               alt="Engineering Team"
               className="absolute inset-0 h-full w-full object-cover opacity-20"
             />

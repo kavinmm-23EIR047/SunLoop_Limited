@@ -125,13 +125,14 @@ export function Navbar() {
     >
       <div className="container flex items-center justify-between">
         {/* Brand Logo */}
-        <Link href="/" className={`flex items-center gap-3 font-sans text-lg font-bold group ${isDarkHeader ? 'text-white' : 'text-brand-ink'}`}>
-          <span className="grid h-9 w-9 place-items-center rounded-xl bg-brand-primary text-white font-extrabold text-sm shadow-sm group-hover:scale-105 transition-transform">
-            S
-          </span>
-          <span className="tracking-tight">
-            sunloop<span className="text-brand-primary">.</span>
-          </span>
+        <Link href="/" className="flex items-center gap-2 group">
+          <div className={`transition-all duration-300 ${isDarkHeader ? 'bg-white/95 backdrop-blur-md px-2.5 py-1 rounded-xl shadow-xs border border-white/20' : ''}`}>
+            <img
+              src="/images/logo.png"
+              alt="Sunloop Energy"
+              className="h-8 sm:h-9 w-auto object-contain transition-transform group-hover:scale-105"
+            />
+          </div>
         </Link>
 
         {/* Desktop Navigation Links */}

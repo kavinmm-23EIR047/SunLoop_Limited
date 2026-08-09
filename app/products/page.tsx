@@ -128,7 +128,7 @@ export default function Products() {
                       onError={(e) => {
                         (e.target as HTMLElement).setAttribute(
                           'src',
-                          'https://images.unsplash.com/photo-1509391365360-2e959784a276?q=80&w=1000&auto=format&fit=crop'
+                          '/images/solar-panels.png'
                         );
                       }}
                       alt={product.title}
