@@ -94,10 +94,10 @@ export default function SolarWaterPumpingPage() {
           {/* PRODUCT 1: SOLAR AC WATER PUMPING SOLUTION */}
           <div className="grid gap-10 md:grid-cols-2 items-center py-6 border-b border-black/[0.06]">
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -60 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-40px' }}
-              transition={{ duration: 0.5, ease: 'easeOut' }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.6, ease: 'easeOut' }}
               className="space-y-5"
             >
               <div className="space-y-1.5">
@@ -172,15 +172,15 @@ export default function SolarWaterPumpingPage() {
 
             {/* PRODUCT 1 IMAGE CARD */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, x: 60 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-40px' }}
-              transition={{ duration: 0.5, ease: 'easeOut' }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }}
               className="relative"
             >
               <div className="group relative h-[340px] sm:h-[400px] w-full overflow-hidden rounded-2xl border border-black/[0.06] bg-white p-6 shadow-sm hover:shadow-md transition-all duration-300 flex items-center justify-center">
                 <img
-                  src="/images/solar-plant.png"
+                  src="/images/Solar AC Water Pumping Solution.png"
                   alt="Solar AC Water Pumping Solution"
                   className="h-full w-full object-cover rounded-xl filter brightness-95 group-hover:scale-103 transition-transform duration-500"
                   onError={(e) => {
@@ -198,15 +198,15 @@ export default function SolarWaterPumpingPage() {
           <div className="grid gap-10 md:grid-cols-2 items-center py-6">
             {/* PRODUCT 2 IMAGE CARD */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: 60 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-40px' }}
-              transition={{ duration: 0.5, ease: 'easeOut' }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }}
               className="relative order-2 md:order-1"
             >
               <div className="group relative h-[340px] sm:h-[400px] w-full overflow-hidden rounded-2xl border border-black/[0.06] bg-white p-6 shadow-sm hover:shadow-md transition-all duration-300 flex items-center justify-center">
                 <img
-                  src="/images/solar-panels.png"
+                  src="/images/Solar DC Water Pumping Solution.png"
                   alt="Solar DC Water Pumping Solution"
                   className="h-full w-full object-cover rounded-xl filter brightness-95 group-hover:scale-103 transition-transform duration-500"
                   onError={(e) => {
@@ -221,10 +221,10 @@ export default function SolarWaterPumpingPage() {
 
             {/* PRODUCT 2 CONTENT */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, x: -60 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-40px' }}
-              transition={{ duration: 0.5, ease: 'easeOut' }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.6, ease: 'easeOut' }}
               className="space-y-5 order-1 md:order-2"
             >
               <div className="space-y-1.5">
