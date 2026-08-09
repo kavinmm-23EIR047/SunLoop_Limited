@@ -62,14 +62,25 @@ const productServices: ProductDropdownItem[] = [
   },
 ];
 
+const solutionServices = [
+  { title: 'Solar PV Solution', href: 'https://sunevo.com/solutions/solar-pv-solution/' },
+  { title: 'Solar & Storage Solution', href: 'https://sunevo.com/solutions/solar-storage-solution/' },
+  { title: 'Solar & Storage & EV Charging Solution', href: 'https://sunevo.com/solutions/solar-storage-ev-charging-solution/' },
+  { title: 'Solar Water Pumping Solution', href: 'https://sunevo.com/solutions/solar-water-pumping-solution/' },
+  { title: 'Smart Microgrid Solution', href: 'https://sunevo.com/solutions/smart-microgrid-solution/' },
+];
+
 export function Navbar() {
   const pathname = usePathname();
   const isHome = pathname === '/';
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [solutionsOpen, setSolutionsOpen] = useState(false);
   const [mobileProductsExpanded, setMobileProductsExpanded] = useState(false);
+  const [mobileSolutionsExpanded, setMobileSolutionsExpanded] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const solutionsTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -87,6 +98,17 @@ export function Navbar() {
   const handleMouseLeave = () => {
     timeoutRef.current = setTimeout(() => {
       setDropdownOpen(false);
+    }, 200);
+  };
+
+  const handleSolutionsMouseEnter = () => {
+    if (solutionsTimeoutRef.current) clearTimeout(solutionsTimeoutRef.current);
+    setSolutionsOpen(true);
+  };
+
+  const handleSolutionsMouseLeave = () => {
+    solutionsTimeoutRef.current = setTimeout(() => {
+      setSolutionsOpen(false);
     }, 200);
   };
 
@@ -115,6 +137,50 @@ export function Navbar() {
           <Link href="/" className="transition hover:text-brand-primary">
             Home
           </Link>
+
+          {/* SOLUTIONS DROPDOWN */}
+          <div
+            className="relative"
+            onMouseEnter={handleSolutionsMouseEnter}
+            onMouseLeave={handleSolutionsMouseLeave}
+          >
+            <button
+              onClick={() => setSolutionsOpen(!solutionsOpen)}
+              className="flex items-center gap-1 py-1 font-medium transition hover:text-brand-primary focus:outline-none"
+            >
+              <span>Solutions</span>
+              <ChevronDown
+                className={`h-4 w-4 text-brand-slate transition-transform duration-200 ${
+                  solutionsOpen ? 'rotate-180 text-brand-primary' : ''
+                }`}
+              />
+            </button>
+
+            <AnimatePresence>
+              {solutionsOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: 8, scale: 0.98 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 8, scale: 0.98 }}
+                  transition={{ duration: 0.15 }}
+                  className="absolute left-0 top-full z-50 mt-2 w-80 overflow-hidden rounded-2xl border border-black/10 bg-white p-2 text-left shadow-xl"
+                >
+                  <div className="space-y-1">
+                    {solutionServices.map((solution) => (
+                      <a
+                        key={solution.href}
+                        href={solution.href}
+                        onClick={() => setSolutionsOpen(false)}
+                        className="block w-full rounded-xl px-4 py-2.5 text-xs font-semibold text-brand-ink transition hover:bg-orange-50/60 hover:text-brand-primary"
+                      >
+                        {solution.title}
+                      </a>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
 
           {/* PRODUCTS DROPDOWN MEGA-MENU TRIGGER */}
           <div
@@ -230,6 +296,32 @@ export function Navbar() {
             Home
           </Link>
 
+          {/* Mobile Expandable Solutions Accordion */}
+          <div>
+            <button
+              onClick={() => setMobileSolutionsExpanded(!mobileSolutionsExpanded)}
+              className="flex w-full items-center justify-between rounded-xl px-3 py-2.5 font-semibold text-brand-ink hover:bg-brand-bg"
+            >
+              <span>Solutions (5 Services)</span>
+              <ChevronDown className={`h-4 w-4 transition-transform ${mobileSolutionsExpanded ? 'rotate-180 text-brand-primary' : ''}`} />
+            </button>
+
+            {mobileSolutionsExpanded && (
+              <div className="ml-3 mt-1 space-y-1 border-l-2 border-brand-primary/20 py-2 pl-4">
+                {solutionServices.map((solution) => (
+                  <a
+                    key={solution.href}
+                    href={solution.href}
+                    onClick={() => setMobileOpen(false)}
+                    className="block rounded-lg p-2 text-brand-ink hover:bg-orange-50/50 hover:text-brand-primary"
+                  >
+                    {solution.title}
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+
           {/* Mobile Expandable Products Accordion */}
           <div>
             <button
@@ -256,10 +348,6 @@ export function Navbar() {
               </div>
             )}
           </div>
-
-          <Link onClick={() => setMobileOpen(false)} className="rounded-xl px-3 py-2.5 hover:bg-brand-bg text-brand-ink" href="/solutions">
-            Solutions
-          </Link>
 
           <Link
             onClick={() => setMobileOpen(false)}
