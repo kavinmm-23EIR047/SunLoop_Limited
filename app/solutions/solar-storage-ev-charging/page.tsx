@@ -1,4 +1,8 @@
+'use client';
+
+import React from 'react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import { ArrowUpRight, Zap } from 'lucide-react';
 import { Reveal } from '../../../components/UI';
 
@@ -7,14 +11,14 @@ const integratedSolutions = [
     number: '01',
     title: 'Residential Solar + Storage + EV Charging Solution',
     description: 'SunEvo’s all-in-one home energy solution integrates PV inverters, energy storage systems, and EV chargers, enabling your home to be fully powered by clean energy—day or night, rain or shine.',
-    image: '/images/residential-energy.png',
+    image: '/images/Residential Solar + Storage + EV Charging Solution.png',
     imageAlt: 'Residential solar, storage and EV charging solution',
   },
   {
     number: '02',
     title: 'Commercial Solar + Storage + EV Charging Solution',
     description: 'Reduce traditional energy consumption and lower charging costs by providing customers with a one-stop zero-carbon charging station that integrates solar generation, energy storage, and EV charging, enabling higher returns.',
-    image: '/images/commercial-energy.png',
+    image: '/images/Commercial Solar + Storage + EV Charging Solution.png',
     imageAlt: 'Commercial solar, storage and EV charging solution',
   },
 ];
@@ -34,23 +38,36 @@ export default function SolarStorageEVChargingPage() {
         </div>
       </section>
 
-      <section className="py-14 md:py-20">
+      <section className="py-14 md:py-20 overflow-hidden">
         <div className="container mx-auto max-w-5xl space-y-16 px-4">
           {integratedSolutions.map((solution, index) => (
-            <Reveal key={solution.number} className="grid items-center gap-8 border-b border-black/[0.07] pb-16 last:border-0 last:pb-0 md:grid-cols-2 md:gap-12">
-              <div className={index % 2 === 1 ? 'md:order-2' : ''}>
-                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-black/[0.07] bg-white shadow-sm">
-                  <img src={solution.image} alt={solution.imageAlt} className="h-full w-full object-cover" />
-                  <span className="absolute left-4 top-4 rounded-full bg-brand-ink px-3 py-1 text-[10px] font-bold text-white shadow-sm">SOLUTION {solution.number}</span>
-                </div>
-              </div>
-              <div className={`space-y-4 ${index % 2 === 1 ? 'md:order-1' : ''}`}>
+            <div key={solution.number} className="grid items-center gap-8 border-b border-black/[0.07] pb-16 last:border-0 last:pb-0 md:grid-cols-2 md:gap-12">
+              <motion.div
+                initial={{ opacity: 0, x: -60 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ duration: 0.6, ease: 'easeOut' }}
+                className={`space-y-4 ${index % 2 === 1 ? 'md:order-1' : ''}`}
+              >
                 <span className="eyebrow inline-block">SOLUTION {solution.number}</span>
                 <h2 className="text-2xl font-bold leading-tight tracking-tight text-brand-ink md:text-3xl">{solution.title}</h2>
                 <p className="text-sm leading-relaxed text-brand-slate">{solution.description}</p>
                 <Link href="/contact" className="inline-flex items-center gap-1 pt-2 text-xs font-bold text-brand-primary hover:underline">Learn More <ArrowUpRight className="h-3.5 w-3.5" /></Link>
-              </div>
-            </Reveal>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: 60 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }}
+                className={index % 2 === 1 ? 'md:order-2' : ''}
+              >
+                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-black/[0.07] bg-white shadow-md">
+                  <img src={solution.image} alt={solution.imageAlt} className="h-full w-full object-cover" />
+                  <span className="absolute left-4 top-4 rounded-full bg-brand-ink px-3 py-1 text-[10px] font-bold text-white shadow-sm">SOLUTION {solution.number}</span>
+                </div>
+              </motion.div>
+            </div>
           ))}
         </div>
       </section>

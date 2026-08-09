@@ -1,3 +1,7 @@
+'use client';
+
+import React from 'react';
+import { motion } from 'framer-motion';
 import { BatteryCharging, Gauge, Sun, Wind } from 'lucide-react';
 import { Reveal } from '../../../components/UI';
 
@@ -89,13 +93,16 @@ export default function SmartMicrogridPage() {
         </div>
       </section>
 
-      <section className="py-14 md:py-20">
+      <section className="py-14 md:py-20 overflow-hidden">
         <div className="container mx-auto max-w-5xl px-4">
-          <Reveal className="grid items-center gap-9 md:grid-cols-2 md:gap-12">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-black/[0.07] bg-white shadow-sm">
-              <img src="/images/microgrid-hero.png" alt="Wind, solar, storage and generator microgrid" className="h-full w-full object-cover" />
-            </div>
-            <div className="space-y-4">
+          <div className="grid items-center gap-9 md:grid-cols-2 md:gap-12">
+            <motion.div
+              initial={{ opacity: 0, x: -60 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.6, ease: 'easeOut' }}
+              className="space-y-4"
+            >
               <span className="eyebrow inline-block">INTEGRATED ENERGY ECOSYSTEM</span>
               <h2 className="text-2xl font-bold tracking-tight text-brand-ink md:text-3xl">Wind + PV + ESS + DG Microgrid Solution</h2>
               <p className="text-sm leading-relaxed text-brand-slate">This solution combines renewable power from wind and solar PV, conventional power from diesel and gas gensets, and energy storage into a coordinated “source + storage + load” architecture. It enables both grid-connected collaboration and independent off-grid operation for enhanced reliability and flexibility.</p>
@@ -104,12 +111,23 @@ export default function SmartMicrogridPage() {
                 <span className="rounded-full bg-brand-primary px-3 py-1.5 text-[11px] font-bold text-white">Off Grid</span>
                 <span className="rounded-full border border-brand-primary/25 bg-orange-50 px-3 py-1.5 text-[11px] font-bold text-brand-primary">On/Off Grid</span>
               </div>
-            </div>
-          </Reveal>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 60 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }}
+            >
+              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-black/[0.07] bg-white shadow-md">
+                <img src="/images/microgrid-hero.png" alt="Wind, solar, storage and generator microgrid" className="h-full w-full object-cover" />
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
-      <section className="border-t border-black/[0.06] py-14 md:py-20">
+      <section className="border-t border-black/[0.06] py-14 md:py-20 overflow-hidden">
         <div className="container mx-auto max-w-5xl space-y-16 px-4">
           <Reveal className="max-w-2xl space-y-3">
             <span className="eyebrow inline-block">SYSTEM COMPONENTS</span>
@@ -118,18 +136,31 @@ export default function SmartMicrogridPage() {
           {microgridComponents.map((component, index) => {
             const Icon = component.icon;
             return (
-              <Reveal key={component.title} className="grid items-center gap-8 border-b border-black/[0.07] pb-16 last:border-0 last:pb-0 md:grid-cols-2 md:gap-12">
-                <div className={index % 2 === 1 ? 'md:order-2' : ''}>
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-black/[0.07] bg-white shadow-sm">
-                    <img src={component.image} alt={component.imageAlt} className="h-full w-full object-cover" />
-                  </div>
-                </div>
-                <div className={`space-y-4 ${index % 2 === 1 ? 'md:order-1' : ''}`}>
+              <div key={component.title} className="grid items-center gap-8 border-b border-black/[0.07] pb-16 last:border-0 last:pb-0 md:grid-cols-2 md:gap-12">
+                <motion.div
+                  initial={{ opacity: 0, x: -60 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: '-50px' }}
+                  transition={{ duration: 0.6, ease: 'easeOut' }}
+                  className={`space-y-4 ${index % 2 === 1 ? 'md:order-1' : ''}`}
+                >
                   <span className="grid h-10 w-10 place-items-center rounded-xl bg-orange-100 text-brand-primary"><Icon className="h-5 w-5" /></span>
                   <h3 className="text-2xl font-bold leading-tight tracking-tight text-brand-ink md:text-3xl">{component.title}</h3>
                   <p className="text-sm leading-relaxed text-brand-slate">{component.description}</p>
-                </div>
-              </Reveal>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, x: 60 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: '-50px' }}
+                  transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }}
+                  className={index % 2 === 1 ? 'md:order-2' : ''}
+                >
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-black/[0.07] bg-white shadow-md">
+                    <img src={component.image} alt={component.imageAlt} className="h-full w-full object-cover" />
+                  </div>
+                </motion.div>
+              </div>
             );
           })}
         </div>
