@@ -10,25 +10,15 @@ const solarPVSolutions = [
   {
     number: '01',
     title: 'Residential Solar PV System Solution',
-<<<<<<< HEAD
     description: 'Transform your home into a powerhouse with Sunloop’s residential PV system, harnessing the power of the sun to provide sustainable and green electricity for your life.',
     image: '/images/Residential Solar PV System Solution.png',
-=======
-    description: 'Transform your home into a powerhouse with SunEvo’s residential PV system, harnessing the power of the sun to provide sustainable and green electricity for your life.',
-    image: '/images/residential-solar-pv-system-solution.png',
->>>>>>> 4ed3954d1461a46d66b74a5f60d45e5eb9ce8953
     imageAlt: 'Residential rooftop solar PV system',
   },
   {
     number: '02',
     title: 'Commercial & Industrial Solar PV System Solution',
-<<<<<<< HEAD
     description: 'The high-performance commercial PV system from Sunloop can lower energy costs and carbon emissions of your office building or commercial building.',
     image: '/images/Commercial & Industrial Solar PV System Solution.jpg',
-=======
-    description: 'The high-performance commercial PV system from SunEvo can lower energy costs and carbon emissions of your office building or commercial building.',
-    image: '/images/commercial-industrial-solar-pv-system-solution.jpg',
->>>>>>> 4ed3954d1461a46d66b74a5f60d45e5eb9ce8953
     imageAlt: 'Commercial and industrial solar PV system',
   },
   {
@@ -43,19 +33,12 @@ const solarPVSolutions = [
 export default function SolarPVSolutionPage() {
   return (
     <main className="min-h-screen bg-[#FAFAF5] pb-16 pt-16 font-sans">
-<<<<<<< HEAD
       <section className="relative w-full">
         {/* Native Image for perfect scaling on desktop */}
         <img
           src="/images/solar-panels.png"
           alt="Solar PV System Solutions"
           className="w-full h-[500px] lg:h-auto lg:max-h-[90vh] object-cover"
-=======
-      <section className="relative flex min-h-[390px] items-center overflow-hidden bg-brand-ink text-white sm:min-h-[460px]">
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-45"
-          style={{ backgroundImage: "url('/images/solar-panels.png')" }}
->>>>>>> 4ed3954d1461a46d66b74a5f60d45e5eb9ce8953
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/65 to-black/30" />
 

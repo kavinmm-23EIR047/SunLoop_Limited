@@ -11,7 +11,7 @@ import {
   Zap,
 } from 'lucide-react';
 import { Reveal } from '../components/UI';
-import Stats from '../components/Stats';
+import EnergyDashboard from '../components/EnergyDashboard';
 import SolarHero from '../components/SolarHero';
 import ProductStickyShowcase from '../components/ProductStickyShowcase';
 import ConnectedJourneyScrollShowcase from '../components/ConnectedJourneyScrollShowcase';
@@ -55,9 +55,8 @@ export default function Home() {
           </Reveal>
         </div>
       </section>
-
-      <div className="border-y border-black/[0.06] bg-white">
-        <Reveal><Stats /></Reveal>
+      <div className="bg-[#F8F9FA]">
+        <Reveal><EnergyDashboard /></Reveal>
       </div>
 
       <section className="border-b border-black/[0.06] bg-white">

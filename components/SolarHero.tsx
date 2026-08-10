@@ -1,400 +1,158 @@
 'use client';
 
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import Link from 'next/link';
-import { ArrowUpRight, Sparkles, ShieldCheck, Zap, Leaf, Headphones, Sun } from 'lucide-react';
-import { motion } from 'framer-motion';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ArrowRight, Play, Calendar, Users, Leaf, LineChart, Headphones, Sun } from 'lucide-react';
 import { Reveal } from './UI';
 
-if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger);
-}
-
 export default function SolarHero() {
-  const heroRef = useRef<HTMLDivElement>(null);
-  const bgRef = useRef<HTMLDivElement>(null);
-  const sunRef = useRef<HTMLDivElement>(null);
-  const planetsRef = useRef<HTMLDivElement>(null);
-  const raysRef = useRef<SVGSVGElement>(null);
-  const panelReflectionRef = useRef<HTMLDivElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-
-    const ctx = gsap.context(() => {
-      // Ensure site header and robot assistant are always visible and interactive
-      gsap.set('#site-header, #robot-assistant', { opacity: 1, pointerEvents: 'auto' });
-
-      // Shared target position in the clear sky, above and right of the hero copy.
-      const isMobile = window.innerWidth < 768;
-      const targetX = isMobile 
-        ? window.innerWidth * -0.28 
-        : Math.max(-window.innerWidth * 0.31, -window.innerHeight * 0.45);
-      const targetY = isMobile 
-        ? window.innerHeight * -0.28 
-        : Math.max(-window.innerHeight * 0.36, -window.innerWidth * 0.25);
-
-      // Master Timeline scrubbed with ScrollTrigger
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: heroRef.current,
-          start: 'top top',
-          end: '+=1600',
-          pin: true,
-          scrub: 1,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-        },
-      });
-
-      // ----------------------------------------------------
-      // PHASE 1:
-      // - 7 Planets fade out & scale down as scroll starts
-      // - Foreground Sun moves smoothly to upper-left clear sky target
-      // - Background image zooms out & reveals
-      // ----------------------------------------------------
-      tl.to(
-        planetsRef.current,
-        {
-          opacity: 0,
-          scale: 0.6,
-          filter: 'blur(6px)',
-          ease: 'power2.out',
-          duration: 2.2,
-        },
-        0
-      )
-        .to(
-          sunRef.current,
-          {
-            x: targetX,
-            y: targetY,
-            scale: 0.22,
-            opacity: 1,
-            filter: 'drop-shadow(0 0 16px rgba(255,210,110,0.8))',
-            ease: 'power2.out',
-            duration: 3,
-          },
-          0
-        )
-        .to(
-          raysRef.current,
-          {
-            x: targetX,
-            y: targetY,
-            ease: 'power2.out',
-            duration: 3,
-          },
-          0
-        )
-        .to(
-          bgRef.current,
-          {
-            opacity: 1,
-            scale: 1.0,
-            ease: 'power2.out',
-            duration: 3,
-          },
-          0
-        )
-
-        // ----------------------------------------------------
-        // PHASE 2:
-        // - Soft warm sunlight rays project from Sun toward Solar Panel
-        // ----------------------------------------------------
-        .to(
-          raysRef.current,
-          {
-            opacity: 0,
-            ease: 'power2.out',
-            duration: 1.5,
-          },
-          2.0
-        )
-        .to(
-          panelReflectionRef.current,
-          {
-            opacity: 0.7,
-            ease: 'power2.out',
-            duration: 1.5,
-          },
-          1.8
-        )
-        .to(
-          raysRef.current,
-          {
-            opacity: 0.35,
-            ease: 'power1.out',
-            duration: 1.2,
-          },
-          3.2
-        );
-    }, heroRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section
-      ref={heroRef}
-      className="relative w-full h-screen min-h-[500px] overflow-hidden bg-[#f8f6f1] text-brand-ink flex items-center"
-    >
-      {/* BACKGROUND SCENE: Plain space initially (opacity 0), smoothly fades in & reveals landscape on scroll */}
-      <div
-        ref={bgRef}
-        className="absolute inset-0 w-full h-full z-0 overflow-hidden opacity-100 scale-100"
-        style={{ transformOrigin: 'center center' }}
-      >
+    <section className="relative w-full h-auto min-h-screen bg-[#F8F9FA] flex flex-col font-sans">
+      {/* BACKGROUND SCENE */}
+      <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
         <img
           src="/images/solar-hero-bg.png"
           alt="Solar Energy Landscape Environment"
-          className="w-full h-full object-cover object-center filter brightness-100 contrast-[1.05]"
+          className="w-full h-full object-cover object-center"
         />
-        {/* Deep gradient overlay on left for optimal text contrast */}
-        <div className="absolute inset-y-0 left-0 w-full md:w-[58%] bg-gradient-to-r from-white via-white/85 to-transparent pointer-events-none" />
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-white/95 to-transparent pointer-events-none" />
+        {/* Soft white gradient fading from the left for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/70 to-transparent md:w-[65%]" />
       </div>
 
-      {/* 7 PLANETS SOLAR SYSTEM SPREAD: Floating around central Sun initially */}
-      <div
-        ref={planetsRef}
-        className="hidden"
-      >
-        {/* Subtle orbital rings aligned with the offset Sun */}
-        <div className="absolute top-[56%] left-[55%] -translate-x-1/2 -translate-y-1/2 w-[21.25rem] h-[21.25rem] rounded-full border border-amber-500/20 border-dashed" />
-        <div className="absolute top-[56%] left-[55%] -translate-x-1/2 -translate-y-1/2 w-[30rem] h-[30rem] rounded-full border border-cyan-500/15 border-dashed" />
-        <div className="absolute top-[56%] left-[55%] -translate-x-1/2 -translate-y-1/2 w-[40rem] h-[40rem] rounded-full border border-blue-500/15 border-dashed" />
-        <div className="absolute top-[56%] left-[55%] -translate-x-1/2 -translate-y-1/2 w-[50rem] h-[50rem] rounded-full border border-white/10" />
-
-        {/* Planet 1: Mercury */}
-        <div className="absolute top-[38%] left-[51%] -translate-x-1/2 -translate-y-1/2 flex items-center gap-1.5">
-          <div className="w-5 h-5 rounded-full bg-gradient-to-tr from-amber-800 via-amber-600 to-amber-300 shadow-[0_0_10px_rgba(217,119,6,0.8)] border border-amber-300/40" />
-          <span className="text-[10px] font-bold text-amber-200/90 tracking-wider uppercase backdrop-blur-xs px-1.5 py-0.5 rounded bg-black/50 border border-white/10">Mercury</span>
-        </div>
-
-        {/* Planet 2: Venus */}
-        <div className="absolute top-[28%] left-[66%] -translate-x-1/2 -translate-y-1/2 flex items-center gap-1.5">
-          <div className="w-7 h-7 rounded-full bg-gradient-to-tr from-orange-600 via-amber-400 to-yellow-100 shadow-[0_0_14px_rgba(251,191,36,0.9)] border border-orange-200/40" />
-          <span className="text-[10px] font-bold text-orange-200/90 tracking-wider uppercase backdrop-blur-xs px-1.5 py-0.5 rounded bg-black/50 border border-white/10">Venus</span>
-        </div>
-
-        {/* Planet 3: Earth */}
-        <div className="absolute top-[66%] left-[46%] -translate-x-1/2 -translate-y-1/2 flex items-center gap-1.5">
-          <div className="relative w-9 h-9 rounded-full bg-gradient-to-tr from-blue-700 via-cyan-400 to-emerald-400 shadow-[0_0_18px_rgba(56,189,248,0.9)] border border-cyan-200/50">
-            {/* Moon */}
-            <div className="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-slate-200 shadow-[0_0_6px_#fff]" />
-          </div>
-          <span className="text-[10px] font-extrabold text-cyan-200 tracking-wider uppercase backdrop-blur-xs px-1.5 py-0.5 rounded bg-black/50 border border-white/10">Earth</span>
-        </div>
-
-        {/* Planet 4: Mars */}
-        <div className="absolute top-[72%] left-[63%] -translate-x-1/2 -translate-y-1/2 flex items-center gap-1.5">
-          <div className="w-6 h-6 rounded-full bg-gradient-to-tr from-red-800 via-orange-600 to-amber-500 shadow-[0_0_14px_rgba(239,68,68,0.9)] border border-red-300/40" />
-          <span className="text-[10px] font-bold text-red-200/90 tracking-wider uppercase backdrop-blur-xs px-1.5 py-0.5 rounded bg-black/50 border border-white/10">Mars</span>
-        </div>
-
-        {/* Planet 5: Jupiter */}
-        <div className="absolute top-[22%] left-[77%] -translate-x-1/2 -translate-y-1/2 flex items-center gap-1.5">
-          <div className="w-12 h-12 rounded-full bg-gradient-to-b from-amber-700 via-amber-400 to-orange-800 shadow-[0_0_24px_rgba(245,158,11,0.7)] border border-amber-300/40" />
-          <span className="text-[10px] font-bold text-amber-100 tracking-wider uppercase backdrop-blur-xs px-1.5 py-0.5 rounded bg-black/50 border border-white/10">Jupiter</span>
-        </div>
-
-        {/* Planet 6: Saturn */}
-        <div className="absolute top-[70%] left-[78%] -translate-x-1/2 -translate-y-1/2 flex items-center gap-2">
-          <div className="relative w-10 h-10 rounded-full bg-gradient-to-tr from-amber-400 via-amber-200 to-yellow-100 shadow-[0_0_20px_rgba(252,211,77,0.8)] border border-amber-200/50 flex items-center justify-center">
-            {/* Saturn Ring */}
-            <div className="absolute w-16 h-5 rounded-full border-2 border-amber-300/70 rotate-[-25deg] shadow-[0_0_8px_rgba(252,211,77,0.6)]" />
-          </div>
-          <span className="text-[10px] font-bold text-amber-200/90 tracking-wider uppercase backdrop-blur-xs px-1.5 py-0.5 rounded bg-black/50 border border-white/10">Saturn</span>
-        </div>
-
-        {/* Planet 7: Uranus */}
-        <div className="absolute top-[18%] left-[41%] -translate-x-1/2 -translate-y-1/2 flex items-center gap-1.5">
-          <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-teal-700 via-cyan-400 to-sky-200 shadow-[0_0_16px_rgba(45,212,191,0.8)] border border-teal-200/40" />
-          <span className="text-[10px] font-bold text-teal-200/90 tracking-wider uppercase backdrop-blur-xs px-1.5 py-0.5 rounded bg-black/50 border border-white/10">Uranus</span>
-        </div>
-      </div>
-
-      {/* FOREGROUND SUN: offset below Mercury to keep both labels unobstructed */}
-      <div
-        ref={sunRef}
-        className="hidden"
-        style={{
-          top: '56%',
-          left: '55%',
-          transform: 'translate(-50%, -50%)',
-        }}
-      >
-        <img
-          src="/images/sun.png"
-          alt="Sun"
-          className="w-full h-full object-contain filter drop-shadow-[0_0_35px_rgba(255,190,60,0.85)]"
-        />
-      </div>
-
-      {/* Ray source is aligned to the Sun's 55% / 56% starting position. */}
-      <svg
-        ref={raysRef}
-        className="hidden"
-        style={{
-          top: '6%',
-          left: '5%',
-        }}
-        viewBox="0 0 1000 1000"
-        preserveAspectRatio="none"
-      >
-        <defs>
-          <linearGradient id="sunRayGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#FFE082" stopOpacity="0.6" />
-            <stop offset="60%" stopColor="#FFB74D" stopOpacity="0.25" />
-            <stop offset="100%" stopColor="#E86526" stopOpacity="0" />
-          </linearGradient>
-          <linearGradient id="sunRayGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#FFF59D" stopOpacity="0.5" />
-            <stop offset="80%" stopColor="#FFA726" stopOpacity="0.1" />
-            <stop offset="100%" stopColor="#FFF" stopOpacity="0" />
-          </linearGradient>
-        </defs>
-
-        {/* Soft Ray Cones emanating from exact Sun center (500, 500) translated in lockstep with Sun */}
-        <polygon points="500,500 340,900 440,900" fill="url(#sunRayGrad1)" />
-        <polygon points="500,500 210,950 310,950" fill="url(#sunRayGrad2)" />
-        <polygon points="500,500 660,850 760,880" fill="url(#sunRayGrad1)" />
-      </svg>
-
-      {/* Sunlight glint projected directly across the solar-panel surface. */}
-      <div
-        ref={panelReflectionRef}
-        className="pointer-events-none absolute left-[43%] top-[37%] z-10 h-[18%] w-[49%] -skew-x-[18deg] overflow-hidden opacity-0"
-      >
-        <div className="h-full w-full animate-[pulse_3s_ease-in-out_infinite] bg-[linear-gradient(110deg,transparent_12%,rgba(255,224,130,0.08)_30%,rgba(255,250,210,0.56)_48%,rgba(255,224,130,0.12)_66%,transparent_84%)]" />
-      </div>
-
-      {/* HOMEPAGE HERO CONTENT: Fully visible on load with high z-index & perfect contrast */}
-      <div
-        ref={contentRef}
-        className="container relative z-30 mx-auto px-4 pt-24 md:pt-28 pb-12 opacity-100 translate-y-0"
-      >
-        <div className="max-w-xl">
+      {/* MAIN HERO CONTENT */}
+      <div className="container relative z-10 mx-auto px-4 flex-1 flex flex-col justify-center pt-28 pb-32">
+        <div className="max-w-2xl relative">
           <Reveal>
-            <div className="inline-flex items-center gap-2 rounded-full border border-orange-200/80 bg-white/90 px-4 py-2 text-xs font-bold text-brand-ink shadow-sm mb-5">
-              <span className="text-amber-500">✦</span> 10 Years of Energy Expertise · One Smarter Future
+            {/* Pill */}
+            <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/90 backdrop-blur-sm px-4 py-2 text-xs font-bold text-slate-800 shadow-sm mb-6">
+              <span className="text-amber-400">⚡</span> Next-Gen Solar PV + ESS + EV Ecosystem
             </div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 leading-[1.12] max-w-[90vw] sm:max-w-3xl">
-              Powering Tomorrow,<br />
-              <span className="text-[#F26422]">Sustainably.</span>
+            {/* Typography */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-[#111111] leading-[1.1] mb-4">
+              Powering Tomorrow, <br />
+              <span className="text-[#E86526]">Sustainably.</span>
             </h1>
 
-            <p className="mt-4 text-sm sm:text-base text-slate-700 max-w-md font-normal leading-relaxed">
-              We didn't just start today. We've been powering progress for over a decade — generating, storing, and managing clean energy through Sunloop Energy's unified AI platform.
+            <h2 className="text-lg sm:text-xl font-bold text-[#222222] mb-3">
+              We're not just here today, we're here for the <span className="text-[#E86526]">next 10 years</span>.
+            </h2>
+
+            <p className="text-sm sm:text-base text-[#444444] leading-relaxed max-w-lg mb-8 font-medium">
+              Clean. Intelligent. Integrated. Generate, store, save and manage your renewable energy through Sunloop Energy's unified AI platform.
             </p>
 
-            <div className="mt-6 flex flex-wrap items-center gap-3">
+            {/* CTA Buttons */}
+            <div className="flex flex-wrap items-center gap-4">
               <Link
-                href="/contact"
-                className="inline-flex items-center gap-2.5 rounded-full bg-[#E86526] px-8 py-3.5 text-sm font-bold text-white shadow-xl hover:bg-[#c95315] transition group transform hover:-translate-y-0.5"
+                href="/solutions"
+                className="inline-flex items-center gap-2.5 rounded-full bg-[#E86526] px-8 py-3.5 text-sm font-bold text-white shadow-lg shadow-orange-500/20 hover:bg-[#c95315] transition"
               >
-                Contact Us <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                Explore Solutions <ArrowRight className="h-4 w-4" />
               </Link>
-            </div>
-
-            {/* 4 Micro-Features Row */}
-            <div className="relative mt-8 z-40 grid grid-cols-2 gap-4 rounded-2xl border border-slate-600 bg-[#182431] p-5 text-xs text-white shadow-2xl md:absolute md:bottom-5 md:left-4 md:right-4 md:mt-0 sm:grid-cols-4 sm:gap-0 sm:p-6">
-              <div className="flex items-center gap-2 sm:border-r sm:border-white/15 sm:px-5 sm:first:pl-0">
-                <ShieldCheck className="h-4 w-4 text-amber-300 shrink-0" />
-                <div>
-                  <b className="text-white">10+ Yrs Expertise</b>
-                  <small className="block text-[10px] text-white/80 leading-tight">Established 2016</small>
+              <button
+                className="inline-flex items-center gap-2.5 rounded-full border border-black/10 bg-white px-8 py-3.5 text-sm font-bold text-slate-800 shadow-sm hover:bg-slate-50 transition"
+              >
+                <div className="flex items-center justify-center h-5 w-5 rounded-full border border-slate-400">
+                  <Play className="h-2.5 w-2.5 ml-0.5 text-slate-600" />
                 </div>
-              </div>
-
-              <div className="flex items-center gap-2 sm:border-r sm:border-white/15 sm:px-5">
-                <Zap className="h-4 w-4 text-amber-300 shrink-0" />
-                <div>
-                  <b className="text-white">3-in-1 Tech</b>
-                  <small className="block text-[10px] text-white/80 leading-tight">Solar + ESS + EV</small>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-2 sm:border-r sm:border-white/15 sm:px-5">
-                <Leaf className="h-4 w-4 text-emerald-300 shrink-0" />
-                <div>
-                  <b className="text-white">100% Clean</b>
-                  <small className="block text-[10px] text-white/80 leading-tight">Renewable Energy</small>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-2 sm:pl-5">
-                <Headphones className="h-4 w-4 text-amber-300 shrink-0" />
-                <div>
-                  <b className="text-white">AI Powered</b>
-                  <small className="block text-[10px] text-white/80 leading-tight">24/7 Smart Portal</small>
-                </div>
-              </div>
+                Watch Our Story
+              </button>
             </div>
           </Reveal>
-        </div>
 
-        {/* FLOATING SPREAD DASHBOARD UI CARDS */}
-        <div className="hidden lg:block absolute top-[25%] right-[5%] z-40 w-72 space-y-10 pointer-events-none">
-          
-          {/* Card 1: Solar Yield */}
-          <motion.div 
-            initial={{ opacity: 0, x: 50, rotate: 10 }}
-            animate={{ opacity: 1, x: 0, y: [0, -10, 0], rotate: [-3, -1, -3] }}
-            transition={{ duration: 3.5, delay: 1.5, repeat: Infinity, ease: "easeInOut" }}
-            className="relative bg-[#273b4e] border border-white/20 p-5 rounded-[20px] shadow-[0_20px_50px_rgba(0,0,0,0.38)] transform transition-transform duration-300"
-          >
-            <div className="flex items-center justify-between mb-4">
-               <div className="flex items-center gap-2">
-                  <div className="bg-amber-400/20 p-1.5 rounded-lg">
+          {/* FLOATING LIVE YIELD WIDGET */}
+          <div className="absolute right-0 translate-x-[40%] top-[10%] hidden lg:block">
+            <Reveal delay={0.2}>
+              <div className="bg-[#1D2B36]/90 backdrop-blur-md border border-white/10 rounded-2xl p-5 shadow-2xl w-64 text-white">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center gap-2">
                     <Sun className="h-4 w-4 text-amber-400" />
+                    <span className="text-[10px] font-bold uppercase tracking-wider">LIVE YIELD</span>
                   </div>
-                  <span className="text-[11px] font-extrabold text-white uppercase tracking-widest">Live Yield</span>
-               </div>
-               <span className="flex h-2.5 w-2.5 relative">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-               </span>
-            </div>
-            <div className="flex items-baseline gap-1.5">
-               <span className="text-4xl font-black text-white tracking-tighter leading-none">124.5</span>
-               <span className="text-sm font-semibold text-white/70">kW</span>
-            </div>
-            <div className="mt-3 text-[10px] font-bold text-amber-300/80 uppercase tracking-wider">↑ 12% higher than yesterday</div>
-          </motion.div>
-
-          {/* Card 2: Battery ESS */}
-          <motion.div 
-            initial={{ opacity: 0, x: 50, rotate: -10 }}
-            animate={{ opacity: 1, x: 0, y: [0, 9, 0], rotate: [4, 2, 4] }}
-            transition={{ duration: 4, delay: 1.8, repeat: Infinity, ease: "easeInOut" }}
-            className="relative bg-[#283b32] border border-white/20 p-5 rounded-[20px] shadow-[0_20px_50px_rgba(0,0,0,0.38)] translate-x-16 transform transition-transform duration-300"
-          >
-            <div className="flex items-center justify-between mb-4">
-               <div className="flex items-center gap-2">
-                  <div className="bg-emerald-400/20 p-1.5 rounded-lg">
-                    <Zap className="h-4 w-4 text-emerald-400" />
+                  <div className="flex items-center gap-1.5">
+                    <span className="h-2 w-2 rounded-full bg-emerald-400"></span>
+                    <span className="text-[9px] font-bold uppercase tracking-widest text-emerald-400">SYSTEM ONLINE</span>
                   </div>
-                  <span className="text-[11px] font-extrabold text-white uppercase tracking-widest">ESS Status</span>
-               </div>
-               <span className="text-[9px] font-black px-2 py-0.5 rounded-md bg-emerald-500/20 text-emerald-300 uppercase tracking-widest border border-emerald-500/20">Active</span>
-            </div>
-            <div className="w-full bg-black/40 rounded-full h-2.5 mb-2.5 border border-white/10">
-               <div className="bg-gradient-to-r from-emerald-500 to-emerald-300 h-2.5 rounded-full w-[82%] relative">
-                  <div className="absolute right-0 top-0 bottom-0 w-4 bg-white/30 rounded-full blur-[2px]"></div>
-               </div>
-            </div>
-            <div className="flex justify-between text-[10px] font-bold uppercase tracking-wider">
-               <span className="text-white">82% Charged</span>
-               <span className="text-white/50">4h remaining</span>
-            </div>
-          </motion.div>
+                </div>
+                
+                <div className="flex items-baseline gap-1 mb-2">
+                  <span className="text-4xl font-extrabold tracking-tighter">124.5</span>
+                  <span className="text-sm font-semibold text-white/70">kW</span>
+                </div>
 
+                {/* Simple SVG Sparkline Chart */}
+                <div className="h-10 w-full mb-3 opacity-80">
+                  <svg viewBox="0 0 100 30" preserveAspectRatio="none" className="w-full h-full">
+                    <path
+                      d="M0,25 C10,25 15,10 25,15 C35,20 40,5 50,10 C60,15 65,25 75,20 C85,15 90,5 100,2"
+                      fill="none"
+                      stroke="#E86526"
+                      strokeWidth="2"
+                    />
+                  </svg>
+                </div>
+
+                <div className="text-[9px] font-bold text-amber-400 uppercase tracking-widest border-t border-white/10 pt-3">
+                  ↑ 12% HIGHER THAN YESTERDAY
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </div>
+
+      {/* BOTTOM INFO BAR */}
+      <div className="relative z-20 w-full bg-[#182431] border-t border-white/10 px-4 py-5 md:py-0 md:px-0 mt-auto">
+        <div className="container mx-auto">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between md:divide-x divide-white/10">
+            
+            {/* Item 1 */}
+            <div className="flex items-center gap-3 py-3 md:py-6 px-2 w-full">
+              <Calendar className="h-5 w-5 text-amber-400 shrink-0" />
+              <div>
+                <strong className="block text-white text-xs sm:text-[13px] font-bold">Est. 2016</strong>
+                <span className="block text-[11px] text-white/70 mt-0.5">Coimbatore, TN, India</span>
+              </div>
+            </div>
+
+            {/* Item 2 */}
+            <div className="flex items-center gap-3 py-3 md:py-6 md:px-6 w-full">
+              <Users className="h-5 w-5 text-amber-400 shrink-0" />
+              <div>
+                <strong className="block text-white text-xs sm:text-[13px] font-bold">10+ Years of Trust</strong>
+                <span className="block text-[11px] text-white/70 mt-0.5">In Clean Energy</span>
+              </div>
+            </div>
+
+            {/* Item 3 */}
+            <div className="flex items-center gap-3 py-3 md:py-6 md:px-6 w-full">
+              <Leaf className="h-5 w-5 text-emerald-400 shrink-0" />
+              <div>
+                <strong className="block text-white text-xs sm:text-[13px] font-bold">100% Clean</strong>
+                <span className="block text-[11px] text-white/70 mt-0.5">Renewable Energy</span>
+              </div>
+            </div>
+
+            {/* Item 4 */}
+            <div className="flex items-center gap-3 py-3 md:py-6 md:px-6 w-full">
+              <LineChart className="h-5 w-5 text-amber-400 shrink-0" />
+              <div>
+                <strong className="block text-white text-xs sm:text-[13px] font-bold">AI Powered</strong>
+                <span className="block text-[11px] text-white/70 mt-0.5">Smart Energy Management</span>
+              </div>
+            </div>
+
+            {/* Item 5 */}
+            <div className="flex items-center gap-3 py-3 md:py-6 md:px-6 w-full md:pr-2">
+              <Headphones className="h-5 w-5 text-amber-400 shrink-0" />
+              <div>
+                <strong className="block text-white text-xs sm:text-[13px] font-bold">24/7 Support</strong>
+                <span className="block text-[11px] text-white/70 mt-0.5">Always With You</span>
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
     </section>
