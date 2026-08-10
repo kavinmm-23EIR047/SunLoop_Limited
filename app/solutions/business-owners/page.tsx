@@ -37,7 +37,7 @@ export default function BusinessOwnersSolutionPage() {
       <section className="relative w-full">
         {/* Native Image for perfect scaling on desktop */}
         <img
-          src="/images/Commercial Solar + Storage + EV Charging Solution.png"
+          src="/images/commercial-solar-storage-ev-charging-solution.png"
           alt="Commercial Solar Solution"
           className="w-full h-[500px] lg:h-auto lg:max-h-[90vh] object-cover"
         />

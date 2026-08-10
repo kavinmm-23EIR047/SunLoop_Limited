@@ -20,7 +20,7 @@ export default function HomeOwnersSolutionPage() {
       <section className="relative w-full">
         {/* Native Image for perfect scaling on desktop */}
         <img
-          src="/images/Residential Solar + Storage + EV Charging Solution.png"
+          src="/images/residential-solar-storage-ev-charging-solution.png"
           alt="Residential Solar Solution"
           className="w-full h-[500px] lg:h-auto lg:max-h-[90vh] object-cover"
         />
