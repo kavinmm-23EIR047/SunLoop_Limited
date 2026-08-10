@@ -31,7 +31,7 @@ export default function Company() {
 
       <section className="container py-20 md:py-28">
         <div className="grid gap-6 md:grid-cols-2">
-          <Reveal className="panel bg-brand-ink p-8 text-white rounded-2xl shadow-card relative overflow-hidden">
+          <Reveal className="dark-panel p-8 text-white rounded-2xl relative overflow-hidden">
             <img
               src="/images/ecosystem-hero.png"
               alt="Engineering Team"
