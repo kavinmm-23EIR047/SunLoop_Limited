@@ -1,652 +1,358 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import {
-  Sun,
-  BatteryCharging,
-  Zap,
-  CheckCircle2,
-  ArrowUpRight,
+  Banknote,
   ShieldCheck,
   Cpu,
-  Bot,
-  Home,
-  Sliders,
-  Server,
-  Activity,
-  Layers,
-  Sparkles,
-  Wifi,
-  Smartphone,
-  Gauge
+  LayoutTemplate,
+  ArrowRight,
+  Smartphone
 } from 'lucide-react';
 import { Reveal, Button } from '../../../components/UI';
-import { getResidentialESSProducts } from '../../../data/essProducts';
-import { getResidentialEVProducts } from '../../../data/evProducts';
-import { getResidentialSolarProducts } from '../../../data/solarProducts';
 
 export default function HomeOwnersSolutionPage() {
-  const [activeNode, setActiveNode] = useState<string>('inverter');
-  const resProducts = getResidentialESSProducts();
-  const resEVProducts = getResidentialEVProducts();
-  const resSolarProducts = getResidentialSolarProducts();
-
-
-
   return (
-    <main className="min-h-screen bg-white pt-16 pb-16 font-sans">
-      {/* HERO BANNER */}
-      <section className="relative w-full h-[400px] sm:h-[480px] md:h-[520px] overflow-hidden bg-white text-neutral-900 flex items-center border-b border-neutral-100">
-        <div
-          className="absolute inset-0 bg-cover bg-center pointer-events-none opacity-60 scale-105 transition-transform duration-1000"
-          style={{
-            backgroundImage: `url('/images/residential-energy.png')`,
-          }}
+    <main className="min-h-screen bg-white pt-[64px] font-sans overflow-hidden">
+      
+      <section className="relative w-full">
+        {/* Native Image for perfect scaling on desktop */}
+        <img
+          src="/images/Residential Solar + Storage + EV Charging Solution.png"
+          alt="Residential Solar Solution"
+          className="w-full h-[500px] lg:h-auto lg:max-h-[90vh] object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-black/40" />
+        
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="container relative z-10 mx-auto px-4 text-center">
+            <Reveal>
+              <h2 className="text-brand-primary font-bold tracking-widest uppercase text-sm md:text-base mb-4">
+                Residential PV &amp; ESS Solution
+              </h2>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight max-w-4xl mx-auto">
+                Energy Independence, Enjoy a Greener Life
+              </h1>
+            </Reveal>
+          </div>
+        </div>
+      </section>
 
-        <div className="container relative z-10 max-w-5xl mx-auto px-4">
-          <Reveal className="max-w-xl space-y-4">
-            <span className="inline-flex items-center gap-2 rounded-full bg-orange-50 border border-orange-200/80 px-3.5 py-1 text-[11px] font-semibold text-[#E86526] uppercase tracking-wider">
-              <Home className="h-3.5 w-3.5 text-[#E86526]" /> RESIDENTIAL PV + ESS + EV SOLUTION
-            </span>
-
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-neutral-900 leading-tight tracking-tight">
-              Clean Green Energy for Your Dream Home
-            </h1>
-
-            <p className="text-xs sm:text-sm text-neutral-600 font-normal leading-relaxed max-w-lg">
-              Integrated residential Rooftop Solar, WallArk &amp; StackArk LiFePO4 Battery Storage, and Smart EV Charging controlled in real time by Sunloop AI Portal.
-            </p>
-
-            <div className="flex items-center gap-3 pt-2">
-              <div className="rounded-xl border border-neutral-200 bg-white/90 px-3.5 py-1.5 text-xs shadow-xs">
-                <span className="text-neutral-500 text-[10px] block font-medium">SYSTEM RANGE</span>
-                <strong className="text-neutral-900 font-bold">3 kW to 15 kW Rooftop</strong>
-              </div>
-              <div className="rounded-xl border border-neutral-200 bg-white/90 px-3.5 py-1.5 text-xs shadow-xs">
-                <span className="text-neutral-500 text-[10px] block font-medium">POWER BACKUP</span>
-                <strong className="text-emerald-600 font-bold">24/7 Zero Interruption</strong>
-              </div>
+      {/* FEATURE CARDS */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <Reveal>
+            <div className="text-center mb-12">
+              <h3 className="text-3xl font-bold text-slate-900">Green Power with Enhanced Safety</h3>
             </div>
-
-            <div className="pt-3 flex flex-wrap gap-3">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 rounded-xl bg-[#E86526] px-6 py-3 text-xs font-semibold text-white shadow-md hover:bg-[#c95315] transition"
-              >
-                Calculate Home Savings <ArrowUpRight className="h-3.5 w-3.5" />
-              </Link>
-              <Link
-                href="/ai-portal"
-                className="inline-flex items-center gap-2 rounded-xl bg-white border border-neutral-200 px-6 py-3 text-xs font-semibold text-neutral-900 hover:bg-neutral-50 transition shadow-xs"
-              >
-                <Bot className="h-3.5 w-3.5 text-[#E86526]" /> Home AI App Demo
-              </Link>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-      {/* DEDICATED LITHIUM BATTERIES SECTION FOR RESIDENTIAL */}
-      <section className="py-14 md:py-20 bg-[#FAFAF5] border-b border-black/[0.06]">
-        <div className="container max-w-5xl mx-auto px-4 space-y-12">
-          <Reveal className="text-center max-w-2xl mx-auto space-y-2">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-orange-100 px-3 py-1 text-[10px] font-bold text-[#E86526] uppercase tracking-wider">
-              <BatteryCharging className="h-3.5 w-3.5" /> RESIDENTIAL ENERGY STORAGE
-            </span>
-            <h2 className="text-2xl md:text-3xl font-extrabold text-brand-ink">
-              Lithium Batteries
-            </h2>
-            <p className="text-xs md:text-sm text-brand-slate font-normal">
-              High-performance residential LiFePO4 battery packs engineered for home power security and 24/7 solar self-consumption.
-            </p>
-          </Reveal>
-
-          <div className="space-y-12">
-            {resProducts?.map((prod, idx) => (
-              <Reveal key={prod.id} className="h-full">
-                <div className="grid gap-8 md:grid-cols-2 items-center rounded-2xl border border-black/10 bg-white p-6 sm:p-8 shadow-xs hover:shadow-md transition">
-                  <motion.div initial={{ opacity: 0, x: -60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ duration: 0.6, ease: 'easeOut' }} className={`space-y-4 ${idx % 2 === 1 ? 'md:order-2' : 'md:order-1'}`}>
-                    <div className="flex items-center justify-between">
-                      <span className="rounded-md bg-orange-100 px-2.5 py-0.5 text-[10px] font-bold text-[#E86526] uppercase">
-                        {prod.series}
-                      </span>
-                      <span className="text-[11px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">
-                        Grade A LiFePO4
-                      </span>
-                    </div>
-
-                    <div className="space-y-1">
-                      <h3 className="text-xl sm:text-2xl font-bold text-brand-ink">
-                        {prod.title}
-                      </h3>
-                      <p className="text-xs font-semibold text-[#E86526]">
-                        Voltage: {prod.voltage} · Capacity: {prod.capacity}
-                      </p>
-                      <p className="text-xs sm:text-sm text-brand-slate leading-relaxed font-normal pt-1">
-                        {prod.desc}
-                      </p>
-                    </div>
-
-                    {/* SPECS GRID */}
-                    <div className="grid grid-cols-2 gap-2 pt-1">
-                      {prod.specs?.map((s) => (
-                        <div key={s.label} className="rounded-lg bg-[#FAFAF5] border border-black/5 p-2.5 text-xs">
-                          <span className="text-[9px] text-brand-slate block font-medium uppercase">{s.label}</span>
-                          <strong className="text-brand-ink font-semibold mt-0.5 block">{s.value}</strong>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* FEATURES */}
-                    <div className="space-y-1.5 pt-1">
-                      {prod.features?.map((f) => (
-                        <div key={f} className="flex items-center gap-2 text-xs text-brand-ink">
-                          <CheckCircle2 className="h-3.5 w-3.5 text-[#E86526] shrink-0" />
-                          <span>{f}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    <div className="pt-3 border-t border-black/5 flex items-center justify-between">
-                      <Link
-                        href="/products/energy-storage"
-                        className="inline-flex items-center gap-1 text-xs font-bold text-[#E86526] hover:underline"
-                      >
-                        View Product Details <ArrowUpRight className="h-3.5 w-3.5" />
-                      </Link>
-                      <Link
-                        href="/contact"
-                        className="rounded-lg bg-[#E86526] px-5 py-2 text-xs font-semibold text-white hover:bg-[#c95315] transition"
-                      >
-                        Get Battery Quote
-                      </Link>
-                    </div>
-                  </motion.div>
-
-                  {/* PRODUCT IMAGE CARD */}
-                  <motion.div initial={{ opacity: 0, x: 60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }} className={`relative ${idx % 2 === 1 ? 'md:order-1' : 'md:order-2'}`}>
-                    <div className="group relative h-[280px] sm:h-[340px] w-full p-6 flex items-center justify-center">
-                      <img
-                        src={prod.image}
-                        alt={prod.title}
-                        className="h-full w-full object-contain drop-shadow-[0_4px_30px_rgba(120,120,120,0.15)] group-hover:scale-105 transition-transform duration-500"
-                        onError={(e) => {
-                          (e.target as HTMLElement).setAttribute('src', prod.fallbackImage || '/images/residential-energy.png');
-                        }}
-                      />
-                      <div className="absolute top-4 right-4 rounded-full bg-orange-600 px-3 py-1 text-[10px] font-bold text-white shadow-md uppercase">
-                        RESIDENTIAL ESS
-                      </div>
-                    </div>
-                  </motion.div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* DEDICATED RESIDENTIAL EV CHARGERS SECTION */}
-      <section className="py-14 md:py-20 bg-white border-b border-black/[0.06]">
-        <div className="container max-w-5xl mx-auto px-4 space-y-12">
-          <Reveal className="text-center max-w-2xl mx-auto space-y-2">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-100 px-3 py-1 text-[10px] font-bold text-emerald-700 uppercase tracking-wider">
-              <Zap className="h-3.5 w-3.5" /> RESIDENTIAL EV CHARGING
-            </span>
-            <h2 className="text-2xl md:text-3xl font-extrabold text-brand-ink">
-              Home EV Chargers
-            </h2>
-            <p className="text-xs md:text-sm text-brand-slate font-normal">
-              Smart single-output AC &amp; DC fast charging solutions for home garages, private villas, and residential communities.
-            </p>
-          </Reveal>
-
-          <div className="space-y-12">
-            {resEVProducts?.map((prod, idx) => (
-              <Reveal key={prod.id} className="h-full">
-                <div className="grid gap-8 md:grid-cols-2 items-center rounded-2xl border border-black/10 bg-[#FAFAF5] p-6 sm:p-8 shadow-xs hover:shadow-md transition">
-                  <motion.div initial={{ opacity: 0, x: -60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ duration: 0.6, ease: 'easeOut' }} className={`space-y-4 ${idx % 2 === 1 ? 'md:order-2' : 'md:order-1'}`}>
-                    <div className="flex items-center justify-between">
-                      <span className="rounded-md bg-emerald-100 px-2.5 py-0.5 text-[10px] font-bold text-emerald-800 uppercase">
-                        {prod.category} · {prod.type} Charger
-                      </span>
-                      <span className="text-[10px] font-bold text-brand-primary bg-orange-50 px-2 py-0.5 rounded">
-                        {prod.output}
-                      </span>
-                    </div>
-
-                    <div className="space-y-1">
-                      <h3 className="text-xl sm:text-2xl font-bold text-brand-ink">
-                        {prod.title}
-                      </h3>
-                      <p className="text-xs font-semibold text-[#E86526]">
-                        Power: {prod.power} · Voltage: {prod.voltage}
-                      </p>
-                      <p className="text-xs sm:text-sm text-brand-slate leading-relaxed font-normal pt-1">
-                        {prod.desc}
-                      </p>
-                    </div>
-
-                    {/* SPECS GRID */}
-                    <div className="grid grid-cols-2 gap-2 pt-1">
-                      {prod.specs?.map((s) => (
-                        <div key={s.label} className="rounded-lg bg-white border border-black/5 p-2.5 text-xs shadow-2xs">
-                          <span className="text-[9px] text-brand-slate block font-medium uppercase">{s.label}</span>
-                          <strong className="text-brand-ink font-semibold mt-0.5 block">{s.value}</strong>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* FEATURES */}
-                    <div className="space-y-1.5 pt-1">
-                      {prod.tech?.map((f) => (
-                        <div key={f} className="flex items-center gap-2 text-xs text-brand-ink">
-                          <CheckCircle2 className="h-3.5 w-3.5 text-[#E86526] shrink-0" />
-                          <span>{f}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    <div className="pt-3 border-t border-black/5 flex items-center justify-between">
-                      <Link
-                        href="/products/ev-charging"
-                        className="inline-flex items-center gap-1 text-xs font-bold text-[#E86526] hover:underline"
-                      >
-                        Explore EV Chargers <ArrowUpRight className="h-3.5 w-3.5" />
-                      </Link>
-                      <Link
-                        href="/contact"
-                        className="rounded-lg bg-[#E86526] px-5 py-2 text-xs font-semibold text-white hover:bg-[#c95315] transition"
-                      >
-                        Get EV Quote
-                      </Link>
-                    </div>
-                  </motion.div>
-
-                  {/* PRODUCT IMAGE CARD */}
-                  <motion.div initial={{ opacity: 0, x: 60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }} className={`relative ${idx % 2 === 1 ? 'md:order-1' : 'md:order-2'}`}>
-                    <div className="group relative h-[280px] sm:h-[340px] w-full p-6 flex items-center justify-center">
-                      <img
-                        src={prod.image}
-                        alt={prod.title}
-                        className="h-full w-full object-contain drop-shadow-[0_4px_30px_rgba(120,120,120,0.15)] group-hover:scale-105 transition-transform duration-500"
-                        onError={(e) => {
-                          (e.target as HTMLElement).setAttribute('src', prod.fallbackImage || '/images/ev-charger.png');
-                        }}
-                      />
-                      <div className="absolute top-4 right-4 rounded-full bg-emerald-600 px-3 py-1 text-[10px] font-bold text-white shadow-md uppercase">
-                        SMART EV CHARGER
-                      </div>
-                    </div>
-                  </motion.div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* DEDICATED RESIDENTIAL SOLAR POWER SECTION */}
-      <section className="py-14 md:py-20 bg-white border-b border-black/[0.06]">
-        <div className="container max-w-5xl mx-auto px-4 space-y-12">
-          <Reveal className="text-center max-w-2xl mx-auto space-y-2">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-100 px-3 py-1 text-[10px] font-bold text-amber-800 uppercase tracking-wider">
-              <Sun className="h-3.5 w-3.5" /> RESIDENTIAL SOLAR PV
-            </span>
-            <h2 className="text-2xl md:text-3xl font-extrabold text-brand-ink">
-              Solar Power
-            </h2>
-            <p className="text-xs md:text-sm text-brand-slate font-normal">
-              High-performance residential solar PV system kits designed for on-grid, off-grid, and hybrid home energy independence.
-            </p>
-          </Reveal>
-
-          <div className="space-y-12">
-            {resSolarProducts?.map((prod, idx) => (
-              <Reveal key={prod.id} className="h-full">
-                <div className="grid gap-8 md:grid-cols-2 items-center rounded-2xl border border-black/10 bg-[#FAFAF5] p-6 sm:p-8 shadow-xs hover:shadow-md transition">
-                  <motion.div initial={{ opacity: 0, x: -60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ duration: 0.6, ease: 'easeOut' }} className={`space-y-4 ${idx % 2 === 1 ? 'md:order-2' : 'md:order-1'}`}>
-                    <div className="flex flex-wrap items-center justify-between gap-2">
-                      <span className="rounded-md bg-amber-100 px-2.5 py-0.5 text-[10px] font-bold text-amber-800 uppercase">
-                        {prod.series}
-                      </span>
-                      <span className="text-[11px] font-bold text-emerald-600 bg-emerald-50 px-2.5 py-0.5 rounded">
-                        {prod.capacity || (prod as any).power}
-                      </span>
-                    </div>
-
-                    <div className="space-y-1.5">
-                      <h3 className="text-xl sm:text-2xl font-bold text-brand-ink">
-                        {prod.title}
-                      </h3>
-                      <p className="text-xs sm:text-sm text-brand-slate leading-relaxed font-normal">
-                        {prod.desc}
-                      </p>
-                    </div>
-
-                    {/* SPECS GRID */}
-                    <div className="grid grid-cols-2 gap-2 pt-1">
-                      {prod.specs?.map((s) => (
-                        <div key={s.label} className="rounded-xl bg-white border border-black/5 p-2.5 text-xs shadow-2xs">
-                          <span className="text-[9px] text-brand-slate block font-medium uppercase">{s.label}</span>
-                          <strong className="text-brand-ink font-semibold mt-0.5 block">{s.value}</strong>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* WARRANTIES */}
-                    {prod.warranties && (
-                      <div className="rounded-xl bg-amber-50 border border-amber-200 p-3 space-y-1">
-                        <span className="text-[10px] font-bold text-amber-900 uppercase block">Product Warranties</span>
-                        {prod.warranties.map((w) => (
-                          <div key={w} className="flex items-center gap-2 text-xs text-amber-950 font-medium">
-                            <CheckCircle2 className="h-3.5 w-3.5 text-amber-600 shrink-0" />
-                            <span>{w}</span>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-
-                    {/* FEATURES */}
-                    <div className="space-y-1.5 pt-1">
-                      {(prod.features || (prod as any).tech)?.map((f: string) => (
-                        <div key={f} className="flex items-center gap-2 text-xs text-brand-ink font-normal">
-                          <CheckCircle2 className="h-4 w-4 text-[#E86526] shrink-0" />
-                          <span>{f}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    <div className="pt-3 border-t border-black/5 flex items-center justify-between">
-                      <Link
-                        href="/products/solar-power"
-                        className="inline-flex items-center gap-1 text-xs font-bold text-[#E86526] hover:underline"
-                      >
-                        Learn More <ArrowUpRight className="h-3.5 w-3.5" />
-                      </Link>
-                      <Link
-                        href="/contact"
-                        className="rounded-xl bg-[#E86526] px-5 py-2 text-xs font-semibold text-white hover:bg-[#c95315] transition shadow-xs"
-                      >
-                        Request Residential Quote
-                      </Link>
-                    </div>
-                  </motion.div>
-
-                  {/* PRODUCT IMAGE CARD */}
-                  <motion.div initial={{ opacity: 0, x: 60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }} className={`relative ${idx % 2 === 1 ? 'md:order-1' : 'md:order-2'}`}>
-                    <div className="group relative h-[300px] sm:h-[360px] w-full p-6 flex items-center justify-center">
-                      <img
-                        src={prod.image}
-                        alt={prod.title}
-                        className="h-full w-full object-contain drop-shadow-[0_4px_30px_rgba(120,120,120,0.15)] group-hover:scale-105 transition-transform duration-500"
-                        onError={(e) => {
-                          (e.target as HTMLElement).setAttribute('src', prod.fallbackImage || '/images/residential-energy.png');
-                        }}
-                      />
-                      <div className="absolute top-4 right-4 rounded-full bg-amber-600 px-3 py-1 text-[10px] font-bold text-white shadow-md uppercase">
-                        RESIDENTIAL SOLAR KIT
-                      </div>
-                    </div>
-                  </motion.div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ANIMATED SYSTEM ARCHITECTURE DIAGRAM SECTION */}
-      <section className="py-14 md:py-20 bg-white border-b border-black/[0.06]">
-        <div className="container max-w-5xl mx-auto px-4 space-y-10">
-          <Reveal className="text-center max-w-2xl mx-auto space-y-2">
-            <span className="eyebrow inline-block">SYSTEM ARCHITECTURE</span>
-            <h2 className="text-2xl md:text-3xl font-bold text-brand-ink">
-              Residential PV &amp; ESS Solution
-            </h2>
-            <p className="text-xs md:text-sm text-brand-slate font-normal">
-              Click on any component below to explore its live energy flow &amp; smart telemetry.
-            </p>
-          </Reveal>
-
-          {/* DIAGRAM FLOW CANVAS */}
-          <div className="relative rounded-3xl border border-black/[0.08] bg-[#FAFAF5] p-6 md:p-10 shadow-sm overflow-hidden">
-            {/* Animated Flow Grid Lines */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 items-center text-center relative z-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               
-              {/* NODE 1: PV STRINGS */}
-              <button
-                onClick={() => setActiveNode('pv')}
-                className={`p-4 rounded-2xl border transition-all duration-300 ${
-                  activeNode === 'pv'
-                    ? 'border-brand-primary bg-white shadow-md ring-2 ring-brand-primary/20'
-                    : 'border-black/5 bg-white/60 hover:border-black/20'
-                }`}
-              >
-                <div className="grid h-12 w-12 place-items-center rounded-xl bg-amber-50 text-amber-500 mx-auto mb-2">
-                  <Sun className="h-6 w-6" />
+              {/* Feature 1 */}
+              <div className="text-center space-y-4">
+                <div className="h-16 w-16 mx-auto rounded-2xl bg-orange-50 flex items-center justify-center text-brand-primary">
+                  <Banknote className="h-8 w-8" />
                 </div>
-                <h4 className="text-xs font-bold text-brand-ink">PV String</h4>
-                <p className="text-[10px] text-brand-slate mt-0.5">High-Yield Solar Panels</p>
-                <span className="inline-block mt-2 rounded-full bg-amber-100 px-2 py-0.5 text-[9px] font-semibold text-amber-600">
-                  +5.4 kW Clean Solar
-                </span>
-              </button>
-
-              {/* NODE 2: HYBRID INVERTER */}
-              <button
-                onClick={() => setActiveNode('inverter')}
-                className={`p-4 rounded-2xl border transition-all duration-300 ${
-                  activeNode === 'inverter'
-                    ? 'border-brand-primary bg-white shadow-md ring-2 ring-brand-primary/20'
-                    : 'border-black/5 bg-white/60 hover:border-black/20'
-                }`}
-              >
-                <div className="grid h-12 w-12 place-items-center rounded-xl bg-orange-50 text-brand-primary mx-auto mb-2">
-                  <Cpu className="h-6 w-6" />
-                </div>
-                <h4 className="text-xs font-bold text-brand-ink">Hybrid Inverter</h4>
-                <p className="text-[10px] text-brand-slate mt-0.5">Smart Magic PV Box</p>
-                <span className="inline-block mt-2 rounded-full bg-orange-100 px-2 py-0.5 text-[9px] font-semibold text-brand-primary">
-                  98.2% Conversion
-                </span>
-              </button>
-
-              {/* NODE 3: BATTERY BANK */}
-              <button
-                onClick={() => setActiveNode('battery')}
-                className={`p-4 rounded-2xl border transition-all duration-300 ${
-                  activeNode === 'battery'
-                    ? 'border-brand-primary bg-white shadow-md ring-2 ring-brand-primary/20'
-                    : 'border-black/5 bg-white/60 hover:border-black/20'
-                }`}
-              >
-                <div className="grid h-12 w-12 place-items-center rounded-xl bg-blue-50 text-blue-600 mx-auto mb-2">
-                  <BatteryCharging className="h-6 w-6" />
-                </div>
-                <h4 className="text-xs font-bold text-brand-ink">LiFePO4 Battery</h4>
-                <p className="text-[10px] text-brand-slate mt-0.5">Wall / Stackable Pack</p>
-                <span className="inline-block mt-2 rounded-full bg-blue-100 px-2 py-0.5 text-[9px] font-semibold text-blue-600">
-                  WallArk / StackArk
-                </span>
-              </button>
-
-              {/* NODE 4: EV CHARGER & HOME LOAD */}
-              <button
-                onClick={() => setActiveNode('ev')}
-                className={`p-4 rounded-2xl border transition-all duration-300 ${
-                  activeNode === 'ev'
-                    ? 'border-brand-primary bg-white shadow-md ring-2 ring-brand-primary/20'
-                    : 'border-black/5 bg-white/60 hover:border-black/20'
-                }`}
-              >
-                <div className="grid h-12 w-12 place-items-center rounded-xl bg-emerald-50 text-emerald-600 mx-auto mb-2">
-                  <Zap className="h-6 w-6" />
-                </div>
-                <h4 className="text-xs font-bold text-brand-ink">EV Charger &amp; Home</h4>
-                <p className="text-[10px] text-brand-slate mt-0.5">AC Wallbox &amp; Appliances</p>
-                <span className="inline-block mt-2 rounded-full bg-emerald-100 px-2 py-0.5 text-[9px] font-semibold text-emerald-600">
-                  7.4 kW Fast Charge
-                </span>
-              </button>
-
-            </div>
-
-            {/* LIVE ACTIVE NODE DESCRIPTION PANEL */}
-            <div className="mt-8 rounded-2xl border border-black/5 bg-white p-5 shadow-xs">
-              {activeNode === 'pv' && (
-                <div className="space-y-2">
-                  <span className="text-[10px] font-bold text-amber-600 uppercase">01 / SOLAR PV STRINGS</span>
-                  <h3 className="text-base font-bold text-brand-ink">Smart N-Type Bifacial TOPCon Panels</h3>
-                  <p className="text-xs text-brand-slate font-normal leading-relaxed">
-                    Monocrystalline TOPCon solar panels capture direct sunlight from above and reflected glare from below, generating up to 25% extra energy even on overcast cloudy days.
-                  </p>
-                </div>
-              )}
-              {activeNode === 'inverter' && (
-                <div className="space-y-2">
-                  <span className="text-[10px] font-bold text-brand-primary uppercase">02 / SMART HYBRID INVERTER</span>
-                  <h3 className="text-base font-bold text-brand-ink">Magic PV Box Hybrid Controller</h3>
-                  <p className="text-xs text-brand-slate font-normal leading-relaxed">
-                    Automatically routes solar power directly to your home appliances, charges your LiFePO4 battery pack, and exports excess electricity to the utility grid with bi-directional net metering.
-                  </p>
-                </div>
-              )}
-              {activeNode === 'battery' && (
-                <div className="space-y-2">
-                  <span className="text-[10px] font-bold text-blue-600 uppercase">03 / LIFEPO4 BATTERY STORAGE</span>
-                  <h3 className="text-base font-bold text-brand-ink">WallArk &amp; StackArk Series Battery Packs</h3>
-                  <p className="text-xs text-brand-slate font-normal leading-relaxed">
-                    Choose between WallArk Low Voltage Packs (48V/51.2V, 2.5-20kWh) or StackArk High Voltage Packs (144-384V, 7.5-20kWh) to power your home through grid outages with &lt;10ms UPS switchover.
-                  </p>
-                </div>
-              )}
-              {activeNode === 'ev' && (
-                <div className="space-y-2">
-                  <span className="text-[10px] font-bold text-emerald-600 uppercase">04 / SMART EV CHARGING &amp; LOAD</span>
-                  <h3 className="text-base font-bold text-brand-ink">AC Smart Wallbox Fast Charger</h3>
-                  <p className="text-xs text-brand-slate font-normal leading-relaxed">
-                    Charges your electric vehicle using 100% free solar energy stored in your battery pack, featuring dynamic load balancing so your home circuit never trips.
-                  </p>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CORE COMPONENT EXPLANATIONS WITH RENDERS */}
-      <section className="py-14 md:py-20">
-        <div className="container max-w-5xl mx-auto px-4 space-y-16">
-
-          {/* COMPONENT 1: SMART SOLAR MODULES */}
-          <div className="grid gap-10 md:grid-cols-2 items-center">
-            <Reveal direction="right" className="space-y-4">
-              <span className="eyebrow inline-block">SMART SOLAR MODULES</span>
-              <h2 className="text-2xl sm:text-3xl font-bold text-brand-ink">
-                A Wonderful Option for Your Life
-              </h2>
-              <p className="text-xs sm:text-sm text-brand-slate font-normal leading-relaxed">
-                Smart Module Controllers monitor your PV modules in real time to give you the visibility and confidence you deserve.
-              </p>
-              <div className="space-y-2 pt-2">
-                <div className="flex items-center gap-2 text-xs text-brand-ink font-normal">
-                  <CheckCircle2 className="h-4 w-4 text-brand-primary shrink-0" />
-                  <span>≥ 22.5% Monocrystalline Module Efficiency</span>
-                </div>
-                <div className="flex items-center gap-2 text-xs text-brand-ink font-normal">
-                  <CheckCircle2 className="h-4 w-4 text-brand-primary shrink-0" />
-                  <span>Anti-PID &amp; Anti-Reflective Toughened Glass</span>
-                </div>
-                <div className="flex items-center gap-2 text-xs text-brand-ink font-normal">
-                  <CheckCircle2 className="h-4 w-4 text-brand-primary shrink-0" />
-                  <span>25-Year Linear Power Output Warranty</span>
-                </div>
+                <h4 className="text-xl font-bold text-slate-900">Cost Saving</h4>
+                <p className="text-sm text-slate-600 leading-relaxed">
+                  Save electricity cost and reduce your dependence on the grid.
+                </p>
               </div>
-            </Reveal>
 
-            <Reveal direction="scale" delay={0.15} className="relative">
-              <div className="relative h-[320px] sm:h-[380px] w-full overflow-hidden rounded-2xl border border-black/[0.06] bg-white p-6 shadow-sm flex items-center justify-center">
-                <img
-                  src="/images/residential-energy.png"
-                  alt="Smart Solar Module Render"
-                  className="h-full w-full object-contain object-center drop-shadow-md"
-                  onError={(e) => {
-                    (e.target as HTMLElement).setAttribute('src', '/images/residential-energy.png');
-                  }}
-                />
-              </div>
-            </Reveal>
-          </div>
-
-          {/* COMPONENT 2: SMART HYBRID INVERTER */}
-          <div className="grid gap-10 md:grid-cols-2 items-center">
-            <Reveal direction="scale" delay={0.15} className="order-2 md:order-1 relative">
-              <div className="relative h-[320px] sm:h-[380px] w-full overflow-hidden rounded-2xl border border-black/[0.06] bg-white p-6 shadow-sm flex items-center justify-center">
-                <img
-                  src="/images/energy-storage.png"
-                  alt="Smart Hybrid Inverter Render"
-                  className="h-full w-full object-contain object-center drop-shadow-md"
-                  onError={(e) => {
-                    (e.target as HTMLElement).setAttribute('src', '/images/commercial-energy.png');
-                  }}
-                />
-              </div>
-            </Reveal>
-
-            <Reveal direction="left" className="order-1 md:order-2 space-y-4">
-              <span className="eyebrow inline-block">SMART HYBRID INVERTER</span>
-              <h2 className="text-2xl sm:text-3xl font-bold text-brand-ink">
-                Your Magic PV Box
-              </h2>
-              <p className="text-xs sm:text-sm text-brand-slate font-normal leading-relaxed">
-                Smart PV Controllers protect the safety of your business and property, managing solar generation, battery charging, and grid export automatically.
-              </p>
-              <div className="space-y-2 pt-2">
-                <div className="flex items-center gap-2 text-xs text-brand-ink font-normal">
-                  <CheckCircle2 className="h-4 w-4 text-brand-primary shrink-0" />
-                  <span>Integrated Arc Fault Circuit Interrupter (AFCI)</span>
+              {/* Feature 2 */}
+              <div className="text-center space-y-4">
+                <div className="h-16 w-16 mx-auto rounded-2xl bg-orange-50 flex items-center justify-center text-brand-primary">
+                  <ShieldCheck className="h-8 w-8" />
                 </div>
-                <div className="flex items-center gap-2 text-xs text-brand-ink font-normal">
-                  <CheckCircle2 className="h-4 w-4 text-brand-primary shrink-0" />
-                  <span>Wi-Fi &amp; 4G Cloud Telemetry Monitoring</span>
-                </div>
-                <div className="flex items-center gap-2 text-xs text-brand-ink font-normal">
-                  <CheckCircle2 className="h-4 w-4 text-brand-primary shrink-0" />
-                  <span>Instant &lt; 10ms Uninterruptible Power Supply (UPS)</span>
-                </div>
+                <h4 className="text-xl font-bold text-slate-900">Enhanced Safety</h4>
+                <p className="text-sm text-slate-600 leading-relaxed">
+                  Meet the higher safety standard, ensure personnel and property safety.
+                </p>
               </div>
-            </Reveal>
-          </div>
 
-        </div>
-      </section>
+              {/* Feature 3 */}
+              <div className="text-center space-y-4">
+                <div className="h-16 w-16 mx-auto rounded-2xl bg-orange-50 flex items-center justify-center text-brand-primary">
+                  <Cpu className="h-8 w-8" />
+                </div>
+                <h4 className="text-xl font-bold text-slate-900">Your Smart Energy Home</h4>
+                <p className="text-sm text-slate-600 leading-relaxed">
+                  Predict your system generation and consumption to ensure better energy management.
+                </p>
+              </div>
 
-      {/* BOTTOM FULL-WIDTH CTA BANNER */}
-      <section className="relative w-full py-20 md:py-24 overflow-hidden bg-gradient-to-br from-[#E86526] via-[#F95738] to-[#D45214] text-white text-center shadow-xl">
-        <div className="container relative z-10 max-w-3xl mx-auto px-4 space-y-5">
-          <Reveal className="space-y-4">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
-              Start a new green life today
-            </h2>
-            <p className="text-xs sm:text-sm text-white/90 font-medium max-w-lg mx-auto">
-              Call us today, our engineers will provide meticulous service &amp; customized solar calculations.
-            </p>
+              {/* Feature 4 */}
+              <div className="text-center space-y-4">
+                <div className="h-16 w-16 mx-auto rounded-2xl bg-orange-50 flex items-center justify-center text-brand-primary">
+                  <LayoutTemplate className="h-8 w-8" />
+                </div>
+                <h4 className="text-xl font-bold text-slate-900">Less is More</h4>
+                <p className="text-sm text-slate-600 leading-relaxed">
+                  Modern design fit with your home style with elegance.
+                </p>
+              </div>
 
-            <div className="pt-4 flex justify-center">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-3.5 text-xs font-bold text-[#E86526] shadow-xl hover:bg-neutral-100 transition duration-300 transform hover:-translate-y-0.5"
-              >
-                Contact Us Now <ArrowUpRight className="h-4 w-4 text-[#E86526]" />
-              </Link>
             </div>
           </Reveal>
         </div>
       </section>
+
+      {/* SYSTEM TOPOLOGY FLOW DIAGRAM */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <Reveal className="text-center">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-neutral-900 mb-12">
+              System Topology
+            </h2>
+            <img 
+              src="/images/flow_diagram_home.png" 
+              alt="System Flow Diagram" 
+              className="max-w-5xl w-full mx-auto rounded-xl"
+            />
+          </Reveal>
+        </div>
+      </section>
+
+      {/* 2. "SMART." PRODUCT SHOWCASE */}
+      <section className="py-24 bg-[#FAFAF5]">
+        <div className="container mx-auto px-4 space-y-32">
+          
+          {/* Block 1: Solar Module */}
+          <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-24">
+            <div className="w-full md:w-1/2 space-y-6">
+              <Reveal>
+                <h2 className="text-3xl md:text-5xl font-extrabold text-neutral-900 tracking-tight">
+                  <span className="text-[#E86526]">Smart</span> Solar Module
+                </h2>
+                <h3 className="text-xl font-bold text-neutral-700 mt-4">
+                  A Wonderful Option for Your Life
+                </h3>
+                <p className="text-neutral-500 text-lg leading-relaxed max-w-lg mt-2">
+                  Smart Module Controllers monitor your PV modules in real time to give you the visibility and confidence you deserve.
+                </p>
+                <div className="mt-8">
+                  <Link href="/products/solar-power" className="inline-flex items-center gap-2 font-bold text-[#E86526] hover:text-neutral-900 transition-colors">
+                    Explore Solar Solutions <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </Reveal>
+            </div>
+            <div className="w-full md:w-1/2">
+              <Reveal className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-100 to-transparent rounded-[3rem] transform rotate-3 scale-105 -z-10" />
+                <img 
+                  src="/products/Solar power/3-50kW Hybrid Residential Solar System Kits.png" 
+                  alt="Residential Solar Panels" 
+                  className="w-full h-auto max-h-[600px] object-contain rounded-3xl shadow-2xl border border-white/50 bg-white p-4"
+                  onError={(e) => { (e.target as HTMLElement).setAttribute('src', 'https://images.unsplash.com/photo-1509391366360-515437fc53c9?q=80&w=800'); }}
+                />
+              </Reveal>
+            </div>
+          </div>
+
+          {/* Block 2: Hybrid Inverter (Reversed) */}
+          <div className="flex flex-col md:flex-row-reverse items-center gap-12 lg:gap-24">
+            <div className="w-full md:w-1/2 space-y-6 md:pl-12">
+              <Reveal>
+                <h2 className="text-3xl md:text-5xl font-extrabold text-neutral-900 tracking-tight">
+                  <span className="text-[#E86526]">Smart</span> Hybrid Inverter
+                </h2>
+                <h3 className="text-xl font-bold text-neutral-700 mt-4">
+                  Your Magic PV Box
+                </h3>
+                <p className="text-neutral-500 text-lg leading-relaxed max-w-lg mt-2">
+                  Smart PV Controllers protect the safety of your life and property, seamlessly converting DC to AC power with grid intelligence.
+                </p>
+                <div className="mt-8">
+                  <Link href="/products/solar-power" className="inline-flex items-center gap-2 font-bold text-[#E86526] hover:text-neutral-900 transition-colors">
+                    Explore Inverters <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </Reveal>
+            </div>
+            <div className="w-full md:w-1/2">
+              <Reveal className="relative">
+                <div className="absolute inset-0 bg-gradient-to-bl from-emerald-100 to-transparent rounded-[3rem] transform -rotate-3 scale-105 -z-10" />
+                <img 
+                  src="/products/Wall Mount Low Voltage Pack.png" 
+                  alt="Hybrid Inverter" 
+                  className="w-full h-auto max-h-[600px] object-contain rounded-3xl shadow-2xl border border-white/50 bg-white p-4"
+                  onError={(e) => { (e.target as HTMLElement).setAttribute('src', 'https://images.unsplash.com/photo-1613665813446-82a78c468a1d?q=80&w=800'); }}
+                />
+              </Reveal>
+            </div>
+          </div>
+
+          {/* Block 3: Battery Bank */}
+          <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-24">
+            <div className="w-full md:w-1/2 space-y-6">
+              <Reveal>
+                <h2 className="text-3xl md:text-5xl font-extrabold text-neutral-900 tracking-tight">
+                  <span className="text-[#E86526]">Smart</span> Battery Bank
+                </h2>
+                <h3 className="text-xl font-bold text-neutral-700 mt-4">
+                  Your Reliable Power Bank
+                </h3>
+                <p className="text-neutral-500 text-lg leading-relaxed max-w-lg mt-2">
+                  Energy storage systems intelligently store excess solar energy for use at night or during rainy days, without wasting any generated power.
+                </p>
+                <div className="mt-8">
+                  <Link href="/products/energy-storage" className="inline-flex items-center gap-2 font-bold text-[#E86526] hover:text-neutral-900 transition-colors">
+                    Explore Battery ESS <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </Reveal>
+            </div>
+            <div className="w-full md:w-1/2">
+              <Reveal className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-transparent rounded-[3rem] transform rotate-3 scale-105 -z-10" />
+                <img 
+                  src="/products/Stackable High Voltage Pack.png" 
+                  alt="Residential Battery Storage" 
+                  className="w-full h-auto max-h-[600px] object-contain rounded-3xl shadow-2xl border border-white/50 bg-white p-4"
+                  onError={(e) => { (e.target as HTMLElement).setAttribute('src', 'https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=800'); }}
+                />
+              </Reveal>
+            </div>
+          </div>
+
+          {/* Block 4: EV Charger (Reversed) */}
+          <div className="flex flex-col md:flex-row-reverse items-center gap-12 lg:gap-24">
+            <div className="w-full md:w-1/2 space-y-6 md:pl-12">
+              <Reveal>
+                <h2 className="text-3xl md:text-5xl font-extrabold text-neutral-900 tracking-tight">
+                  <span className="text-[#E86526]">Smart</span> EV Charger
+                </h2>
+                <h3 className="text-xl font-bold text-neutral-700 mt-4">
+                  Drive with Sun Power
+                </h3>
+                <p className="text-neutral-500 text-lg leading-relaxed max-w-lg mt-2">
+                  Smart EV chargers cut electricity bills and carbon emissions by charging your vehicle directly from solar power or off-peak grid power.
+                </p>
+                <div className="mt-8">
+                  <Link href="/products/ev-charging" className="inline-flex items-center gap-2 font-bold text-[#E86526] hover:text-neutral-900 transition-colors">
+                    Explore EV Chargers <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </Reveal>
+            </div>
+            <div className="w-full md:w-1/2">
+              <Reveal className="relative">
+                <div className="absolute inset-0 bg-gradient-to-bl from-amber-100 to-transparent rounded-[3rem] transform -rotate-3 scale-105 -z-10" />
+                <img 
+                  src="/products/EV charger/AC EV Charger.png" 
+                  alt="Residential EV Charging Station" 
+                  className="w-full h-auto max-h-[600px] object-contain rounded-3xl shadow-2xl border border-white/50 bg-white p-4"
+                  onError={(e) => { (e.target as HTMLElement).setAttribute('src', 'https://images.unsplash.com/photo-1632235952309-84b2326b9a89?q=80&w=800'); }}
+                />
+              </Reveal>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* 3. APP / MONITORING SECTION */}
+      <section className="py-24 bg-neutral-900 text-white border-t border-white/10">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col lg:flex-row items-center gap-16">
+            <div className="w-full lg:w-1/2 space-y-8">
+              <Reveal>
+                <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-bold text-emerald-400 uppercase tracking-widest border border-white/5">
+                  <Smartphone className="h-4 w-4" /> SunLoop AI Portal
+                </span>
+                <h2 className="text-4xl md:text-5xl font-extrabold mt-6 leading-tight">
+                  24/7 Monitoring,<br/>Connected on the Cloud.
+                </h2>
+                <h3 className="text-2xl font-semibold text-orange-400 mt-6">
+                  Visibility on the Go
+                </h3>
+                <p className="text-neutral-400 text-lg leading-relaxed max-w-lg mt-4">
+                  The Sunloop Portal provides real-time visibility and AI-driven control over your energy generation, storage, and consumption from anywhere in the world.
+                </p>
+                <div className="mt-10">
+                  <Link
+                    href="/ai-portal"
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-sm font-bold text-neutral-900 shadow-xl hover:bg-neutral-100 transition transform hover:-translate-y-0.5"
+                  >
+                    View App Dashboard
+                  </Link>
+                </div>
+              </Reveal>
+            </div>
+            
+            <div className="w-full lg:w-1/2 flex justify-center">
+              <Reveal>
+                <div className="relative">
+                  <div className="absolute inset-0 bg-emerald-500/20 blur-[100px] rounded-full" />
+                  <img 
+                    src="/images/ai-portal-robot-card.png" 
+                    alt="SunLoop App Mockup Dashboard" 
+                    className="relative z-10 w-[280px] md:w-[320px] rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-4 border-neutral-800"
+                    onError={(e) => { (e.target as HTMLElement).setAttribute('src', 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=600'); }}
+                  />
+                  <div className="absolute -top-6 -right-6 h-12 w-12 bg-orange-500 rounded-full animate-ping opacity-75" />
+                  <div className="absolute -bottom-6 -left-6 h-8 w-8 bg-emerald-500 rounded-full animate-ping opacity-75 delay-700" />
+                </div>
+              </Reveal>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. CONTACT / CTA FOOTER */}
+      <section className="relative py-32 bg-white overflow-hidden">
+        <div className="absolute inset-0 bg-[#FAFAF5] opacity-50" />
+        <div className="container relative z-10 mx-auto px-4 max-w-4xl text-center">
+          <Reveal>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-neutral-900 tracking-tight">
+              Start a new green life today.
+            </h2>
+            <p className="text-neutral-500 text-lg mt-4 mb-12">
+              Our experts are ready to design the perfect solar and storage system for your home.
+            </p>
+            
+            <form className="bg-white rounded-3xl p-8 md:p-12 shadow-2xl border border-black/5 text-left space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="text-xs font-bold text-neutral-700 uppercase">First Name</label>
+                  <input type="text" className="w-full rounded-xl bg-neutral-50 border border-neutral-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500/50" placeholder="John" />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-xs font-bold text-neutral-700 uppercase">Last Name</label>
+                  <input type="text" className="w-full rounded-xl bg-neutral-50 border border-neutral-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500/50" placeholder="Doe" />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-xs font-bold text-neutral-700 uppercase">Email Address</label>
+                  <input type="email" className="w-full rounded-xl bg-neutral-50 border border-neutral-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500/50" placeholder="john@example.com" />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-xs font-bold text-neutral-700 uppercase">Phone Number</label>
+                  <input type="tel" className="w-full rounded-xl bg-neutral-50 border border-neutral-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500/50" placeholder="+1 (555) 000-0000" />
+                </div>
+              </div>
+              
+              <div className="space-y-2">
+                <label className="text-xs font-bold text-neutral-700 uppercase">Your Message</label>
+                <textarea rows={4} className="w-full rounded-xl bg-neutral-50 border border-neutral-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500/50" placeholder="Tell us about your home and energy needs..." />
+              </div>
+
+              <div className="flex items-start gap-3 pt-2">
+                <input type="checkbox" id="consent" className="mt-1 h-4 w-4 rounded border-gray-300 text-orange-500 focus:ring-orange-500" />
+                <label htmlFor="consent" className="text-xs text-neutral-500 leading-relaxed">
+                  I consent to SunLoop collecting and processing my data in accordance with the Privacy Policy. I understand I can unsubscribe at any time.
+                </label>
+              </div>
+
+              <button type="button" className="w-full rounded-xl bg-[#E86526] px-8 py-4 text-sm font-bold text-white shadow-lg hover:bg-[#c95315] transition-colors focus:ring-4 focus:ring-orange-500/30">
+                Submit Request
+              </button>
+            </form>
+          </Reveal>
+        </div>
+      </section>
+
     </main>
   );
 }

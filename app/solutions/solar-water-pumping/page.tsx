@@ -32,39 +32,39 @@ export default function SolarWaterPumpingPage() {
       </div>
 
       {/* HERO BANNER */}
-      <section className="relative w-full h-[460px] sm:h-[560px] md:h-[620px] overflow-hidden bg-brand-ink text-white flex items-center">
-        <div
-          className="absolute inset-0 bg-cover bg-center pointer-events-none opacity-35 scale-105 transition-transform duration-1000"
-          style={{
-            backgroundImage: `url('/images/solar-plant.png')`,
-          }}
+      <section className="relative w-full">
+        {/* Native Image for perfect scaling on desktop */}
+        <img
+          src="/images/Solar AC Water Pumping Solution.png"
+          alt="Solar Water Pumping Solution"
+          className="w-full h-[500px] lg:h-auto lg:max-h-[90vh] object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/30 pointer-events-none" />
+        <div className="absolute inset-0 flex items-center">
+          <div className="container relative z-10 max-w-5xl mx-auto px-4">
+            <Reveal className="max-w-2xl space-y-4">
+              <span className="inline-flex items-center gap-2 rounded-full bg-cyan-500/20 border border-cyan-400/30 px-3.5 py-1 text-[11px] font-bold text-cyan-300 uppercase tracking-wider">
+                <Droplets className="h-3.5 w-3.5" /> OFF-GRID WATER SOLUTIONS
+              </span>
 
-        <div className="container relative z-10 max-w-5xl mx-auto px-4">
-          <Reveal className="max-w-2xl space-y-4">
-            <span className="inline-flex items-center gap-2 rounded-full bg-cyan-500/20 border border-cyan-400/30 px-3.5 py-1 text-[11px] font-bold text-cyan-300 uppercase tracking-wider">
-              <Droplets className="h-3.5 w-3.5" /> OFF-GRID WATER SOLUTIONS
-            </span>
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight leading-tight">
+                Solar Water Pumping Solution
+              </h1>
 
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight leading-tight">
-              Solar Water Pumping Solution
-            </h1>
+              <p className="text-xs sm:text-sm text-white/90 font-normal leading-relaxed">
+                Sunloop Solar Water Pumping Systems harness clean solar radiation to drive electric water pumps for agriculture, livestock watering, drinking water supply, and remote crop irrigation—eliminating expensive grid line extensions and noisy diesel generators.
+              </p>
 
-            <p className="text-xs sm:text-sm text-white/90 font-normal leading-relaxed">
-              Sunloop Solar Water Pumping Systems harness clean solar radiation to drive electric water pumps for agriculture, livestock watering, drinking water supply, and remote crop irrigation—eliminating expensive grid line extensions and noisy diesel generators.
-            </p>
-
-            <div className="flex items-center gap-3 pt-2">
-              <div className="rounded-xl border border-white/15 bg-white/10 backdrop-blur-xs px-3.5 py-1.5 text-xs">
-                <span className="text-white/60 text-[10px] block">SYSTEM TYPE</span>
-                <strong className="text-cyan-300 font-semibold">AC &amp; DC Solar Pumping</strong>
+              <div className="flex items-center gap-3 pt-2">
+                <div className="rounded-xl border border-white/15 bg-white/10 backdrop-blur-xs px-3.5 py-1.5 text-xs">
+                  <span className="text-white/60 text-[10px] block">SYSTEM TYPE</span>
+                  <strong className="text-cyan-300 font-semibold">AC &amp; DC Solar Pumping</strong>
+                </div>
+                <div className="rounded-xl border border-white/15 bg-white/10 backdrop-blur-xs px-3.5 py-1.5 text-xs">
+                  <span className="text-white/60 text-[10px] block">APPLICATIONS</span>
+                  <strong className="text-white font-semibold">Agriculture, Livestock &amp; Drinking</strong>
+                </div>
               </div>
-              <div className="rounded-xl border border-white/15 bg-white/10 backdrop-blur-xs px-3.5 py-1.5 text-xs">
-                <span className="text-white/60 text-[10px] block">APPLICATIONS</span>
-                <strong className="text-white font-semibold">Agriculture, Livestock &amp; Drinking</strong>
-              </div>
-            </div>
 
             <div className="pt-3 flex flex-wrap gap-3">
               <Link
@@ -75,6 +75,7 @@ export default function SolarWaterPumpingPage() {
               </Link>
             </div>
           </Reveal>
+        </div>
         </div>
       </section>
 

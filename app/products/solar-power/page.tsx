@@ -24,77 +24,9 @@ if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-const energySolutionSections = [
-  {
-    id: 'solar-pv-solution',
-    eyebrow: '01 / GENERATE',
-    title: 'Solar PV Solution',
-    description: 'Harness the power of the sun with efficient, reliable solar PV systems tailored to every energy need.',
-    accent: 'bg-amber-500',
-    solutions: [
-      {
-        title: 'Residential Solar PV System Solution',
-        description: 'Transform your home into a powerhouse with SunEvo’s residential PV system, harnessing the power of the sun to provide sustainable and green electricity for your life.',
-      },
-      {
-        title: 'Commercial & Industrial Solar PV System Solution',
-        description: 'The high-performance commercial PV system from SunEvo can lower energy costs and carbon emissions of your office building or commercial building.',
-      },
-      {
-        title: 'Utility-Scale PV Power Plant Solutions',
-        description: 'Designed to adapt to diverse environments such as deserts, plateaus, and coastal regions, our solutions enhance power generation efficiency while reducing O&M costs. With lower LCOE and advanced grid-forming capabilities, we empower the stable operation of the next-generation power system.',
-      },
-    ],
-  },
-  {
-    id: 'solar-storage-solution',
-    eyebrow: '02 / STORE',
-    title: 'Solar & Storage Solution',
-    description: 'A Solar & Storage Solution combines photovoltaic (PV) systems with energy storage, usually batteries, to create a more resilient, efficient, and sustainable energy system. Store excess solar power for later use to improve energy independence, reduce electricity bills, and ensure backup during outages.',
-    accent: 'bg-brand-primary',
-    solutions: [
-      {
-        title: 'Residential Solar + Storage System Solution',
-        description: 'SunEvo Smart Home PV and Energy Storage System provides an all-in-one solution that covers power generation, energy storage, charging, and power consumption. With efficiency and safety at its core, it delivers clean energy to more households, empowering a better, smarter, and more sustainable future.',
-      },
-      {
-        title: 'C&I Solar + Energy Storage Solution',
-        description: 'Maximize energy utilization efficiency with an intelligent solar-plus-storage hybrid system. Seamlessly integrate solar power, batteries, and the grid to achieve uninterrupted power supply, reduced energy costs, and sustainable energy management.',
-      },
-      {
-        title: 'Utility-Scale Solar + Energy Storage Solution',
-        description: 'By integrating solar and storage, the system enhances renewable energy utilization and ensures stable and reliable grid support.',
-      },
-    ],
-  },
-  {
-    id: 'solar-storage-ev-charging-solution',
-    eyebrow: '03 / CHARGE',
-    title: 'Solar & Storage & EV Charging Solution',
-    description: 'A Solar + Storage + EV Charging Solution is a smart, future-proof energy ecosystem combining clean power generation, battery storage, and EV charging infrastructure in one optimized system. It is ideal for homes, commercial buildings, industrial parks, fleet depots, and public charging hubs.',
-    accent: 'bg-emerald-500',
-    solutions: [
-      {
-        title: 'Residential Solar + Storage + EV Charging Solution',
-        description: 'SunEvo’s all-in-one home energy solution integrates PV inverters, energy storage systems, and EV chargers, enabling your home to be fully powered by clean energy—day or night, rain or shine.',
-      },
-      {
-        title: 'Commercial Solar + Storage + EV Charging Solution',
-        description: 'Reduce traditional energy consumption and lower charging costs by providing customers with a one-stop zero-carbon charging station that integrates solar generation, energy storage, and EV charging, enabling higher returns.',
-      },
-    ],
-  },
-];
-
 export default function SolarPowerPage() {
   const [activeModal, setActiveModal] = useState<SolarProductVariant | null>(null);
-  const [filter, setFilter] = useState<'All' | 'Residential' | 'Commercial'>('All');
   const catalogRef = useRef<HTMLDivElement>(null);
-
-  const filteredProducts = solarProducts.filter((p) => {
-    if (filter === 'All') return true;
-    return p.category === filter.toLowerCase();
-  });
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -109,7 +41,7 @@ export default function SolarPowerPage() {
       });
     }, catalogRef);
     return () => ctx.revert();
-  }, [filter]);
+  }, []);
 
   return (
     <main className="min-h-screen bg-[#FAFAF5] pt-16 pb-16 font-sans">
@@ -124,117 +56,158 @@ export default function SolarPowerPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent pointer-events-none" />
 
         <div className="container relative z-10 max-w-5xl mx-auto px-4">
-          <Reveal className="max-w-2xl space-y-4">
+          <Reveal className="max-w-xl space-y-4">
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-white tracking-tight leading-tight">
               Solar Power
             </h1>
+
+            <div className="pt-3 flex flex-wrap gap-3">
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 rounded-xl bg-[#E86526] px-6 py-3 text-xs font-semibold text-white shadow-md hover:bg-[#c95315] transition"
+              >
+                Request Solar Quote <ArrowUpRight className="h-3.5 w-3.5" />
+              </Link>
+              <Link
+                href="/ai-portal"
+                className="inline-flex items-center gap-2 rounded-xl bg-white/10 border border-white/20 px-6 py-3 text-xs font-semibold text-white hover:bg-white/20 transition"
+              >
+                <Bot className="h-3.5 w-3.5 text-brand-apricot" /> Solar Design AI Portal
+              </Link>
+            </div>
           </Reveal>
         </div>
       </section>
 
-      {/* CATALOG SECTION */}
-      <section className="py-14 md:py-20">
-        <div ref={catalogRef} className="container max-w-5xl mx-auto px-4 space-y-12">
-          <Reveal className="text-center max-w-2xl mx-auto space-y-4">
-            <span className="eyebrow inline-block">SOLAR PV KITS PORTFOLIO</span>
-            <h2 className="text-2xl md:text-3xl font-bold text-brand-ink">
-              Solar PV Product Portfolio
+      {/* CATALOG SECTION WITH GROUPED CATEGORIES */}
+      <section className="py-14 md:py-20 bg-white">
+        <div ref={catalogRef} className="container max-w-5xl mx-auto px-4 space-y-24">
+          
+          {/* RESIDENTIAL SOLAR GROUP */}
+          <div className="space-y-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#222222] tracking-tight">
+              Residential Solar PV
             </h2>
-            <p className="text-xs md:text-sm text-brand-slate font-normal">
-              Pre-engineered residential and commercial solar PV system kits designed for on-grid, off-grid, and hybrid energy independence.
-            </p>
+            <div className="space-y-16">
+              {solarProducts.filter(p => p.category === 'residential').map((prod, index) => {
+                const isEven = index % 2 === 0;
+                return (
+                  <div key={prod.id} className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+                    <motion.div
+                      initial={{ opacity: 0, x: isEven ? -30 : 30 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true, margin: '-40px' }}
+                      transition={{ duration: 0.5, ease: 'easeOut' }}
+                      className={`space-y-6 ${isEven ? 'order-1' : 'order-1 md:order-2'}`}
+                    >
+                      <div>
+                        <h3 className="text-[22px] md:text-2xl font-bold text-[#111111] mb-1">
+                          {prod.title}
+                        </h3>
+                        <p className="text-[15px] text-[#666666] font-normal">
+                          {prod.series}
+                        </p>
+                      </div>
 
-            {/* FILTER BUTTONS */}
-            <div className="flex items-center justify-center gap-2 pt-2 flex-wrap">
-              {(['All', 'Residential', 'Commercial'] as const).map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => setFilter(cat)}
-                  className={`px-5 py-2 text-xs font-bold rounded-xl transition duration-200 ${
-                    filter === cat
-                      ? 'bg-[#E86526] text-white shadow-sm'
-                      : 'bg-white border border-black/10 text-brand-slate hover:border-black/30'
-                  }`}
-                >
-                  {cat === 'All' ? 'All Products' : `${cat} Solar`}
-                </button>
-              ))}
+                      <div className="space-y-1">
+                          <p className="text-[15px] text-[#333333] font-medium">Capacity: <span className="font-normal">{prod.capacity}</span></p>
+                      </div>
+
+                      <div className="pt-2">
+                        <button
+                          onClick={() => setActiveModal(prod)}
+                          className="inline-flex items-center justify-center rounded-full border border-brand-primary/30 bg-orange-50 px-6 py-2 text-[13px] font-semibold text-brand-primary hover:bg-brand-primary hover:text-white transition-colors"
+                        >
+                          View Full Specifications
+                        </button>
+                      </div>
+                    </motion.div>
+
+                    <div
+                      className={`solar-product-image relative aspect-[4/3] flex items-center justify-center ${isEven ? 'order-2' : 'order-2 md:order-1'}`}
+                    >
+                      <div className="group relative flex h-full w-full items-center justify-center">
+                        <img
+                          src={prod.image}
+                          alt={prod.title}
+                          className="h-full w-full object-contain drop-shadow-[0_16px_22px_rgba(71,85,105,0.28)] transition-transform duration-500 hover:scale-105"
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).src = prod.fallbackImage;
+                          }}
+                        />
+                        <div className="absolute top-3.5 right-3.5 rounded-full bg-brand-ink px-3 py-0.5 text-[9px] font-semibold text-white shadow-xs">
+                          30-YEAR PV WARRANTY
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
-          </Reveal>
+          </div>
 
-          {filteredProducts.map((prod, index) => {
-            const isEven = index % 2 === 0;
-            return (
-              <div
-                key={prod.id}
-                className="grid gap-10 md:grid-cols-2 items-center py-8 border-b border-black/[0.06] last:border-0"
-              >
-                {/* LEFT CONTENT */}
-                <motion.div
-                  initial={{ opacity: 0, x: isEven ? -30 : 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: '-40px' }}
-                  transition={{ duration: 0.5, ease: 'easeOut' }}
-                  className={`space-y-4 ${isEven ? 'order-1' : 'order-1 md:order-2'}`}
-                >
-                  <div className="space-y-1">
-                    <div className="flex items-center gap-2">
-                      <span className="rounded-md bg-orange-100 px-2.5 py-0.5 text-[10px] font-bold text-brand-primary uppercase">
-                        {prod.categoryLabel}
-                      </span>
-                      <span className="text-[11px] font-semibold text-brand-slate uppercase tracking-wider">
-                        {prod.series}
-                      </span>
-                    </div>
-
-                    <h3 className="text-2xl font-bold text-brand-ink tracking-tight pt-1">
-                      {prod.title}
-                    </h3>
-                    <p className="text-xs font-semibold text-brand-primary">
-                      {prod.capacity}
-                    </p>
-                  </div>
-
-                  <p className="max-w-md text-xs text-brand-slate leading-relaxed font-normal line-clamp-2">
-                    {prod.desc}
-                  </p>
-
-                  {/* ACTION BUTTONS */}
-                  <div className="pt-2 flex items-center gap-3">
-                    <button
-                      onClick={() => setActiveModal(prod)}
-                      className="inline-flex items-center gap-2 rounded-xl border border-black/10 bg-white px-5 py-2.5 text-xs font-semibold text-brand-ink shadow-2xs hover:border-brand-primary hover:text-brand-primary transition"
+          {/* COMMERCIAL SOLAR GROUP */}
+          <div className="space-y-12 pt-8 border-t border-black/5">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#222222] tracking-tight">
+              Commercial & Industrial Solar PV
+            </h2>
+            <div className="space-y-16">
+              {solarProducts.filter(p => p.category === 'commercial').map((prod, index) => {
+                const isEven = index % 2 === 0;
+                return (
+                  <div key={prod.id} className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+                    <motion.div
+                      initial={{ opacity: 0, x: isEven ? -30 : 30 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true, margin: '-40px' }}
+                      transition={{ duration: 0.5, ease: 'easeOut' }}
+                      className={`space-y-6 ${isEven ? 'order-1' : 'order-1 md:order-2'}`}
                     >
-                      <Sliders className="h-3.5 w-3.5" /> View Full Specifications
-                    </button>
-                    <Link
-                      href="/contact"
-                      className="inline-flex items-center gap-1 text-xs font-semibold text-brand-primary hover:underline"
-                    >
-                      Get Quote <ArrowUpRight className="h-3.5 w-3.5" />
-                    </Link>
-                  </div>
-                </motion.div>
+                      <div>
+                        <h3 className="text-[22px] md:text-2xl font-bold text-[#111111] mb-1">
+                          {prod.title}
+                        </h3>
+                        <p className="text-[15px] text-[#666666] font-normal">
+                          {prod.series}
+                        </p>
+                      </div>
 
-                {/* RIGHT IMAGE */}
-                <div className={`solar-product-image relative h-[320px] w-full sm:h-[380px] ${isEven ? 'order-2' : 'order-2 md:order-1'}`}>
-                  <div className="group relative flex h-full w-full items-center justify-center">
-                    <img
-                      src={prod.image}
-                      alt={prod.title}
-                      className="h-full w-full object-contain object-center drop-shadow-[0_16px_22px_rgba(71,85,105,0.28)] transition-transform duration-500 group-hover:scale-103"
-                      onError={(e) => {
-                        (e.target as HTMLElement).setAttribute('src', prod.fallbackImage);
-                      }}
-                    />
-                    <div className="absolute top-3.5 right-3.5 rounded-full bg-brand-ink px-3 py-0.5 text-[9px] font-semibold text-white shadow-xs">
-                      30-YEAR PV WARRANTY
+                      <div className="space-y-1">
+                        <p className="text-[15px] text-[#333333] font-medium">Capacity: <span className="font-normal">{prod.capacity}</span></p>
+                      </div>
+
+                      <div className="pt-2">
+                        <button
+                          onClick={() => setActiveModal(prod)}
+                          className="inline-flex items-center justify-center rounded-full border border-brand-primary/30 bg-orange-50 px-6 py-2 text-[13px] font-semibold text-brand-primary hover:bg-brand-primary hover:text-white transition-colors"
+                        >
+                          View Full Specifications
+                        </button>
+                      </div>
+                    </motion.div>
+
+                    <div
+                      className={`solar-product-image relative aspect-[4/3] flex items-center justify-center ${isEven ? 'order-2' : 'order-2 md:order-1'}`}
+                    >
+                      <div className="group relative flex h-full w-full items-center justify-center">
+                        <img
+                          src={prod.image}
+                          alt={prod.title}
+                          className="h-full w-full object-contain drop-shadow-[0_16px_22px_rgba(71,85,105,0.28)] transition-transform duration-500 hover:scale-105"
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).src = prod.fallbackImage;
+                          }}
+                        />
+                        <div className="absolute top-3.5 right-3.5 rounded-full bg-brand-ink px-3 py-0.5 text-[9px] font-semibold text-white shadow-xs">
+                          30-YEAR PV WARRANTY
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
-            );
-          })}
+                );
+              })}
+            </div>
+          </div>
         </div>
       </section>
 

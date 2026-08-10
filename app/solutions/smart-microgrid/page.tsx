@@ -81,15 +81,22 @@ const microgridComponents = [
 export default function SmartMicrogridPage() {
   return (
     <main className="min-h-screen bg-[#FAFAF5] pb-16 pt-16 font-sans">
-      <section className="relative flex min-h-[420px] items-center overflow-hidden bg-brand-ink text-white sm:min-h-[520px]">
-        <div className="absolute inset-0 bg-cover bg-center opacity-55" style={{ backgroundImage: "url('/images/microgrid-hero.png')" }} />
+      <section className="relative w-full">
+        {/* Native Image for perfect scaling on desktop */}
+        <img
+          src="/images/microgrid-hero.png"
+          alt="Smart Microgrid Hero"
+          className="w-full h-[500px] lg:h-auto lg:max-h-[90vh] object-cover"
+        />
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/65 to-black/25" />
-        <div className="container relative z-10 mx-auto max-w-5xl px-4">
-          <Reveal className="max-w-3xl space-y-4">
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-brand-apricot"><Wind className="h-3.5 w-3.5" /> Smart Microgrid Solution</span>
-            <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">Wind + Solar + Energy Storage + Diesel Generator Smart Microgrid Solution</h1>
-            <p className="text-sm leading-relaxed text-white/90 md:text-base">A microgrid is a decentralized energy system that integrates renewable energy generation, power storage, and conventional generation to meet specific demands. It can operate either off-grid or grid-connected and is equipped with a centralized controller to optimize system operation.</p>
-          </Reveal>
+        
+        <div className="absolute inset-0 flex items-center">
+          <div className="container relative z-10 mx-auto max-w-5xl px-4">
+            <Reveal className="max-w-3xl space-y-4">
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-brand-apricot"><Wind className="h-3.5 w-3.5" /> Smart Microgrid Solution</span>
+              <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">Wind + Solar + Energy Storage + Diesel Generator Smart Microgrid Solution</h1>
+            </Reveal>
+          </div>
         </div>
       </section>
 

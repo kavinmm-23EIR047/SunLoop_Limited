@@ -1,654 +1,412 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import {
-  Sun,
-  BatteryCharging,
-  Zap,
-  CheckCircle2,
-  ArrowUpRight,
+  TrendingUp,
   ShieldCheck,
-  Cpu,
-  Bot,
   Building2,
+  Medal,
+  ArrowRight,
+  MonitorSmartphone,
+  School,
+  Hospital,
   Factory,
-  Sliders,
-  Server,
-  Activity,
-  Layers,
-  Sparkles,
-  Wifi,
-  Smartphone,
-  Gauge
+  Bus,
+  ShoppingCart,
+  MapPin,
+  Car
 } from 'lucide-react';
 import { Reveal, Button } from '../../../components/UI';
-import { getCommercialESSProducts } from '../../../data/essProducts';
-import { getCommercialEVProducts } from '../../../data/evProducts';
-import { getBusinessSolarProducts } from '../../../data/solarProducts';
+
+const INSTALLATION_TYPES = [
+  { title: 'Schools', icon: School, img: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=600' },
+  { title: 'Medical Facilities', icon: Hospital, img: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=600' },
+  { title: 'Factories', icon: Factory, img: 'https://images.unsplash.com/photo-1565514020179-026b92b84bb6?q=80&w=600' },
+  { title: 'Transportation', icon: Bus, img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=600' },
+  { title: 'Malls', icon: ShoppingCart, img: 'https://images.unsplash.com/photo-1519567281023-8324687593c6?q=80&w=600' },
+  { title: 'Stadiums', icon: MapPin, img: 'https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=600' },
+  { title: 'Carports', icon: Car, img: 'https://images.unsplash.com/photo-1620023616223-9c8dfb6cf2c2?q=80&w=600' },
+];
 
 export default function BusinessOwnersSolutionPage() {
-  const [activeNode, setActiveNode] = useState<string>('inverter');
-  const comProducts = getCommercialESSProducts();
-  const comEVProducts = getCommercialEVProducts();
-  const bizSolarProducts = getBusinessSolarProducts();
-
-
-
   return (
-    <main className="min-h-screen bg-white pt-16 pb-16 font-sans">
-      {/* HERO BANNER */}
-      <section className="relative w-full h-[400px] sm:h-[480px] md:h-[520px] overflow-hidden bg-white text-neutral-900 flex items-center border-b border-neutral-100">
-        <div
-          className="absolute inset-0 bg-cover bg-center pointer-events-none opacity-60 scale-105 transition-transform duration-1000"
-          style={{
-            backgroundImage: `url('/images/commercial-energy.png')`,
-          }}
+    <main className="min-h-screen bg-white pt-[64px] font-sans overflow-hidden">
+      
+      <section className="relative w-full">
+        {/* Native Image for perfect scaling on desktop */}
+        <img
+          src="/images/Commercial Solar + Storage + EV Charging Solution.png"
+          alt="Commercial Solar Solution"
+          className="w-full h-[500px] lg:h-auto lg:max-h-[90vh] object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-black/40" />
+        
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="container relative z-10 mx-auto px-4 text-center">
+            <Reveal>
+              <h2 className="text-emerald-400 font-bold tracking-widest uppercase text-sm md:text-base mb-4">
+                Commercial PV &amp; ESS Solution
+              </h2>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight max-w-4xl mx-auto">
+                Go Green Energy for a Sustainable Business
+              </h1>
+            </Reveal>
+          </div>
+        </div>
+      </section>
 
-        <div className="container relative z-10 max-w-5xl mx-auto px-4">
-          <Reveal className="max-w-xl space-y-4">
-            <span className="inline-flex items-center gap-2 rounded-full bg-orange-50 border border-orange-200/80 px-3.5 py-1 text-[11px] font-semibold text-[#E86526] uppercase tracking-wider">
-              <Building2 className="h-3.5 w-3.5 text-[#E86526]" /> COMMERCIAL &amp; INDUSTRIAL PV + ESS
-            </span>
-
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-neutral-900 leading-tight tracking-tight">
-              Go Green Energy for a Sustainable Business
-            </h1>
-
-            <p className="text-xs sm:text-sm text-neutral-600 font-normal leading-relaxed max-w-lg">
-              Empower your factory, commercial building, or retail hub with high-yield Solar PV, RackArk, BlockArk &amp; CubeArk LiFePO4 battery systems, and high-power DC EV charging.
-            </p>
-
-            <div className="flex items-center gap-3 pt-2">
-              <div className="rounded-xl border border-neutral-200 bg-white/90 px-3.5 py-1.5 text-xs shadow-xs">
-                <span className="text-neutral-500 text-[10px] block font-medium">PAYBACK PERIOD</span>
-                <strong className="text-amber-600 font-bold">3 to 4 Years ROI</strong>
-              </div>
-              <div className="rounded-xl border border-neutral-200 bg-white/90 px-3.5 py-1.5 text-xs shadow-xs">
-                <span className="text-neutral-500 text-[10px] block font-medium">TARIFF SAVINGS</span>
-                <strong className="text-emerald-600 font-bold">Automated Peak Shaving</strong>
-              </div>
+      {/* FEATURE CARDS */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <Reveal>
+            <div className="text-center mb-12">
+              <h3 className="text-3xl font-bold text-slate-900">Generate More, Store More, Earn More</h3>
             </div>
-
-            <div className="pt-3 flex flex-wrap gap-3">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 rounded-xl bg-[#E86526] px-6 py-3 text-xs font-semibold text-white shadow-md hover:bg-[#c95315] transition"
-              >
-                Request Commercial Audit <ArrowUpRight className="h-3.5 w-3.5" />
-              </Link>
-              <Link
-                href="/ai-portal"
-                className="inline-flex items-center gap-2 rounded-xl bg-white border border-neutral-200 px-6 py-3 text-xs font-semibold text-neutral-900 hover:bg-neutral-50 transition shadow-xs"
-              >
-                <Bot className="h-3.5 w-3.5 text-[#E86526]" /> Peak Shaving AI Portal
-              </Link>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* DEDICATED LITHIUM BATTERIES SECTION FOR COMMERCIAL & UTILITY */}
-      <section className="py-14 md:py-20 bg-[#FAFAF5] border-b border-black/[0.06]">
-        <div className="container max-w-5xl mx-auto px-4 space-y-12">
-          <Reveal className="text-center max-w-2xl mx-auto space-y-2">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-[#E86526]/10 px-3 py-1 text-[10px] font-bold text-[#E86526] uppercase tracking-wider">
-              <BatteryCharging className="h-3.5 w-3.5" /> COMMERCIAL &amp; UTILITY ESS
-            </span>
-            <h2 className="text-2xl md:text-3xl font-extrabold text-brand-ink">
-              Lithium Batteries
-            </h2>
-            <p className="text-xs md:text-sm text-brand-slate font-normal">
-              Heavy-duty commercial rack-mount, cabinet, and containerized LiFePO4 energy storage packs for peak shaving, demand management, and grid stabilization.
-            </p>
-          </Reveal>
-
-          <div className="space-y-12">
-            {comProducts?.map((prod, idx) => (
-              <Reveal key={prod.id} className="h-full">
-                <div className="grid gap-8 md:grid-cols-2 items-center rounded-2xl border border-black/10 bg-white p-6 sm:p-8 shadow-xs hover:shadow-md transition">
-                  <motion.div initial={{ opacity: 0, x: -60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ duration: 0.6, ease: 'easeOut' }} className={`space-y-4 ${idx % 2 === 1 ? 'md:order-2' : 'md:order-1'}`}>
-                    <div className="flex items-center justify-between">
-                      <span className="rounded-md bg-blue-100 px-2.5 py-0.5 text-[10px] font-bold text-blue-700 uppercase">
-                        {prod.series}
-                      </span>
-                      <span className="text-[11px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">
-                        LiFePO4 ESS
-                      </span>
-                    </div>
-
-                    <div className="space-y-1">
-                      <h3 className="text-xl sm:text-2xl font-bold text-brand-ink">
-                        {prod.title}
-                      </h3>
-                      <p className="text-xs font-semibold text-[#E86526]">
-                        {prod.power ? `Power: ${prod.power} · ` : ''}Capacity: {prod.capacity}
-                      </p>
-                      <p className="text-xs sm:text-sm text-brand-slate leading-relaxed font-normal pt-1">
-                        {prod.desc}
-                      </p>
-                    </div>
-
-                    {/* SPECS GRID */}
-                    <div className="grid grid-cols-2 gap-2 pt-1">
-                      {prod.specs?.map((s) => (
-                        <div key={s.label} className="rounded-lg bg-[#FAFAF5] border border-black/5 p-2.5 text-xs">
-                          <span className="text-[9px] text-brand-slate block font-medium uppercase">{s.label}</span>
-                          <strong className="text-brand-ink font-semibold mt-0.5 block">{s.value}</strong>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* FEATURES */}
-                    <div className="space-y-1.5 pt-1">
-                      {prod.features?.map((f) => (
-                        <div key={f} className="flex items-center gap-2 text-xs text-brand-ink">
-                          <CheckCircle2 className="h-3.5 w-3.5 text-[#E86526] shrink-0" />
-                          <span>{f}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    <div className="pt-3 border-t border-black/5 flex items-center justify-between">
-                      <Link
-                        href="/products/energy-storage"
-                        className="inline-flex items-center gap-1 text-xs font-bold text-[#E86526] hover:underline"
-                      >
-                        View Product Details <ArrowUpRight className="h-3.5 w-3.5" />
-                      </Link>
-                      <Link
-                        href="/contact"
-                        className="rounded-lg bg-[#E86526] px-5 py-2 text-xs font-semibold text-white hover:bg-[#c95315] transition"
-                      >
-                        Get Quote
-                      </Link>
-                    </div>
-                  </motion.div>
-
-                  {/* PRODUCT IMAGE CARD */}
-                  <motion.div initial={{ opacity: 0, x: 60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }} className={`relative ${idx % 2 === 1 ? 'md:order-1' : 'md:order-2'}`}>
-                    <div className="group relative h-[280px] sm:h-[340px] w-full p-6 flex items-center justify-center">
-                      <img
-                        src={prod.image}
-                        alt={prod.title}
-                        className="h-full w-full object-contain drop-shadow-[0_4px_30px_rgba(120,120,120,0.15)] group-hover:scale-105 transition-transform duration-500"
-                        onError={(e) => {
-                          (e.target as HTMLElement).setAttribute('src', prod.fallbackImage || '/images/commercial-energy.png');
-                        }}
-                      />
-                      <div className="absolute top-4 right-4 rounded-full bg-blue-700 px-3 py-1 text-[10px] font-bold text-white shadow-md uppercase">
-                        COMMERCIAL ESS
-                      </div>
-                    </div>
-                  </motion.div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* DEDICATED COMMERCIAL EV CHARGERS SECTION */}
-      <section className="py-14 md:py-20 bg-white border-b border-black/[0.06]">
-        <div className="container max-w-5xl mx-auto px-4 space-y-12">
-          <Reveal className="text-center max-w-2xl mx-auto space-y-2">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-blue-100 px-3 py-1 text-[10px] font-bold text-blue-700 uppercase tracking-wider">
-              <Zap className="h-3.5 w-3.5" /> COMMERCIAL EV CHARGING
-            </span>
-            <h2 className="text-2xl md:text-3xl font-extrabold text-brand-ink">
-              Commercial EV Chargers
-            </h2>
-            <p className="text-xs md:text-sm text-brand-slate font-normal">
-              High-power dual-output, multi-gun, and split-matrix AC &amp; DC fast charging hubs for commercial parking, highways, logistics, and fleet operations.
-            </p>
-          </Reveal>
-
-          <div className="space-y-12">
-            {comEVProducts?.map((prod, idx) => (
-              <Reveal key={prod.id} className="h-full">
-                <div className="grid gap-8 md:grid-cols-2 items-center rounded-2xl border border-black/10 bg-[#FAFAF5] p-6 sm:p-8 shadow-xs hover:shadow-md transition">
-                  <motion.div initial={{ opacity: 0, x: -60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ duration: 0.6, ease: 'easeOut' }} className={`space-y-4 ${idx % 2 === 1 ? 'md:order-2' : 'md:order-1'}`}>
-                    <div className="flex items-center justify-between">
-                      <span className="rounded-md bg-blue-100 px-2.5 py-0.5 text-[10px] font-bold text-blue-800 uppercase">
-                        {prod.category} · {prod.type}
-                      </span>
-                      <span className="text-[10px] font-bold text-brand-primary bg-orange-50 px-2 py-0.5 rounded">
-                        {prod.output}
-                      </span>
-                    </div>
-
-                    <div className="space-y-1">
-                      <h3 className="text-xl sm:text-2xl font-bold text-brand-ink">
-                        {prod.title}
-                      </h3>
-                      <p className="text-xs font-semibold text-[#E86526]">
-                        Power: {prod.power} · Voltage: {prod.voltage}
-                      </p>
-                      <p className="text-xs sm:text-sm text-brand-slate leading-relaxed font-normal pt-1">
-                        {prod.desc}
-                      </p>
-                    </div>
-
-                    {/* SPECS GRID */}
-                    <div className="grid grid-cols-2 gap-2 pt-1">
-                      {prod.specs?.map((s) => (
-                        <div key={s.label} className="rounded-lg bg-white border border-black/5 p-2.5 text-xs shadow-2xs">
-                          <span className="text-[9px] text-brand-slate block font-medium uppercase">{s.label}</span>
-                          <strong className="text-brand-ink font-semibold mt-0.5 block">{s.value}</strong>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* FEATURES */}
-                    <div className="space-y-1.5 pt-1">
-                      {prod.tech?.map((f) => (
-                        <div key={f} className="flex items-center gap-2 text-xs text-brand-ink">
-                          <CheckCircle2 className="h-3.5 w-3.5 text-[#E86526] shrink-0" />
-                          <span>{f}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    <div className="pt-3 border-t border-black/5 flex items-center justify-between">
-                      <Link
-                        href="/products/ev-charging"
-                        className="inline-flex items-center gap-1 text-xs font-bold text-[#E86526] hover:underline"
-                      >
-                        Explore EV Chargers <ArrowUpRight className="h-3.5 w-3.5" />
-                      </Link>
-                      <Link
-                        href="/contact"
-                        className="rounded-lg bg-[#E86526] px-5 py-2 text-xs font-semibold text-white hover:bg-[#c95315] transition"
-                      >
-                        Get Commercial Quote
-                      </Link>
-                    </div>
-                  </motion.div>
-
-                  {/* PRODUCT IMAGE CARD */}
-                  <motion.div initial={{ opacity: 0, x: 60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }} className={`relative ${idx % 2 === 1 ? 'md:order-1' : 'md:order-2'}`}>
-                    <div className="group relative h-[280px] sm:h-[340px] w-full p-6 flex items-center justify-center">
-                      <img
-                        src={prod.image}
-                        alt={prod.title}
-                        className="h-full w-full object-contain drop-shadow-[0_4px_30px_rgba(120,120,120,0.15)] group-hover:scale-105 transition-transform duration-500"
-                        onError={(e) => {
-                          (e.target as HTMLElement).setAttribute('src', prod.fallbackImage || '/images/ev-charger.png');
-                        }}
-                      />
-                      <div className="absolute top-4 right-4 rounded-full bg-blue-600 px-3 py-1 text-[10px] font-bold text-white shadow-md uppercase">
-                        COMMERCIAL EV HUB
-                      </div>
-                    </div>
-                  </motion.div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* DEDICATED COMMERCIAL & UTILITY SOLAR POWER SECTION */}
-      <section className="py-14 md:py-20 bg-white border-b border-black/[0.06]">
-        <div className="container max-w-5xl mx-auto px-4 space-y-12">
-          <Reveal className="text-center max-w-2xl mx-auto space-y-2">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-100 px-3 py-1 text-[10px] font-bold text-amber-800 uppercase tracking-wider">
-              <Sun className="h-3.5 w-3.5" /> COMMERCIAL &amp; UTILITY SOLAR PV
-            </span>
-            <h2 className="text-2xl md:text-3xl font-extrabold text-brand-ink">
-              Solar Power
-            </h2>
-            <p className="text-xs md:text-sm text-brand-slate font-normal">
-              High-efficiency commercial rooftop PV plants and utility-scale solar parks with reduced LCOE and advanced grid-forming capabilities.
-            </p>
-          </Reveal>
-
-          <div className="space-y-12">
-            {bizSolarProducts?.map((prod, idx) => (
-              <Reveal key={prod.id} className="h-full">
-                <div className="grid gap-8 md:grid-cols-2 items-center rounded-2xl border border-black/10 bg-[#FAFAF5] p-6 sm:p-8 shadow-xs hover:shadow-md transition">
-                  <motion.div initial={{ opacity: 0, x: -60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ duration: 0.6, ease: 'easeOut' }} className={`space-y-4 ${idx % 2 === 1 ? 'md:order-2' : 'md:order-1'}`}>
-                    <div className="flex flex-wrap items-center justify-between gap-2">
-                      <span className="rounded-md bg-amber-100 px-2.5 py-0.5 text-[10px] font-bold text-amber-900 uppercase">
-                        {prod.categoryLabel || prod.category} · {prod.series}
-                      </span>
-                      <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2.5 py-0.5 rounded">
-                        {prod.capacity || (prod as any).power}
-                      </span>
-                    </div>
-
-                    <div className="space-y-1.5">
-                      <h3 className="text-xl sm:text-2xl font-bold text-brand-ink">
-                        {prod.title}
-                      </h3>
-                      <p className="text-xs sm:text-sm text-brand-slate leading-relaxed font-normal">
-                        {prod.desc}
-                      </p>
-                    </div>
-
-                    {/* SPECS GRID */}
-                    <div className="grid grid-cols-2 gap-2 pt-1">
-                      {prod.specs?.map((s) => (
-                        <div key={s.label} className="rounded-lg bg-white border border-black/5 p-2.5 text-xs shadow-2xs">
-                          <span className="text-[9px] text-brand-slate block font-medium uppercase">{s.label}</span>
-                          <strong className="text-brand-ink font-semibold mt-0.5 block">{s.value}</strong>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* WARRANTIES */}
-                    {prod.warranties && (
-                      <div className="rounded-xl bg-amber-50 border border-amber-200 p-2.5 space-y-1">
-                        <span className="text-[10px] font-bold text-amber-900 uppercase block">Product Warranties</span>
-                        {prod.warranties.map((w) => (
-                          <div key={w} className="flex items-center gap-1.5 text-[11px] text-amber-950 font-medium">
-                            <CheckCircle2 className="h-3 w-3 text-amber-600 shrink-0" />
-                            <span>{w}</span>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-
-                    {/* FEATURES */}
-                    <div className="space-y-1.5 pt-1">
-                      {(prod.features || (prod as any).tech)?.map((f: string) => (
-                        <div key={f} className="flex items-center gap-2 text-xs text-brand-ink">
-                          <CheckCircle2 className="h-3.5 w-3.5 text-[#E86526] shrink-0" />
-                          <span>{f}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    <div className="pt-3 border-t border-black/5 flex items-center justify-between">
-                      <Link
-                        href="/products/solar-power"
-                        className="inline-flex items-center gap-1 text-xs font-bold text-[#E86526] hover:underline"
-                      >
-                        Learn More <ArrowUpRight className="h-3.5 w-3.5" />
-                      </Link>
-                      <Link
-                        href="/contact"
-                        className="rounded-lg bg-[#E86526] px-5 py-2 text-xs font-semibold text-white hover:bg-[#c95315] transition"
-                      >
-                        Request Audit
-                      </Link>
-                    </div>
-                  </motion.div>
-
-                  {/* PRODUCT IMAGE CARD */}
-                  <motion.div initial={{ opacity: 0, x: 60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }} className={`relative ${idx % 2 === 1 ? 'md:order-1' : 'md:order-2'}`}>
-                    <div className="group relative h-[300px] sm:h-[360px] w-full p-6 flex items-center justify-center">
-                      <img
-                        src={prod.image}
-                        alt={prod.title}
-                        className="h-full w-full object-contain drop-shadow-[0_4px_30px_rgba(120,120,120,0.15)] group-hover:scale-105 transition-transform duration-500"
-                        onError={(e) => {
-                          (e.target as HTMLElement).setAttribute('src', prod.fallbackImage || '/images/commercial-energy.png');
-                        }}
-                      />
-                      <div className="absolute top-4 right-4 rounded-full bg-brand-ink px-3 py-1 text-[10px] font-bold text-white shadow-md uppercase">
-                        COMMERCIAL SOLAR KIT
-                      </div>
-                    </div>
-                  </motion.div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ANIMATED SYSTEM ARCHITECTURE DIAGRAM SECTION */}
-      <section className="py-14 md:py-20 bg-white border-b border-black/[0.06]">
-        <div className="container max-w-5xl mx-auto px-4 space-y-10">
-          <Reveal className="text-center max-w-2xl mx-auto space-y-2">
-            <span className="eyebrow inline-block">COMMERCIAL SCHEMATIC ARCHITECTURE</span>
-            <h2 className="text-2xl md:text-3xl font-bold text-brand-ink">
-              Commercial PV &amp; ESS Solution
-            </h2>
-            <p className="text-xs md:text-sm text-brand-slate font-normal">
-              Interactive system diagram connecting solar panels, combiner boxes, hybrid inverters, battery banks, grid transformers, and EV chargers.
-            </p>
-          </Reveal>
-
-          {/* DIAGRAM FLOW CANVAS */}
-          <div className="relative rounded-3xl border border-black/[0.08] bg-[#FAFAF5] p-6 md:p-10 shadow-sm overflow-hidden">
-            {/* Animated Flow Grid Nodes */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 items-center text-center relative z-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               
-              {/* NODE 1: PV STRING & COMBINER BOX */}
-              <button
-                onClick={() => setActiveNode('pv')}
-                className={`p-4 rounded-2xl border transition-all duration-300 ${
-                  activeNode === 'pv'
-                    ? 'border-brand-primary bg-white shadow-md ring-2 ring-brand-primary/20'
-                    : 'border-black/5 bg-white/60 hover:border-black/20'
-                }`}
-              >
-                <div className="grid h-12 w-12 place-items-center rounded-xl bg-amber-50 text-amber-500 mx-auto mb-2">
-                  <Sun className="h-6 w-6" />
+              {/* Feature 1 */}
+              <div className="text-center space-y-4">
+                <div className="h-16 w-16 mx-auto rounded-2xl bg-emerald-50 flex items-center justify-center text-emerald-600">
+                  <Building2 className="h-8 w-8" />
                 </div>
-                <h4 className="text-xs font-bold text-brand-ink">PV String &amp; Combiner</h4>
-                <p className="text-[10px] text-brand-slate mt-0.5">Commercial Roof Array</p>
-                <span className="inline-block mt-2 rounded-full bg-amber-100 px-2 py-0.5 text-[9px] font-semibold text-amber-600">
-                  +150 kW Commercial Solar
-                </span>
-              </button>
-
-              {/* NODE 2: HYBRID INVERTER CABINET */}
-              <button
-                onClick={() => setActiveNode('inverter')}
-                className={`p-4 rounded-2xl border transition-all duration-300 ${
-                  activeNode === 'inverter'
-                    ? 'border-brand-primary bg-white shadow-md ring-2 ring-brand-primary/20'
-                    : 'border-black/5 bg-white/60 hover:border-black/20'
-                }`}
-              >
-                <div className="grid h-12 w-12 place-items-center rounded-xl bg-orange-50 text-brand-primary mx-auto mb-2">
-                  <Cpu className="h-6 w-6" />
-                </div>
-                <h4 className="text-xs font-bold text-brand-ink">Hybrid Inverter</h4>
-                <p className="text-[10px] text-brand-slate mt-0.5">Smart Magic PV Box</p>
-                <span className="inline-block mt-2 rounded-full bg-orange-100 px-2 py-0.5 text-[9px] font-semibold text-brand-primary">
-                  Multi-MPPT High Voltage
-                </span>
-              </button>
-
-              {/* NODE 3: BATTERY BANK (ESS) */}
-              <button
-                onClick={() => setActiveNode('battery')}
-                className={`p-4 rounded-2xl border transition-all duration-300 ${
-                  activeNode === 'battery'
-                    ? 'border-brand-primary bg-white shadow-md ring-2 ring-brand-primary/20'
-                    : 'border-black/5 bg-white/60 hover:border-black/20'
-                }`}
-              >
-                <div className="grid h-12 w-12 place-items-center rounded-xl bg-blue-50 text-blue-600 mx-auto mb-2">
-                  <BatteryCharging className="h-6 w-6" />
-                </div>
-                <h4 className="text-xs font-bold text-brand-ink">Battery Bank (ESS)</h4>
-                <p className="text-[10px] text-brand-slate mt-0.5">Rack / Cabinet / Container</p>
-                <span className="inline-block mt-2 rounded-full bg-blue-100 px-2 py-0.5 text-[9px] font-semibold text-blue-600">
-                  RackArk / BlockArk / CubeArk
-                </span>
-              </button>
-
-              {/* NODE 4: EV CHARGER & FACTORY LOAD */}
-              <button
-                onClick={() => setActiveNode('ev')}
-                className={`p-4 rounded-2xl border transition-all duration-300 ${
-                  activeNode === 'ev'
-                    ? 'border-brand-primary bg-white shadow-md ring-2 ring-brand-primary/20'
-                    : 'border-black/5 bg-white/60 hover:border-black/20'
-                }`}
-              >
-                <div className="grid h-12 w-12 place-items-center rounded-xl bg-emerald-50 text-emerald-600 mx-auto mb-2">
-                  <Zap className="h-6 w-6" />
-                </div>
-                <h4 className="text-xs font-bold text-brand-ink">EV Charger &amp; Grid</h4>
-                <p className="text-[10px] text-brand-slate mt-0.5">DC Fast Chargers &amp; Load</p>
-                <span className="inline-block mt-2 rounded-full bg-emerald-100 px-2 py-0.5 text-[9px] font-semibold text-emerald-600">
-                  120 kW Fast Charger
-                </span>
-              </button>
-
-            </div>
-
-            {/* LIVE ACTIVE NODE DESCRIPTION PANEL */}
-            <div className="mt-8 rounded-2xl border border-black/5 bg-white p-5 shadow-xs">
-              {activeNode === 'pv' && (
-                <div className="space-y-2">
-                  <span className="text-[10px] font-bold text-amber-600 uppercase">01 / COMMERCIAL PV STRINGS &amp; COMBINER</span>
-                  <h3 className="text-base font-bold text-brand-ink">Industrial Rooftop TOPCon Arrays</h3>
-                  <p className="text-xs text-brand-slate font-normal leading-relaxed">
-                    Heavy-duty commercial rooftop solar PV strings connected to leak-proof combiner boxes with IP67 surge protection and string-level fault monitoring.
-                  </p>
-                </div>
-              )}
-              {activeNode === 'inverter' && (
-                <div className="space-y-2">
-                  <span className="text-[10px] font-bold text-brand-primary uppercase">02 / SMART HYBRID INVERTER CABINET</span>
-                  <h3 className="text-base font-bold text-brand-ink">Smart Magic PV Box Industrial Controller</h3>
-                  <p className="text-xs text-brand-slate font-normal leading-relaxed">
-                    Heavy-duty multi-MPPT hybrid inverter cabinet managing high-voltage solar evacuation, automated time-of-day peak tariff shaving, and generator synchronization.
-                  </p>
-                </div>
-              )}
-              {activeNode === 'battery' && (
-                <div className="space-y-2">
-                  <span className="text-[10px] font-bold text-blue-600 uppercase">03 / COMMERCIAL LIFEPO4 BATTERY BANK</span>
-                  <h3 className="text-base font-bold text-brand-ink">RackArk-HV, BlockArk &amp; CubeArk Commercial ESS Series</h3>
-                  <p className="text-xs text-brand-slate font-normal leading-relaxed">
-                    Scalable commercial energy storage ranging from RackArk-HV (384-1000V, up to 1000kWh), BlockArk Cabinets (30-500kW, up to 1000kWh), to CubeArk Containers (100-5000kW, up to 10MWh).
-                  </p>
-                </div>
-              )}
-              {activeNode === 'ev' && (
-                <div className="space-y-2">
-                  <span className="text-[10px] font-bold text-emerald-600 uppercase">04 / HIGH-POWER DC EV CHARGERS &amp; GRID</span>
-                  <h3 className="text-base font-bold text-brand-ink">Dual-Gun DC Fast Chargers &amp; Smart Logger</h3>
-                  <p className="text-xs text-brand-slate font-normal leading-relaxed">
-                    Powers commercial fleet electric vehicles and customer cars via 120 kW dual-gun CCS2 DC fast chargers integrated with OCPP telemetry billing and cloud server monitoring.
-                  </p>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CORE COMPONENT EXPLANATIONS WITH RENDERS */}
-      <section className="py-14 md:py-20">
-        <div className="container max-w-5xl mx-auto px-4 space-y-16">
-
-          {/* COMPONENT 1: SMART SOLAR MODULES */}
-          <div className="grid gap-10 md:grid-cols-2 items-center">
-            <Reveal direction="right" className="space-y-4">
-              <span className="eyebrow inline-block">SMART SOLAR MODULES</span>
-              <h2 className="text-2xl sm:text-3xl font-bold text-brand-ink">
-                A Wonderful Option for Your Life
-              </h2>
-              <p className="text-xs sm:text-sm text-brand-slate font-normal leading-relaxed">
-                Smart Module Controllers monitor your PV modules in real time to give you the visibility and confidence you deserve.
-              </p>
-              <div className="space-y-2 pt-2">
-                <div className="flex items-center gap-2 text-xs text-brand-ink font-normal">
-                  <CheckCircle2 className="h-4 w-4 text-brand-primary shrink-0" />
-                  <span>≥ 22.5% Monocrystalline Module Efficiency</span>
-                </div>
-                <div className="flex items-center gap-2 text-xs text-brand-ink font-normal">
-                  <CheckCircle2 className="h-4 w-4 text-brand-primary shrink-0" />
-                  <span>Non-Penetrating Leak-Proof Commercial Fasteners</span>
-                </div>
-                <div className="flex items-center gap-2 text-xs text-brand-ink font-normal">
-                  <CheckCircle2 className="h-4 w-4 text-brand-primary shrink-0" />
-                  <span>Accelerated Depreciation Tax Benefits &amp; 3-4 Year ROI</span>
-                </div>
+                <h4 className="text-xl font-bold text-slate-900">Utilize Your Rooftop</h4>
+                <p className="text-sm text-slate-600 leading-relaxed">
+                  Make full use of your commercial roof area to produce clean energy for your enterprise.
+                </p>
               </div>
-            </Reveal>
 
-            <Reveal direction="scale" delay={0.15} className="relative">
-              <div className="relative h-[320px] sm:h-[380px] w-full overflow-hidden rounded-2xl border border-black/[0.06] bg-white p-6 shadow-sm flex items-center justify-center">
-                <img
-                  src="/images/solar-panels.png"
-                  alt="Smart Solar Module Render"
-                  className="h-full w-full object-contain object-center drop-shadow-md"
-                  onError={(e) => {
-                    (e.target as HTMLElement).setAttribute('src', '/images/residential-energy.png');
-                  }}
-                />
-              </div>
-            </Reveal>
-          </div>
-
-          {/* COMPONENT 2: SMART HYBRID INVERTER */}
-          <div className="grid gap-10 md:grid-cols-2 items-center">
-            <Reveal direction="scale" delay={0.15} className="order-2 md:order-1 relative">
-              <div className="relative h-[320px] sm:h-[380px] w-full overflow-hidden rounded-2xl border border-black/[0.06] bg-white p-6 shadow-sm flex items-center justify-center">
-                <img
-                  src="/images/energy-storage.png"
-                  alt="Smart Hybrid Inverter Render"
-                  className="h-full w-full object-contain object-center drop-shadow-md"
-                  onError={(e) => {
-                    (e.target as HTMLElement).setAttribute('src', '/images/commercial-energy.png');
-                  }}
-                />
-              </div>
-            </Reveal>
-
-            <Reveal direction="left" className="order-1 md:order-2 space-y-4">
-              <span className="eyebrow inline-block">SMART HYBRID INVERTER</span>
-              <h2 className="text-2xl sm:text-3xl font-bold text-brand-ink">
-                Your Magic PV Box
-              </h2>
-              <p className="text-xs sm:text-sm text-brand-slate font-normal leading-relaxed">
-                Smart PV Controllers protect the safety of your business and property, managing industrial power generation, high-density battery charging, and grid export automatically.
-              </p>
-              <div className="space-y-2 pt-2">
-                <div className="flex items-center gap-2 text-xs text-brand-ink font-normal">
-                  <CheckCircle2 className="h-4 w-4 text-brand-primary shrink-0" />
-                  <span>Integrated Arc Fault Circuit Interrupter (AFCI)</span>
+              {/* Feature 2 */}
+              <div className="text-center space-y-4">
+                <div className="h-16 w-16 mx-auto rounded-2xl bg-emerald-50 flex items-center justify-center text-emerald-600">
+                  <TrendingUp className="h-8 w-8" />
                 </div>
-                <div className="flex items-center gap-2 text-xs text-brand-ink font-normal">
-                  <CheckCircle2 className="h-4 w-4 text-brand-primary shrink-0" />
-                  <span>Wi-Fi, 4G &amp; Modbus RS485 Industrial Telemetry</span>
-                </div>
-                <div className="flex items-center gap-2 text-xs text-brand-ink font-normal">
-                  <CheckCircle2 className="h-4 w-4 text-brand-primary shrink-0" />
-                  <span>Automated Peak Shaving Tariff Arbitrage Engine</span>
-                </div>
+                <h4 className="text-xl font-bold text-slate-900">Energize Your Earnings</h4>
+                <p className="text-sm text-slate-600 leading-relaxed">
+                  ESS integration supplies emergency power during outages and ensures total power security.
+                </p>
               </div>
-            </Reveal>
-          </div>
 
-        </div>
-      </section>
+              {/* Feature 3 */}
+              <div className="text-center space-y-4">
+                <div className="h-16 w-16 mx-auto rounded-2xl bg-emerald-50 flex items-center justify-center text-emerald-600">
+                  <ShieldCheck className="h-8 w-8" />
+                </div>
+                <h4 className="text-xl font-bold text-slate-900">Industry-leading Protection</h4>
+                <p className="text-sm text-slate-600 leading-relaxed">
+                  System-level safety protection from PV arrays to ESS, guaranteeing personnel and property safety.
+                </p>
+              </div>
 
-      {/* BOTTOM FULL-WIDTH CTA BANNER */}
-      <section className="relative w-full py-20 md:py-24 overflow-hidden bg-gradient-to-br from-[#E86526] via-[#F95738] to-[#D45214] text-white text-center shadow-xl">
-        <div className="container relative z-10 max-w-3xl mx-auto px-4 space-y-5">
-          <Reveal className="space-y-4">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
-              Start a green zero-carbon business today
-            </h2>
-            <p className="text-xs sm:text-sm text-white/90 font-medium max-w-lg mx-auto">
-              Call us today, our engineers will provide meticulous service &amp; commercial ROI audits as soon as possible.
-            </p>
+              {/* Feature 4 */}
+              <div className="text-center space-y-4">
+                <div className="h-16 w-16 mx-auto rounded-2xl bg-emerald-50 flex items-center justify-center text-emerald-600">
+                  <Medal className="h-8 w-8" />
+                </div>
+                <h4 className="text-xl font-bold text-slate-900">Excellent Quality &amp; Reliability</h4>
+                <p className="text-sm text-slate-600 leading-relaxed">
+                  Engineered for decades of continuous, high-yield clean energy output.
+                </p>
+              </div>
 
-            <div className="pt-4 flex justify-center">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 rounded-full bg-[#FAFAF5] px-8 py-3.5 text-xs font-bold text-[#E86526] shadow-xl hover:bg-neutral-100 transition duration-300 transform hover:-translate-y-0.5"
-              >
-                Contact Us Now <ArrowUpRight className="h-4 w-4 text-[#E86526]" />
-              </Link>
             </div>
           </Reveal>
         </div>
       </section>
+
+      {/* SYSTEM TOPOLOGY FLOW DIAGRAM */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <Reveal className="text-center">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-neutral-900 mb-12">
+              System Topology
+            </h2>
+            <img 
+              src="/images/flow_diagram_business.png" 
+              alt="System Flow Diagram" 
+              className="max-w-5xl w-full mx-auto rounded-xl"
+            />
+          </Reveal>
+        </div>
+      </section>
+
+      {/* 2. "SMART." PRODUCT SHOWCASE */}
+      <section className="py-24 bg-[#FAFAF5]">
+        <div className="container mx-auto px-4 space-y-32">
+          
+          {/* Block 1: Solar Module */}
+          <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-24">
+            <div className="w-full md:w-1/2 space-y-6">
+              <Reveal>
+                <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+                  <span className="text-[#E86526]">Smart</span> Solar Module
+                </h2>
+                <h3 className="text-xl font-bold text-slate-700 mt-4">
+                  A Wonderful Option for Your Life
+                </h3>
+                <p className="text-slate-500 text-lg leading-relaxed max-w-lg mt-2">
+                  Smart Module Controllers monitor your commercial PV arrays in real-time, giving you total visibility over your facility's generation.
+                </p>
+                <div className="mt-8">
+                  <Link href="/products/solar-power" className="inline-flex items-center gap-2 font-bold text-[#E86526] hover:text-slate-900 transition-colors">
+                    Explore Commercial Solar <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </Reveal>
+            </div>
+            <div className="w-full md:w-1/2">
+              <Reveal className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-100 to-transparent rounded-[3rem] transform rotate-3 scale-105 -z-10" />
+                <img 
+                  src="/products/Solar power/30-500kW Hybrid Commercial Solar System Kits.png" 
+                  alt="Commercial Solar Array" 
+                  className="w-full h-auto max-h-[600px] object-contain rounded-3xl shadow-2xl border border-white/50 bg-white p-4"
+                  onError={(e) => { (e.target as HTMLElement).setAttribute('src', 'https://images.unsplash.com/photo-1588523326756-327c81a25db9?q=80&w=800'); }}
+                />
+              </Reveal>
+            </div>
+          </div>
+
+          {/* Block 2: Hybrid Inverter (Reversed) */}
+          <div className="flex flex-col md:flex-row-reverse items-center gap-12 lg:gap-24">
+            <div className="w-full md:w-1/2 space-y-6 md:pl-12">
+              <Reveal>
+                <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+                  <span className="text-emerald-600">Smart</span> PV Controllers
+                </h2>
+                <h3 className="text-xl font-bold text-slate-700 mt-4">
+                  Your Magic PV Box
+                </h3>
+                <p className="text-slate-500 text-lg leading-relaxed max-w-lg mt-2">
+                  Protect your business and property with our heavy-duty commercial hybrid inverters, seamlessly managing peak loads and grid synchronization.
+                </p>
+                <div className="mt-8">
+                  <Link href="/products/solar-power" className="inline-flex items-center gap-2 font-bold text-emerald-600 hover:text-slate-900 transition-colors">
+                    Explore Central Inverters <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </Reveal>
+            </div>
+            <div className="w-full md:w-1/2">
+              <Reveal className="relative">
+                <div className="absolute inset-0 bg-gradient-to-bl from-emerald-100 to-transparent rounded-[3rem] transform -rotate-3 scale-105 -z-10" />
+                <img 
+                  src="/products/Energy Storage Cabinet.png" 
+                  alt="Commercial Inverter" 
+                  className="w-full h-auto max-h-[600px] object-contain rounded-3xl shadow-2xl border border-white/50 bg-white p-4"
+                  onError={(e) => { (e.target as HTMLElement).setAttribute('src', '/images/C&I Solar + Energy Storage Solution.png'); }}
+                />
+              </Reveal>
+            </div>
+          </div>
+
+          {/* Block 3: Battery Bank */}
+          <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-24">
+            <div className="w-full md:w-1/2 space-y-6">
+              <Reveal>
+                <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+                  <span className="text-blue-600">Smart</span> Energy Storage
+                </h2>
+                <h3 className="text-xl font-bold text-slate-700 mt-4">
+                  Your Reliable Power Bank
+                </h3>
+                <p className="text-slate-500 text-lg leading-relaxed max-w-lg mt-2">
+                  Stacked commercial lithium battery cabinets store solar energy for nighttime operations or grid outages, ensuring your business never stops.
+                </p>
+                <div className="mt-8">
+                  <Link href="/products/energy-storage" className="inline-flex items-center gap-2 font-bold text-blue-600 hover:text-slate-900 transition-colors">
+                    Explore BESS Cabinets <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </Reveal>
+            </div>
+            <div className="w-full md:w-1/2">
+              <Reveal className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-transparent rounded-[3rem] transform rotate-3 scale-105 -z-10" />
+                <img 
+                  src="/products/Energy Storage Container.png" 
+                  alt="Stacked Lithium Battery Storage" 
+                  className="w-full h-auto max-h-[600px] object-contain rounded-3xl shadow-2xl border border-white/50 bg-white p-4"
+                  onError={(e) => { (e.target as HTMLElement).setAttribute('src', 'https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=800'); }}
+                />
+              </Reveal>
+            </div>
+          </div>
+
+          {/* Block 4: EV Charger (Reversed) */}
+          <div className="flex flex-col md:flex-row-reverse items-center gap-12 lg:gap-24">
+            <div className="w-full md:w-1/2 space-y-6 md:pl-12">
+              <Reveal>
+                <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+                  <span className="text-amber-500">Smart</span> EV Charger
+                </h2>
+                <h3 className="text-xl font-bold text-slate-700 mt-4">
+                  Drive with Sun Power
+                </h3>
+                <p className="text-slate-500 text-lg leading-relaxed max-w-lg mt-2">
+                  Deploy solar-powered commercial EV charging stations for your fleet or employees. Cut utility bills by charging from solar or off-peak power.
+                </p>
+                <div className="mt-8">
+                  <Link href="/products/ev-charging" className="inline-flex items-center gap-2 font-bold text-amber-500 hover:text-slate-900 transition-colors">
+                    Explore Fleet EV Charging <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </Reveal>
+            </div>
+            <div className="w-full md:w-1/2">
+              <Reveal className="relative">
+                <div className="absolute inset-0 bg-gradient-to-bl from-amber-100 to-transparent rounded-[3rem] transform -rotate-3 scale-105 -z-10" />
+                <img 
+                  src="/products/EV charger/DC EV Charger.png" 
+                  alt="Commercial EV Charging Station" 
+                  className="w-full h-auto max-h-[600px] object-contain rounded-3xl shadow-2xl border border-white/50 bg-white p-4"
+                  onError={(e) => { (e.target as HTMLElement).setAttribute('src', '/images/ac-charging.png'); }}
+                />
+              </Reveal>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* 3. INSTALLATION TYPES GALLERY */}
+      <section className="py-24 bg-white border-t border-slate-100">
+        <div className="container mx-auto px-4 space-y-12">
+          <Reveal className="text-center max-w-3xl mx-auto space-y-4">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900">
+              We power a wide variety of installation types to suit every business and organization
+            </h2>
+            <p className="text-slate-500">From commercial rooftops to expansive industrial carports, our modular architecture adapts to any environment.</p>
+          </Reveal>
+
+          <Reveal>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+              {INSTALLATION_TYPES.map((type, idx) => (
+                <div key={type.title} className="group relative overflow-hidden rounded-2xl aspect-square shadow-md border border-slate-200">
+                  <img src={type.img} alt={type.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4 flex items-center gap-3">
+                    <div className="bg-white/20 backdrop-blur-md p-2 rounded-lg border border-white/30">
+                      <type.icon className="h-5 w-5 text-white" />
+                    </div>
+                    <span className="font-bold text-white tracking-wide">{type.title}</span>
+                  </div>
+                </div>
+              ))}
+              
+              {/* Extra block for layout balancing if needed, or link to contact */}
+              <div className="group relative overflow-hidden rounded-2xl aspect-square shadow-md bg-emerald-50 border border-emerald-100 flex flex-col items-center justify-center text-center p-6 hover:bg-emerald-100 transition-colors">
+                <div className="bg-emerald-500 p-4 rounded-full text-white mb-4 shadow-lg">
+                  <ArrowRight className="h-6 w-6" />
+                </div>
+                <h4 className="font-bold text-emerald-900">Custom Solution?</h4>
+                <p className="text-xs text-emerald-700 mt-2">Contact our engineering team to map out your unique facility.</p>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* 4. AI PORTAL / MONITORING SECTION */}
+      <section className="py-24 bg-slate-900 text-white border-t border-slate-800">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col lg:flex-row items-center gap-16">
+            <div className="w-full lg:w-1/2 space-y-8">
+              <Reveal>
+                <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-bold text-emerald-400 uppercase tracking-widest border border-white/5">
+                  <MonitorSmartphone className="h-4 w-4" /> SunLoop AI Portal
+                </span>
+                <h2 className="text-4xl md:text-5xl font-extrabold mt-6 leading-tight">
+                  Property on the Hand.<br/>Visibility on the Go.
+                </h2>
+                <p className="text-slate-400 text-lg leading-relaxed max-w-lg mt-4">
+                  Combined with the Smart PV Controller, details of each module and ESS cabinet can be visible and checked anytime, anywhere—protecting your organization's assets and maximizing yield.
+                </p>
+                <div className="mt-10">
+                  <Link
+                    href="/ai-portal"
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-500 px-8 py-4 text-sm font-bold text-white shadow-[0_10px_30px_rgba(16,185,129,0.3)] hover:bg-emerald-400 transition transform hover:-translate-y-0.5"
+                  >
+                    View B2B Dashboard
+                  </Link>
+                </div>
+              </Reveal>
+            </div>
+            
+            <div className="w-full lg:w-1/2 flex justify-center">
+              <Reveal>
+                <div className="relative">
+                  <div className="absolute inset-0 bg-blue-500/20 blur-[100px] rounded-full" />
+                  <img 
+                    src="/images/connected-portal.png" 
+                    alt="SunLoop AI Dashboard Mockup" 
+                    className="relative z-10 w-full max-w-md rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-slate-700"
+                    onError={(e) => { (e.target as HTMLElement).setAttribute('src', '/images/ai-portal-robot-card.png'); }}
+                  />
+                </div>
+              </Reveal>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. CONTACT / CTA FOOTER */}
+      <section className="relative py-32 bg-white overflow-hidden">
+        <div className="absolute inset-0 bg-[#FAFAF5] opacity-50" />
+        <div className="container relative z-10 mx-auto px-4 max-w-4xl text-center">
+          <Reveal>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+              Start a green zero-carbon business today.
+            </h2>
+            <p className="text-slate-500 text-lg mt-4 mb-12">
+              Our B2B engineering team is ready to design the perfect commercial energy system for your facility.
+            </p>
+            
+            <form className="bg-white rounded-3xl p-8 md:p-12 shadow-2xl border border-slate-100 text-left space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="text-xs font-bold text-slate-700 uppercase">Company Name</label>
+                  <input type="text" className="w-full rounded-xl bg-slate-50 border border-slate-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/50" placeholder="Acme Corp" />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-xs font-bold text-slate-700 uppercase">Your Position / Title</label>
+                  <input type="text" className="w-full rounded-xl bg-slate-50 border border-slate-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/50" placeholder="Facilities Manager" />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-xs font-bold text-slate-700 uppercase">Full Name</label>
+                  <input type="text" className="w-full rounded-xl bg-slate-50 border border-slate-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/50" placeholder="John Doe" />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-xs font-bold text-slate-700 uppercase">Work Email</label>
+                  <input type="email" className="w-full rounded-xl bg-slate-50 border border-slate-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/50" placeholder="john@acmecorp.com" />
+                </div>
+                <div className="space-y-2 md:col-span-2">
+                  <label className="text-xs font-bold text-slate-700 uppercase">Phone Number</label>
+                  <input type="tel" className="w-full rounded-xl bg-slate-50 border border-slate-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/50" placeholder="+1 (555) 000-0000" />
+                </div>
+              </div>
+              
+              <div className="space-y-2">
+                <label className="text-xs font-bold text-slate-700 uppercase">Your Message</label>
+                <textarea rows={4} className="w-full rounded-xl bg-slate-50 border border-slate-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/50" placeholder="Tell us about your commercial property and energy needs..." />
+              </div>
+
+              <div className="flex items-start gap-3 pt-2">
+                <input type="checkbox" id="consent" className="mt-1 h-4 w-4 rounded border-gray-300 text-emerald-600 focus:ring-emerald-500" />
+                <label htmlFor="consent" className="text-xs text-slate-500 leading-relaxed">
+                  I consent to SunLoop collecting and processing my data in accordance with the Privacy Policy for business correspondence. I understand I can unsubscribe at any time.
+                </label>
+              </div>
+
+              <button type="button" className="w-full rounded-xl bg-emerald-600 px-8 py-4 text-sm font-bold text-white shadow-lg hover:bg-emerald-700 transition-colors focus:ring-4 focus:ring-emerald-500/30">
+                Submit Commercial Inquiry
+              </button>
+            </form>
+          </Reveal>
+        </div>
+      </section>
+
     </main>
   );
 }

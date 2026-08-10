@@ -30,8 +30,12 @@ export default function SolarHero() {
 
       // Shared target position in the clear sky, above and right of the hero copy.
       const isMobile = window.innerWidth < 768;
-      const targetX = isMobile ? window.innerWidth * -0.28 : window.innerWidth * -0.31;
-      const targetY = isMobile ? window.innerHeight * -0.28 : window.innerHeight * -0.36;
+      const targetX = isMobile 
+        ? window.innerWidth * -0.28 
+        : Math.max(-window.innerWidth * 0.31, -window.innerHeight * 0.45);
+      const targetY = isMobile 
+        ? window.innerHeight * -0.28 
+        : Math.max(-window.innerHeight * 0.36, -window.innerWidth * 0.25);
 
       // Master Timeline scrubbed with ScrollTrigger
       const tl = gsap.timeline({
@@ -136,7 +140,7 @@ export default function SolarHero() {
   return (
     <section
       ref={heroRef}
-      className="relative w-full h-screen min-h-[760px] overflow-hidden bg-[#f8f6f1] text-brand-ink flex items-center"
+      className="relative w-full h-screen min-h-[500px] overflow-hidden bg-[#f8f6f1] text-brand-ink flex items-center"
     >
       {/* BACKGROUND SCENE: Plain space initially (opacity 0), smoothly fades in & reveals landscape on scroll */}
       <div
@@ -160,10 +164,10 @@ export default function SolarHero() {
         className="hidden"
       >
         {/* Subtle orbital rings aligned with the offset Sun */}
-        <div className="absolute top-[56%] left-[55%] -translate-x-1/2 -translate-y-1/2 w-[340px] h-[340px] rounded-full border border-amber-500/20 border-dashed" />
-        <div className="absolute top-[56%] left-[55%] -translate-x-1/2 -translate-y-1/2 w-[480px] h-[480px] rounded-full border border-cyan-500/15 border-dashed" />
-        <div className="absolute top-[56%] left-[55%] -translate-x-1/2 -translate-y-1/2 w-[640px] h-[640px] rounded-full border border-blue-500/15 border-dashed" />
-        <div className="absolute top-[56%] left-[55%] -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full border border-white/10" />
+        <div className="absolute top-[56%] left-[55%] -translate-x-1/2 -translate-y-1/2 w-[21.25rem] h-[21.25rem] rounded-full border border-amber-500/20 border-dashed" />
+        <div className="absolute top-[56%] left-[55%] -translate-x-1/2 -translate-y-1/2 w-[30rem] h-[30rem] rounded-full border border-cyan-500/15 border-dashed" />
+        <div className="absolute top-[56%] left-[55%] -translate-x-1/2 -translate-y-1/2 w-[40rem] h-[40rem] rounded-full border border-blue-500/15 border-dashed" />
+        <div className="absolute top-[56%] left-[55%] -translate-x-1/2 -translate-y-1/2 w-[50rem] h-[50rem] rounded-full border border-white/10" />
 
         {/* Planet 1: Mercury */}
         <div className="absolute top-[38%] left-[51%] -translate-x-1/2 -translate-y-1/2 flex items-center gap-1.5">
@@ -280,7 +284,7 @@ export default function SolarHero() {
               <span className="text-amber-300">✦</span> Next-Gen Solar PV + ESS + EV Ecosystem
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 leading-[1.12]">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 leading-[1.12] max-w-[90vw] sm:max-w-3xl">
               Powering Tomorrow,<br />
               <span className="text-[#F26422]">Sustainably.</span>
             </h1>
@@ -299,7 +303,7 @@ export default function SolarHero() {
             </div>
 
             {/* 4 Micro-Features Row */}
-            <div className="absolute bottom-5 left-4 right-4 z-40 grid grid-cols-2 gap-4 rounded-2xl border border-slate-600 bg-[#182431] p-5 text-xs text-white shadow-2xl sm:grid-cols-4 sm:gap-0 sm:p-6">
+            <div className="relative mt-8 z-40 grid grid-cols-2 gap-4 rounded-2xl border border-slate-600 bg-[#182431] p-5 text-xs text-white shadow-2xl md:absolute md:bottom-5 md:left-4 md:right-4 md:mt-0 sm:grid-cols-4 sm:gap-0 sm:p-6">
               <div className="flex items-center gap-2 sm:border-r sm:border-white/15 sm:px-5 sm:first:pl-0">
                 <ShieldCheck className="h-4 w-4 text-amber-300 shrink-0" />
                 <div>

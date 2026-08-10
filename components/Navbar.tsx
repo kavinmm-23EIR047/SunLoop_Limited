@@ -78,6 +78,8 @@ export function Navbar() {
   const [pastHero, setPastHero] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
+
+
   const [solutionsOpen, setSolutionsOpen] = useState(false);
   const [mobileProductsExpanded, setMobileProductsExpanded] = useState(false);
   const [mobileSolutionsExpanded, setMobileSolutionsExpanded] = useState(false);
@@ -122,8 +124,8 @@ export function Navbar() {
       id="site-header"
       className={`fixed top-0 z-50 w-full transition-all duration-300 ${
         scrolled
-          ? 'bg-white/95 backdrop-blur-md border-b border-black/5 shadow-sm py-3'
-          : 'bg-white/95 backdrop-blur-md border-b border-black/5 shadow-sm py-4'
+          ? 'bg-white/95 backdrop-blur-md border-b border-black/5 shadow-sm py-2'
+          : 'bg-white/95 backdrop-blur-md border-b border-black/5 shadow-sm py-3'
       }`}
     >
       <div className="container flex items-center justify-between">
@@ -137,8 +139,8 @@ export function Navbar() {
         </Link>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden items-center gap-7 text-sm font-medium md:flex text-slate-800">
-          <Link href="/" className="transition hover:text-brand-primary">
+        <nav className="hidden items-center gap-4 lg:gap-7 text-sm font-medium xl:flex text-slate-800">
+          <Link href="/" className="transition hover:text-brand-primary whitespace-nowrap">
             Home
           </Link>
 
@@ -251,11 +253,11 @@ export function Navbar() {
             </AnimatePresence>
           </div>
 
-          <Link href="/solutions/home-owners" className="transition hover:text-brand-primary">
+          <Link href="/solutions/home-owners" className="transition hover:text-brand-primary whitespace-nowrap">
             Home Owners
           </Link>
 
-          <Link href="/solutions/business-owners" className="transition hover:text-brand-primary">
+          <Link href="/solutions/business-owners" className="transition hover:text-brand-primary whitespace-nowrap">
             Business Owners
           </Link>
 
@@ -275,7 +277,7 @@ export function Navbar() {
             </span>
           </Link>
 
-          <Link href="/company" className="transition hover:text-brand-primary">
+          <Link href="/company" className="transition hover:text-brand-primary whitespace-nowrap">
             Company
           </Link>
 
@@ -289,7 +291,7 @@ export function Navbar() {
 
         {/* Mobile Hamburger Button */}
         <button
-          className={`md:hidden p-2 ${isDarkHeader ? 'text-white' : 'text-brand-ink'}`}
+          className={`xl:hidden p-2 ${isDarkHeader ? 'text-white' : 'text-brand-ink'}`}
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
