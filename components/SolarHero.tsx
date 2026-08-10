@@ -5,9 +5,29 @@ import Link from 'next/link';
 import { ArrowRight, Play, Calendar, Users, Leaf, LineChart, Headphones, Sun, BatteryCharging, Zap } from 'lucide-react';
 import { Reveal } from './UI';
 
+const infoItems = [
+  { icon: Calendar, title: 'Est. 2016', desc: 'Coimbatore, TN, India' },
+  { icon: Users, title: '10+ Years of Trust', desc: 'In Clean Energy' },
+  { icon: Leaf, title: '100% Clean', desc: 'Renewable Energy' },
+  { icon: LineChart, title: 'AI Powered', desc: 'Smart Energy Management' },
+  { icon: Headphones, title: '24/7 Support', desc: 'Always With You' },
+];
+
 export default function SolarHero() {
   return (
     <section className="relative w-full h-auto min-h-screen bg-[#F8F9FA] flex flex-col font-sans">
+      <style>{`
+        @keyframes marquee {
+          0% { transform: translateX(0%); }
+          100% { transform: translateX(-100%); }
+        }
+        .animate-marquee {
+          animation: marquee 35s linear infinite;
+        }
+        .marquee-container:hover .animate-marquee {
+          animation-play-state: paused;
+        }
+      `}</style>
       {/* BACKGROUND SCENE */}
       <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
         <img
@@ -153,57 +173,26 @@ export default function SolarHero() {
         </div>
       </div>
 
-      {/* BOTTOM INFO BAR */}
-      <div className="relative z-20 w-full bg-[#182431] border-t border-white/10 mt-auto">
-        <div className="container mx-auto">
-          <div className="grid grid-cols-2 gap-y-6 gap-x-4 py-6 px-4 md:px-0 md:py-0 md:flex md:flex-row md:items-center md:justify-between md:divide-x divide-white/10">
-            
-            {/* Item 1 */}
-            <div className="flex items-center gap-3 md:px-4 md:py-6 md:w-full">
-              <Calendar className="h-5 w-5 text-amber-400 shrink-0" />
-              <div>
-                <strong className="block text-white text-xs sm:text-[13px] font-bold">Est. 2016</strong>
-                <span className="block text-[11px] text-white/70 mt-0.5">Coimbatore, TN, India</span>
-              </div>
+      {/* BOTTOM INFO BAR - MARQUEE TICKER */}
+      <div className="relative z-20 w-full bg-[#182431] border-t border-white/10 mt-auto overflow-hidden marquee-container border-b border-white/5">
+        <div className="flex w-max">
+          {/* Duplicate the list twice for seamless infinite scrolling */}
+          {[...Array(2)].map((_, arrayIndex) => (
+            <div key={arrayIndex} className="flex shrink-0 animate-marquee items-center" aria-hidden={arrayIndex === 1}>
+              {infoItems.map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <div key={index} className="flex items-center gap-3 px-8 md:px-12 py-5 min-w-[260px] md:min-w-[320px] border-r border-white/10">
+                    <Icon className="h-5 w-5 text-amber-400 shrink-0" />
+                    <div>
+                      <strong className="block text-white text-xs sm:text-[13px] font-bold tracking-wide">{item.title}</strong>
+                      <span className="block text-[11px] text-white/60 mt-0.5">{item.desc}</span>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
-
-            {/* Item 2 */}
-            <div className="flex items-center gap-3 md:px-6 md:py-6 md:w-full">
-              <Users className="h-5 w-5 text-amber-400 shrink-0" />
-              <div>
-                <strong className="block text-white text-xs sm:text-[13px] font-bold">10+ Years of Trust</strong>
-                <span className="block text-[11px] text-white/70 mt-0.5">In Clean Energy</span>
-              </div>
-            </div>
-
-            {/* Item 3 */}
-            <div className="flex items-center gap-3 md:px-6 md:py-6 md:w-full">
-              <Leaf className="h-5 w-5 text-emerald-400 shrink-0" />
-              <div>
-                <strong className="block text-white text-xs sm:text-[13px] font-bold">100% Clean</strong>
-                <span className="block text-[11px] text-white/70 mt-0.5">Renewable Energy</span>
-              </div>
-            </div>
-
-            {/* Item 4 */}
-            <div className="flex items-center gap-3 md:px-6 md:py-6 md:w-full">
-              <LineChart className="h-5 w-5 text-amber-400 shrink-0" />
-              <div>
-                <strong className="block text-white text-xs sm:text-[13px] font-bold">AI Powered</strong>
-                <span className="block text-[11px] text-white/70 mt-0.5">Smart Energy Management</span>
-              </div>
-            </div>
-
-            {/* Item 5 */}
-            <div className="flex items-center gap-3 md:px-6 md:py-6 md:w-full md:pr-2 col-span-2 md:col-span-1 justify-center md:justify-start">
-              <Headphones className="h-5 w-5 text-amber-400 shrink-0" />
-              <div>
-                <strong className="block text-white text-xs sm:text-[13px] font-bold">24/7 Support</strong>
-                <span className="block text-[11px] text-white/70 mt-0.5">Always With You</span>
-              </div>
-            </div>
-
-          </div>
+          ))}
         </div>
       </div>
     </section>
