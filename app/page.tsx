@@ -21,7 +21,7 @@ export default function Home() {
     <main className="min-w-0 overflow-clip bg-white font-sans">
       <SolarHero />
 
-      <section className="relative z-30 -mt-8 mb-14 px-4 sm:-mt-12 md:mb-20 2xl:mb-28">
+      <section className="relative z-30 pt-10 pb-14 px-4 sm:pt-12 md:pb-20 2xl:pb-28">
         <div className="container-wide">
           <Reveal>
             <div className="rounded-3xl border border-black/[0.08] bg-white p-5 shadow-[0_24px_70px_rgba(15,23,42,0.12)] sm:p-8 md:p-10 2xl:p-14">
@@ -55,6 +55,7 @@ export default function Home() {
           </Reveal>
         </div>
       </section>
+
       <div className="bg-[#F8F9FA]">
         <Reveal><EnergyDashboard /></Reveal>
       </div>
