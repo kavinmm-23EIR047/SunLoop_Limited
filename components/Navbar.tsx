@@ -106,7 +106,7 @@ export function Navbar() {
     }, 200);
   };
 
-  const isDarkHeader = false; // Always use solid background colors for readability
+  const isDarkHeader = isHome && !pastHero;
 
   const handleSolutionsMouseEnter = () => {
     if (solutionsTimeoutRef.current) clearTimeout(solutionsTimeoutRef.current);
@@ -123,9 +123,13 @@ export function Navbar() {
     <header
       id="site-header"
       className={`fixed top-0 z-50 w-full transition-all duration-300 ${
-        scrolled
-          ? 'bg-white/95 backdrop-blur-md border-b border-black/5 shadow-sm py-2'
-          : 'bg-white/95 backdrop-blur-md border-b border-black/5 shadow-sm py-3'
+        isDarkHeader
+          ? scrolled
+            ? 'bg-slate-950/70 backdrop-blur-xl py-2'
+            : 'bg-transparent py-4'
+          : scrolled
+            ? 'bg-white/95 backdrop-blur-md border-b border-black/5 shadow-sm py-2'
+            : 'bg-white/95 backdrop-blur-md border-b border-black/5 shadow-sm py-3'
       }`}
     >
       <div className="container flex items-center justify-between">
@@ -134,13 +138,18 @@ export function Navbar() {
           <img
             src="/images/logo.png"
             alt="Sunloop Energy"
-            className="h-9 sm:h-10 w-auto object-contain transition-transform group-hover:scale-105"
+            className={`h-9 sm:h-10 w-auto object-contain transition-all group-hover:scale-105 ${isDarkHeader ? 'brightness-0 invert' : ''}`}
           />
         </Link>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden items-center gap-4 lg:gap-7 text-sm font-medium xl:flex text-slate-800">
-          <Link href="/" className="transition hover:text-brand-primary whitespace-nowrap">
+        <nav className={`hidden items-center gap-4 lg:gap-6 text-xs font-semibold xl:flex transition-colors duration-300 ${isDarkHeader ? 'text-white/90' : 'text-slate-800'}`}>
+          <Link
+            href="/"
+            className={`transition py-1 relative ${
+              pathname === '/' ? 'text-[#E86526] font-bold border-b-2 border-[#E86526]' : 'hover:text-[#E86526]'
+            }`}
+          >
             Home
           </Link>
 
@@ -152,13 +161,13 @@ export function Navbar() {
           >
             <button
               onClick={() => setSolutionsOpen(!solutionsOpen)}
-              className="flex items-center gap-1 py-1 font-medium transition hover:text-brand-primary focus:outline-none"
+              className="flex items-center gap-1 py-1 font-semibold transition hover:text-[#E86526] focus:outline-none"
             >
               <span>Solutions</span>
               <ChevronDown
-                className={`h-4 w-4 transition-transform duration-200 ${
-                  isDarkHeader ? 'text-white/80' : 'text-brand-slate'
-                } ${solutionsOpen ? 'rotate-180 text-brand-primary' : ''}`}
+                className={`h-3.5 w-3.5 transition-transform duration-200 text-slate-500 ${
+                  solutionsOpen ? 'rotate-180 text-[#E86526]' : ''
+                }`}
               />
             </button>
 
@@ -177,7 +186,7 @@ export function Navbar() {
                         key={solution.title}
                         href={solution.href}
                         onClick={() => setSolutionsOpen(false)}
-                        className="block w-full rounded-xl px-4 py-2.5 text-left text-xs font-semibold text-brand-ink transition hover:bg-orange-50/60 hover:text-brand-primary"
+                        className="block w-full rounded-xl px-4 py-2.5 text-left text-xs font-semibold text-brand-ink transition hover:bg-orange-50/60 hover:text-[#E86526]"
                       >
                         {solution.title}
                       </Link>
@@ -196,13 +205,13 @@ export function Navbar() {
           >
             <button
               onClick={() => setDropdownOpen(!dropdownOpen)}
-              className="flex items-center gap-1 py-1 transition hover:text-brand-primary font-medium focus:outline-none"
+              className="flex items-center gap-1 py-1 transition hover:text-[#E86526] font-semibold focus:outline-none"
             >
               <span>Products</span>
               <ChevronDown
-                className={`h-4 w-4 transition-transform duration-200 ${
-                  isDarkHeader ? 'text-white/80' : 'text-brand-slate'
-                } ${dropdownOpen ? 'rotate-180 text-brand-primary' : ''}`}
+                className={`h-3.5 w-3.5 transition-transform duration-200 text-slate-500 ${
+                  dropdownOpen ? 'rotate-180 text-[#E86526]' : ''
+                }`}
               />
             </button>
 
@@ -220,29 +229,29 @@ export function Navbar() {
                     <Link
                       href="/products/energy-storage"
                       onClick={() => setDropdownOpen(false)}
-                      className="block w-full rounded-xl px-4 py-2.5 text-xs font-semibold text-brand-ink hover:text-brand-primary hover:bg-orange-50/60 transition"
+                      className="block w-full rounded-xl px-4 py-2.5 text-xs font-semibold text-brand-ink hover:text-[#E86526] hover:bg-orange-50/60 transition"
                     >
-                      Lithium Battery
+                      Lithium Battery Storage
                     </Link>
                     <Link
                       href="/products/ev-charging"
                       onClick={() => setDropdownOpen(false)}
-                      className="block w-full rounded-xl px-4 py-2.5 text-xs font-semibold text-brand-ink hover:text-brand-primary hover:bg-orange-50/60 transition"
+                      className="block w-full rounded-xl px-4 py-2.5 text-xs font-semibold text-brand-ink hover:text-[#E86526] hover:bg-orange-50/60 transition"
                     >
-                      EV Charger
+                      EV Fast Chargers
                     </Link>
                     <Link
                       href="/products/solar-power"
                       onClick={() => setDropdownOpen(false)}
-                      className="block w-full rounded-xl px-4 py-2.5 text-xs font-semibold text-brand-ink hover:text-brand-primary hover:bg-orange-50/60 transition"
+                      className="block w-full rounded-xl px-4 py-2.5 text-xs font-semibold text-brand-ink hover:text-[#E86526] hover:bg-orange-50/60 transition"
                     >
-                      Solar Power
+                      Solar Power Plants
                     </Link>
                     <div className="border-t border-black/5 my-1 pt-1">
                       <Link
                         href="/products"
                         onClick={() => setDropdownOpen(false)}
-                        className="block w-full rounded-xl px-4 py-2.5 text-xs font-bold text-brand-primary hover:bg-orange-50/80 transition"
+                        className="block w-full rounded-xl px-4 py-2.5 text-xs font-bold text-[#E86526] hover:bg-orange-50/80 transition"
                       >
                         All Products →
                       </Link>
@@ -253,39 +262,37 @@ export function Navbar() {
             </AnimatePresence>
           </div>
 
-          <Link href="/solutions/home-owners" className="transition hover:text-brand-primary whitespace-nowrap">
+          <Link href="/solutions/home-owners" className="transition hover:text-[#E86526] whitespace-nowrap">
             Home Owners
           </Link>
 
-          <Link href="/solutions/business-owners" className="transition hover:text-brand-primary whitespace-nowrap">
+          <Link href="/solutions/business-owners" className="transition hover:text-[#E86526] whitespace-nowrap">
             Business Owners
           </Link>
 
-          {/* Solid Clean AI Portal Link */}
-          <Link
-            href="/ai-portal"
-            className={`flex items-center gap-2 rounded-xl px-3.5 py-1.5 text-xs font-semibold shadow-2xs transition backdrop-blur-md ${
-              isDarkHeader
-                ? 'border border-white/20 bg-white/10 text-white hover:bg-white/20 hover:border-white/40'
-                : 'border border-black/10 bg-white/80 text-brand-ink hover:border-brand-primary hover:bg-white'
-            }`}
-          >
-            <Bot className="h-4 w-4 text-brand-primary" />
-            AI Portal Dashboard
-            <span className="rounded-md bg-brand-primary px-1.5 py-0.5 text-[9px] font-bold text-white uppercase">
-              SOLID UI
-            </span>
-          </Link>
-
-          <Link href="/company" className="transition hover:text-brand-primary whitespace-nowrap">
+          <Link href="/company" className="transition hover:text-[#E86526] whitespace-nowrap">
             Company
           </Link>
 
+          {/* AI Portal Pill Button */}
+          <Link
+            href="/ai-portal"
+            className={`flex items-center gap-2 rounded-md border px-4 py-2 text-xs font-semibold shadow-xs transition ${
+              isDarkHeader
+                ? 'border-white/20 bg-white/10 text-white hover:bg-white/20'
+                : 'border-slate-200 bg-white text-slate-800 hover:border-[#E86526] hover:text-[#E86526]'
+            }`}
+          >
+            <Bot className={`h-4 w-4 ${isDarkHeader ? 'text-white' : 'text-[#E86526]'}`} />
+            AI Portal Dashboard
+          </Link>
+
+          {/* Get a Quote Solid Orange Pill */}
           <Link
             href="/contact"
-            className="rounded-xl bg-brand-primary px-4 py-2 text-xs font-bold text-white shadow-xs hover:bg-[#c95315] transition hover:shadow-md"
+            className="flex items-center gap-1.5 rounded-md bg-[#E86526] px-5 py-2.5 text-xs font-bold text-white shadow-md hover:bg-[#c95315] transition"
           >
-            Get a Quote <ArrowUpRight className="ml-1 inline h-3.5 w-3.5" />
+            Get a Quote <ArrowUpRight className="h-3.5 w-3.5" />
           </Link>
         </nav>
 
@@ -301,8 +308,8 @@ export function Navbar() {
 
       {/* MOBILE NAVIGATION DRAWER */}
       {mobileOpen && (
-        <nav className="container grid gap-2 border-t border-black/10 pb-5 pt-4 md:hidden bg-white/98 backdrop-blur-xl shadow-xl mt-2 rounded-2xl text-xs font-semibold">
-          <Link onClick={() => setMobileOpen(false)} className="rounded-xl px-3 py-2.5 hover:bg-brand-bg text-brand-ink" href="/">
+        <nav className="container grid gap-2 border-t border-black/10 pb-5 pt-4 md:hidden bg-white/98 backdrop-blur-xl shadow-xl mt-2 rounded-md text-xs font-semibold">
+          <Link onClick={() => setMobileOpen(false)} className="rounded-md px-3 py-2.5 hover:bg-brand-bg text-brand-ink" href="/">
             Home
           </Link>
 
@@ -310,7 +317,7 @@ export function Navbar() {
           <div>
             <button
               onClick={() => setMobileSolutionsExpanded(!mobileSolutionsExpanded)}
-              className="flex w-full items-center justify-between rounded-xl px-3 py-2.5 font-semibold text-brand-ink hover:bg-brand-bg"
+              className="flex w-full items-center justify-between rounded-md px-3 py-2.5 font-semibold text-brand-ink hover:bg-brand-bg"
             >
               <span>Solutions (5 Services)</span>
               <ChevronDown className={`h-4 w-4 transition-transform ${mobileSolutionsExpanded ? 'rotate-180 text-brand-primary' : ''}`} />
@@ -323,7 +330,7 @@ export function Navbar() {
                     key={solution.title}
                     href={solution.href}
                     onClick={() => setMobileOpen(false)}
-                    className="block w-full rounded-lg p-2 text-left text-brand-ink hover:bg-orange-50/50 hover:text-brand-primary"
+                    className="block w-full rounded-md p-2 text-left text-brand-ink hover:bg-orange-50/50 hover:text-brand-primary"
                   >
                     {solution.title}
                   </Link>
@@ -336,7 +343,7 @@ export function Navbar() {
           <div>
             <button
               onClick={() => setMobileProductsExpanded(!mobileProductsExpanded)}
-              className="w-full flex items-center justify-between rounded-xl px-3 py-2.5 text-brand-ink hover:bg-brand-bg font-semibold"
+              className="w-full flex items-center justify-between rounded-md px-3 py-2.5 text-brand-ink hover:bg-brand-bg font-semibold"
             >
               <span>Products (3 Services)</span>
               <ChevronDown className={`h-4 w-4 transition-transform ${mobileProductsExpanded ? 'rotate-180 text-brand-primary' : ''}`} />
@@ -349,7 +356,7 @@ export function Navbar() {
                     key={svc.id}
                     onClick={() => setMobileOpen(false)}
                     href={svc.href}
-                    className="block rounded-lg p-2 hover:bg-orange-50/50"
+                    className="block rounded-md p-2 hover:bg-orange-50/50"
                   >
                     <strong className="block text-brand-ink font-bold text-xs">{svc.title}</strong>
                     <span className="text-[10px] text-brand-primary font-semibold">{svc.specs}</span>
@@ -361,17 +368,17 @@ export function Navbar() {
 
           <Link
             onClick={() => setMobileOpen(false)}
-            className="rounded-xl px-3 py-2.5 bg-brand-bg text-brand-primary flex items-center gap-2 font-bold"
+            className="rounded-md px-3 py-2.5 bg-brand-bg text-brand-primary flex items-center gap-2 font-bold"
             href="/ai-portal"
           >
             <Bot className="h-4 w-4" /> AI Portal Dashboard (Clean Solid)
           </Link>
 
-          <Link onClick={() => setMobileOpen(false)} className="rounded-xl px-3 py-2.5 hover:bg-brand-bg text-brand-ink" href="/company">
+          <Link onClick={() => setMobileOpen(false)} className="rounded-md px-3 py-2.5 hover:bg-brand-bg text-brand-ink" href="/company">
             Company
           </Link>
 
-          <Link onClick={() => setMobileOpen(false)} className="rounded-xl px-3 py-2.5 bg-brand-primary text-white text-center font-bold" href="/contact">
+          <Link onClick={() => setMobileOpen(false)} className="rounded-md px-3 py-2.5 bg-brand-primary text-white text-center font-bold" href="/contact">
             Get a Quote
           </Link>
         </nav>

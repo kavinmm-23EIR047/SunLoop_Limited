@@ -59,10 +59,10 @@ export default function ConnectedJourneyScrollShowcase() {
 
       <div className="container relative z-10 mx-auto max-w-6xl px-4">
         <div className="mx-auto mb-16 max-w-3xl space-y-4 text-center md:mb-24">
-          <span className="eyebrow inline-block">ONE CONNECTED JOURNEY</span>
-          <h2 className="text-3xl text-brand-ink sm:text-4xl md:text-5xl leading-tight">Start with what you need.<br/>Add what you want.</h2>
-          <p className="mx-auto max-w-xl text-sm leading-relaxed text-brand-slate md:text-base">
-            A modular clean-energy growth path. Start with one system and expand when the time is right.
+          <span className="eyebrow inline-block">WHY SUNLOOP</span>
+          <h2 className="text-3xl text-brand-ink sm:text-4xl md:text-5xl leading-tight">One Connected Energy Ecosystem</h2>
+          <p className="mx-auto max-w-2xl text-sm leading-relaxed text-brand-slate md:text-base">
+            We don't sell isolated products. We build one connected energy ecosystem that scales with you — start with a single system today, and expand into a fully integrated Solar + Storage + EV microgrid whenever you're ready, without replacing what you already own.
           </p>
         </div>
 

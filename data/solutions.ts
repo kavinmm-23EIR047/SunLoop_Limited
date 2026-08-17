@@ -1,6 +1,24 @@
 export const solutions = [
- {title:'Residential',icon:'⌂',desc:"Transform your home into a smart, energy-independent ecosystem with Sunloop Energy's integrated residential solutions. Our Rooftop Solar System, Wall-Mounted Energy Storage System (ESS) and AC EV Charger work seamlessly together through the Sunloop AI Energy Portal.",items:['Rooftop Solar System','Wall-Mounted ESS','AC EV Charger','Real-time monitoring & daily insights']},
- {title:'Commercial',icon:'▦',desc:'Reduce operating costs, improve energy reliability, and create a new revenue stream with Sunloop Energy’s integrated commercial energy ecosystem.',items:['Commercial Rooftop Solar','Energy Storage Systems (ESS)','Smart EV Charging Infrastructure','Load management & operational visibility']},
- {title:'Industrial',icon:'⌁',desc:'Bring renewable generation, storage and charging together for resilient operations. Intelligent monitoring helps teams understand energy consumption, optimize assets and plan for long-term efficiency.',items:['Rooftop or ground-mounted solar','Scalable ESS','Fleet and industrial charging','AI-powered operational insights']},
- {title:'Off-Grid',icon:'◒',desc:'Build energy independence for remote sites with a coordinated solar and ESS-led system. Sunloop solutions help essential operations stay powered while every asset remains visible through one intelligent platform.',items:['Clean energy generation','ESS-led backup','Remote monitoring and control','Future-ready expansion']}
+  {
+    title: 'For Homeowners',
+    icon: '⌂',
+    desc: 'Turn your home into a self-sufficient energy system. Sunloop\'s residential package pairs Rooftop Solar, Wall-Mounted ESS, and an AC EV Charger — all managed from a single app.',
+    items: ['Lower electricity bills through solar generation', 'Backup power during outages via battery storage', 'Home EV charging, ready when you need it', 'Real-time monitoring and daily insights through the AI Portal'],
+    href: '/solutions/home-owners',
+  },
+  {
+    title: 'For Businesses',
+    icon: '▦',
+    desc: 'Reduce operating costs, improve energy reliability, and open a new revenue stream. Sunloop\'s commercial ecosystem combines Rooftop or Ground-Mounted Solar, scalable ESS, and DC Fast EV Charging.',
+    items: ['Reduced peak-demand charges through automated load shaving', 'Uninterrupted operations with battery backup', 'New revenue from EV charging (retail, fleet, or public access)', 'Centralized multi-site monitoring for facility and energy managers'],
+    href: '/solutions/business-owners',
+  },
+  {
+    title: 'For Utilities & Developers',
+    icon: '◒',
+    desc: 'For utilities, EPC partners, and large-scale developers, Sunloop delivers Utility-Scale Solar Plants, Containerized ESS, and public DC fast-charging networks — engineered for grid integration.',
+    items: ['Multi-megawatt Solar and grid-scale storage', 'Smart microgrid control across distributed sites', 'Fleet-wide remote monitoring through the AI Portal', 'Engineering, procurement, and long-term O&M support'],
+    href: '/solutions/smart-microgrid',
+  },
 ];
+

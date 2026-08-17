@@ -17,13 +17,13 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ['Montserrat', 'sans-serif'],
-        display: ['Black Ops One', 'system-ui'],
-        mono: ['Montserrat', 'sans-serif'],
+        sans: ['Inter', 'sans-serif'],
+        display: ['Inter', 'sans-serif'],
+        mono: ['Inter', 'sans-serif'],
       },
       boxShadow: {
-        solid: '0 2px 10px rgba(0, 0, 0, 0.05)',
-        card: '0 4px 16px rgba(0, 0, 0, 0.06)',
+        solid: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+        card: '0 4px 6px -1px rgba(15, 23, 42, 0.05), 0 2px 4px -1px rgba(15, 23, 42, 0.03)',
       },
     },
   },

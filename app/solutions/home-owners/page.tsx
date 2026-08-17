@@ -30,11 +30,14 @@ export default function HomeOwnersSolutionPage() {
           <div className="container relative z-10 mx-auto px-4 text-center">
             <Reveal>
               <h2 className="text-brand-primary font-bold tracking-widest uppercase text-sm md:text-base mb-4">
-                Residential PV &amp; ESS Solution
+                For Homeowners
               </h2>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight max-w-4xl mx-auto">
-                Energy Independence, Enjoy a Greener Life
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight max-w-4xl mx-auto mb-4">
+                Turn your home into a self-sufficient energy system.
               </h1>
+              <p className="text-sm md:text-base text-white/90 max-w-2xl mx-auto font-normal">
+                Sunloop's residential package pairs Rooftop Solar, Wall-Mounted ESS, and an AC EV Charger — all managed from a single app.
+              </p>
             </Reveal>
           </div>
         </div>

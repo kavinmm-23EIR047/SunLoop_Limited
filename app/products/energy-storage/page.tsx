@@ -10,17 +10,8 @@ import {
   CheckCircle2,
   ArrowUpRight,
   ShieldCheck,
-  Cpu,
-  BarChart3,
   Bot,
-  Sparkles,
   X,
-  Sliders,
-  Home,
-  Building2,
-  Factory,
-  Layers,
-  Zap
 } from 'lucide-react';
 import { Reveal, Button } from '../../../components/UI';
 import { essProducts, ESSProduct } from '../../../data/essProducts';
@@ -31,13 +22,9 @@ if (typeof window !== 'undefined') {
 
 export default function EnergyStoragePage() {
   const [activeModal, setActiveModal] = useState<ESSProduct | null>(null);
-  const [selectedFilter, setSelectedFilter] = useState<'all' | 'residential' | 'commercial'>('all');
   const catalogRef = useRef<HTMLDivElement>(null);
 
   const productsList = essProducts || [];
-  const filteredProducts = selectedFilter === 'all'
-    ? productsList
-    : productsList.filter(p => p && p.keyword === selectedFilter);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -61,25 +48,31 @@ export default function EnergyStoragePage() {
     }, catalogRef);
 
     return () => ctx.revert();
-  }, [selectedFilter]);
+  }, []);
 
   return (
     <main className="min-h-screen bg-[#FAFAF5] pt-16 pb-16 font-sans">
-      {/* FULL-BLEED HIGH-IMPACT HERO BANNER */}
+      {/* HERO BANNER */}
       <section className="relative w-full h-[460px] sm:h-[560px] md:h-[640px] overflow-hidden bg-brand-ink text-white flex items-center">
         <div
           className="absolute inset-0 bg-cover bg-center pointer-events-none transition-transform duration-1000"
           style={{
-            backgroundImage: `url('/products/product-ess-0.png')`,
+            backgroundImage: `url('/products/Energy Storage Cabinet.png')`,
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent pointer-events-none" />
 
         <div className="container relative z-10 max-w-5xl mx-auto px-4">
-          <Reveal className="max-w-xl space-y-4">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-white tracking-tight leading-tight">
-              Lithium Battery Storage Systems
+          <Reveal className="max-w-2xl space-y-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
+              Energy Storage Systems (ESS)
             </h1>
+            <p className="text-sm sm:text-base text-white/80 leading-relaxed font-normal">
+              Advanced lithium-ion and LiFePO4 battery storage systems that ensure uninterrupted power, reduce peak-demand charges, and increase energy independence. Fully stackable and designed for seamless integration with Solar and EV systems.
+            </p>
+            <p className="text-xs font-bold text-[#E86526] uppercase tracking-wider">
+              Capacity: 5 kWh – 500+ kWh (stackable to meet any requirement)
+            </p>
 
             <div className="pt-3 flex flex-wrap gap-3">
               <Link
@@ -98,6 +91,38 @@ export default function EnergyStoragePage() {
           </Reveal>
         </div>
       </section>
+
+      {/* ESS SYSTEM TYPES TABLE */}
+      <section className="py-12 bg-[#FAFAF5] border-b border-black/5">
+        <div className="container max-w-5xl mx-auto px-4 space-y-6">
+          <h2 className="text-2xl font-bold text-brand-ink">Energy Storage System Configurations</h2>
+          <div className="overflow-x-auto rounded-2xl border border-black/10 bg-white shadow-xs">
+            <table className="w-full text-left text-xs sm:text-sm">
+              <thead className="bg-[#F8F9FA] border-b border-black/10 font-bold text-brand-ink">
+                <tr>
+                  <th className="p-4">System Type</th>
+                  <th className="p-4">Best For</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-black/5 font-medium text-brand-slate">
+                <tr>
+                  <td className="p-4 font-bold text-brand-ink">Wall-Mounted ESS</td>
+                  <td className="p-4">Homes — compact, space-saving, easy install</td>
+                </tr>
+                <tr>
+                  <td className="p-4 font-bold text-brand-ink">Trolley-Type ESS</td>
+                  <td className="p-4">Commercial &amp; Industrial sites — mobile, easy to scale</td>
+                </tr>
+                <tr>
+                  <td className="p-4 font-bold text-brand-ink">Containerized ESS</td>
+                  <td className="p-4">Utility-scale — high-capacity, grid-integrated deployments</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
       {/* CATALOG SECTION WITH GROUPED CATEGORIES */}
       <section className="py-14 md:py-20 bg-white">
         <div ref={catalogRef} className="container max-w-5xl mx-auto px-4 space-y-24">
@@ -105,7 +130,7 @@ export default function EnergyStoragePage() {
           {/* RESIDENTIAL ESS GROUP */}
           <div className="space-y-12">
             <h2 className="text-3xl md:text-4xl font-bold text-[#222222] tracking-tight">
-              Residential Energy Storage
+              Residential Energy Storage Systems (5 kWh – 20 kWh)
             </h2>
             <div className="space-y-16">
               {productsList.filter(p => p.keyword === 'residential').map((prod, index) => {
@@ -129,7 +154,7 @@ export default function EnergyStoragePage() {
                       </div>
 
                       <div className="space-y-1">
-                          <p className="text-[15px] text-[#333333] font-medium">Capacity: <span className="font-normal">{prod.capacity}</span></p>
+                        <p className="text-[15px] text-[#333333] font-medium">Capacity: <span className="font-normal">{prod.capacity}</span></p>
                       </div>
 
                       <div className="pt-2">
@@ -163,7 +188,7 @@ export default function EnergyStoragePage() {
           {/* COMMERCIAL & UTILITY ESS GROUP */}
           <div className="space-y-12 pt-8 border-t border-black/5">
             <h2 className="text-3xl md:text-4xl font-bold text-[#222222] tracking-tight">
-              Commercial & Utility Energy Storage
+              Commercial &amp; Utility Energy Storage Systems (30 kWh – 500+ kWh)
             </h2>
             <div className="space-y-16">
               {productsList.filter(p => p.keyword === 'commercial').map((prod, index) => {
@@ -186,7 +211,7 @@ export default function EnergyStoragePage() {
                         </p>
                       </div>
 
-                        <div className="space-y-1">
+                      <div className="space-y-1">
                         <p className="text-[15px] text-[#333333] font-medium">Capacity: <span className="font-normal">{prod.capacity}</span></p>
                       </div>
 
@@ -219,7 +244,6 @@ export default function EnergyStoragePage() {
           </div>
         </div>
       </section>
-
 
       {/* SPECIFICATIONS MODAL DIALOG */}
       <AnimatePresence>

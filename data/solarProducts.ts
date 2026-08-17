@@ -15,9 +15,9 @@ export interface SolarProductVariant {
 }
 
 export const solarPVIntro = {
-  title: 'Solar PV Solution',
-  subtitle: 'Complete pre-engineered solar power system kits for residential homes & commercial enterprises.',
-  desc: 'A Solar PV Solution converts sunlight into clean, sustainable electricity using high-efficiency photovoltaic panels. Engineered for residential, commercial, and industrial applications, Sunloop solar kits operate grid-tied, off-grid, or integrated into hybrid battery storage microgrid networks.',
+  title: 'Solar Power Plants',
+  subtitle: 'Complete end-to-end solar PV design, installation, and maintenance for residential, commercial, and utility-scale clients.',
+  desc: 'We deliver end-to-end Solar Power Plant solutions — design, engineering, installation, commissioning, and long-term maintenance — using high-efficiency panels and inverters tailored to your scale and site conditions.',
 };
 
 export const solarProducts: SolarProductVariant[] = [
@@ -28,15 +28,15 @@ export const solarProducts: SolarProductVariant[] = [
     categoryLabel: 'Residential Solar Kits',
     keyword: 'residential',
     series: 'Hybrid Residential Series',
-    title: '3-50kW Hybrid Residential Solar System Kits',
-    capacity: '3kW – 50kW Hybrid',
+    title: '3 kW – 30 kW Hybrid Residential Solar System Kits',
+    capacity: '3 kW – 30 kW Hybrid',
     specs: [
       { label: 'System Type', value: 'Hybrid (On-Grid & Off-Grid Operation)' },
-      { label: 'Capacity Range', value: '3kW to 50kW' },
+      { label: 'Capacity Range', value: '3 kW to 30 kW' },
       { label: 'Battery Control', value: 'Smart BMS Charge/Discharge Scheduling' },
       { label: 'Application', value: 'Homes, Villas & Residential Communities' },
     ],
-    desc: 'Sunloop Hybrid Residential Solar System Kits operate seamlessly in either on-grid or off-grid conditions. Equipped with advanced BMS technology, users can easily customize charge/discharge rates, schedule battery storage usage, and manage daily power consumption.',
+    desc: 'Sunloop Hybrid Residential Solar System Kits operate seamlessly in either On-Grid or Off-Grid conditions. Equipped with advanced BMS technology, users can easily customize charge/discharge rates, schedule battery storage usage, and manage daily power consumption.',
     warranties: [
       '30 Years Product Warranty for PV Module',
       '15 Years Product Warranty for Mounting System',
@@ -57,11 +57,11 @@ export const solarProducts: SolarProductVariant[] = [
     categoryLabel: 'Residential Solar Kits',
     keyword: 'residential',
     series: 'On-Grid Residential Series',
-    title: '3-50kW On Grid Residential Solar System Kits',
-    capacity: '3kW – 50kW On-Grid',
+    title: '3 kW – 30 kW On-Grid Residential Solar System Kits',
+    capacity: '3 kW – 30 kW On-Grid',
     specs: [
       { label: 'System Type', value: 'On-Grid Utility Connected' },
-      { label: 'Capacity Range', value: '3kW to 50kW' },
+      { label: 'Capacity Range', value: '3 kW to 30 kW' },
       { label: 'Efficiency', value: 'High Yield Monocrystalline PV Modules' },
       { label: 'Net Metering', value: 'Full Grid Export & Billing Support' },
     ],
@@ -86,15 +86,15 @@ export const solarProducts: SolarProductVariant[] = [
     categoryLabel: 'Residential Solar Kits',
     keyword: 'residential',
     series: 'Off-Grid Residential Series',
-    title: '3-50kW Off Grid Residential Solar System Kits',
-    capacity: '3kW – 50kW Off-Grid',
+    title: '3 kW – 30 kW Off-Grid Residential Solar System Kits',
+    capacity: '3 kW – 30 kW Off-Grid',
     specs: [
       { label: 'System Type', value: '100% Off-Grid Independent' },
-      { label: 'Capacity Range', value: '3kW to 50kW' },
+      { label: 'Capacity Range', value: '3 kW to 30 kW' },
       { label: 'Emissions', value: 'Zero Emissions & Silent Operation' },
       { label: 'Package', value: 'All-in-One Quick Install Package' },
     ],
-    desc: 'Total electrical independence starts here. Sunloop has carefully engineered all of our pre-packaged off-grid solar power systems to be faster and easier to install. Producing zero emissions and operating silently in an all-in-one package solution.',
+    desc: 'Total electrical independence starts here. Sunloop has carefully engineered all of our pre-packaged Off-Grid solar power systems to be faster and easier to install. Producing zero emissions and operating silently in an all-in-one package solution.',
     warranties: [
       '30 Years Product Warranty for PV Module',
       '15 Years Product Warranty for Mounting System',
@@ -117,11 +117,11 @@ export const solarProducts: SolarProductVariant[] = [
     categoryLabel: 'Commercial Solar Kits',
     keyword: 'commercial',
     series: 'Hybrid Commercial Series',
-    title: '30-500kW Hybrid Commercial Solar System Kits',
-    capacity: '30kW – 500kW Hybrid',
+    title: '5 kW – 500 kW Hybrid Commercial Solar System Kits',
+    capacity: '5 kW – 500 kW Hybrid',
     specs: [
       { label: 'System Type', value: 'Commercial Microgrid & Battery Storage' },
-      { label: 'Capacity Range', value: '30kW to 500kW' },
+      { label: 'Capacity Range', value: '5 kW to 500 kW' },
       { label: 'Noise & Emissions', value: 'Zero Emissions, Low Operational Noise' },
       { label: 'Application', value: 'Commercial Buildings, Malls & Factories' },
     ],
@@ -135,7 +135,7 @@ export const solarProducts: SolarProductVariant[] = [
       'Commercial-Grade Microgrid Architecture with Integrated Battery Storage',
       'Smart Peak Shaving & Time-of-Use Energy Optimization',
       'Zero Carbon Emissions & Quiet Indoor/Outdoor Cabinetry',
-      'Scalable Parallel Expansion up to Megawatt Capacity',
+      'Scalable Parallel Expansion up to Utility-Scale Megawatt Capacity',
     ],
     image: '/products/Solar power/30-500kW Hybrid Commercial Solar System Kits.png',
     fallbackImage: '/images/commercial-energy.png',
@@ -146,15 +146,15 @@ export const solarProducts: SolarProductVariant[] = [
     categoryLabel: 'Commercial Solar Kits',
     keyword: 'commercial',
     series: 'On-Grid Commercial Series',
-    title: '50-1000kW On Grid Commercial Solar System Kits',
-    capacity: '50kW – 1000kW On-Grid',
+    title: '5 kW – 500 kW On-Grid Commercial Solar System Kits',
+    capacity: '5 kW – 500 kW On-Grid',
     specs: [
       { label: 'System Type', value: 'Commercial On-Grid Utility Tied' },
-      { label: 'Capacity Range', value: '50kW to 1000kW (1MW)' },
+      { label: 'Capacity Range', value: '5 kW to 500 kW (Ground & Rooftop)' },
       { label: 'Installation Site', value: 'Commercial Rooftops & Ground Mounts' },
       { label: 'Inflation Protection', value: 'Long-Term Power Tariff Hedge' },
     ],
-    desc: 'Sunloop On-Grid Commercial Solar System Kits are ideally suited for any business looking to reduce rising energy costs and hedge against future energy inflation. Suitable for commercial rooftops and ground mounting locations.',
+    desc: 'Sunloop On-Grid Commercial Solar System Kits are ideally suited for any business looking to reduce rising energy costs and hedge against future energy inflation. Suitable for commercial rooftops and Ground-Mounted locations.',
     warranties: [
       '30 Years Product Warranty for PV Module',
       '15 Years Product Warranty for Mounting System',
@@ -175,15 +175,15 @@ export const solarProducts: SolarProductVariant[] = [
     categoryLabel: 'Commercial Solar Kits',
     keyword: 'commercial',
     series: 'Off-Grid Commercial Series',
-    title: '30-500kW Off Grid Commercial Solar System Kits',
-    capacity: '30kW – 500kW Off-Grid',
+    title: '5 kW – 500 kW Off-Grid Commercial Solar System Kits',
+    capacity: '5 kW – 500 kW Off-Grid',
     specs: [
       { label: 'System Type', value: 'Commercial Independent Off-Grid' },
-      { label: 'Capacity Range', value: '30kW to 500kW' },
+      { label: 'Capacity Range', value: '5 kW to 500 kW' },
       { label: 'Customization', value: 'Designed for Building Peak Load Demand' },
       { label: 'Reliability', value: 'Heavy Duty 24/7 Power Continuity' },
     ],
-    desc: 'The size and capacity of a commercial off-grid solar system depend on the specific energy requirements of the business. Factors such as building consumption, peak load demand, available space, and location play key roles in system design.',
+    desc: 'The size and capacity of a commercial Off-Grid solar system depend on the specific energy requirements of the business. Factors such as building consumption, peak load demand, available space, and location play key roles in system design.',
     warranties: [
       '30 Years Product Warranty for PV Module',
       '15 Years Product Warranty for Mounting System',
@@ -207,4 +207,5 @@ export const getCommercialSolarProducts = (): SolarProductVariant[] =>
   solarProducts.filter((p) => p.category === 'commercial');
 
 export const getBusinessSolarProducts = getCommercialSolarProducts;
+
 

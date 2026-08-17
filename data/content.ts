@@ -1,5 +1,30 @@
-export const brand = { name:'Sunloop Energy', tagline:'Powering Tomorrow, Sustainably', subtag:'Clean. Intelligent. Integrated.', campaign:'Pathway to Sustainable Future!', mantra:'Generate. Store. Drive.', positioning:'AI Powered Integrated Solution' };
-export const about = `Sunloop Energy is a next-generation clean energy company started in 2016 by a young and dynamic team dedicated to transforming the way energy is generated, stored, managed and consumed. We are headquartered in Coimbatore, Tamil Nadu. We specialize in delivering intelligent and sustainable energy solutions through Solar Power Plants, Energy Storage Systems (ESS) and EV Charging Infrastructure — all seamlessly connected through our proprietary AI Energy Management Portal.`;
-export const portalFeatures = ['Live monitoring of Solar, ESS, and EV Charging assets','Daily performance reports','AI-powered analytics and optimization','Predictive maintenance alerts','Fault detection and instant notifications','Energy consumption insights','Carbon emission reduction tracking','Remote monitoring and control','Multi-site management','Secure cloud-based access from anywhere'];
-// TODO: insert real contact details when supplied by Sunloop Energy.
-export const contact = { hq:'Coimbatore, Tamil Nadu, India', website:'www.sunloopenergy.com', email:'Contact details coming soon', phone:'Contact details coming soon' };
+export const brand = {
+  name: 'Sunloop Energy',
+  tagline: 'Powering Tomorrow, Sustainably.',
+  subtag: 'Clean. Intelligent. Integrated.',
+  campaign: 'Pathway to Sustainable Future!',
+  mantra: 'Generate. Store. Drive.',
+  positioning: 'AI Energy Management Portal',
+};
+
+export const about = `Sunloop Energy is a next-generation clean energy company founded in 2016 in Coimbatore, Tamil Nadu, by a team dedicated to transforming how energy is generated, stored, and consumed. We design and deploy Solar Power Plants, Energy Storage Systems, and EV Charging Infrastructure — all connected through our proprietary AI Energy Management Portal.`;
+
+export const portalFeatures = [
+  'Live monitoring across all connected assets',
+  'Daily performance reports',
+  'AI-powered analytics and optimization',
+  'Predictive maintenance alerts',
+  'Instant fault detection and notifications',
+  'Energy consumption and carbon-reduction tracking',
+  'Remote monitoring and control',
+  'Multi-site management for portfolio operators',
+  'Secure cloud-based access from anywhere',
+];
+
+export const contact = {
+  hq: 'Coimbatore, Tamil Nadu, India',
+  website: 'www.sunloopenergy.com',
+  email: 'info@sunloopenergy.com',
+  phone: '+91 (0422) 298-7654',
+};
+

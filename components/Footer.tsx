@@ -72,12 +72,12 @@ export function Footer() {
             </Link>
 
             <p className="text-sm text-brand-slate font-medium leading-relaxed">
-              Engineering intelligent clean energy ecosystems — Solar PV Plants, LiFePO4 ESS, and EV Fast Chargers powered by AI Portal telemetry.
+              Engineering intelligent clean energy ecosystems — Solar Power Plants, Battery Energy Storage Systems, and EV Fast Chargers, unified through the Sunloop AI Portal.
             </p>
 
             <div className="space-y-3 pt-1">
               <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-3.5 py-1.5 text-xs font-semibold text-brand-ink shadow-sm w-max">
-                <Globe className="h-4 w-4 text-[#E86526]" /> UN SDG 7 - Clean Energy
+                <Globe className="h-4 w-4 text-[#E86526]" /> UN SDG 7 — Affordable &amp; Clean Energy
               </div>
               <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-3.5 py-1.5 text-xs font-semibold text-brand-ink shadow-sm w-max">
                 <ShieldCheck className="h-4 w-4 text-emerald-500" /> ISO 9001 &amp; CE Certified
@@ -106,18 +106,18 @@ export function Footer() {
             <div>
               <span className="text-xs font-bold uppercase tracking-widest text-[#E86526]">Products</span>
               <ul className="space-y-2 text-sm font-medium text-brand-slate mt-3">
-                <li><Link href="/products/solar-power" className="hover:text-[#E86526] transition">Solar Power</Link></li>
-                <li><Link href="/products/energy-storage" className="hover:text-[#E86526] transition">Energy Storage</Link></li>
-                <li><Link href="/products/ev-charging" className="hover:text-[#E86526] transition">EV Chargers</Link></li>
+                <li><Link href="/products/solar-power" className="hover:text-[#E86526] transition">Solar Power Plants</Link></li>
+                <li><Link href="/products/energy-storage" className="hover:text-[#E86526] transition">Energy Storage Systems (ESS)</Link></li>
+                <li><Link href="/products/ev-charging" className="hover:text-[#E86526] transition">EV Charging Infrastructure</Link></li>
                 <li><Link href="/products" className="hover:text-brand-ink transition text-[#E86526] font-bold">View All →</Link></li>
               </ul>
             </div>
             <div className="pt-2 border-t border-black/5">
               <span className="text-xs font-bold uppercase tracking-widest text-[#E86526]">Solutions</span>
               <ul className="space-y-2 text-sm font-medium text-brand-slate mt-3">
-                <li><Link href="/solutions/home-owners" className="hover:text-[#E86526] transition">Home Owners</Link></li>
-                <li><Link href="/solutions/business-owners" className="hover:text-[#E86526] transition">Business Owners</Link></li>
-                <li><Link href="/solutions/smart-microgrid" className="hover:text-[#E86526] transition">Microgrids</Link></li>
+                <li><Link href="/solutions/home-owners" className="hover:text-[#E86526] transition">For Homeowners</Link></li>
+                <li><Link href="/solutions/business-owners" className="hover:text-[#E86526] transition">For Businesses</Link></li>
+                <li><Link href="/solutions/smart-microgrid" className="hover:text-[#E86526] transition">For Utilities &amp; Developers</Link></li>
               </ul>
             </div>
           </div>
@@ -156,7 +156,7 @@ export function Footer() {
       <div className="w-full px-4 pt-6 border-t border-black/5">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-sm sm:text-base text-brand-slate font-medium">
         <div>
-          © 2026 Sunloop Energy Limited. Powering Tomorrow, Sustainably.
+          © 2026 Sunloop Energy Limited. All rights reserved.
         </div>
         <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
           <Link href="/privacy" className="hover:text-brand-ink transition">Privacy Policy</Link>
@@ -164,14 +164,6 @@ export function Footer() {
           <Link href="/terms" className="hover:text-brand-ink transition">Terms of Service</Link>
           <span className="text-black/10">|</span>
           <Link href="/security" className="hover:text-brand-ink transition">AI &amp; Security Compliance</Link>
-          <span className="text-black/10">|</span>
-          <Link href="/returns" className="hover:text-brand-ink transition">Return &amp; Refund Policy</Link>
-          <span className="text-black/10">|</span>
-          <Link href="/shipping" className="hover:text-brand-ink transition">Shipping Policy</Link>
-          <span className="text-black/10">|</span>
-          <Link href="/disclaimer" className="hover:text-brand-ink transition">Disclaimer</Link>
-          <span className="text-black/10">|</span>
-          <Link href="/sitemap" className="hover:text-brand-ink transition">Sitemap</Link>
         </div>
         </div>
       </div>

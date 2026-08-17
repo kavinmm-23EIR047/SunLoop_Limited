@@ -47,11 +47,14 @@ export default function BusinessOwnersSolutionPage() {
           <div className="container relative z-10 mx-auto px-4 text-center">
             <Reveal>
               <h2 className="text-emerald-400 font-bold tracking-widest uppercase text-sm md:text-base mb-4">
-                Commercial PV &amp; ESS Solution
+                For Businesses
               </h2>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight max-w-4xl mx-auto">
-                Go Green Energy for a Sustainable Business
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight max-w-4xl mx-auto mb-4">
+                Reduce operating costs &amp; open a new revenue stream.
               </h1>
+              <p className="text-sm md:text-base text-white/90 max-w-2xl mx-auto font-normal">
+                Sunloop's commercial ecosystem combines Rooftop or Ground-Mounted Solar, scalable ESS, and DC Fast EV Charging.
+              </p>
             </Reveal>
           </div>
         </div>

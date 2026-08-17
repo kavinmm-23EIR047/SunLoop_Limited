@@ -2,199 +2,220 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { ArrowRight, Play, Calendar, Users, Leaf, LineChart, Headphones, Sun, BatteryCharging, Zap } from 'lucide-react';
-import { Reveal } from './UI';
+import { motion } from 'framer-motion';
+import {
+  ArrowRight,
+  Sun,
+  BatteryCharging,
+  Zap,
+  Cpu,
+  ChevronDown,
+} from 'lucide-react';
 
-const infoItems = [
-  { icon: Calendar, title: 'Est. 2016', desc: 'Coimbatore, TN, India' },
-  { icon: Users, title: '10+ Years of Trust', desc: 'In Clean Energy' },
-  { icon: Leaf, title: '100% Clean', desc: 'Renewable Energy' },
-  { icon: LineChart, title: 'AI Powered', desc: 'Smart Energy Management' },
-  { icon: Headphones, title: '24/7 Support', desc: 'Always With You' },
-];
+/* ─── animation variants ─── */
+const fadeUp = (delay = 0) => ({
+  hidden: { opacity: 0, y: 32 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.25, 0.1, 0.25, 1], delay } },
+});
+
+const fadeIn = (delay = 0) => ({
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 0.9, delay } },
+});
+
+const scaleIn = (delay = 0) => ({
+  hidden: { opacity: 0, scale: 0.92 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1], delay } },
+});
 
 export default function SolarHero() {
   return (
-    <section className="relative w-full h-auto min-h-screen bg-[#F8F9FA] flex flex-col font-sans">
-      <style>{`
-        @keyframes marquee {
-          0% { transform: translateX(0%); }
-          100% { transform: translateX(-100%); }
-        }
-        .animate-marquee {
-          animation: marquee 35s linear infinite;
-        }
-        .marquee-container:hover .animate-marquee {
-          animation-play-state: paused;
-        }
-      `}</style>
-      {/* BACKGROUND SCENE */}
-      <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
-        <img
-          src="/images/solar-hero-bg.png"
-          alt="Solar Energy Landscape Environment"
-          className="w-full h-full object-cover object-center"
-        />
-        {/* Soft white gradient fading from the left for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/70 to-transparent md:w-[65%]" />
-      </div>
+    <>
+      {/* ══════════════ FULL-SCREEN CINEMATIC HERO ══════════════ */}
+      <section className="relative w-full min-h-screen flex items-center overflow-hidden">
 
-      {/* MAIN HERO CONTENT */}
-      <div className="container relative z-10 mx-auto px-4 flex-1 flex flex-col justify-center pt-28 pb-32">
-        <div className="max-w-2xl relative">
-          <Reveal>
-            {/* Pill */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/90 backdrop-blur-sm px-4 py-2 text-xs font-bold text-slate-800 shadow-sm mb-6">
-              <span className="text-amber-400">⚡</span> Next-Gen Solar PV + ESS + EV Ecosystem
-            </div>
+        {/* ── Full-bleed background image ── */}
+        <div className="absolute inset-0 z-0">
+          <motion.img
+            src="/images/solar-hero-bg.png"
+            alt="Solar PV, ESS Battery Container and EV Charging Infrastructure"
+            className="h-full w-full object-cover object-center"
+            initial={{ scale: 1.08 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 1.8, ease: [0.25, 0.1, 0.25, 1] }}
+          />
+          {/* Cinematic overlays for text legibility */}
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/85 via-slate-950/50 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-slate-950/20" />
+        </div>
 
-            {/* Typography */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-[#111111] leading-[1.1] mb-4">
-              Powering Tomorrow, <br />
-              <span className="text-[#E86526]">Sustainably.</span>
-            </h1>
+        {/* ── Main content ── */}
+        <div className="container relative z-10 mx-auto px-6 sm:px-8 max-w-7xl pt-36 pb-20 lg:pt-44 lg:pb-24">
+          <div className="max-w-2xl">
 
-            <h2 className="text-lg sm:text-xl font-bold text-[#222222] mb-3">
-              We're not just here today, we're here for the <span className="text-[#E86526]">next 10 years</span>.
-            </h2>
+            {/* Eyebrow badge */}
+            <motion.div
+              variants={fadeUp(0.2)}
+              initial="hidden"
+              animate="visible"
+              className="inline-flex items-center gap-2.5 rounded-md bg-white/10 backdrop-blur-md border border-white/15 px-4 py-2 text-xs font-bold uppercase tracking-widest text-white/90 mb-8"
+            >
+              <span className="h-2 w-2 rounded-full bg-brand-primary animate-pulse" />
+              Unified Solar · ESS · EV Ecosystem
+            </motion.div>
 
-            <p className="text-sm sm:text-base text-[#444444] leading-relaxed max-w-lg mb-8 font-medium">
-              Clean. Intelligent. Integrated. Generate, store, save and manage your renewable energy through Sunloop Energy's unified AI platform.
-            </p>
+            {/* Headline */}
+            <motion.h1
+              variants={fadeUp(0.35)}
+              initial="hidden"
+              animate="visible"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] tracking-tight mb-6"
+            >
+              Powering Tomorrow,{' '}
+              <span className="text-brand-primary">Sustainably.</span>
+            </motion.h1>
+
+            {/* Description */}
+            <motion.p
+              variants={fadeUp(0.5)}
+              initial="hidden"
+              animate="visible"
+              className="text-base sm:text-lg text-white/70 leading-relaxed max-w-xl mb-10"
+            >
+              Sunloop Energy designs, builds, and manages solar power plants,
+              energy storage systems, and EV charging infrastructure — unified
+              through one AI Energy Management Portal.
+            </motion.p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-wrap items-center gap-4">
+            <motion.div
+              variants={fadeUp(0.65)}
+              initial="hidden"
+              animate="visible"
+              className="flex flex-wrap items-center gap-4 mb-14"
+            >
               <Link
                 href="/solutions"
-                className="inline-flex items-center gap-2.5 rounded-full bg-[#E86526] px-8 py-3.5 text-sm font-bold text-white shadow-lg shadow-orange-500/20 hover:bg-[#c95315] transition"
+                className="group inline-flex items-center gap-2.5 rounded-md bg-brand-primary px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-orange-600/30 hover:bg-[#c95315] transition-all duration-300"
               >
-                Explore Solutions <ArrowRight className="h-4 w-4" />
+                Explore Solutions
+                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
-              <button
-                className="inline-flex items-center gap-2.5 rounded-full border border-black/10 bg-white px-8 py-3.5 text-sm font-bold text-slate-800 shadow-sm hover:bg-slate-50 transition"
+
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2.5 rounded-md bg-white/10 backdrop-blur-md border border-white/20 px-7 py-3.5 text-sm font-semibold text-white hover:bg-white/20 transition-all duration-300"
               >
-                <div className="flex items-center justify-center h-5 w-5 rounded-full border border-slate-400">
-                  <Play className="h-2.5 w-2.5 ml-0.5 text-slate-600" />
-                </div>
-                Watch Our Story
-              </button>
-            </div>
-          </Reveal>
+                Get a Quote
+              </Link>
+            </motion.div>
 
+            {/* Trust Metrics Row */}
+            <motion.div
+              variants={fadeUp(0.8)}
+              initial="hidden"
+              animate="visible"
+              className="flex items-center gap-8 border-t border-white/15 pt-8"
+            >
+              {[
+                { value: '500+', label: 'Sites Deployed' },
+                { value: '10 Yr', label: 'Energy Expertise' },
+                { value: '24/7', label: 'AI Monitoring' },
+              ].map((stat) => (
+                <div key={stat.label}>
+                  <div className="text-2xl sm:text-3xl font-bold text-white">{stat.value}</div>
+                  <div className="text-[11px] font-semibold text-white/50 uppercase tracking-wider">{stat.label}</div>
+                </div>
+              ))}
+            </motion.div>
+          </div>
         </div>
 
-        {/* MULTIPLE FLOATING SPREAD WIDGETS */}
-        <div className="hidden lg:block absolute inset-0 pointer-events-none">
-          
-          {/* WIDGET 1: LIVE YIELD (Top Right) */}
-          <div className="absolute right-[5%] top-[15%] pointer-events-auto">
-            <Reveal delay={0.2} direction="right">
-              <div className="bg-[#1D2B36]/90 backdrop-blur-md border border-white/10 rounded-2xl p-5 shadow-2xl w-64 text-white transform hover:scale-105 transition-transform duration-300">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center gap-2">
-                    <Sun className="h-4 w-4 text-amber-400" />
-                    <span className="text-[10px] font-bold uppercase tracking-wider">LIVE YIELD</span>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <span className="h-2 w-2 rounded-full bg-emerald-400"></span>
-                    <span className="text-[9px] font-bold uppercase tracking-widest text-emerald-400">ONLINE</span>
-                  </div>
-                </div>
-                
-                <div className="flex items-baseline gap-1 mb-2">
-                  <span className="text-4xl font-extrabold tracking-tighter">124.5</span>
-                  <span className="text-sm font-semibold text-white/70">kW</span>
-                </div>
+        {/* ── Scroll indicator ── */}
+        <motion.div
+          variants={fadeIn(1.2)}
+          initial="hidden"
+          animate="visible"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
+        >
+          <span className="text-[10px] font-bold uppercase tracking-widest text-white/40">Scroll</span>
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}
+          >
+            <ChevronDown className="h-5 w-5 text-white/40" />
+          </motion.div>
+        </motion.div>
+      </section>
 
-                <div className="h-8 w-full mb-2 opacity-80">
-                  <svg viewBox="0 0 100 30" preserveAspectRatio="none" className="w-full h-full">
-                    <path d="M0,25 C10,25 15,10 25,15 C35,20 40,5 50,10 C60,15 65,25 75,20 C85,15 90,5 100,2" fill="none" stroke="#E86526" strokeWidth="2" />
-                  </svg>
+      {/* ══════════════ FEATURE STRIP (Below the fold) ══════════════ */}
+      <section className="relative z-20 bg-white border-b border-slate-200">
+        <div className="container mx-auto max-w-7xl px-6 sm:px-8 py-10 sm:py-14">
+          <motion.div
+            variants={scaleIn(0.1)}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+          >
+            {[
+              {
+                icon: Sun,
+                title: 'Smart Solar Solutions',
+                desc: 'High-efficiency solar power plants for homes, businesses, and industries.',
+                color: 'text-brand-primary',
+                bg: 'bg-orange-50',
+                border: 'border-orange-100',
+                href: '/products/solar-power',
+              },
+              {
+                icon: BatteryCharging,
+                title: 'Energy Storage Systems',
+                desc: 'Reliable and scalable energy storage for uninterrupted power.',
+                color: 'text-emerald-600',
+                bg: 'bg-emerald-50',
+                border: 'border-emerald-100',
+                href: '/products/energy-storage',
+              },
+              {
+                icon: Zap,
+                title: 'EV Charging Infrastructure',
+                desc: 'Future-ready EV charging solutions for a sustainable tomorrow.',
+                color: 'text-purple-600',
+                bg: 'bg-purple-50',
+                border: 'border-purple-100',
+                href: '/products/ev-charging',
+              },
+              {
+                icon: Cpu,
+                title: 'AI Energy Management',
+                desc: 'Intelligent monitoring and control with real-time insights.',
+                color: 'text-blue-600',
+                bg: 'bg-blue-50',
+                border: 'border-blue-100',
+                href: '/ai-portal',
+              },
+            ].map((feature) => (
+              <Link
+                key={feature.title}
+                href={feature.href}
+                className="group flex items-start gap-4 p-4 rounded-lg hover:bg-slate-50 transition-colors duration-200"
+              >
+                <div className={`h-11 w-11 shrink-0 rounded-lg ${feature.bg} ${feature.border} border flex items-center justify-center ${feature.color}`}>
+                  <feature.icon className="h-5 w-5" />
                 </div>
-                <div className="text-[9px] font-bold text-amber-400 uppercase tracking-widest border-t border-white/10 pt-2">
-                  ↑ 12% HIGHER THAN YESTERDAY
+                <div>
+                  <strong className="block text-sm font-bold text-slate-900 mb-0.5">{feature.title}</strong>
+                  <p className="text-xs text-slate-500 leading-relaxed">{feature.desc}</p>
+                  <span className="inline-flex items-center gap-1 text-xs font-bold text-brand-primary mt-2 group-hover:gap-2 transition-all duration-200">
+                    Learn More <ArrowRight className="h-3 w-3" />
+                  </span>
                 </div>
-              </div>
-            </Reveal>
-          </div>
-
-          {/* WIDGET 2: ESS STORAGE (Middle Center-Right) */}
-          <div className="absolute right-[32%] top-[42%] pointer-events-auto">
-            <Reveal delay={0.4} direction="up">
-              <div className="bg-white/90 backdrop-blur-md border border-black/5 rounded-2xl p-4 shadow-xl w-56 text-slate-800 transform hover:scale-105 transition-transform duration-300">
-                <div className="flex items-center justify-between mb-3">
-                  <div className="flex items-center gap-1.5">
-                    <BatteryCharging className="h-4 w-4 text-emerald-500" />
-                    <span className="text-[9px] font-bold uppercase tracking-wider text-slate-500">ESS BUFFER</span>
-                  </div>
-                  <span className="text-[9px] font-bold uppercase tracking-widest text-emerald-600 bg-emerald-100 px-1.5 py-0.5 rounded">CHARGING</span>
-                </div>
-                
-                <div className="flex items-baseline gap-1">
-                  <span className="text-3xl font-extrabold tracking-tighter text-slate-900">98</span>
-                  <span className="text-xs font-bold text-slate-500">%</span>
-                </div>
-                
-                <div className="w-full bg-slate-200 rounded-full h-1.5 mt-3 mb-1">
-                  <div className="bg-emerald-500 h-1.5 rounded-full" style={{ width: '98%' }}></div>
-                </div>
-                <div className="text-[9px] font-bold text-slate-400 uppercase">
-                  5.2 kW Input Power
-                </div>
-              </div>
-            </Reveal>
-          </div>
-
-          {/* WIDGET 3: EV CHARGER (Bottom Right) */}
-          <div className="absolute right-[8%] top-[68%] pointer-events-auto">
-            <Reveal delay={0.6} direction="left">
-              <div className="bg-[#E86526]/95 backdrop-blur-md border border-white/20 rounded-2xl p-4 shadow-xl w-48 text-white transform hover:scale-105 transition-transform duration-300">
-                <div className="flex items-center gap-1.5 mb-2">
-                  <Zap className="h-4 w-4 text-white" />
-                  <span className="text-[9px] font-bold uppercase tracking-wider text-white/90">EV CHARGER 01</span>
-                </div>
-                
-                <div className="flex flex-col gap-0.5">
-                  <span className="text-[10px] font-medium text-white/70 uppercase">Active Session</span>
-                  <div className="flex items-baseline gap-1">
-                    <span className="text-2xl font-extrabold tracking-tighter">7.4</span>
-                    <span className="text-xs font-semibold text-white/80">kW AC</span>
-                  </div>
-                </div>
-                
-                <div className="flex items-center gap-2 mt-3 pt-2 border-t border-white/20">
-                  <div className="h-1.5 w-1.5 animate-ping rounded-full bg-white"></div>
-                  <span className="text-[9px] font-bold uppercase tracking-widest">VEHICLE DETECTED</span>
-                </div>
-              </div>
-            </Reveal>
-          </div>
-          
+              </Link>
+            ))}
+          </motion.div>
         </div>
-      </div>
-
-      {/* BOTTOM INFO BAR - MARQUEE TICKER */}
-      <div className="relative z-20 w-full bg-[#182431] border-t border-white/10 mt-auto overflow-hidden marquee-container border-b border-white/5">
-        <div className="flex w-max">
-          {/* Duplicate the list twice for seamless infinite scrolling */}
-          {[...Array(2)].map((_, arrayIndex) => (
-            <div key={arrayIndex} className="flex shrink-0 animate-marquee items-center" aria-hidden={arrayIndex === 1}>
-              {infoItems.map((item, index) => {
-                const Icon = item.icon;
-                return (
-                  <div key={index} className="flex items-center gap-3 px-8 md:px-12 py-5 min-w-[260px] md:min-w-[320px] border-r border-white/10">
-                    <Icon className="h-5 w-5 text-amber-400 shrink-0" />
-                    <div>
-                      <strong className="block text-white text-xs sm:text-[13px] font-bold tracking-wide">{item.title}</strong>
-                      <span className="block text-[11px] text-white/60 mt-0.5">{item.desc}</span>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

@@ -21,76 +21,130 @@ export default function Home() {
     <main className="min-w-0 overflow-clip bg-white font-sans">
       <SolarHero />
 
-      <section className="relative z-30 pt-10 pb-14 px-4 sm:pt-12 md:pb-20 2xl:pb-28">
-        <div className="container-wide">
-          <Reveal>
-            <div className="rounded-3xl border border-black/[0.08] bg-white p-5 shadow-[0_24px_70px_rgba(15,23,42,0.12)] sm:p-8 md:p-10 2xl:p-14">
-              <div className="grid items-center gap-8 lg:grid-cols-[1fr_1.7fr]">
-                <div className="space-y-3">
-                  <p className="eyebrow flex items-center gap-2">
-                    <span className="h-2 w-2 animate-pulse rounded-full bg-brand-primary" /> 10 YEARS OF ENERGY EXPERTISE
-                  </p>
-                  <h2 className="text-2xl leading-tight text-brand-ink md:text-3xl 2xl:text-4xl">
-                    We didn't just start today. We've been <span className="text-brand-primary">powering progress</span> for over a decade.
-                  </h2>
-                </div>
-                <div className="grid grid-cols-2 gap-5 sm:grid-cols-4 sm:gap-0 sm:divide-x sm:divide-black/10">
-                  {[
-                    { icon: Sun, title: 'Solar Power', desc: '3 kW to MW+' },
-                    { icon: Zap, title: 'ESS Storage', desc: '5 to 500 kWh' },
-                    { icon: CarFront, title: 'EV Chargers', desc: '7.4 to 240 kW' },
-                    { icon: ShieldCheck, title: 'AI Portal', desc: 'Included 24/7' },
-                  ].map(({ icon: Icon, title, desc }) => (
-                    <div key={title} className="group text-center sm:px-4">
-                      <div className="mx-auto mb-2.5 grid h-10 w-10 2xl:h-12 2xl:w-12 place-items-center rounded-2xl border border-orange-100 bg-orange-50 text-brand-primary transition-transform group-hover:scale-105">
-                        <Icon className="h-5 w-5 2xl:h-6 2xl:w-6" />
-                      </div>
-                      <strong className="block text-sm md:text-base 2xl:text-lg text-brand-ink">{title}</strong>
-                      <span className="text-xs md:text-sm 2xl:text-base text-brand-slate">{desc}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+      {/* Live Dashboard Preview */}
+      <section className="bg-[#F8F9FA] py-12 border-y border-black/5">
+        <div className="container-wide px-4 pb-4 text-center">
+          <Reveal className="mx-auto max-w-2xl space-y-2">
+            <span className="eyebrow justify-center">LIVE DASHBOARD PREVIEW</span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-brand-ink">Inside the Sunloop AI Portal</h2>
+            <p className="text-xs sm:text-sm text-brand-slate max-w-xl mx-auto">
+              A snapshot of what customers see inside the Sunloop AI Portal — live generation, storage status, and EV charging activity across their sites, in real time.
+            </p>
           </Reveal>
         </div>
+        <Reveal><EnergyDashboard /></Reveal>
       </section>
 
-      <div className="bg-[#F8F9FA]">
-        <Reveal><EnergyDashboard /></Reveal>
-      </div>
-
+      {/* Core Solutions Showcase */}
       <section className="border-b border-black/[0.06] bg-white">
         <div className="container-wide px-4 py-14 text-center md:py-20 2xl:py-28">
           <Reveal className="mx-auto max-w-3xl space-y-4">
-            <span className="eyebrow justify-center">OUR CORE SOLUTIONS</span>
-            <h2 className="text-3xl text-brand-ink md:text-4xl 2xl:text-5xl">Integrated Clean Energy Ecosystem</h2>
+            <span className="eyebrow justify-center">CORE SOLUTIONS</span>
+            <h2 className="text-3xl text-brand-ink md:text-4xl 2xl:text-5xl font-bold">Integrated Clean Energy Ecosystem</h2>
             <p className="mx-auto max-w-xl text-sm leading-relaxed text-brand-slate md:text-base 2xl:text-lg">
-              Generate. Store. Drive. Experience each clean technology solution designed to work together seamlessly.
+              One connected energy ecosystem that scales with you — start with a single system today, and expand whenever you're ready.
             </p>
           </Reveal>
         </div>
         <ProductStickyShowcase />
       </section>
 
+      {/* Why Sunloop & Connected Journey */}
       <ConnectedJourneyScrollShowcase />
 
+      {/* Segment Pathways (3 Clear, Distinct Paths) */}
+      <section className="bg-[#FAFAF5] py-20 md:py-28 border-b border-black/5">
+        <div className="container-wide px-4 max-w-6xl mx-auto space-y-12">
+          <Reveal className="text-center max-w-2xl mx-auto space-y-3">
+            <span className="eyebrow justify-center">SEGMENT PATHWAYS</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-brand-ink">Solutions Tailored for Every Segment</h2>
+            <p className="text-sm text-brand-slate">Choose your path to explore custom-engineered clean energy configurations.</p>
+          </Reveal>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            {/* Path 1: For Homeowners */}
+            <Reveal className="rounded-xl border border-black/10 bg-white p-8 shadow-xs hover:shadow-card transition flex flex-col justify-between">
+              <div className="space-y-4">
+                <span className="inline-block rounded-xl bg-orange-50 border border-orange-100 p-3 text-brand-primary font-bold text-xs">
+                  01 / RESIDENTIAL
+                </span>
+                <h3 className="text-2xl font-bold text-brand-ink">For Homeowners</h3>
+                <p className="text-xs leading-relaxed text-brand-slate">
+                  Cut your electricity bill and gain backup security.
+                </p>
+              </div>
+              <div className="pt-8">
+                <Link
+                  href="/solutions/home-owners"
+                  className="inline-flex items-center gap-2 rounded-md bg-[#E86526] px-6 py-3 text-xs font-bold text-white shadow-md hover:bg-[#c95315] transition"
+                >
+                  Explore Home Solutions <ArrowUpRight className="h-4 w-4" />
+                </Link>
+              </div>
+            </Reveal>
+
+            {/* Path 2: For Businesses */}
+            <Reveal className="rounded-xl border border-black/10 bg-white p-8 shadow-xs hover:shadow-card transition flex flex-col justify-between" delay={0.1}>
+              <div className="space-y-4">
+                <span className="inline-block rounded-xl bg-emerald-50 border border-emerald-100 p-3 text-emerald-600 font-bold text-xs">
+                  02 / COMMERCIAL
+                </span>
+                <h3 className="text-2xl font-bold text-brand-ink">For Businesses</h3>
+                <p className="text-xs leading-relaxed text-brand-slate">
+                  Reduce operating costs and unlock a new revenue stream from EV charging.
+                </p>
+              </div>
+              <div className="pt-8">
+                <Link
+                  href="/solutions/business-owners"
+                  className="inline-flex items-center gap-2 rounded-md bg-emerald-600 px-6 py-3 text-xs font-bold text-white shadow-md hover:bg-emerald-700 transition"
+                >
+                  Explore Business Solutions <ArrowUpRight className="h-4 w-4" />
+                </Link>
+              </div>
+            </Reveal>
+
+            {/* Path 3: For Utilities & Developers */}
+            <Reveal className="rounded-xl border border-black/10 bg-white p-8 shadow-xs hover:shadow-card transition flex flex-col justify-between" delay={0.2}>
+              <div className="space-y-4">
+                <span className="inline-block rounded-xl bg-blue-50 border border-blue-100 p-3 text-blue-600 font-bold text-xs">
+                  03 / UTILITY & B2B
+                </span>
+                <h3 className="text-2xl font-bold text-brand-ink">For Utilities &amp; Developers</h3>
+                <p className="text-xs leading-relaxed text-brand-slate">
+                  Deploy microgrid-scale Solar + ESS + EV infrastructure with full remote fleet management.
+                </p>
+              </div>
+              <div className="pt-8">
+                <Link
+                  href="/solutions/smart-microgrid"
+                  className="inline-flex items-center gap-2 rounded-md bg-blue-600 px-6 py-3 text-xs font-bold text-white shadow-md hover:bg-blue-700 transition"
+                >
+                  Explore Utility Solutions <ArrowUpRight className="h-4 w-4" />
+                </Link>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Partner CTA */}
       <section className="bg-white px-4 py-16 md:py-24 2xl:py-32">
         <div className="container-wide">
-          <Reveal className="relative overflow-hidden rounded-3xl bg-brand-ink p-8 text-white shadow-[0_25px_60px_rgba(15,23,42,0.2)] sm:p-12 md:p-16 2xl:p-24">
+          <Reveal className="relative overflow-hidden rounded-xl bg-brand-ink p-8 text-white shadow-[0_25px_60px_rgba(15,23,42,0.2)] sm:p-12 md:p-16 2xl:p-24">
             <div className="pointer-events-none absolute -bottom-32 -right-20 h-96 w-96 rounded-full bg-brand-primary/20 blur-3xl" />
             <div className="relative z-10 mx-auto max-w-4xl space-y-6 text-center">
               <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs md:text-sm font-bold uppercase tracking-widest text-white">
                 <Sparkles className="h-4 w-4 text-brand-primary" /> Launching Partners
               </span>
-              <h2 className="text-3xl leading-tight text-white sm:text-4xl md:text-5xl 2xl:text-6xl">
-                Join the energy revolution
+              <h2 className="text-3xl leading-tight text-white sm:text-4xl md:text-5xl 2xl:text-6xl font-bold">
+                Become a Launching Partner
               </h2>
               <p className="mx-auto max-w-2xl text-sm leading-relaxed text-white/75 md:text-base 2xl:text-xl">
-                We are inviting launching partners across all major cities and small towns to bring sustainable, intelligent energy solutions to their communities.
+                We're onboarding launching partners across India to bring integrated clean energy to their region.
               </p>
-              <Link href="/contact" className="soft-btn soft-btn--secondary mx-auto !border-white/20 !bg-white !text-brand-ink">
-                Join as a Launching Partner <ArrowUpRight className="h-4 w-4" />
+              <Link href="/contact" className="soft-btn soft-btn--secondary mx-auto !border-white/20 !bg-white !text-brand-ink font-bold">
+                Become a Launching Partner <ArrowUpRight className="h-4 w-4" />
               </Link>
             </div>
           </Reveal>

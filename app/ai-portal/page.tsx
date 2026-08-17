@@ -20,12 +20,9 @@ import {
   Cpu,
   ChevronDown,
   ArrowUpRight,
-  RefreshCw,
   MessageSquare,
   LayoutDashboard,
   Activity,
-  CheckCircle2,
-  ChevronRight
 } from 'lucide-react';
 import Link from 'next/link';
 
@@ -71,7 +68,6 @@ export default function AIPortalPage() {
     },
   ]);
 
-  // Katteb-style Quick Cards
   const quickCards = [
     {
       id: 'solar-forecast',
@@ -179,7 +175,7 @@ export default function AIPortalPage() {
       </div>
 
       <div className="flex min-h-[calc(100vh-112px)] overflow-hidden">
-        {/* LEFT SIDEBAR (Solid Katteb layout - Zero Gradients) */}
+        {/* LEFT SIDEBAR */}
         <aside className="w-64 shrink-0 bg-white border-r border-black/10 flex flex-col justify-between hidden md:flex">
           <div className="p-4">
             {/* Logo Header */}
@@ -323,28 +319,18 @@ export default function AIPortalPage() {
             <div className="rounded-xl border border-black/10 bg-white p-3 shadow-xs">
               <div className="flex items-center gap-2 mb-1">
                 <span className="grid h-6 w-6 place-items-center rounded-lg bg-brand-ink text-white font-bold text-xs">
-                  K
+                  S
                 </span>
                 <strong className="text-xs font-semibold text-brand-ink">
-                  Katteb Autonomous Pro
+                  Sunloop AI Suite
                 </strong>
               </div>
               <p className="text-[11px] text-brand-slate mb-2 font-normal">
-                Unlock autonomous robot control &amp; unlimited cloud analytics.
+                Unlock automated load balancing &amp; 24/7 cloud analytics.
               </p>
               <button className="w-full rounded-xl bg-brand-primary py-1.5 text-xs font-semibold text-white hover:bg-[#c95315] transition">
                 Subscribe Now
               </button>
-            </div>
-
-            <div className="flex items-center gap-3 pt-1">
-              <div className="h-8 w-8 rounded-full bg-brand-ink text-white flex items-center justify-center font-bold text-xs">
-                AR
-              </div>
-              <div className="overflow-hidden text-xs">
-                <p className="font-semibold text-brand-ink truncate">Arafat Rahman</p>
-                <p className="text-[10px] text-brand-slate truncate">uiuxarafat54@gmail.com</p>
-              </div>
             </div>
           </div>
         </aside>
@@ -360,7 +346,7 @@ export default function AIPortalPage() {
                   onChange={(e) => setModel(e.target.value)}
                   className="appearance-none rounded-xl border border-black/10 bg-[#FAFAF3] px-3.5 py-1.5 pr-8 text-xs font-semibold text-brand-ink focus:outline-none focus:border-brand-primary cursor-pointer transition"
                 >
-                  <option value="SunLoop AI Energy Core v4.2">Katteb v (SunLoop AI Core v4.2)</option>
+                  <option value="SunLoop AI Energy Core v4.2">SunLoop AI Energy Core v4.2</option>
                   <option value="Neural Grid Optimizer v2">Neural Grid Optimizer v2</option>
                   <option value="Robot Agent Fleet Bot">Robot Agent Fleet Bot</option>
                 </select>
@@ -408,25 +394,23 @@ export default function AIPortalPage() {
 
           {/* MAIN PAGE BODY CONTENT */}
           <div className="flex-1 p-4 md:p-8 max-w-5xl mx-auto w-full space-y-8">
-            {/* KATTEB INSPIRED HERO CENTER PIECE (Clean Solid - Poppins Font) */}
+            {/* HERO CENTER PIECE */}
             {activeTab === 'chat' && (
               <div className="text-center space-y-6 pt-2">
-                {/* Central AI Logo Avatar */}
                 <div className="mx-auto grid h-16 w-16 place-items-center rounded-2xl bg-brand-ink text-white font-bold text-2xl shadow-sm border border-black/10">
-                  <span>K</span>
+                  <span>S</span>
                 </div>
 
-                {/* Big Title & Subtitle matching Katteb Image layout */}
                 <div>
                   <h1 className="text-2xl md:text-3xl font-bold text-brand-ink tracking-tight">
-                    Good Morning, Howard
+                    Sunloop AI Energy Management Portal
                   </h1>
-                  <h2 className="text-xl md:text-2xl font-bold mt-1 text-brand-ink">
-                    How Can I <span className="text-blue-600">Assist You Today?</span>
+                  <h2 className="text-lg md:text-xl font-semibold mt-1 text-[#E86526] tracking-wide">
+                    One Portal. Total Control.
                   </h2>
                 </div>
 
-                {/* FLOATING PROMPT CARD CONTAINER (Exact match to Katteb design - Solid White) */}
+                {/* FLOATING PROMPT CARD CONTAINER */}
                 <div className="rounded-2xl border border-black/10 bg-white p-4 shadow-card text-left relative max-w-2xl mx-auto transition">
                   <textarea
                     rows={3}
@@ -501,7 +485,7 @@ export default function AIPortalPage() {
                   </div>
                 </div>
 
-                {/* ROW OF 4 QUICK PROMPT CARDS (Solid Cards) */}
+                {/* QUICK PROMPT CARDS */}
                 <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4 max-w-4xl mx-auto pt-2">
                   {quickCards.map((card) => {
                     const IconComponent = card.icon;
@@ -567,10 +551,10 @@ export default function AIPortalPage() {
                       ) : (
                         <div className="flex items-center gap-2">
                           <div className="grid h-7 w-7 place-items-center rounded-xl bg-brand-primary text-white font-bold text-xs">
-                            HW
+                            US
                           </div>
                           <span className="text-xs font-bold text-brand-ink">
-                            Howard (You)
+                            User
                           </span>
                         </div>
                       )}
@@ -676,6 +660,58 @@ export default function AIPortalPage() {
                 </div>
               </div>
             )}
+
+            {/* 9 CORE CAPABILITIES & HOW IT WORKS SECTIONS */}
+            <div className="space-y-12 pt-8 border-t border-black/10">
+              <div className="space-y-4">
+                <span className="eyebrow">PORTAL CAPABILITIES</span>
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-brand-ink">
+                  Sunloop AI Energy Management Portal
+                </h2>
+                <p className="text-sm font-bold text-[#E86526] uppercase tracking-wider">
+                  One Portal. Total Control.
+                </p>
+                <div className="grid gap-4 sm:grid-cols-3 pt-2">
+                  {[
+                    { title: 'Live Telemetry & Asset Monitoring', desc: 'Real-time tracking of generation, storage, and charging activity.' },
+                    { title: 'Smart Load Management & Peak Shaving', desc: 'Automated peak shaving to lower demand charges.' },
+                    { title: 'Energy Analytics & Forecasting', desc: 'Data-driven insights to optimize usage.' },
+                    { title: 'Dynamic Battery Routing', desc: 'Intelligent energy distribution between solar, battery, grid, and EV chargers.' },
+                    { title: 'Predictive Maintenance & Fault Alerts', desc: 'Proactive monitoring to prevent downtime.' },
+                    { title: 'Remote Firmware & Config Updates', desc: 'Over-the-air updates for all connected devices.' },
+                    { title: 'Automated Billing & Revenue Management', desc: 'For commercial EV charging and microgrid setups.' },
+                    { title: 'Multi-Site & Fleet Control', desc: 'Unified management across home, business, or utility assets.' },
+                    { title: 'Mobile & Web Access', desc: 'Clean, intuitive dashboard accessible from any device 24/7.' },
+                  ].map((cap, i) => (
+                    <div key={cap.title} className="rounded-2xl border border-black/10 bg-white p-5 space-y-2 shadow-xs">
+                      <span className="text-[10px] font-bold text-[#E86526] uppercase tracking-wider">0{i + 1} CAPABILITY</span>
+                      <h3 className="text-sm font-bold text-brand-ink">{cap.title}</h3>
+                      <p className="text-xs text-brand-slate leading-relaxed">{cap.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="space-y-4 pt-4 border-t border-black/5">
+                <span className="eyebrow">WORKFLOW</span>
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-brand-ink">How It Works</h2>
+                <div className="grid gap-4 sm:grid-cols-4 pt-2">
+                  {[
+                    { step: '01', name: 'Install', desc: 'Deploy Sunloop Solar, ESS, or EV chargers at your site.' },
+                    { step: '02', name: 'Connect', desc: 'Assets link to the AI Portal automatically via IoT telemetry.' },
+                    { step: '03', name: 'Optimize', desc: 'The AI platform monitors, balances, and automates energy flow.' },
+                    { step: '04', name: 'Track & Save', desc: 'View real-time reports, reduce energy bills, and maximize uptime.' },
+                  ].map((st) => (
+                    <div key={st.step} className="rounded-2xl border border-black/10 bg-white p-5 space-y-2 shadow-xs">
+                      <span className="text-2xl font-extrabold text-[#E86526]">{st.step}</span>
+                      <h3 className="text-sm font-bold text-brand-ink">{st.name}</h3>
+                      <p className="text-xs text-brand-slate leading-relaxed">{st.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>

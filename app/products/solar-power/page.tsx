@@ -56,10 +56,13 @@ export default function SolarPowerPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent pointer-events-none" />
 
         <div className="container relative z-10 max-w-5xl mx-auto px-4">
-          <Reveal className="max-w-xl space-y-4">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-white tracking-tight leading-tight">
-              Solar Power
+          <Reveal className="max-w-2xl space-y-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
+              Solar Power Plants
             </h1>
+            <p className="text-sm sm:text-base text-white/80 leading-relaxed font-normal">
+              We deliver end-to-end Solar Power Plant solutions — design, engineering, installation, commissioning, and long-term maintenance — using high-efficiency panels and inverters tailored to your scale and site conditions.
+            </p>
 
             <div className="pt-3 flex flex-wrap gap-3">
               <Link
@@ -72,10 +75,61 @@ export default function SolarPowerPage() {
                 href="/ai-portal"
                 className="inline-flex items-center gap-2 rounded-xl bg-white/10 border border-white/20 px-6 py-3 text-xs font-semibold text-white hover:bg-white/20 transition"
               >
-                <Bot className="h-3.5 w-3.5 text-brand-apricot" /> Solar Design AI Portal
+                <Bot className="h-3.5 w-3.5 text-brand-apricot" /> Solar AI Portal
               </Link>
             </div>
           </Reveal>
+        </div>
+      </section>
+
+      {/* CAPACITY MATRIX & DEPLOYMENT TYPES */}
+      <section className="py-12 bg-[#FAFAF5] border-b border-black/5">
+        <div className="container max-w-5xl mx-auto px-4 space-y-10">
+          <div>
+            <h2 className="text-2xl font-bold text-brand-ink mb-4">Capacity Overview by Segment</h2>
+            <div className="overflow-x-auto rounded-2xl border border-black/10 bg-white shadow-xs">
+              <table className="w-full text-left text-xs sm:text-sm">
+                <thead className="bg-[#F8F9FA] border-b border-black/10 font-bold text-brand-ink">
+                  <tr>
+                    <th className="p-4">Segment</th>
+                    <th className="p-4">Capacity Range</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-black/5 font-medium text-brand-slate">
+                  <tr>
+                    <td className="p-4 font-bold text-brand-ink">Residential</td>
+                    <td className="p-4">3 kW – 30 kW</td>
+                  </tr>
+                  <tr>
+                    <td className="p-4 font-bold text-brand-ink">Commercial &amp; Industrial</td>
+                    <td className="p-4">5 kW – 500 kW</td>
+                  </tr>
+                  <tr>
+                    <td className="p-4 font-bold text-brand-ink">Utility-Scale</td>
+                    <td className="p-4">1 MW and above</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-bold text-brand-ink mb-4">Deployment Types</h2>
+            <div className="grid gap-4 sm:grid-cols-3">
+              <div className="rounded-2xl border border-black/10 bg-white p-5 space-y-2 shadow-xs">
+                <h3 className="text-base font-bold text-brand-ink">Rooftop Solar (Residential)</h3>
+                <p className="text-xs text-brand-slate leading-relaxed">Elevated rooftop systems for Indian homes.</p>
+              </div>
+              <div className="rounded-2xl border border-black/10 bg-white p-5 space-y-2 shadow-xs">
+                <h3 className="text-base font-bold text-brand-ink">Rooftop Solar (Industrial)</h3>
+                <p className="text-xs text-brand-slate leading-relaxed">Industrial rooftop systems for factories and commercial buildings.</p>
+              </div>
+              <div className="rounded-2xl border border-black/10 bg-white p-5 space-y-2 shadow-xs">
+                <h3 className="text-base font-bold text-brand-ink">Ground-Mounted Solar</h3>
+                <p className="text-xs text-brand-slate leading-relaxed">Large-scale ground plants for maximum energy generation, built for utility and industrial clients.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -86,7 +140,7 @@ export default function SolarPowerPage() {
           {/* RESIDENTIAL SOLAR GROUP */}
           <div className="space-y-12">
             <h2 className="text-3xl md:text-4xl font-bold text-[#222222] tracking-tight">
-              Residential Solar PV
+              Residential Solar Power Systems (3 kW – 30 kW)
             </h2>
             <div className="space-y-16">
               {solarProducts.filter(p => p.category === 'residential').map((prod, index) => {

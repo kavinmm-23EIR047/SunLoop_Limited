@@ -9,19 +9,10 @@ import {
   Zap,
   CheckCircle2,
   ArrowUpRight,
-  ShieldCheck,
-  Cpu,
-  BarChart3,
   Bot,
-  Sparkles,
   X,
-  Sliders,
-  Home,
-  Building2,
-  Factory
 } from 'lucide-react';
 import { Reveal, Button } from '../../../components/UI';
-
 import { evProducts, EVProductVariant } from '../../../data/evProducts';
 
 if (typeof window !== 'undefined') {
@@ -49,7 +40,7 @@ export default function EVChargingPage() {
 
   return (
     <main className="min-h-screen bg-[#FAFAF5] pt-16 pb-16 font-sans">
-      {/* FULL-BLEED HIGH-IMPACT HERO BANNER */}
+      {/* HERO BANNER */}
       <section className="relative w-full h-[460px] sm:h-[560px] md:h-[640px] overflow-hidden bg-brand-ink text-white flex items-center">
         <div
           className="absolute inset-0 bg-cover bg-center pointer-events-none transition-transform duration-1000"
@@ -60,10 +51,13 @@ export default function EVChargingPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent pointer-events-none" />
 
         <div className="container relative z-10 max-w-5xl mx-auto px-4">
-          <Reveal className="max-w-xl space-y-4">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-white tracking-tight leading-tight">
-              EV Chargers
+          <Reveal className="max-w-2xl space-y-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
+              EV Charging Infrastructure
             </h1>
+            <p className="text-sm sm:text-base text-white/80 leading-relaxed font-normal">
+              Safe, fast, and reliable AC and DC charging — engineered for every segment, from home garages to public highway charging hubs. Every charger connects to the Sunloop AI Portal for real-time monitoring, remote management, and payment integration.
+            </p>
 
             <div className="pt-3 flex flex-wrap gap-3">
               <Link
@@ -83,6 +77,34 @@ export default function EVChargingPage() {
         </div>
       </section>
 
+      {/* EV CHARGER TYPES SUMMARY TABLE */}
+      <section className="py-12 bg-[#FAFAF5] border-b border-black/5">
+        <div className="container max-w-5xl mx-auto px-4 space-y-6">
+          <h2 className="text-2xl font-bold text-brand-ink">EV Charger Infrastructure Categories</h2>
+          <div className="grid gap-6 md:grid-cols-2">
+            <div className="rounded-2xl border border-black/10 bg-white p-6 space-y-3 shadow-xs">
+              <span className="inline-block rounded-xl bg-orange-50 border border-orange-100 px-3 py-1 text-xs font-bold text-brand-primary">
+                AC EV CHARGERS
+              </span>
+              <h3 className="text-xl font-bold text-brand-ink">AC EV Chargers — 7.4 kW to 22 kW</h3>
+              <p className="text-xs text-brand-slate leading-relaxed">
+                Smart charging for residential communities, commercial buildings, industrial fleets, and public charging networks.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-black/10 bg-white p-6 space-y-3 shadow-xs">
+              <span className="inline-block rounded-xl bg-emerald-50 border border-emerald-100 px-3 py-1 text-xs font-bold text-emerald-600">
+                DC FAST CHARGERS
+              </span>
+              <h3 className="text-xl font-bold text-brand-ink">DC Fast EV Chargers — 30 kW to 240 kW</h3>
+              <p className="text-xs text-brand-slate leading-relaxed">
+                High-performance fast charging built for businesses and investors capitalizing on the growing EV market — ideal for fuel stations, highways, malls, hotels, and fleet depots, enabling recurring charging revenue.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CATALOG SECTION WITH GROUPED CATEGORIES */}
       <section className="py-14 md:py-20 bg-white">
         <div ref={catalogRef} className="container max-w-5xl mx-auto px-4 space-y-24">
@@ -90,7 +112,7 @@ export default function EVChargingPage() {
           {/* RESIDENTIAL EV CHARGERS GROUP */}
           <div className="space-y-12">
             <h2 className="text-3xl md:text-4xl font-bold text-[#222222] tracking-tight">
-              Residential EV Chargers
+              AC EV Chargers (7.4 kW – 22 kW)
             </h2>
             <div className="space-y-16">
               {evProducts.filter(p => p.keywords.includes('residential')).map((prod, index) => {
@@ -114,7 +136,7 @@ export default function EVChargingPage() {
                       </div>
 
                       <div className="space-y-1">
-                          <p className="text-[15px] text-[#333333] font-medium">Power: <span className="font-normal">{prod.power}</span></p>
+                        <p className="text-[15px] text-[#333333] font-medium">Power: <span className="font-normal">{prod.power}</span></p>
                       </div>
 
                       <div className="pt-2">
@@ -153,7 +175,7 @@ export default function EVChargingPage() {
           {/* COMMERCIAL & INDUSTRIAL EV CHARGERS GROUP */}
           <div className="space-y-12 pt-8 border-t border-black/5">
             <h2 className="text-3xl md:text-4xl font-bold text-[#222222] tracking-tight">
-              Commercial & Industrial EV Chargers
+              DC Fast EV Chargers (30 kW – 240 kW)
             </h2>
             <div className="space-y-16">
               {evProducts.filter(p => p.keywords.includes('commercial')).map((prod, index) => {
