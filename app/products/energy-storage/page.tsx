@@ -20,12 +20,134 @@ if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
 }
 
+type WallMountSpecificationRow = {
+  no?: number;
+  parameter?: string;
+  values?: [string, string, string, string];
+  value?: string;
+  section?: string;
+};
+
+// Text-based specification data: easy to maintain and suitable for PDF export.
+const wallMountSpecifications: WallMountSpecificationRow[] = [
+  { section: 'General Requirements' },
+  { no: 1, parameter: 'EV Charger Type', value: 'AC' },
+  { no: 2, parameter: 'Charger Capacity', values: ['3.5 kW', '7 kW', '11 kW', '22 kW'] },
+  { no: 3, parameter: 'Product Model No.', values: ['ENC-ACB/L003P5A-S / ANSI-ACB/L003P5A-S', 'ENC-ACB/L007A-S / ANSI-ACB/L007A-S', 'ENC-ACB/L011A-S / ANSI-ACB/L011A-S', 'ENC-ACB/L022A-S'] },
+  { no: 4, parameter: 'Mounting', value: 'Wall-Mounted / Column Type' },
+  { section: 'Input Requirements' },
+  { no: 5, parameter: 'AC Supply System', value: 'Single-phase, 3-wire AC system / Three-phase, 5-wire AC system (model dependent)' },
+  { no: 6, parameter: 'Nominal Input Voltage', values: ['AC 220 V ±15% (ENC) / AC 240 V ±15% (ANSI)', 'AC 220 V ±15% (ENC) / AC 240 V ±15% (ANSI)', 'AC 380 V ±15% (ENC) / AC 240 V ±15% (ANSI)', 'AC 380 V ±15%'] },
+  { no: 7, parameter: 'Input Frequency', value: '50 ±3 Hz' },
+  { section: 'Environmental Requirements' },
+  { no: 8, parameter: 'Ambient Temperature Range', value: '-25 °C to +55 °C' },
+  { no: 9, parameter: 'Ambient Humidity', value: '5% to 95%' },
+  { no: 10, parameter: 'Storage Temperature', value: '-40 °C to +70 °C' },
+  { section: 'Mechanical Requirements' },
+  { no: 11, parameter: 'IP Rating', value: 'IP55' },
+  { no: 12, parameter: 'Cooling', value: 'Natural Cooling' },
+  { section: 'Output Requirements' },
+  { no: 13, parameter: 'Number of Outputs', value: '1' },
+  { no: 14, parameter: 'Type of Each Output', value: 'AC; Type-2 connector or socket (optional)' },
+  { no: 15, parameter: 'Single Output Max. Current', values: ['16 Amp', '32 Amp', '16 Amp / 50 Amp', '32 Amp'] },
+  { section: 'User Interface & Display Requirements' },
+  { no: 16, parameter: 'Display & Touch-Screen Size', value: '4.3-inch touch screen; 7-inch colour touch screen optional' },
+  { no: 17, parameter: 'User Authentication', value: 'Mobile application / user interface / QR code / RFID card / password login' },
+  { no: 18, parameter: 'Metering Information', value: 'Consumption units' },
+  { section: 'Communication Requirements' },
+  { no: 19, parameter: 'EVSE and Central Server Communication', value: 'OCPP 1.6J protocol (optional)' },
+  { no: 20, parameter: 'Charger and CMS Interface', value: 'Ethernet / 3G / 4G / Wi-Fi (optional)' },
+  { section: 'Protection & Safety Requirements' },
+  { no: 21, parameter: 'Executive Standard', value: 'IEC 62196:2017, IEC 61851:2017, SAE J1772, etc.' },
+  { no: 22, parameter: 'Safety Parameters', value: 'Over-current, under-voltage, residual-current, surge, leakage, short-circuit and over-temperature protection' },
+];
+
+const trolleySpecifications: WallMountSpecificationRow[] = [
+  { section: 'General Requirements' },
+  { no: 1, parameter: 'EV Charger Type', value: 'AC' },
+  { no: 2, parameter: 'Charger Capacity', values: ['7 kW', '11 kW', '22 kW', ''] },
+  { no: 3, parameter: 'Product Model No.', values: ['ENC-ACL007A / ANSI-ACL007A', 'ENC-ACL011A / ANSI-ACL011A', 'ENC-ACL022A/B / ANSI-ACL022B', ''] },
+  { no: 4, parameter: 'Mounting', value: 'Ground-Mounted' },
+  { section: 'Input Requirements' },
+  { no: 5, parameter: 'AC Supply System', value: 'Single-phase, 3-wire AC system / Three-phase, 5-wire AC system (model dependent)' },
+  { no: 6, parameter: 'Nominal Input Voltage', values: ['AC 220 V ±15% (ENC) / AC 240 V ±15% (ANSI)', 'AC 380 V ±15% (ENC) / AC 240 V ±15% (ANSI)', 'AC 380 V ±15% (ENC) / AC 240 V ±15% (ANSI)', ''] },
+  { no: 7, parameter: 'Input Frequency', value: '50 ±3 Hz' },
+  { section: 'Environmental Requirements' },
+  { no: 8, parameter: 'Ambient Temperature Range', value: '-25 °C to +55 °C' },
+  { no: 9, parameter: 'Ambient Humidity', value: '5% to 95%' },
+  { no: 10, parameter: 'Storage Temperature', value: '-40 °C to +70 °C' },
+  { section: 'Mechanical Requirements' },
+  { no: 11, parameter: 'IP Rating', value: 'IP54' },
+  { no: 12, parameter: 'Cooling', value: 'Natural cooling / Air-cooled' },
+  { section: 'Output Requirements' },
+  { no: 13, parameter: 'Number of Outputs', value: '1; 1 or 2 (ENC); 2 (ANSI), depending on model' },
+  { no: 14, parameter: 'Type of Each Output', value: 'AC; Type-2 / Type-1 connector or socket (optional)' },
+  { no: 15, parameter: 'Single Output Max. Current', values: ['32 Amp', '16 Amp / 50 Amp', 'ENC: 32 Amp / 16 Amp; ANSI: 50 Amp', ''] },
+  { section: 'User Interface & Display Requirements' },
+  { no: 16, parameter: 'Display & Touch-Screen Size', value: '4.3-inch touch screen; 7-inch colour touch screen optional' },
+  { no: 17, parameter: 'User Authentication', value: 'Mobile application / user interface / QR code / RFID card / password login' },
+  { no: 18, parameter: 'Metering Information', value: 'Consumption units' },
+  { section: 'Communication Requirements' },
+  { no: 19, parameter: 'EVSE and Central Server Communication', value: 'OCPP 1.6J protocol (optional)' },
+  { no: 20, parameter: 'Charger and CMS Interface', value: 'Ethernet / 3G / 4G / Wi-Fi (optional)' },
+  { section: 'Protection & Safety Requirements' },
+  { no: 21, parameter: 'Executive Standard', value: 'IEC 62196:2017, IEC 61851:2017, SAE J1772, etc.' },
+  { no: 22, parameter: 'Safety Parameters', value: 'Over-current, under-voltage, residual-current, surge, leakage, short-circuit and over-temperature protection' },
+];
+
+const specificationText = [
+  'SUNLOOP | AC EV CHARGER (3.5 kW / 7 kW / 11 kW / 22 kW)',
+  '',
+  ...wallMountSpecifications.flatMap((row) => row.section
+    ? ['', row.section]
+    : [`${row.no}. ${row.parameter}: ${row.values ? row.values.join(' / ') : row.value}`]),
+].join('\n');
+
+const acChargerFeatures = [
+  'Delicate appearance, simple operation and convenient installation',
+  'High-efficiency, reliable and stable performance',
+  'Multiple charging, operation-management and payment modes',
+  'Ethernet or wireless communication support',
+  'RFID card and OCPP 1.6J support (optional)',
+  'Online data upgrade and integrated overload protection',
+];
+
+function WallMountSpecificationTable({ rows = wallMountSpecifications }: { rows?: WallMountSpecificationRow[] }) {
+  return (
+    <div className="overflow-x-auto border border-black/10 bg-white">
+      <table className="min-w-[820px] w-full border-collapse text-left text-[11px] leading-snug text-brand-ink">
+        <thead className="bg-brand-primary text-white">
+          <tr>
+            <th className="w-12 border-r border-white/25 px-3 py-2.5 text-center font-bold">No.</th>
+            <th className="w-52 border-r border-white/25 px-3 py-2.5 font-bold">Parameters</th>
+            <th className="px-3 py-2.5 font-bold">Requirements</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row, index) => row.section ? (
+            <tr key={row.section} className="bg-black/[0.045]">
+              <td colSpan={3} className="px-3 py-2 text-center text-[10px] font-bold uppercase tracking-wide text-brand-ink">{row.section}</td>
+            </tr>
+          ) : (
+            <tr key={row.no} className={index % 2 ? 'bg-white' : 'bg-[#FCFCFA]'}>
+              <td className="border border-black/10 px-3 py-2 text-center text-brand-slate">{row.no}</td>
+              <th scope="row" className="border border-black/10 px-3 py-2 font-semibold text-brand-ink">{row.parameter}</th>
+              <td className="border border-black/10 px-3 py-2 text-brand-slate">
+                {row.values ? <div className="grid grid-cols-4 divide-x divide-black/10">{row.values.map((value, valueIndex) => <span key={valueIndex} className="px-2 first:pl-0">{value}</span>)}</div> : row.value}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
 export default function EnergyStoragePage() {
   const [activeModal, setActiveModal] = useState<ESSProduct | null>(null);
   const catalogRef = useRef<HTMLDivElement>(null);
 
   const productsList = essProducts || [];
-
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.utils.toArray<HTMLElement>('.ess-product-image').forEach((image) => {
@@ -253,7 +375,7 @@ export default function EnergyStoragePage() {
               initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.96 }}
-              className="relative w-full max-w-xl overflow-hidden rounded-2xl border border-black/10 bg-white p-6 shadow-xl space-y-5 max-h-[85vh] overflow-y-auto"
+              className="relative w-[min(96vw,1100px)] overflow-hidden rounded-2xl border border-black/10 bg-white p-5 shadow-xl space-y-5 max-h-[90vh] overflow-y-auto"
             >
               <div className="flex items-center justify-between border-b border-black/10 pb-3">
                 <div>
@@ -293,7 +415,7 @@ export default function EnergyStoragePage() {
                 </div>
               </div>
 
-              <div className="pt-3 border-t border-black/10 flex justify-end gap-3">
+              <div className="pt-3 border-t border-black/10 flex flex-wrap justify-end gap-3">
                 <Button href="/contact" onClick={() => setActiveModal(null)}>
                   Request Formal Quotation <ArrowUpRight className="ml-1 h-3.5 w-3.5" />
                 </Button>
