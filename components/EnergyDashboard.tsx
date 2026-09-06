@@ -45,7 +45,7 @@ export default function EnergyDashboard() {
             <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
               
               {/* Card 1: Current Generation */}
-              <div className="bg-white rounded-2xl p-5 border border-black/10 shadow-xs flex flex-col justify-between hover:shadow-card transition">
+              <div className="h-full bg-white rounded-2xl p-5 border border-black/10 shadow-xs flex flex-col justify-between hover:shadow-card transition overflow-hidden">
                 <div>
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-2">
@@ -65,7 +65,7 @@ export default function EnergyDashboard() {
                   <p className="text-xs text-brand-slate font-medium">Live power output from Solar PV</p>
                 </div>
 
-                <div className="mt-4 h-14 w-full">
+                <div className="mt-4 h-14 w-full shrink-0">
                   <svg viewBox="0 0 100 40" preserveAspectRatio="none" className="w-full h-full" aria-hidden="true">
                     <path
                       d="M0,40 L0,30 C10,35 15,15 25,20 C35,25 40,5 50,15 C60,25 65,30 75,10 C85,-10 95,20 100,5 L100,40 Z"
@@ -89,7 +89,7 @@ export default function EnergyDashboard() {
               </div>
 
               {/* Card 2: Energy Saved */}
-              <div className="bg-white rounded-2xl p-5 border border-black/10 shadow-xs flex flex-col justify-between hover:shadow-card transition">
+              <div className="h-full bg-white rounded-2xl p-5 border border-black/10 shadow-xs flex flex-col justify-between hover:shadow-card transition overflow-hidden">
                 <div>
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-2">
@@ -109,7 +109,7 @@ export default function EnergyDashboard() {
                   <p className="text-xs text-brand-slate font-medium">Accumulated daily clean generation</p>
                 </div>
 
-                <div className="mt-4 h-14 w-full flex items-end justify-between gap-1.5 opacity-90" aria-hidden="true">
+                <div className="mt-4 h-14 w-full shrink-0 flex items-end justify-between gap-1.5 opacity-90" aria-hidden="true">
                   <div className="w-full bg-emerald-200 rounded-t-md h-[35%]"></div>
                   <div className="w-full bg-emerald-200 rounded-t-md h-[55%]"></div>
                   <div className="w-full bg-emerald-200 rounded-t-md h-[45%]"></div>
@@ -122,7 +122,7 @@ export default function EnergyDashboard() {
               </div>
 
               {/* Card 3: CO2 Avoided */}
-              <div className="bg-white rounded-2xl p-5 border border-black/10 shadow-xs flex flex-col justify-between hover:shadow-card transition">
+              <div className="h-full bg-white rounded-2xl p-5 border border-black/10 shadow-xs flex flex-col justify-between hover:shadow-card transition overflow-hidden">
                 <div>
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-2">
@@ -142,7 +142,7 @@ export default function EnergyDashboard() {
                   <p className="text-xs text-brand-slate font-medium">Carbon footprint offset today</p>
                 </div>
 
-                <div className="mt-4 h-14 w-full">
+                <div className="mt-4 h-14 w-full shrink-0">
                   <svg viewBox="0 0 100 40" preserveAspectRatio="none" className="w-full h-full" aria-hidden="true">
                     <path
                       d="M0,40 L0,35 C15,30 25,35 35,25 C45,15 55,20 65,10 C75,0 85,15 100,5 L100,40 Z"
@@ -166,7 +166,7 @@ export default function EnergyDashboard() {
               </div>
 
               {/* Card 4: System Status */}
-              <div className="bg-white rounded-2xl p-5 border border-black/10 shadow-xs flex flex-col justify-between hover:shadow-card transition">
+              <div className="h-full bg-white rounded-2xl p-5 border border-black/10 shadow-xs flex flex-col justify-between hover:shadow-card transition overflow-hidden">
                 <div>
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-2">
@@ -196,7 +196,7 @@ export default function EnergyDashboard() {
             </div>
 
             {/* RIGHT SIDE SYSTEM OVERVIEW DONUT CARD (Cols 4) */}
-            <div className="lg:col-span-4 bg-white rounded-2xl p-6 border border-black/10 shadow-xs flex flex-col justify-between hover:shadow-card transition">
+            <div className="h-full lg:col-span-4 bg-white rounded-2xl p-6 border border-black/10 shadow-xs flex flex-col justify-between hover:shadow-card transition overflow-hidden">
               <div>
                 <div className="flex items-center justify-between mb-4 pb-3 border-b border-black/5">
                   <span className="text-sm font-semibold text-brand-ink">System Asset Distribution</span>
@@ -259,7 +259,7 @@ export default function EnergyDashboard() {
           </div>
 
           {/* BOTTOM FEATURE STRIP */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 bg-white p-6 rounded-2xl border border-black/10 shadow-xs">
+          <div className="mt-6 sm:mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 bg-white p-6 rounded-2xl border border-black/10 shadow-xs">
             <div className="flex items-start gap-3.5 p-3 rounded-xl hover:bg-[#FAFAF5] transition">
               <div className="h-10 w-10 shrink-0 rounded-xl bg-orange-50 border border-orange-100 flex items-center justify-center text-[#E86526]">
                 <Star className="h-5 w-5" aria-hidden="true" />
