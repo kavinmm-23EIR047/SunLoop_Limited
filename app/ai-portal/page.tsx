@@ -159,7 +159,7 @@ export default function AIPortalPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#F8F9FA] text-brand-ink pt-20 font-sans">
+    <main className="readable-ui min-h-screen bg-[#F8F9FA] text-brand-ink pt-20 font-sans">
       {/* Top Banner Notice */}
       <div className="bg-brand-ink text-white text-xs py-2 px-4 border-b border-white/10 flex items-center justify-between">
         <div className="container flex items-center justify-between font-medium">
@@ -167,7 +167,7 @@ export default function AIPortalPage() {
             <span className="h-2 w-2 rounded-full bg-green-400" />
             <strong className="text-white font-semibold">SUNLOOP AI PORTAL DASHBOARD</strong> — Clean Solid &amp; Professional Interface
           </span>
-          <span className="hidden sm:flex items-center gap-4 text-white/80 text-[11px]">
+          <span className="hidden sm:flex items-center gap-4 text-white/80 text-xs">
             <span>Model: <b className="text-white font-semibold">{model}</b></span>
             <span>Bots: <b className="text-green-400 font-semibold">3 Active</b></span>
           </span>
@@ -188,7 +188,7 @@ export default function AIPortalPage() {
                 />
                 <span className="text-xs font-semibold text-brand-slate">Portal</span>
               </Link>
-              <span className="rounded-md bg-black/5 border border-black/10 px-2 py-0.5 text-[10px] font-semibold text-brand-slate uppercase">
+              <span className="rounded-md bg-black/5 border border-black/10 px-2 py-0.5 text-xs font-semibold text-brand-slate uppercase">
                 AI Suite
               </span>
             </div>
@@ -207,7 +207,7 @@ export default function AIPortalPage() {
 
             {/* MAIN NAVIGATION */}
             <div className="mb-5">
-              <p className="text-[10px] font-bold uppercase tracking-wider text-brand-slate mb-2 px-2">
+              <p className="text-xs font-bold uppercase tracking-wider text-brand-slate mb-2 px-2">
                 Main Navigation
               </p>
               <nav className="space-y-1 text-xs font-medium">
@@ -283,7 +283,7 @@ export default function AIPortalPage() {
                     <Bot className="h-4 w-4 text-teal-600" />
                     Robot Autonomous Bots
                   </span>
-                  <span className="rounded-md bg-green-100 px-1.5 py-0.5 text-[9px] font-bold text-green-700">
+                  <span className="rounded-md bg-green-100 px-1.5 py-0.5 text-xs font-bold text-green-700">
                     3 Active
                   </span>
                 </button>
@@ -292,7 +292,7 @@ export default function AIPortalPage() {
 
             {/* OPTIMIZATION TOOLS */}
             <div className="mb-4">
-              <p className="text-[10px] font-bold uppercase tracking-wider text-brand-slate mb-2 px-2">
+              <p className="text-xs font-bold uppercase tracking-wider text-brand-slate mb-2 px-2">
                 Optimization
               </p>
               <nav className="space-y-1 text-xs font-medium text-brand-slate">
@@ -325,7 +325,7 @@ export default function AIPortalPage() {
                   Sunloop AI Suite
                 </strong>
               </div>
-              <p className="text-[11px] text-brand-slate mb-2 font-normal">
+              <p className="text-xs text-brand-slate mb-2 font-normal">
                 Unlock automated load balancing &amp; 24/7 cloud analytics.
               </p>
               <button className="w-full rounded-xl bg-brand-primary py-1.5 text-xs font-semibold text-white hover:bg-[#c95315] transition">
@@ -499,14 +499,14 @@ export default function AIPortalPage() {
                           <div className={`grid h-8 w-8 place-items-center rounded-xl border ${card.color}`}>
                             <IconComponent className="h-4 w-4" />
                           </div>
-                          <span className="text-[10px] font-semibold text-brand-slate group-hover:text-brand-primary transition flex items-center gap-0.5">
+                          <span className="text-xs font-semibold text-brand-slate group-hover:text-brand-primary transition flex items-center gap-0.5">
                             Run <ArrowUpRight className="h-3 w-3" />
                           </span>
                         </div>
                         <h3 className="text-xs font-bold text-brand-ink group-hover:text-brand-primary transition">
                           {card.title}
                         </h3>
-                        <p className="mt-1 text-[11px] text-brand-slate line-clamp-2 leading-snug font-normal">
+                        <p className="mt-1 text-xs text-brand-slate line-clamp-2 leading-snug font-normal">
                           {card.subtitle}
                         </p>
                       </div>
@@ -522,7 +522,7 @@ export default function AIPortalPage() {
                 <span className="text-xs font-bold uppercase tracking-wider text-brand-slate flex items-center gap-2">
                   <Activity className="h-4 w-4 text-green-600" /> Execution History Log
                 </span>
-                <span className="text-[11px] text-brand-slate font-medium">
+                <span className="text-xs text-brand-slate font-medium">
                   Active Mode: <b className="text-brand-ink font-semibold">{activeMode || 'Standard Fast'}</b>
                 </span>
               </div>
@@ -544,7 +544,7 @@ export default function AIPortalPage() {
                           <span className="text-xs font-bold text-brand-ink">
                             SunLoop AI Assistant
                           </span>
-                          <span className="rounded-md bg-blue-50 px-1.5 py-0.5 text-[10px] font-semibold text-blue-700 border border-blue-200">
+                          <span className="rounded-md bg-blue-50 px-1.5 py-0.5 text-xs font-semibold text-blue-700 border border-blue-200">
                             Solid Core
                           </span>
                         </div>
@@ -559,7 +559,7 @@ export default function AIPortalPage() {
                         </div>
                       )}
                     </div>
-                    <span className="text-[10px] text-brand-slate font-medium">{item.time}</span>
+                    <span className="text-xs text-brand-slate font-medium">{item.time}</span>
                   </div>
 
                   <div className="text-xs leading-relaxed space-y-2 whitespace-pre-line text-brand-ink font-normal">
@@ -567,7 +567,7 @@ export default function AIPortalPage() {
                   </div>
 
                   {item.robotAction && (
-                    <div className="mt-3 flex items-center gap-2 rounded-xl bg-teal-50 border border-teal-200 p-2.5 text-[11px] text-teal-800 font-medium">
+                    <div className="mt-3 flex items-center gap-2 rounded-xl bg-teal-50 border border-teal-200 p-2.5 text-xs text-teal-800 font-medium">
                       <Bot className="h-4 w-4 text-teal-600 shrink-0" />
                       <span>{item.robotAction}</span>
                     </div>
@@ -576,19 +576,19 @@ export default function AIPortalPage() {
                   {item.metrics && (
                     <div className="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-2 pt-3 border-t border-black/10 text-xs font-medium">
                       <div className="rounded-xl bg-[#F8F9FA] p-2.5 border border-black/5">
-                        <span className="text-[10px] text-brand-slate block">Solar Gen</span>
+                        <span className="text-xs text-brand-slate block">Solar Gen</span>
                         <strong className="text-brand-ink font-semibold">{item.metrics.solar}</strong>
                       </div>
                       <div className="rounded-xl bg-[#F8F9FA] p-2.5 border border-black/5">
-                        <span className="text-[10px] text-brand-slate block">ESS Battery</span>
+                        <span className="text-xs text-brand-slate block">ESS Battery</span>
                         <strong className="text-brand-ink font-semibold">{item.metrics.battery}</strong>
                       </div>
                       <div className="rounded-xl bg-[#F8F9FA] p-2.5 border border-black/5">
-                        <span className="text-[10px] text-brand-slate block">Savings</span>
+                        <span className="text-xs text-brand-slate block">Savings</span>
                         <strong className="text-green-600 font-semibold">{item.metrics.gridSavings}</strong>
                       </div>
                       <div className="rounded-xl bg-[#F8F9FA] p-2.5 border border-black/5">
-                        <span className="text-[10px] text-brand-slate block">CO₂ Saved</span>
+                        <span className="text-xs text-brand-slate block">CO₂ Saved</span>
                         <strong className="text-brand-primary font-semibold">{item.metrics.co2}</strong>
                       </div>
                     </div>
@@ -618,22 +618,22 @@ export default function AIPortalPage() {
                   <div className="rounded-2xl border border-black/10 bg-white p-4 shadow-xs">
                     <span className="text-xs text-brand-slate font-medium">Solar Array Power</span>
                     <b className="mt-1 block text-2xl font-bold text-brand-ink">48.2 kW</b>
-                    <span className="text-[10px] font-semibold text-green-600">↑ Optimal Yield</span>
+                    <span className="text-xs font-semibold text-green-600">↑ Optimal Yield</span>
                   </div>
                   <div className="rounded-2xl border border-black/10 bg-white p-4 shadow-xs">
                     <span className="text-xs text-brand-slate font-medium">ESS Battery SOC</span>
                     <b className="mt-1 block text-2xl font-bold text-brand-ink">92.4 kWh</b>
-                    <span className="text-[10px] font-semibold text-blue-600">88% Capacity</span>
+                    <span className="text-xs font-semibold text-blue-600">88% Capacity</span>
                   </div>
                   <div className="rounded-2xl border border-black/10 bg-white p-4 shadow-xs">
                     <span className="text-xs text-brand-slate font-medium">EV Charging Demand</span>
                     <b className="mt-1 block text-2xl font-bold text-brand-ink">22.0 kW</b>
-                    <span className="text-[10px] font-semibold text-purple-600">12 Active Ports</span>
+                    <span className="text-xs font-semibold text-purple-600">12 Active Ports</span>
                   </div>
                   <div className="rounded-2xl border border-black/10 bg-white p-4 shadow-xs">
                     <span className="text-xs text-brand-slate font-medium">Daily Grid Offset</span>
                     <b className="mt-1 block text-2xl font-bold text-green-600">98.5%</b>
-                    <span className="text-[10px] font-semibold text-brand-slate">Near Zero Draw</span>
+                    <span className="text-xs font-semibold text-brand-slate">Near Zero Draw</span>
                   </div>
                 </div>
 
@@ -665,7 +665,7 @@ export default function AIPortalPage() {
             <div className="space-y-12 pt-8 border-t border-black/10">
               <div className="space-y-4">
                 <span className="eyebrow">PORTAL CAPABILITIES</span>
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-brand-ink">
+                <h2 className="text-2xl sm:text-3xl font-bold text-brand-ink">
                   Sunloop AI Energy Management Portal
                 </h2>
                 <p className="text-sm font-bold text-[#E86526] uppercase tracking-wider">
@@ -684,7 +684,7 @@ export default function AIPortalPage() {
                     { title: 'Mobile & Web Access', desc: 'Clean, intuitive dashboard accessible from any device 24/7.' },
                   ].map((cap, i) => (
                     <div key={cap.title} className="rounded-2xl border border-black/10 bg-white p-5 space-y-2 shadow-xs">
-                      <span className="text-[10px] font-bold text-[#E86526] uppercase tracking-wider">0{i + 1} CAPABILITY</span>
+                      <span className="text-xs font-bold text-[#E86526] uppercase tracking-wider">0{i + 1} CAPABILITY</span>
                       <h3 className="text-sm font-bold text-brand-ink">{cap.title}</h3>
                       <p className="text-xs text-brand-slate leading-relaxed">{cap.desc}</p>
                     </div>
@@ -694,7 +694,7 @@ export default function AIPortalPage() {
 
               <div className="space-y-4 pt-4 border-t border-black/5">
                 <span className="eyebrow">WORKFLOW</span>
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-brand-ink">How It Works</h2>
+                <h2 className="text-2xl sm:text-3xl font-bold text-brand-ink">How It Works</h2>
                 <div className="grid gap-4 sm:grid-cols-4 pt-2">
                   {[
                     { step: '01', name: 'Install', desc: 'Deploy Sunloop Solar, ESS, or EV chargers at your site.' },
@@ -703,7 +703,7 @@ export default function AIPortalPage() {
                     { step: '04', name: 'Track & Save', desc: 'View real-time reports, reduce energy bills, and maximize uptime.' },
                   ].map((st) => (
                     <div key={st.step} className="rounded-2xl border border-black/10 bg-white p-5 space-y-2 shadow-xs">
-                      <span className="text-2xl font-extrabold text-[#E86526]">{st.step}</span>
+                      <span className="text-2xl font-bold text-[#E86526]">{st.step}</span>
                       <h3 className="text-sm font-bold text-brand-ink">{st.name}</h3>
                       <p className="text-xs text-brand-slate leading-relaxed">{st.desc}</p>
                     </div>

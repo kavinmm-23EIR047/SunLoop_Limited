@@ -140,7 +140,7 @@ const dcFastChargerSpecifications: SpecificationRow[] = [
 function ACChargerSpecificationTable({ rows = acChargerSpecifications }: { rows?: SpecificationRow[] }) {
   return (
     <div className="overflow-x-auto border border-black/10 bg-white">
-      <table className="w-full table-fixed border-collapse text-left text-[9px] leading-snug text-brand-ink sm:text-[10px]">
+      <table className="w-full table-fixed border-collapse text-left text-xs leading-snug text-brand-ink sm:text-xs">
         <thead className="bg-brand-primary text-white">
           <tr>
             <th className="w-9 border-r border-white/25 px-1.5 py-2 text-center font-semibold sm:w-12 sm:px-2">No.</th>
@@ -151,7 +151,7 @@ function ACChargerSpecificationTable({ rows = acChargerSpecifications }: { rows?
         <tbody>
           {rows.map((row, index) => row.section ? (
             <tr key={row.section} className="bg-black/[0.045]">
-              <td colSpan={6} className="px-3 py-1.5 text-center text-[9px] font-bold uppercase tracking-wide text-brand-ink">{row.section}</td>
+              <td colSpan={6} className="px-3 py-1.5 text-center text-xs font-bold uppercase tracking-wide text-brand-ink">{row.section}</td>
             </tr>
           ) : (
             <tr key={row.no} className={index % 2 ? 'bg-white' : 'bg-[#FCFCFA]'}>
@@ -260,7 +260,7 @@ export default function EVChargingPage() {
 
         <div className="container relative z-10 max-w-5xl mx-auto px-4">
           <Reveal className="max-w-2xl space-y-4">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight">
               EV Charging Infrastructure
             </h1>
             <p className="text-sm sm:text-base text-white/80 leading-relaxed font-normal">
@@ -369,7 +369,7 @@ export default function EVChargingPage() {
                             (e.target as HTMLImageElement).src = prod.fallbackImage;
                           }}
                         />
-                        <div className="absolute top-3.5 right-3.5 rounded-full bg-brand-ink px-3 py-0.5 text-[9px] font-semibold text-white shadow-xs">
+                        <div className="absolute top-3.5 right-3.5 rounded-full bg-brand-ink px-3 py-0.5 text-xs font-semibold text-white shadow-xs">
                           OCPP COMPLIANT
                         </div>
                       </div>
@@ -432,7 +432,7 @@ export default function EVChargingPage() {
                             (e.target as HTMLImageElement).src = prod.fallbackImage;
                           }}
                         />
-                        <div className="absolute top-3.5 right-3.5 rounded-full bg-brand-ink px-3 py-0.5 text-[9px] font-semibold text-white shadow-xs">
+                        <div className="absolute top-3.5 right-3.5 rounded-full bg-brand-ink px-3 py-0.5 text-xs font-semibold text-white shadow-xs">
                           OCPP COMPLIANT
                         </div>
                       </div>
@@ -457,7 +457,7 @@ export default function EVChargingPage() {
             >
               <div className="flex items-center justify-between border-b border-black/10 pb-3">
                 <div>
-                  <span className="text-[10px] font-semibold text-brand-primary uppercase">{activeModal.category} · {activeModal.series}</span>
+                  <span className="text-xs font-semibold text-brand-primary uppercase">{activeModal.category} · {activeModal.series}</span>
                   <h3 className="text-lg font-bold text-brand-ink">{activeModal.title} Specs</h3>
                 </div>
                 <button
@@ -474,11 +474,11 @@ export default function EVChargingPage() {
                   <ACChargerSpecificationTable rows={activeModal.id === 'dc-ev-charger-com' ? dcFastChargerSpecifications : activeModal.id === 'ac-ev-charger-com' ? commercialAcChargerSpecifications : acChargerSpecifications} />
                 ) : (
                   <div className="rounded-xl bg-[#FAFAF5] border border-black/[0.06] p-3.5 space-y-2">
-                    <h4 className="text-[11px] font-semibold text-brand-ink uppercase tracking-wider mb-2">Technical Parameters</h4>
+                    <h4 className="text-xs font-semibold text-brand-ink uppercase tracking-wider mb-2">Technical Parameters</h4>
                     <div className="grid grid-cols-2 gap-2.5">
                       {activeModal.specs.map((s) => (
                         <div key={s.label} className="border-b border-black/5 pb-1.5">
-                          <span className="text-[9px] text-brand-slate font-medium block">{s.label}</span>
+                          <span className="text-xs text-brand-slate font-medium block">{s.label}</span>
                           <strong className="text-brand-ink font-semibold">{s.value}</strong>
                         </div>
                       ))}
@@ -487,7 +487,7 @@ export default function EVChargingPage() {
                 )}
 
                 <div className="space-y-1.5">
-                  <h4 className="text-[11px] font-semibold text-brand-ink uppercase tracking-wider">Features &amp; Protections</h4>
+                  <h4 className="text-xs font-semibold text-brand-ink uppercase tracking-wider">Features &amp; Protections</h4>
                   {activeModal.tech.map((t) => (
                     <div key={t} className="flex items-center gap-2 text-brand-ink">
                       <CheckCircle2 className="h-3.5 w-3.5 text-brand-primary shrink-0" />
@@ -498,7 +498,7 @@ export default function EVChargingPage() {
 
                 {activeModal.apps.length > 0 && (
                   <div className="space-y-1.5">
-                    <h4 className="text-[11px] font-semibold text-brand-ink uppercase tracking-wider">Applicable Scenes</h4>
+                    <h4 className="text-xs font-semibold text-brand-ink uppercase tracking-wider">Applicable Scenes</h4>
                     {activeModal.apps.map((application) => (
                       <div key={application} className="flex items-center gap-2 text-brand-ink">
                         <CheckCircle2 className="h-3.5 w-3.5 text-brand-primary shrink-0" />

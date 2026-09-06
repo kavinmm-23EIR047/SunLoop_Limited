@@ -100,7 +100,7 @@ export default function SolarStorageEVChargingPage() {
         <div className="absolute inset-0 flex items-center">
           <div className="container relative z-10 mx-auto max-w-5xl px-4">
             <Reveal className="max-w-2xl space-y-4">
-              <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-brand-apricot"><Zap className="h-3.5 w-3.5" /> 03 / Charge</span>
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-brand-apricot"><Zap className="h-3.5 w-3.5" /> 03 / Charge</span>
               <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">Solar &amp; Storage &amp; EV Charging Solution</h1>
               <p className="text-sm leading-relaxed text-white/90 md:text-base">A smart, future-proof energy ecosystem that unifies clean solar generation, battery storage, and EV charging infrastructure.</p>
             </Reveal>
@@ -111,7 +111,7 @@ export default function SolarStorageEVChargingPage() {
         <div className="container mx-auto max-w-5xl space-y-16 px-4">
           <Reveal className="text-center max-w-2xl mx-auto space-y-3">
             <span className="eyebrow inline-block">UNIFIED ENERGY ECOSYSTEM</span>
-            <h2 className="text-2xl md:text-3xl font-extrabold text-brand-ink">
+            <h2 className="text-2xl md:text-3xl font-bold text-brand-ink">
               Solar + Storage + Charging Solutions
             </h2>
             <p className="text-xs md:text-sm text-brand-slate font-normal">
@@ -134,10 +134,10 @@ export default function SolarStorageEVChargingPage() {
               >
                 <div className="space-y-1.5">
                   <div className="flex items-center gap-2">
-                    <span className="rounded-md bg-orange-100 px-2.5 py-0.5 text-[10px] font-bold text-brand-primary uppercase">
+                    <span className="rounded-md bg-orange-100 px-2.5 py-0.5 text-xs font-bold text-brand-primary uppercase">
                       {solution.badge}
                     </span>
-                    <span className="text-[11px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">
+                    <span className="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">
                       {solution.capacity}
                     </span>
                   </div>
@@ -155,7 +155,7 @@ export default function SolarStorageEVChargingPage() {
                 <div className="grid grid-cols-2 gap-2.5 pt-1">
                   {solution.specs.map((s) => (
                     <div key={s.label} className="rounded-xl border border-black/[0.06] bg-white p-3 shadow-2xs">
-                      <span className="block text-[9px] font-semibold text-brand-slate uppercase">{s.label}</span>
+                      <span className="block text-xs font-semibold text-brand-slate uppercase">{s.label}</span>
                       <strong className="block text-xs font-semibold text-brand-ink mt-0.5">{s.value}</strong>
                     </div>
                   ))}
@@ -163,7 +163,7 @@ export default function SolarStorageEVChargingPage() {
 
                 {/* WARRANTIES */}
                 <div className="rounded-xl bg-amber-50 border border-amber-200/70 p-3 space-y-1">
-                  <span className="text-[10px] font-bold text-amber-900 uppercase block">Ecosystem Warranties</span>
+                  <span className="text-xs font-bold text-amber-900 uppercase block">Ecosystem Warranties</span>
                   {solution.warranties.map((w) => (
                     <div key={w} className="flex items-center gap-2 text-xs text-amber-950 font-medium">
                       <CheckCircle2 className="h-3.5 w-3.5 text-amber-600 shrink-0" />
@@ -215,7 +215,7 @@ export default function SolarStorageEVChargingPage() {
                       (e.target as HTMLElement).setAttribute('src', solution.fallbackImage);
                     }}
                   />
-                  <span className="absolute left-4 top-4 rounded-full bg-brand-ink px-3 py-1 text-[10px] font-bold text-white shadow-sm uppercase">
+                  <span className="absolute left-4 top-4 rounded-full bg-brand-ink px-3 py-1 text-xs font-bold text-white shadow-sm uppercase">
                     SOLUTION {solution.number}
                   </span>
                 </div>
@@ -229,10 +229,10 @@ export default function SolarStorageEVChargingPage() {
       <section className="py-14 md:py-20 bg-white border-y border-black/[0.06]">
         <div className="container max-w-5xl mx-auto px-4 space-y-12">
           <Reveal className="text-center max-w-2xl mx-auto space-y-3">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-100 px-3 py-1 text-[10px] font-bold text-emerald-800 uppercase tracking-wider">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-100 px-3 py-1 text-xs font-bold text-emerald-800 uppercase tracking-wider">
               <Zap className="h-3.5 w-3.5" /> EV CHARGING HARDWARE
             </span>
-            <h2 className="text-2xl md:text-3xl font-extrabold text-brand-ink">
+            <h2 className="text-2xl md:text-3xl font-bold text-brand-ink">
               Smart AC &amp; DC EV Chargers
             </h2>
             <p className="text-xs md:text-sm text-brand-slate font-normal">
@@ -268,10 +268,10 @@ export default function SolarStorageEVChargingPage() {
                   {/* TEXT DETAILS */}
                   <div className={`space-y-4 ${idx % 2 === 1 ? 'md:order-2' : 'md:order-1'}`}>
                     <div className="flex items-center justify-between">
-                      <span className="rounded-md bg-emerald-100 px-2.5 py-0.5 text-[10px] font-bold text-emerald-800 uppercase">
+                      <span className="rounded-md bg-emerald-100 px-2.5 py-0.5 text-xs font-bold text-emerald-800 uppercase">
                         {product.series}
                       </span>
-                      <span className="text-[11px] font-bold text-brand-primary bg-orange-50 px-2 py-0.5 rounded">
+                      <span className="text-xs font-bold text-brand-primary bg-orange-50 px-2 py-0.5 rounded">
                         {product.output}
                       </span>
                     </div>
@@ -292,7 +292,7 @@ export default function SolarStorageEVChargingPage() {
                     <div className="grid grid-cols-2 gap-2 pt-1">
                       {product.specs?.map((s) => (
                         <div key={s.label} className="rounded-lg bg-white border border-black/5 p-2.5 text-xs shadow-2xs">
-                          <span className="text-[9px] text-brand-slate block font-medium uppercase">{s.label}</span>
+                          <span className="text-xs text-brand-slate block font-medium uppercase">{s.label}</span>
                           <strong className="text-brand-ink font-semibold mt-0.5 block">{s.value}</strong>
                         </div>
                       ))}
@@ -335,7 +335,7 @@ export default function SolarStorageEVChargingPage() {
                           (e.target as HTMLElement).setAttribute('src', product.fallbackImage || '/images/ac-charging.png');
                         }}
                       />
-                      <div className="absolute top-4 right-4 rounded-full bg-brand-ink px-3 py-1 text-[10px] font-bold text-white shadow-md uppercase">
+                      <div className="absolute top-4 right-4 rounded-full bg-brand-ink px-3 py-1 text-xs font-bold text-white shadow-md uppercase">
                         {product.category} {product.type} CHARGER
                       </div>
                     </div>
@@ -376,8 +376,8 @@ export default function SolarStorageEVChargingPage() {
                   <Sun className="h-6 w-6" />
                 </div>
                 <h4 className="text-xs font-bold text-brand-ink">Solar PV Canopy</h4>
-                <p className="text-[10px] text-brand-slate mt-0.5">TOPCon / Glass-Glass</p>
-                <span className="inline-block mt-2 rounded-full bg-amber-100 px-2 py-0.5 text-[9px] font-semibold text-amber-600">
+                <p className="text-xs text-brand-slate mt-0.5">TOPCon / Glass-Glass</p>
+                <span className="inline-block mt-2 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-600">
                   Clean Generation
                 </span>
               </button>
@@ -395,8 +395,8 @@ export default function SolarStorageEVChargingPage() {
                   <BatteryCharging className="h-6 w-6" />
                 </div>
                 <h4 className="text-xs font-bold text-brand-ink">LiFePO4 Storage</h4>
-                <p className="text-[10px] text-brand-slate mt-0.5">Buffer &amp; Backup ESS</p>
-                <span className="inline-block mt-2 rounded-full bg-blue-100 px-2 py-0.5 text-[9px] font-semibold text-blue-600">
+                <p className="text-xs text-brand-slate mt-0.5">Buffer &amp; Backup ESS</p>
+                <span className="inline-block mt-2 rounded-full bg-blue-100 px-2 py-0.5 text-xs font-semibold text-blue-600">
                   Peak Shaving Active
                 </span>
               </button>
@@ -414,8 +414,8 @@ export default function SolarStorageEVChargingPage() {
                   <Zap className="h-6 w-6" />
                 </div>
                 <h4 className="text-xs font-bold text-brand-ink">Smart EV Charger</h4>
-                <p className="text-[10px] text-brand-slate mt-0.5">AC Wallbox &amp; DC Fast</p>
-                <span className="inline-block mt-2 rounded-full bg-emerald-100 px-2 py-0.5 text-[9px] font-semibold text-emerald-600">
+                <p className="text-xs text-brand-slate mt-0.5">AC Wallbox &amp; DC Fast</p>
+                <span className="inline-block mt-2 rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-semibold text-emerald-600">
                   Subsecond Balancing
                 </span>
               </button>
@@ -433,8 +433,8 @@ export default function SolarStorageEVChargingPage() {
                   <Bot className="h-6 w-6" />
                 </div>
                 <h4 className="text-xs font-bold text-brand-ink">Sunloop AI Portal</h4>
-                <p className="text-[10px] text-brand-slate mt-0.5">OCPP 1.6J Cloud Portal</p>
-                <span className="inline-block mt-2 rounded-full bg-orange-100 px-2 py-0.5 text-[9px] font-semibold text-brand-primary">
+                <p className="text-xs text-brand-slate mt-0.5">OCPP 1.6J Cloud Portal</p>
+                <span className="inline-block mt-2 rounded-full bg-orange-100 px-2 py-0.5 text-xs font-semibold text-brand-primary">
                   Live Dispatch &amp; Billing
                 </span>
               </button>
@@ -444,7 +444,7 @@ export default function SolarStorageEVChargingPage() {
             <div className="mt-8 rounded-2xl border border-black/5 bg-[#FAFAF5] p-5 shadow-xs">
               {activeNode === 'pv' && (
                 <div className="space-y-2">
-                  <span className="text-[10px] font-bold text-amber-600 uppercase">01 / SOLAR PV CANOPY &amp; ROOFTOP</span>
+                  <span className="text-xs font-bold text-amber-600 uppercase">01 / SOLAR PV CANOPY &amp; ROOFTOP</span>
                   <h3 className="text-base font-bold text-brand-ink">Clean Solar Generation Array</h3>
                   <p className="text-xs text-brand-slate font-normal leading-relaxed">
                     Harnesses solar radiation from rooftop or parking canopy arrays to generate zero-cost green electricity during daylight hours.
@@ -453,7 +453,7 @@ export default function SolarStorageEVChargingPage() {
               )}
               {activeNode === 'battery' && (
                 <div className="space-y-2">
-                  <span className="text-[10px] font-bold text-blue-600 uppercase">02 / LIFEPO4 ENERGY STORAGE</span>
+                  <span className="text-xs font-bold text-blue-600 uppercase">02 / LIFEPO4 ENERGY STORAGE</span>
                   <h3 className="text-base font-bold text-brand-ink">LiFePO4 Storage Buffer Cabinet</h3>
                   <p className="text-xs text-brand-slate font-normal leading-relaxed">
                     Buffers high-power EV charging demand to prevent utility grid overload penalties, storing solar power for night charging and blackout protection.
@@ -462,7 +462,7 @@ export default function SolarStorageEVChargingPage() {
               )}
               {activeNode === 'ev' && (
                 <div className="space-y-2">
-                  <span className="text-[10px] font-bold text-emerald-600 uppercase">03 / SMART EV DISPENSER</span>
+                  <span className="text-xs font-bold text-emerald-600 uppercase">03 / SMART EV DISPENSER</span>
                   <h3 className="text-base font-bold text-brand-ink">AC Wallbox &amp; Super DC Fast Chargers</h3>
                   <p className="text-xs text-brand-slate font-normal leading-relaxed">
                     Delivers clean solar power directly into electric vehicle batteries with dynamic load balancing, multi-gun power sharing, and fast charging speeds up to 240kW.
@@ -471,7 +471,7 @@ export default function SolarStorageEVChargingPage() {
               )}
               {activeNode === 'cloud' && (
                 <div className="space-y-2">
-                  <span className="text-[10px] font-bold text-brand-primary uppercase">04 / SUNLOOP AI PORTAL TELEMETRY</span>
+                  <span className="text-xs font-bold text-brand-primary uppercase">04 / SUNLOOP AI PORTAL TELEMETRY</span>
                   <h3 className="text-base font-bold text-brand-ink">AI Cloud Optimization &amp; Revenue Gateway</h3>
                   <p className="text-xs text-brand-slate font-normal leading-relaxed">
                     Provides 24/7 telemetric monitoring, app user authentication, dynamic solar prioritization, automated tariff arbitrage, and commercial charging billing.
@@ -487,7 +487,7 @@ export default function SolarStorageEVChargingPage() {
       <section className="relative w-full py-20 md:py-24 overflow-hidden bg-gradient-to-br from-[#E86526] via-[#F95738] to-[#D45214] text-white text-center shadow-xl">
         <div className="container relative z-10 max-w-3xl mx-auto px-4 space-y-5">
           <Reveal className="space-y-4">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight">
               Build your Solar + Storage + EV Ecosystem today
             </h2>
             <p className="text-xs sm:text-sm text-white/90 font-medium max-w-lg mx-auto">

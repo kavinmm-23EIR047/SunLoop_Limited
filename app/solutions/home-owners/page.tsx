@@ -32,7 +32,7 @@ export default function HomeOwnersSolutionPage() {
               <h2 className="text-brand-primary font-bold tracking-widest uppercase text-sm md:text-base mb-4">
                 For Homeowners
               </h2>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight max-w-4xl mx-auto mb-4">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight max-w-4xl mx-auto mb-4">
                 Turn your home into a self-sufficient energy system.
               </h1>
               <p className="text-sm md:text-base text-white/90 max-w-2xl mx-auto font-normal">
@@ -105,7 +105,7 @@ export default function HomeOwnersSolutionPage() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <Reveal className="text-center">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-neutral-900 mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-12">
               System Topology
             </h2>
             <img 
@@ -125,7 +125,7 @@ export default function HomeOwnersSolutionPage() {
           <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-24">
             <div className="w-full md:w-1/2 space-y-6">
               <Reveal>
-                <h2 className="text-3xl md:text-5xl font-extrabold text-neutral-900 tracking-tight">
+                <h2 className="text-3xl md:text-5xl font-bold text-neutral-900 tracking-tight">
                   <span className="text-[#E86526]">Smart</span> Solar Module
                 </h2>
                 <h3 className="text-xl font-bold text-neutral-700 mt-4">
@@ -158,7 +158,7 @@ export default function HomeOwnersSolutionPage() {
           <div className="flex flex-col md:flex-row-reverse items-center gap-12 lg:gap-24">
             <div className="w-full md:w-1/2 space-y-6 md:pl-12">
               <Reveal>
-                <h2 className="text-3xl md:text-5xl font-extrabold text-neutral-900 tracking-tight">
+                <h2 className="text-3xl md:text-5xl font-bold text-neutral-900 tracking-tight">
                   <span className="text-[#E86526]">Smart</span> Hybrid Inverter
                 </h2>
                 <h3 className="text-xl font-bold text-neutral-700 mt-4">
@@ -191,7 +191,7 @@ export default function HomeOwnersSolutionPage() {
           <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-24">
             <div className="w-full md:w-1/2 space-y-6">
               <Reveal>
-                <h2 className="text-3xl md:text-5xl font-extrabold text-neutral-900 tracking-tight">
+                <h2 className="text-3xl md:text-5xl font-bold text-neutral-900 tracking-tight">
                   <span className="text-[#E86526]">Smart</span> Battery Bank
                 </h2>
                 <h3 className="text-xl font-bold text-neutral-700 mt-4">
@@ -224,7 +224,7 @@ export default function HomeOwnersSolutionPage() {
           <div className="flex flex-col md:flex-row-reverse items-center gap-12 lg:gap-24">
             <div className="w-full md:w-1/2 space-y-6 md:pl-12">
               <Reveal>
-                <h2 className="text-3xl md:text-5xl font-extrabold text-neutral-900 tracking-tight">
+                <h2 className="text-3xl md:text-5xl font-bold text-neutral-900 tracking-tight">
                   <span className="text-[#E86526]">Smart</span> EV Charger
                 </h2>
                 <h3 className="text-xl font-bold text-neutral-700 mt-4">
@@ -265,7 +265,7 @@ export default function HomeOwnersSolutionPage() {
                 <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-bold text-emerald-400 uppercase tracking-widest border border-white/5">
                   <Smartphone className="h-4 w-4" /> SunLoop AI Portal
                 </span>
-                <h2 className="text-4xl md:text-5xl font-extrabold mt-6 leading-tight">
+                <h2 className="text-4xl md:text-5xl font-bold mt-6 leading-tight">
                   24/7 Monitoring,<br/>Connected on the Cloud.
                 </h2>
                 <h3 className="text-2xl font-semibold text-orange-400 mt-6">
@@ -309,7 +309,7 @@ export default function HomeOwnersSolutionPage() {
         <div className="absolute inset-0 bg-[#FAFAF5] opacity-50" />
         <div className="container relative z-10 mx-auto px-4 max-w-4xl text-center">
           <Reveal>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-neutral-900 tracking-tight">
+            <h2 className="text-4xl md:text-5xl font-bold text-neutral-900 tracking-tight">
               Start a new green life today.
             </h2>
             <p className="text-neutral-500 text-lg mt-4 mb-12">

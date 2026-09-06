@@ -43,11 +43,11 @@ export default function SolarWaterPumpingPage() {
         <div className="absolute inset-0 flex items-center">
           <div className="container relative z-10 max-w-5xl mx-auto px-4">
             <Reveal className="max-w-2xl space-y-4">
-              <span className="inline-flex items-center gap-2 rounded-full bg-cyan-500/20 border border-cyan-400/30 px-3.5 py-1 text-[11px] font-bold text-cyan-300 uppercase tracking-wider">
+              <span className="inline-flex items-center gap-2 rounded-full bg-cyan-500/20 border border-cyan-400/30 px-3.5 py-1 text-xs font-bold text-cyan-300 uppercase tracking-wider">
                 <Droplets className="h-3.5 w-3.5" /> OFF-GRID WATER SOLUTIONS
               </span>
 
-              <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight leading-tight">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight leading-tight">
                 Solar Water Pumping Solution
               </h1>
 
@@ -57,11 +57,11 @@ export default function SolarWaterPumpingPage() {
 
               <div className="flex items-center gap-3 pt-2">
                 <div className="rounded-xl border border-white/15 bg-white/10 backdrop-blur-xs px-3.5 py-1.5 text-xs">
-                  <span className="text-white/60 text-[10px] block">SYSTEM TYPE</span>
+                  <span className="text-white/60 text-xs block">SYSTEM TYPE</span>
                   <strong className="text-cyan-300 font-semibold">AC &amp; DC Solar Pumping</strong>
                 </div>
                 <div className="rounded-xl border border-white/15 bg-white/10 backdrop-blur-xs px-3.5 py-1.5 text-xs">
-                  <span className="text-white/60 text-[10px] block">APPLICATIONS</span>
+                  <span className="text-white/60 text-xs block">APPLICATIONS</span>
                   <strong className="text-white font-semibold">Agriculture, Livestock &amp; Drinking</strong>
                 </div>
               </div>
@@ -84,7 +84,7 @@ export default function SolarWaterPumpingPage() {
         <div className="container max-w-5xl mx-auto px-4 space-y-16">
           <Reveal className="text-center max-w-2xl mx-auto space-y-3">
             <span className="eyebrow inline-block">SUSTAINABLE WATER DISPATCH</span>
-            <h2 className="text-2xl md:text-3xl font-extrabold text-brand-ink">
+            <h2 className="text-2xl md:text-3xl font-bold text-brand-ink">
               Solar Water Pumping Systems
             </h2>
             <p className="text-xs md:text-sm text-brand-slate font-normal">
@@ -103,10 +103,10 @@ export default function SolarWaterPumpingPage() {
             >
               <div className="space-y-1.5">
                 <div className="flex items-center gap-2">
-                  <span className="rounded-md bg-cyan-100 px-2.5 py-0.5 text-[10px] font-bold text-cyan-800 uppercase">
+                  <span className="rounded-md bg-cyan-100 px-2.5 py-0.5 text-xs font-bold text-cyan-800 uppercase">
                     AC Solar Pumping Series
                   </span>
-                  <span className="text-[11px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">
+                  <span className="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">
                     0.75kW – 110kW Heavy Duty
                   </span>
                 </div>
@@ -123,19 +123,19 @@ export default function SolarWaterPumpingPage() {
               {/* SPECS GRID */}
               <div className="grid grid-cols-2 gap-2.5 pt-1">
                 <div className="rounded-xl border border-black/[0.06] bg-white p-3 shadow-2xs">
-                  <span className="block text-[9px] font-semibold text-brand-slate uppercase">Drive Control</span>
+                  <span className="block text-xs font-semibold text-brand-slate uppercase">Drive Control</span>
                   <strong className="block text-xs font-semibold text-brand-ink mt-0.5">Solar VFD MPPT Inverter</strong>
                 </div>
                 <div className="rounded-xl border border-black/[0.06] bg-white p-3 shadow-2xs">
-                  <span className="block text-[9px] font-semibold text-brand-slate uppercase">Pump Type</span>
+                  <span className="block text-xs font-semibold text-brand-slate uppercase">Pump Type</span>
                   <strong className="block text-xs font-semibold text-brand-ink mt-0.5">3-Phase Submersible &amp; Surface</strong>
                 </div>
                 <div className="rounded-xl border border-black/[0.06] bg-white p-3 shadow-2xs">
-                  <span className="block text-[9px] font-semibold text-brand-slate uppercase">Hybrid Backup</span>
+                  <span className="block text-xs font-semibold text-brand-slate uppercase">Hybrid Backup</span>
                   <strong className="block text-xs font-semibold text-brand-ink mt-0.5">Solar + Grid / Generator Auto</strong>
                 </div>
                 <div className="rounded-xl border border-black/[0.06] bg-white p-3 shadow-2xs">
-                  <span className="block text-[9px] font-semibold text-brand-slate uppercase">Primary Use</span>
+                  <span className="block text-xs font-semibold text-brand-slate uppercase">Primary Use</span>
                   <strong className="block text-xs font-semibold text-brand-ink mt-0.5">Farms, Canals &amp; Community Supply</strong>
                 </div>
               </div>
@@ -188,7 +188,7 @@ export default function SolarWaterPumpingPage() {
                     (e.target as HTMLElement).setAttribute('src', '/images/residential-energy.png');
                   }}
                 />
-                <div className="absolute top-4 right-4 rounded-full bg-brand-ink px-3 py-1 text-[10px] font-bold text-white shadow-md">
+                <div className="absolute top-4 right-4 rounded-full bg-brand-ink px-3 py-1 text-xs font-bold text-white shadow-md">
                   AC THREE PHASE DRIVE
                 </div>
               </div>
@@ -214,7 +214,7 @@ export default function SolarWaterPumpingPage() {
                     (e.target as HTMLElement).setAttribute('src', '/images/commercial-energy.png');
                   }}
                 />
-                <div className="absolute top-4 right-4 rounded-full bg-cyan-600 px-3 py-1 text-[10px] font-bold text-white shadow-md">
+                <div className="absolute top-4 right-4 rounded-full bg-cyan-600 px-3 py-1 text-xs font-bold text-white shadow-md">
                   BLDC HIGH TORQUE
                 </div>
               </div>
@@ -230,10 +230,10 @@ export default function SolarWaterPumpingPage() {
             >
               <div className="space-y-1.5">
                 <div className="flex items-center gap-2">
-                  <span className="rounded-md bg-amber-100 px-2.5 py-0.5 text-[10px] font-bold text-amber-800 uppercase">
+                  <span className="rounded-md bg-amber-100 px-2.5 py-0.5 text-xs font-bold text-amber-800 uppercase">
                     DC Solar Pumping Series
                   </span>
-                  <span className="text-[11px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">
+                  <span className="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">
                     24V – 110V Compact DC
                   </span>
                 </div>
@@ -250,19 +250,19 @@ export default function SolarWaterPumpingPage() {
               {/* SPECS GRID */}
               <div className="grid grid-cols-2 gap-2.5 pt-1">
                 <div className="rounded-xl border border-black/[0.06] bg-white p-3 shadow-2xs">
-                  <span className="block text-[9px] font-semibold text-brand-slate uppercase">Motor Type</span>
+                  <span className="block text-xs font-semibold text-brand-slate uppercase">Motor Type</span>
                   <strong className="block text-xs font-semibold text-brand-ink mt-0.5">Brushless Permanent Magnet DC</strong>
                 </div>
                 <div className="rounded-xl border border-black/[0.06] bg-white p-3 shadow-2xs">
-                  <span className="block text-[9px] font-semibold text-brand-slate uppercase">Voltage Range</span>
+                  <span className="block text-xs font-semibold text-brand-slate uppercase">Voltage Range</span>
                   <strong className="block text-xs font-semibold text-brand-ink mt-0.5">24V / 48V / 72V / 110V DC</strong>
                 </div>
                 <div className="rounded-xl border border-black/[0.06] bg-white p-3 shadow-2xs">
-                  <span className="block text-[9px] font-semibold text-brand-slate uppercase">Controller</span>
+                  <span className="block text-xs font-semibold text-brand-slate uppercase">Controller</span>
                   <strong className="block text-xs font-semibold text-brand-ink mt-0.5">Integrated Smart MPPT Driver</strong>
                 </div>
                 <div className="rounded-xl border border-black/[0.06] bg-white p-3 shadow-2xs">
-                  <span className="block text-[9px] font-semibold text-brand-slate uppercase">Primary Use</span>
+                  <span className="block text-xs font-semibold text-brand-slate uppercase">Primary Use</span>
                   <strong className="block text-xs font-semibold text-brand-ink mt-0.5">Livestock, Gardens &amp; Small Farms</strong>
                 </div>
               </div>

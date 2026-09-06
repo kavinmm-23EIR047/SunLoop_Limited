@@ -15,59 +15,38 @@ import {
   Sun,
   BatteryCharging,
   ArrowRight,
-  ShieldCheck
 } from 'lucide-react';
 
-interface ProductDropdownItem {
-  id: string;
-  title: string;
-  specs: string;
-  desc: string;
-  href: string;
-  icon: React.ElementType;
-  color: string;
-  bgColor: string;
-}
+const solutionServices = [
+  { title: 'Solar PV Solution', href: '/solutions/solar-pv' },
+  { title: 'Solar & Storage Solution', href: '/solutions/solar-storage' },
+  { title: 'Solar + Storage + EV Charging', href: '/solutions/solar-storage-ev-charging' },
+  { title: 'Solar Water Pumping', href: '/solutions/solar-water-pumping' },
+  { title: 'Smart Microgrid Solution', href: '/solutions/smart-microgrid' },
+];
 
-const productServices: ProductDropdownItem[] = [
+const productServices = [
   {
     id: 'lithium',
     title: 'Lithium Battery Storage',
     specs: '5 kWh – 500 kWh+',
-    desc: 'LiFePO4 battery storage for 24/7 backup & peak shaving savings.',
     href: '/products/energy-storage',
     icon: BatteryCharging,
-    color: 'text-blue-600',
-    bgColor: 'bg-blue-50 border-blue-100',
   },
   {
     id: 'ev',
     title: 'EV Charging Stations',
     specs: '7.4 kW – 240 kW',
-    desc: 'AC & DC fast chargers with smart load balancing & OCPP billing.',
     href: '/products/ev-charging',
     icon: Zap,
-    color: 'text-[#E86526]',
-    bgColor: 'bg-orange-50 border-orange-100',
   },
   {
     id: 'solar',
     title: 'Solar Power Plants',
     specs: '3 kW – MW+ Scale',
-    desc: 'High-yield rooftop & ground solar PV arrays with AI telemetry.',
     href: '/products/solar-power',
     icon: Sun,
-    color: 'text-amber-500',
-    bgColor: 'bg-amber-50 border-amber-100',
   },
-];
-
-const solutionServices = [
-  { title: 'Solar PV Solution', href: '/solutions/solar-pv' },
-  { title: 'Solar & Storage Solution', href: '/solutions/solar-storage' },
-  { title: 'Solar & Storage & EV Charging Solution', href: '/solutions/solar-storage-ev-charging' },
-  { title: 'Solar Water Pumping Solution', href: '/solutions/solar-water-pumping' },
-  { title: 'Smart Microgrid Solution', href: '/solutions/smart-microgrid' },
 ];
 
 export function Navbar() {
@@ -77,9 +56,6 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [pastHero, setPastHero] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-
-
-
   const [solutionsOpen, setSolutionsOpen] = useState(false);
   const [mobileProductsExpanded, setMobileProductsExpanded] = useState(false);
   const [mobileSolutionsExpanded, setMobileSolutionsExpanded] = useState(false);
@@ -95,6 +71,11 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close mobile nav on route change
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [pathname]);
+
   const handleMouseEnter = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
     setDropdownOpen(true);
@@ -106,8 +87,6 @@ export function Navbar() {
     }, 200);
   };
 
-  const isDarkHeader = isHome && !pastHero;
-
   const handleSolutionsMouseEnter = () => {
     if (solutionsTimeoutRef.current) clearTimeout(solutionsTimeoutRef.current);
     setSolutionsOpen(true);
@@ -118,6 +97,8 @@ export function Navbar() {
       setSolutionsOpen(false);
     }, 200);
   };
+
+  const isDarkHeader = isHome && !pastHero;
 
   return (
     <header
@@ -134,7 +115,7 @@ export function Navbar() {
     >
       <div className="container flex items-center justify-between">
         {/* Brand Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
+        <Link href="/" className="flex items-center gap-2 group" aria-label="Sunloop Energy — Home">
           <img
             src="/images/logo.png"
             alt="Sunloop Energy"
@@ -143,17 +124,20 @@ export function Navbar() {
         </Link>
 
         {/* Desktop Navigation Links */}
-        <nav className={`hidden items-center gap-4 lg:gap-6 text-xs font-semibold xl:flex transition-colors duration-300 ${isDarkHeader ? 'text-white/90' : 'text-slate-800'}`}>
+        <nav
+          aria-label="Main navigation"
+          className={`hidden items-center gap-5 lg:gap-6 text-sm font-medium xl:flex transition-colors duration-300 ${isDarkHeader ? 'text-white/90' : 'text-slate-700'}`}
+        >
           <Link
             href="/"
-            className={`transition py-1 relative ${
-              pathname === '/' ? 'text-[#E86526] font-bold border-b-2 border-[#E86526]' : 'hover:text-[#E86526]'
+            className={`transition py-2 relative whitespace-nowrap ${
+              pathname === '/' ? 'text-[#E86526] font-semibold' : 'hover:text-[#E86526]'
             }`}
           >
             Home
           </Link>
 
-          {/* SOLUTIONS DROPDOWN */}
+          {/* Solutions Dropdown */}
           <div
             className="relative"
             onMouseEnter={handleSolutionsMouseEnter}
@@ -161,11 +145,13 @@ export function Navbar() {
           >
             <button
               onClick={() => setSolutionsOpen(!solutionsOpen)}
-              className="flex items-center gap-1 py-1 font-semibold transition hover:text-[#E86526] focus:outline-none"
+              aria-expanded={solutionsOpen}
+              aria-haspopup="true"
+              className="flex items-center gap-1 py-2 font-medium transition hover:text-[#E86526] focus:outline-none"
             >
               <span>Solutions</span>
               <ChevronDown
-                className={`h-3.5 w-3.5 transition-transform duration-200 text-slate-500 ${
+                className={`h-3.5 w-3.5 transition-transform duration-200 opacity-60 ${
                   solutionsOpen ? 'rotate-180 text-[#E86526]' : ''
                 }`}
               />
@@ -178,26 +164,38 @@ export function Navbar() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 8, scale: 0.98 }}
                   transition={{ duration: 0.15 }}
-                  className="absolute left-0 top-full z-50 mt-2 w-80 overflow-hidden rounded-2xl border border-black/10 bg-white p-2 text-left shadow-xl"
+                  className="absolute left-0 top-full z-50 mt-2 w-72 overflow-hidden rounded-xl border border-black/10 bg-white p-1.5 text-left shadow-xl"
+                  role="menu"
                 >
-                  <div className="space-y-1">
+                  <div className="space-y-0.5">
                     {solutionServices.map((solution) => (
                       <Link
                         key={solution.title}
                         href={solution.href}
                         onClick={() => setSolutionsOpen(false)}
-                        className="block w-full rounded-xl px-4 py-2.5 text-left text-xs font-semibold text-brand-ink transition hover:bg-orange-50/60 hover:text-[#E86526]"
+                        className="block w-full rounded-lg px-4 py-2.5 text-sm font-medium text-brand-ink transition hover:bg-orange-50/60 hover:text-[#E86526]"
+                        role="menuitem"
                       >
                         {solution.title}
                       </Link>
                     ))}
+                    <div className="border-t border-black/5 my-0.5 pt-0.5">
+                      <Link
+                        href="/solutions"
+                        onClick={() => setSolutionsOpen(false)}
+                        className="block w-full rounded-lg px-4 py-2.5 text-sm font-semibold text-[#E86526] hover:bg-orange-50/80 transition"
+                        role="menuitem"
+                      >
+                        All Solutions →
+                      </Link>
+                    </div>
                   </div>
                 </motion.div>
               )}
             </AnimatePresence>
           </div>
 
-          {/* PRODUCTS DROPDOWN MEGA-MENU TRIGGER */}
+          {/* Products Dropdown */}
           <div
             className="relative"
             onMouseEnter={handleMouseEnter}
@@ -205,17 +203,18 @@ export function Navbar() {
           >
             <button
               onClick={() => setDropdownOpen(!dropdownOpen)}
-              className="flex items-center gap-1 py-1 transition hover:text-[#E86526] font-semibold focus:outline-none"
+              aria-expanded={dropdownOpen}
+              aria-haspopup="true"
+              className="flex items-center gap-1 py-2 transition hover:text-[#E86526] font-medium focus:outline-none"
             >
               <span>Products</span>
               <ChevronDown
-                className={`h-3.5 w-3.5 transition-transform duration-200 text-slate-500 ${
+                className={`h-3.5 w-3.5 transition-transform duration-200 opacity-60 ${
                   dropdownOpen ? 'rotate-180 text-[#E86526]' : ''
                 }`}
               />
             </button>
 
-            {/* DROPDOWN VERTICAL LIST PANEL */}
             <AnimatePresence>
               {dropdownOpen && (
                 <motion.div
@@ -223,35 +222,40 @@ export function Navbar() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 8, scale: 0.98 }}
                   transition={{ duration: 0.15 }}
-                  className="absolute left-0 top-full mt-2 w-56 rounded-2xl border border-black/10 bg-white p-2 shadow-xl z-50 overflow-hidden text-left"
+                  className="absolute left-0 top-full mt-2 w-56 rounded-xl border border-black/10 bg-white p-1.5 shadow-xl z-50 overflow-hidden text-left"
+                  role="menu"
                 >
-                  <div className="space-y-1">
+                  <div className="space-y-0.5">
                     <Link
                       href="/products/energy-storage"
                       onClick={() => setDropdownOpen(false)}
-                      className="block w-full rounded-xl px-4 py-2.5 text-xs font-semibold text-brand-ink hover:text-[#E86526] hover:bg-orange-50/60 transition"
+                      className="block w-full rounded-lg px-4 py-2.5 text-sm font-medium text-brand-ink hover:text-[#E86526] hover:bg-orange-50/60 transition"
+                      role="menuitem"
                     >
                       Lithium Battery Storage
                     </Link>
                     <Link
                       href="/products/ev-charging"
                       onClick={() => setDropdownOpen(false)}
-                      className="block w-full rounded-xl px-4 py-2.5 text-xs font-semibold text-brand-ink hover:text-[#E86526] hover:bg-orange-50/60 transition"
+                      className="block w-full rounded-lg px-4 py-2.5 text-sm font-medium text-brand-ink hover:text-[#E86526] hover:bg-orange-50/60 transition"
+                      role="menuitem"
                     >
                       EV Fast Chargers
                     </Link>
                     <Link
                       href="/products/solar-power"
                       onClick={() => setDropdownOpen(false)}
-                      className="block w-full rounded-xl px-4 py-2.5 text-xs font-semibold text-brand-ink hover:text-[#E86526] hover:bg-orange-50/60 transition"
+                      className="block w-full rounded-lg px-4 py-2.5 text-sm font-medium text-brand-ink hover:text-[#E86526] hover:bg-orange-50/60 transition"
+                      role="menuitem"
                     >
                       Solar Power Plants
                     </Link>
-                    <div className="border-t border-black/5 my-1 pt-1">
+                    <div className="border-t border-black/5 my-0.5 pt-0.5">
                       <Link
                         href="/products"
                         onClick={() => setDropdownOpen(false)}
-                        className="block w-full rounded-xl px-4 py-2.5 text-xs font-bold text-[#E86526] hover:bg-orange-50/80 transition"
+                        className="block w-full rounded-lg px-4 py-2.5 text-sm font-semibold text-[#E86526] hover:bg-orange-50/80 transition"
+                        role="menuitem"
                       >
                         All Products →
                       </Link>
@@ -262,127 +266,194 @@ export function Navbar() {
             </AnimatePresence>
           </div>
 
-          <Link href="/solutions/home-owners" className="transition hover:text-[#E86526] whitespace-nowrap">
+          {/* Dedicated top-level links for Home Owners and Business Owners */}
+          <Link
+            href="/solutions/home-owners"
+            className={`transition py-2 relative whitespace-nowrap ${
+              pathname === '/solutions/home-owners' ? 'text-[#E86526] font-semibold' : 'hover:text-[#E86526]'
+            }`}
+          >
             Home Owners
           </Link>
 
-          <Link href="/solutions/business-owners" className="transition hover:text-[#E86526] whitespace-nowrap">
+          <Link
+            href="/solutions/business-owners"
+            className={`transition py-2 relative whitespace-nowrap ${
+              pathname === '/solutions/business-owners' ? 'text-[#E86526] font-semibold' : 'hover:text-[#E86526]'
+            }`}
+          >
             Business Owners
           </Link>
 
-          <Link href="/company" className="transition hover:text-[#E86526] whitespace-nowrap">
+          {/* AI Portal — subtle text link */}
+          <Link
+            href="/ai-portal"
+            className={`flex items-center gap-1.5 py-2 font-medium transition whitespace-nowrap hover:text-[#E86526] ${
+              pathname === '/ai-portal' ? 'text-[#E86526]' : ''
+            }`}
+          >
+            <Bot className={`h-4 w-4 ${isDarkHeader ? 'text-white/70' : 'text-[#E86526]'}`} />
+            AI Portal
+          </Link>
+
+          <Link href="/company" className="transition hover:text-[#E86526] whitespace-nowrap py-2">
             Company
           </Link>
 
-          {/* AI Portal Pill Button */}
-          <Link
-            href="/ai-portal"
-            className={`flex items-center gap-2 rounded-md border px-4 py-2 text-xs font-semibold shadow-xs transition ${
-              isDarkHeader
-                ? 'border-white/20 bg-white/10 text-white hover:bg-white/20'
-                : 'border-slate-200 bg-white text-slate-800 hover:border-[#E86526] hover:text-[#E86526]'
-            }`}
-          >
-            <Bot className={`h-4 w-4 ${isDarkHeader ? 'text-white' : 'text-[#E86526]'}`} />
-            AI Portal Dashboard
-          </Link>
-
-          {/* Get a Quote Solid Orange Pill */}
+          {/* Primary CTA — the only prominent button */}
           <Link
             href="/contact"
-            className="flex items-center gap-1.5 rounded-md bg-[#E86526] px-5 py-2.5 text-xs font-bold text-white shadow-md hover:bg-[#c95315] transition"
+            className="flex items-center gap-1.5 rounded-lg bg-[#E86526] px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#c95315] transition ml-1"
           >
-            Get a Quote <ArrowUpRight className="h-3.5 w-3.5" />
+            Get a Quote <ArrowUpRight className="h-4 w-4" />
           </Link>
         </nav>
 
         {/* Mobile Hamburger Button */}
         <button
-          className={`xl:hidden p-2 ${isDarkHeader ? 'text-white' : 'text-brand-ink'}`}
+          className={`xl:hidden flex items-center justify-center h-11 w-11 rounded-lg transition ${isDarkHeader ? 'text-white hover:bg-white/10' : 'text-brand-ink hover:bg-slate-100'}`}
           onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
+          aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          aria-expanded={mobileOpen}
         >
           {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </div>
 
-      {/* MOBILE NAVIGATION DRAWER */}
-      {mobileOpen && (
-        <nav className="container grid gap-2 border-t border-black/10 pb-5 pt-4 md:hidden bg-white/98 backdrop-blur-xl shadow-xl mt-2 rounded-md text-xs font-semibold">
-          <Link onClick={() => setMobileOpen(false)} className="rounded-md px-3 py-2.5 hover:bg-brand-bg text-brand-ink" href="/">
-            Home
-          </Link>
-
-          {/* Mobile Expandable Solutions Accordion */}
-          <div>
-            <button
-              onClick={() => setMobileSolutionsExpanded(!mobileSolutionsExpanded)}
-              className="flex w-full items-center justify-between rounded-md px-3 py-2.5 font-semibold text-brand-ink hover:bg-brand-bg"
-            >
-              <span>Solutions (5 Services)</span>
-              <ChevronDown className={`h-4 w-4 transition-transform ${mobileSolutionsExpanded ? 'rotate-180 text-brand-primary' : ''}`} />
-            </button>
-
-            {mobileSolutionsExpanded && (
-              <div className="ml-3 mt-1 space-y-1 border-l-2 border-brand-primary/20 py-2 pl-4">
-                {solutionServices.map((solution) => (
-                  <Link
-                    key={solution.title}
-                    href={solution.href}
-                    onClick={() => setMobileOpen(false)}
-                    className="block w-full rounded-md p-2 text-left text-brand-ink hover:bg-orange-50/50 hover:text-brand-primary"
-                  >
-                    {solution.title}
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* Mobile Expandable Products Accordion */}
-          <div>
-            <button
-              onClick={() => setMobileProductsExpanded(!mobileProductsExpanded)}
-              className="w-full flex items-center justify-between rounded-md px-3 py-2.5 text-brand-ink hover:bg-brand-bg font-semibold"
-            >
-              <span>Products (3 Services)</span>
-              <ChevronDown className={`h-4 w-4 transition-transform ${mobileProductsExpanded ? 'rotate-180 text-brand-primary' : ''}`} />
-            </button>
-
-            {mobileProductsExpanded && (
-              <div className="pl-4 py-2 space-y-2 border-l-2 border-brand-primary/20 ml-3 mt-1">
-                {productServices.map((svc) => (
-                  <Link
-                    key={svc.id}
-                    onClick={() => setMobileOpen(false)}
-                    href={svc.href}
-                    className="block rounded-md p-2 hover:bg-orange-50/50"
-                  >
-                    <strong className="block text-brand-ink font-bold text-xs">{svc.title}</strong>
-                    <span className="text-[10px] text-brand-primary font-semibold">{svc.specs}</span>
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
-
-          <Link
-            onClick={() => setMobileOpen(false)}
-            className="rounded-md px-3 py-2.5 bg-brand-bg text-brand-primary flex items-center gap-2 font-bold"
-            href="/ai-portal"
+      {/* Mobile Navigation Drawer */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.nav
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.2 }}
+            className="xl:hidden border-t border-black/10 bg-white shadow-xl overflow-hidden"
+            aria-label="Mobile navigation"
           >
-            <Bot className="h-4 w-4" /> AI Portal Dashboard (Clean Solid)
-          </Link>
+            <div className="container grid gap-1 py-4 text-sm font-medium">
+              <Link
+                onClick={() => setMobileOpen(false)}
+                className="rounded-lg px-4 py-3 min-h-[44px] flex items-center hover:bg-slate-50 text-brand-ink"
+                href="/"
+              >
+                Home
+              </Link>
 
-          <Link onClick={() => setMobileOpen(false)} className="rounded-md px-3 py-2.5 hover:bg-brand-bg text-brand-ink" href="/company">
-            Company
-          </Link>
+              {/* Mobile Solutions Accordion */}
+              <div>
+                <button
+                  onClick={() => setMobileSolutionsExpanded(!mobileSolutionsExpanded)}
+                  aria-expanded={mobileSolutionsExpanded}
+                  className="flex w-full items-center justify-between rounded-lg px-4 py-3 min-h-[44px] font-medium text-brand-ink hover:bg-slate-50"
+                >
+                  <span>Solutions</span>
+                  <ChevronDown className={`h-4 w-4 transition-transform ${mobileSolutionsExpanded ? 'rotate-180 text-brand-primary' : ''}`} />
+                </button>
 
-          <Link onClick={() => setMobileOpen(false)} className="rounded-md px-3 py-2.5 bg-brand-primary text-white text-center font-bold" href="/contact">
-            Get a Quote
-          </Link>
-        </nav>
-      )}
+                <AnimatePresence>
+                  {mobileSolutionsExpanded && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.15 }}
+                      className="ml-4 mt-1 space-y-0.5 border-l-2 border-brand-primary/20 py-1 pl-4 overflow-hidden"
+                    >
+                      {solutionServices.map((solution) => (
+                        <Link
+                          key={solution.title}
+                          href={solution.href}
+                          onClick={() => setMobileOpen(false)}
+                          className="block w-full rounded-lg py-2.5 px-3 min-h-[44px] flex items-center text-sm text-brand-ink hover:bg-orange-50/50 hover:text-brand-primary"
+                        >
+                          {solution.title}
+                        </Link>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* Mobile Products Accordion */}
+              <div>
+                <button
+                  onClick={() => setMobileProductsExpanded(!mobileProductsExpanded)}
+                  aria-expanded={mobileProductsExpanded}
+                  className="w-full flex items-center justify-between rounded-lg px-4 py-3 min-h-[44px] text-brand-ink hover:bg-slate-50 font-medium"
+                >
+                  <span>Products</span>
+                  <ChevronDown className={`h-4 w-4 transition-transform ${mobileProductsExpanded ? 'rotate-180 text-brand-primary' : ''}`} />
+                </button>
+
+                <AnimatePresence>
+                  {mobileProductsExpanded && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.15 }}
+                      className="pl-4 py-1 space-y-0.5 border-l-2 border-brand-primary/20 ml-4 mt-1 overflow-hidden"
+                    >
+                      {productServices.map((svc) => (
+                        <Link
+                          key={svc.id}
+                          onClick={() => setMobileOpen(false)}
+                          href={svc.href}
+                          className="block rounded-lg py-2.5 px-3 min-h-[44px] hover:bg-orange-50/50"
+                        >
+                          <strong className="block text-sm text-brand-ink font-semibold">{svc.title}</strong>
+                          <span className="text-xs text-brand-primary font-medium">{svc.specs}</span>
+                        </Link>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              <Link
+                onClick={() => setMobileOpen(false)}
+                className="rounded-lg px-4 py-3 min-h-[44px] flex items-center hover:bg-slate-50 text-brand-ink font-medium"
+                href="/solutions/home-owners"
+              >
+                Home Owners
+              </Link>
+
+              <Link
+                onClick={() => setMobileOpen(false)}
+                className="rounded-lg px-4 py-3 min-h-[44px] flex items-center hover:bg-slate-50 text-brand-ink font-medium"
+                href="/solutions/business-owners"
+              >
+                Business Owners
+              </Link>
+
+              <Link
+                onClick={() => setMobileOpen(false)}
+                className="rounded-lg px-4 py-3 min-h-[44px] flex items-center gap-2 text-brand-primary font-semibold hover:bg-orange-50/50"
+                href="/ai-portal"
+              >
+                <Bot className="h-4 w-4" /> AI Portal
+              </Link>
+
+              <Link
+                onClick={() => setMobileOpen(false)}
+                className="rounded-lg px-4 py-3 min-h-[44px] flex items-center hover:bg-slate-50 text-brand-ink"
+                href="/company"
+              >
+                Company
+              </Link>
+
+              <Link
+                onClick={() => setMobileOpen(false)}
+                className="rounded-lg px-4 py-3 min-h-[44px] flex items-center justify-center bg-brand-primary text-white text-center font-semibold mt-2"
+                href="/contact"
+              >
+                Get a Quote
+              </Link>
+            </div>
+          </motion.nav>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

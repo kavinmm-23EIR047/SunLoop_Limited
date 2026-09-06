@@ -93,8 +93,8 @@ export default function SmartMicrogridPage() {
         <div className="absolute inset-0 flex items-center">
           <div className="container relative z-10 mx-auto max-w-5xl px-4">
             <Reveal className="max-w-3xl space-y-4">
-              <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-brand-apricot"><Wind className="h-3.5 w-3.5" /> For Utilities &amp; Developers</span>
-              <h1 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl">Grid-Scale Solar, ESS &amp; EV Microgrid Solutions</h1>
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-brand-apricot"><Wind className="h-3.5 w-3.5" /> For Utilities &amp; Developers</span>
+              <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">Grid-Scale Solar, ESS &amp; EV Microgrid Solutions</h1>
               <p className="text-sm md:text-base text-white/90 font-normal leading-relaxed">
                 For utilities, EPC partners, and large-scale developers, Sunloop delivers Utility-Scale Solar Plants, Containerized ESS, and public DC fast-charging networks — engineered for grid integration.
               </p>
@@ -118,8 +118,8 @@ export default function SmartMicrogridPage() {
               <p className="text-sm leading-relaxed text-brand-slate">This solution combines renewable power from wind and solar PV, conventional power from diesel and gas gensets, and energy storage into a coordinated “source + storage + load” architecture. It enables both grid-connected collaboration and independent off-grid operation for enhanced reliability and flexibility.</p>
               <p className="text-sm leading-relaxed text-brand-slate">The system supports seamless switching between grid-connected and off-grid modes, ensuring uninterrupted power during faults or outages. Its centralized controller and energy management system optimize generation, storage, and load through intelligent dispatch, power smoothing, peak shaving, and protection functions based on real-time data.</p>
               <div className="flex flex-wrap gap-2 pt-2">
-                <span className="rounded-full bg-brand-primary px-3 py-1.5 text-[11px] font-bold text-white">Off Grid</span>
-                <span className="rounded-full border border-brand-primary/25 bg-orange-50 px-3 py-1.5 text-[11px] font-bold text-brand-primary">On/Off Grid</span>
+                <span className="rounded-full bg-brand-primary px-3 py-1.5 text-xs font-bold text-white">Off Grid</span>
+                <span className="rounded-full border border-brand-primary/25 bg-orange-50 px-3 py-1.5 text-xs font-bold text-brand-primary">On/Off Grid</span>
               </div>
             </motion.div>
 
