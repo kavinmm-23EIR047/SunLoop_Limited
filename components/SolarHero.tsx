@@ -92,12 +92,12 @@ export default function SolarHero() {
               variants={fadeUp(0.65)}
               initial="hidden"
               animate="visible"
-              className="flex flex-row items-center gap-2.5 sm:gap-4 mb-8 sm:mb-10 flex-wrap"
+              className="flex flex-row items-center gap-2.5 sm:gap-4 flex-wrap"
             >
               {/* Primary CTA */}
               <Link
                 href="/contact"
-                className="group inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-xl bg-brand-primary px-4 sm:px-6 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold text-white shadow-lg hover:bg-[#c95315] transition-all duration-300 min-h-[44px] whitespace-nowrap"
+                className="group inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-xl bg-brand-primary px-5 sm:px-6 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold text-white shadow-lg hover:bg-[#c95315] transition-all duration-300 min-h-[44px] whitespace-nowrap"
               >
                 Get a Quote
                 <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -106,29 +106,10 @@ export default function SolarHero() {
               {/* Secondary CTA */}
               <Link
                 href="/solutions"
-                className="inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 px-4 sm:px-6 py-3 sm:py-3.5 text-xs sm:text-sm font-medium text-white hover:bg-white/20 transition-all duration-300 min-h-[44px] whitespace-nowrap"
+                className="inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 px-5 sm:px-6 py-3 sm:py-3.5 text-xs sm:text-sm font-medium text-white hover:bg-white/20 transition-all duration-300 min-h-[44px] whitespace-nowrap"
               >
                 Explore Solutions
               </Link>
-            </motion.div>
-
-            {/* Quick Stats Grid */}
-            <motion.div
-              variants={fadeUp(0.8)}
-              initial="hidden"
-              animate="visible"
-              className="grid grid-cols-3 gap-3 sm:gap-10 border-t border-white/20 pt-4 sm:pt-6"
-            >
-              {[
-                { value: '500+', label: 'Sites Deployed' },
-                { value: '10+ Yrs', label: 'Industry Leadership' },
-                { value: '24/7', label: 'AI Monitoring' },
-              ].map((stat) => (
-                <div key={stat.label}>
-                  <div className="text-xl sm:text-3xl font-bold text-white tracking-tight">{stat.value}</div>
-                  <div className="text-[10px] sm:text-xs font-semibold text-white/70 tracking-wide mt-0.5 leading-tight">{stat.label}</div>
-                </div>
-              ))}
             </motion.div>
           </div>
         </div>
@@ -137,12 +118,12 @@ export default function SolarHero() {
           variants={fadeIn(1.2)}
           initial="hidden"
           animate="visible"
-          className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1.5"
+          className="hidden sm:flex absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex-col items-center gap-1"
           aria-hidden="true"
         >
           <span className="text-[11px] font-semibold tracking-wide text-white/60">Scroll</span>
           <motion.div
-            animate={{ y: [0, 6, 0] }}
+            animate={{ y: [0, 5, 0] }}
             transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}
           >
             <ChevronDown className="h-4 w-4 text-white/60" />
@@ -150,35 +131,96 @@ export default function SolarHero() {
         </motion.div>
       </section>
 
-      <section className="relative z-20 bg-white border-b border-brand-border">
-        <div className="container mx-auto max-w-7xl px-6 sm:px-8 py-10 sm:py-14">
+      {/* CONNECTED RADIUS CARDS SECTION (OUTSIDE HERO) */}
+      <section className="relative z-20 bg-[#FAFAF7] pt-4 pb-14 sm:pb-20 border-b border-black/5">
+        <div className="container mx-auto max-w-7xl px-4 sm:px-8">
+          
+          {/* CONNECTED FLOATING STATS RADIUS BAR */}
           <motion.div
-            variants={scaleIn(0.1)}
+            variants={fadeUp(0.1)}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+            className="relative -mt-14 sm:-mt-16 z-30 mb-8 sm:mb-12 rounded-2xl sm:rounded-3xl bg-white border border-black/10 shadow-[0_15px_40px_rgba(0,0,0,0.07)] p-4 sm:p-7 grid grid-cols-3 divide-x divide-black/10"
+          >
+            <div className="px-2 sm:px-6 text-center sm:text-left">
+              <div className="text-xl sm:text-3xl font-extrabold text-[#E86526] tracking-tight">500+</div>
+              <div className="text-[11px] sm:text-xs font-bold text-slate-700 mt-0.5 uppercase tracking-wide">Sites Deployed</div>
+            </div>
+            <div className="px-2 sm:px-6 text-center sm:text-left">
+              <div className="text-xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">10+ Yrs</div>
+              <div className="text-[11px] sm:text-xs font-bold text-slate-700 mt-0.5 uppercase tracking-wide">Industry Leadership</div>
+            </div>
+            <div className="px-2 sm:px-6 text-center sm:text-left">
+              <div className="text-xl sm:text-3xl font-extrabold text-emerald-600 tracking-tight">24/7</div>
+              <div className="text-[11px] sm:text-xs font-bold text-slate-700 mt-0.5 uppercase tracking-wide">AI Monitoring</div>
+            </div>
+          </motion.div>
+
+          {/* 4 CORE PILLARS RADIUS CARDS */}
+          <motion.div
+            variants={scaleIn(0.15)}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"
           >
             {[
-              { icon: Sun, title: 'Smart Solar Solutions', desc: 'High-efficiency solar power plants for homes, businesses, and industries.', href: '/products/solar-power' },
-              { icon: BatteryCharging, title: 'Energy Storage Systems', desc: 'Reliable and scalable energy storage for uninterrupted power.', href: '/products/energy-storage' },
-              { icon: Zap, title: 'EV Charging Infrastructure', desc: 'Future-ready EV charging solutions for a sustainable tomorrow.', href: '/products/ev-charging' },
-              { icon: Cpu, title: 'AI Energy Management', desc: 'Intelligent monitoring and control with real-time insights.', href: '/ai-portal' },
+              {
+                icon: Sun,
+                title: 'Smart Solar Solutions',
+                desc: 'High-efficiency solar power plants for homes, commercial rooftops, and utility-scale projects.',
+                href: '/products/solar-power',
+                badge: 'Solar PV',
+              },
+              {
+                icon: BatteryCharging,
+                title: 'Energy Storage Systems',
+                desc: 'Reliable and modular lithium battery storage (5 kWh to 2 MWh) for 24/7 uninterrupted power.',
+                href: '/products/energy-storage',
+                badge: 'LiFePO4 ESS',
+              },
+              {
+                icon: Zap,
+                title: 'EV Charging Infrastructure',
+                desc: 'Fast AC & DC charging solutions (7.4 kW to 240 kW) engineered for residential and commercial fleets.',
+                href: '/products/ev-charging',
+                badge: 'OCPP 1.6J',
+              },
+              {
+                icon: Cpu,
+                title: 'AI Energy Management',
+                desc: 'Intelligent monitoring, remote optimization, and peak-shaving control with real-time analytics.',
+                href: '/ai-portal',
+                badge: 'Cloud AI',
+              },
             ].map((feature) => (
               <Link
                 key={feature.title}
                 href={feature.href}
-                className="group flex items-start gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors duration-200 min-h-[44px]"
+                className="group relative flex flex-col justify-between p-6 rounded-2xl sm:rounded-3xl bg-white border border-black/[0.08] hover:border-[#E86526] shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1.5"
               >
-                <div className="h-11 w-11 shrink-0 rounded-xl bg-orange-50 border border-orange-200/60 flex items-center justify-center text-[#E86526]">
-                  <feature.icon className="h-5 w-5" />
-                </div>
                 <div>
-                  <strong className="block text-sm font-semibold text-slate-900 mb-1">{feature.title}</strong>
-                  <p className="text-sm text-slate-500 leading-relaxed">{feature.desc}</p>
-                  <span className="inline-flex items-center gap-1 text-sm font-semibold text-brand-primary mt-2 group-hover:gap-2 transition-all duration-200">
-                    Learn More <ArrowRight className="h-3.5 w-3.5" />
-                  </span>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="h-12 w-12 rounded-2xl bg-orange-50 border border-orange-200/60 flex items-center justify-center text-[#E86526] group-hover:bg-[#E86526] group-hover:text-white transition-all duration-300 shadow-2xs">
+                      <feature.icon className="h-6 w-6" />
+                    </div>
+                    <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 uppercase tracking-wide group-hover:bg-orange-50 group-hover:text-[#E86526] transition-colors">
+                      {feature.badge}
+                    </span>
+                  </div>
+
+                  <strong className="block text-base font-bold text-slate-900 mb-2 group-hover:text-[#E86526] transition-colors">
+                    {feature.title}
+                  </strong>
+                  <p className="text-xs sm:text-sm text-slate-500 leading-relaxed font-normal">
+                    {feature.desc}
+                  </p>
+                </div>
+
+                <div className="pt-4 mt-4 border-t border-black/5 flex items-center justify-between text-xs font-bold text-[#E86526]">
+                  <span>Explore Solution</span>
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-1" />
                 </div>
               </Link>
             ))}
