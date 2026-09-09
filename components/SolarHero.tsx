@@ -25,16 +25,22 @@ export default function SolarHero() {
     <>
       <section className="relative w-full min-h-[92vh] sm:min-h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <motion.img
-            src="/images/solar-hero-bg-4k.png"
-            alt="Solar PV arrays, ESS battery containers, and EV charging infrastructure powering sustainable energy"
-            className="h-full w-full object-cover object-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
-            fetchPriority="high"
-            decoding="async"
-          />
+          <picture>
+            <source
+              media="(max-width: 768px)"
+              srcSet="/images/solar-hero-bg-mobile.jpg"
+            />
+            <motion.img
+              src="/images/solar-hero-bg-4k.png"
+              alt="Solar PV arrays, ESS battery containers, and EV charging infrastructure powering sustainable energy"
+              className="h-full w-full object-cover object-center"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, ease: 'easeOut' }}
+              fetchPriority="high"
+              decoding="async"
+            />
+          </picture>
           <div className="absolute inset-0 hero-overlay" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30" />
         </div>
