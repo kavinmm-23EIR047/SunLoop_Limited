@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { Download, FileText } from 'lucide-react';
-import { allDatasheets, loopSeriesOverview } from '../../data/allProducts';
+import { allDatasheets, loopSeriesOverview } from '../../../data/allProducts';
 
 const seriesFilters = [
   { id: 'all', label: 'All' },
