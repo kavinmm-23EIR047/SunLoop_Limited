@@ -38,19 +38,19 @@ export function ProductDatasheetView({ entry }: { entry: DatasheetEntry }) {
   const handlePrint = () => window.print();
 
   return (
-    <article className="datasheet-page min-h-screen bg-white">
+    <article className="datasheet-page min-h-screen bg-white pt-20 sm:pt-24 font-sans">
       {/* Toolbar */}
-      <div className="no-print sticky top-0 z-40 border-b-2 border-brand-primary bg-white shadow-sm">
-        <div className="container flex flex-wrap items-center justify-between gap-3 py-3">
-          <Link href="/resources/datasheets" className="inline-flex items-center gap-2 text-sm font-semibold text-brand-primary hover:underline">
+      <div className="no-print sticky top-16 sm:top-20 z-40 border-b border-black/10 bg-white/95 backdrop-blur-md shadow-xs">
+        <div className="container mx-auto px-4 sm:px-6 flex flex-wrap items-center justify-between gap-2.5 py-3">
+          <Link href="/resources/datasheets" className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#E86526] hover:underline">
             <ArrowLeft className="h-4 w-4" /> Back to Downloads
           </Link>
-          <div className="flex gap-2">
-            <button onClick={handlePrint} className="inline-flex items-center gap-2 rounded-sm border-2 border-brand-primary px-4 py-2 text-sm font-bold text-brand-primary hover:bg-brand-bg-subtle transition">
-              <Printer className="h-4 w-4" /> Print / Save PDF
+          <div className="flex items-center gap-2">
+            <button onClick={handlePrint} className="inline-flex items-center gap-1.5 rounded-lg border border-[#E86526] px-3 sm:px-4 py-2 text-xs sm:text-sm font-bold text-[#E86526] hover:bg-orange-50 transition">
+              <Printer className="h-3.5 w-3.5 sm:h-4 sm:w-4" /> Print / Save PDF
             </button>
-            <Link href="/contact" className="inline-flex items-center gap-2 rounded-sm bg-brand-primary px-4 py-2 text-sm font-bold text-white hover:bg-brand-secondary transition">
-              <Download className="h-4 w-4" /> Request Quote
+            <Link href="/contact" className="inline-flex items-center gap-1.5 rounded-lg bg-[#E86526] px-3.5 sm:px-4 py-2 text-xs sm:text-sm font-bold text-white hover:bg-[#d8581c] transition shadow-xs">
+              <Download className="h-3.5 w-3.5 sm:h-4 sm:w-4" /> Request Quote
             </Link>
           </div>
         </div>

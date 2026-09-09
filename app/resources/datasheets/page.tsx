@@ -49,7 +49,7 @@ export default function DatasheetsPage() {
   });
 
   return (
-    <main className="min-h-screen bg-white pt-16 font-sans">
+    <main className="min-h-screen bg-white pt-20 sm:pt-24 font-sans">
       {/* SunArk-style page header */}
       <section className="border-b-4 border-brand-primary bg-brand-bg-subtle">
         <div className="container py-10 md:py-14">
@@ -62,7 +62,7 @@ export default function DatasheetsPage() {
       </section>
 
       {/* Category tabs — SunArk download page */}
-      <section className="border-b border-brand-border bg-white sticky top-16 z-30">
+      <section className="border-b border-brand-border bg-white sticky top-16 sm:top-20 z-30">
         <div className="container py-3 overflow-x-auto">
           <div className="flex gap-1 min-w-max">
             {categoryTabs.map((tab) => (
