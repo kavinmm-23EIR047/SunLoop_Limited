@@ -23,7 +23,7 @@ const scaleIn = (delay = 0) => ({
 export default function SolarHero() {
   return (
     <>
-      <section className="relative w-full min-h-[92vh] sm:min-h-screen flex items-center overflow-hidden">
+      <section className="relative w-full min-h-[85vh] sm:min-h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <picture>
             <source
@@ -45,14 +45,14 @@ export default function SolarHero() {
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30" />
         </div>
 
-        <div className="container relative z-10 mx-auto px-4 sm:px-8 max-w-7xl pt-20 pb-12 sm:pt-28 sm:pb-16 lg:pt-36 lg:pb-20">
+        <div className="container relative z-10 mx-auto px-4 sm:px-8 max-w-7xl pt-16 pb-6 sm:pt-20 sm:pb-8 lg:pt-20 lg:pb-10">
           <div className="max-w-3xl">
             {/* Trust Badge / Decade Pill — Sleek Frosted Glassmorphism */}
             <motion.div
               variants={fadeUp(0.2)}
               initial="hidden"
               animate="visible"
-              className="inline-flex items-center gap-2 rounded-full bg-black/40 backdrop-blur-md border border-white/20 px-3.5 py-1.5 text-xs text-white shadow-lg mb-4 sm:mb-6 max-w-full"
+              className="inline-flex items-center gap-2 rounded-full bg-black/40 backdrop-blur-md border border-white/20 px-3.5 py-1.5 text-xs text-white shadow-lg mb-4 sm:mb-5 max-w-full"
             >
               <span className="flex h-2 w-2 rounded-full bg-[#E86526] animate-pulse shrink-0" />
               <span className="font-bold text-[#FFA07A] text-[11px] sm:text-xs tracking-wide uppercase whitespace-nowrap">
