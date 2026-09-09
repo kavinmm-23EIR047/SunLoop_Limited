@@ -34,7 +34,8 @@ function WhatsAppIcon({ className = 'h-4 w-4' }: { className?: string }) {
 export function Footer() {
   return (
     <footer className="bg-[#FAFAFA] text-brand-ink pt-16 pb-8 border-t border-black/[0.06] font-sans">
-      {/* TOP NEWSLETTER & ACTION BANNER */}
+      
+      {/* TOP NEWSLETTER & ECOSYSTEM ACTION BANNER */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-14">
         <div className="rounded-3xl bg-white border border-black/[0.07] shadow-[0_10px_35px_rgba(0,0,0,0.03)] p-6 sm:p-8 lg:p-10 flex flex-col lg:flex-row items-center justify-between gap-8">
           
@@ -42,14 +43,14 @@ export function Footer() {
             <img
               src="/images/solar-card-illustration.png"
               alt="Solar Energy Ecosystem"
-              className="h-32 sm:h-36 md:h-40 w-auto object-contain"
+              className="h-28 sm:h-36 w-auto object-contain"
               loading="lazy"
             />
           </div>
 
-          <div className="w-full lg:max-w-xl space-y-3 text-center lg:text-left">
+          <div className="w-full lg:max-w-xl space-y-2.5 text-center lg:text-left">
             <span className="inline-flex items-center gap-1.5 text-xs font-bold text-[#E86526] uppercase tracking-widest bg-orange-50 px-3 py-1 rounded-full border border-orange-100">
-              <Sparkles className="h-3.5 w-3.5" aria-hidden="true" /> Clean Tech &amp; AI Innovation
+              <Sparkles className="h-3.5 w-3.5" aria-hidden="true" /> Clean Energy &amp; AI Innovation
             </span>
             <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-brand-ink">
               Join the Sunloop Energy Ecosystem
@@ -59,13 +60,13 @@ export function Footer() {
             </p>
           </div>
 
-          <div className="w-full lg:w-[380px] shrink-0">
+          <div className="w-full lg:w-[360px] shrink-0">
             <form onSubmit={(e) => e.preventDefault()} className="flex flex-col sm:flex-row items-center gap-2.5">
               <div className="relative w-full">
                 <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-brand-slate" aria-hidden="true" />
                 <input
                   type="email"
-                  placeholder="Enter business email"
+                  placeholder="Enter your email address"
                   className="w-full rounded-xl border border-black/10 bg-[#FAFAFA] pl-10 pr-3 py-3 text-sm text-brand-ink placeholder-brand-slate/70 focus:border-[#E86526] focus:bg-white focus:outline-none transition shadow-2xs min-h-[44px]"
                 />
               </div>
@@ -101,7 +102,7 @@ export function Footer() {
               Engineering intelligent clean energy ecosystems — Solar Power Plants, Battery Energy Storage Systems (BESS), and EV Fast Chargers, connected through the Sunloop AI Portal.
             </p>
 
-            <div className="space-y-2.5 pt-1">
+            <div className="space-y-2 pt-1">
               <div className="inline-flex items-center gap-2 rounded-full border border-black/[0.08] bg-white px-3.5 py-1.5 text-xs font-semibold text-brand-ink shadow-2xs">
                 <Globe className="h-4 w-4 text-[#E86526]" aria-hidden="true" />
                 <span>UN SDG 7 — Clean &amp; Affordable Energy</span>
@@ -112,36 +113,40 @@ export function Footer() {
               </div>
             </div>
 
-            {/* Social Media (Only WhatsApp and Instagram) */}
+            {/* Social Media (WhatsApp and Instagram - Rich Solid Design) */}
             <div className="pt-2">
               <span className="block text-xs font-bold uppercase tracking-wider text-brand-slate mb-3">
                 Connect With Us
               </span>
               <div className="flex flex-wrap items-center gap-3">
-                {/* WhatsApp button */}
+                {/* WhatsApp Button */}
                 <a
                   href={contact.whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Chat on WhatsApp"
-                  className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl border border-emerald-500/20 bg-emerald-50/70 text-emerald-800 hover:bg-emerald-600 hover:text-white hover:border-emerald-600 transition shadow-2xs text-xs font-bold"
+                  className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl border border-emerald-500/25 bg-emerald-500/10 text-emerald-800 hover:bg-[#25D366] hover:text-white hover:border-[#25D366] transition-all duration-200 shadow-2xs text-xs font-bold group"
                 >
-                  <WhatsAppIcon className="h-4 w-4 text-emerald-600 group-hover:text-white" />
+                  <div className="h-6 w-6 rounded-lg bg-[#25D366] text-white flex items-center justify-center group-hover:bg-white group-hover:text-[#25D366] transition shadow-xs">
+                    <WhatsAppIcon className="h-3.5 w-3.5" />
+                  </div>
                   <span>WhatsApp</span>
-                  <ArrowUpRight className="h-3.5 w-3.5 opacity-70" aria-hidden="true" />
+                  <ArrowUpRight className="h-3.5 w-3.5 opacity-60 group-hover:opacity-100 transition" />
                 </a>
 
-                {/* Instagram button */}
+                {/* Instagram Button */}
                 <a
                   href={contact.instagramUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Follow us on Instagram"
-                  className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl border border-pink-500/20 bg-pink-50/60 text-pink-800 hover:bg-gradient-to-r hover:from-[#f09433] hover:via-[#dc2743] hover:to-[#bc1888] hover:text-white hover:border-transparent transition shadow-2xs text-xs font-bold"
+                  className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl border border-pink-500/25 bg-pink-500/10 text-pink-800 hover:bg-gradient-to-r hover:from-[#833ab4] hover:via-[#fd1d1d] hover:to-[#fcb045] hover:text-white hover:border-transparent transition-all duration-200 shadow-2xs text-xs font-bold group"
                 >
-                  <Instagram className="h-4 w-4 text-pink-600" aria-hidden="true" />
+                  <div className="h-6 w-6 rounded-lg bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] text-white flex items-center justify-center group-hover:bg-white group-hover:text-pink-600 transition shadow-xs">
+                    <Instagram className="h-3.5 w-3.5" />
+                  </div>
                   <span>Instagram</span>
-                  <ArrowUpRight className="h-3.5 w-3.5 opacity-70" aria-hidden="true" />
+                  <ArrowUpRight className="h-3.5 w-3.5 opacity-60 group-hover:opacity-100 transition" />
                 </a>
               </div>
             </div>
@@ -157,6 +162,7 @@ export function Footer() {
                 <li><Link href="/products/solar-power" className="hover:text-[#E86526] transition">Solar Power Plants</Link></li>
                 <li><Link href="/products/energy-storage" className="hover:text-[#E86526] transition">Battery Storage (ESS)</Link></li>
                 <li><Link href="/products/ev-charging" className="hover:text-[#E86526] transition">EV Fast Chargers</Link></li>
+                <li><Link href="/resources/datasheets" className="hover:text-[#E86526] transition">Datasheet Center</Link></li>
                 <li><Link href="/products" className="text-[#E86526] font-bold hover:underline inline-flex items-center gap-1">All Products →</Link></li>
               </ul>
             </div>
@@ -176,7 +182,7 @@ export function Footer() {
           </div>
 
           {/* COLUMN 3: OFFICE & FACTORY LOCATIONS (col-span-3) */}
-          <div className="lg:col-span-3 space-y-5">
+          <div className="lg:col-span-3 space-y-4">
             <span className="text-xs font-bold uppercase tracking-widest text-[#E86526] block mb-1">
               Our Locations
             </span>
@@ -227,7 +233,7 @@ export function Footer() {
           </div>
 
           {/* COLUMN 4: DIRECT CONTACT & INQUIRIES (col-span-3) */}
-          <div className="lg:col-span-3 space-y-5">
+          <div className="lg:col-span-3 space-y-4">
             <span className="text-xs font-bold uppercase tracking-widest text-[#E86526] block mb-1">
               Contact &amp; Support
             </span>
@@ -270,13 +276,13 @@ export function Footer() {
               </div>
 
               {/* Working Hours */}
-              <div className="flex items-center gap-2.5 px-2 py-1 text-xs text-brand-slate">
+              <div className="flex items-center gap-2.5 px-2 py-0.5 text-xs text-brand-slate">
                 <Clock className="h-4 w-4 text-[#E86526] shrink-0" aria-hidden="true" />
                 <span>Mon – Sat: 9:00 AM – 7:00 PM IST</span>
               </div>
 
-              {/* Direct Link */}
-              <div className="pt-2">
+              {/* Direct Consultation Link */}
+              <div className="pt-1">
                 <Link
                   href="/contact"
                   className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-brand-ink px-4 py-3 text-xs font-bold text-white shadow-sm hover:bg-[#E86526] transition"
@@ -293,16 +299,26 @@ export function Footer() {
 
       {/* BOTTOM LEGAL & COPYRIGHT BAR */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 border-t border-black/[0.06]">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-brand-slate font-medium">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-brand-slate font-medium">
           <div>
             © 2026 Sunloop Energy Limited. All rights reserved.
           </div>
           <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs">
-            <Link href="/privacy" className="hover:text-brand-ink transition">Privacy Policy</Link>
+            <Link href="/privacy" className="hover:text-[#E86526] transition font-medium">
+              Privacy Policy
+            </Link>
             <span className="text-black/20">·</span>
-            <Link href="/terms" className="hover:text-brand-ink transition">Terms of Service</Link>
+            <Link href="/terms" className="hover:text-[#E86526] transition font-medium">
+              Terms &amp; Conditions
+            </Link>
             <span className="text-black/20">·</span>
-            <Link href="/security" className="hover:text-brand-ink transition">AI &amp; Security Compliance</Link>
+            <Link href="/resources/datasheets" className="hover:text-[#E86526] transition font-medium">
+              Datasheet Specs
+            </Link>
+            <span className="text-black/20">·</span>
+            <Link href="/contact" className="hover:text-[#E86526] transition font-medium">
+              Support
+            </Link>
           </div>
         </div>
       </div>
