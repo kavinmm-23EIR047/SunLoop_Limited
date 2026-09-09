@@ -54,7 +54,6 @@ export function Navbar() {
   const isHome = pathname === '/';
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [pastHero, setPastHero] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [solutionsOpen, setSolutionsOpen] = useState(false);
   const [mobileProductsExpanded, setMobileProductsExpanded] = useState(false);
@@ -65,7 +64,6 @@ export function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
-      setPastHero(window.scrollY > (window.innerHeight - 80));
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -98,19 +96,11 @@ export function Navbar() {
     }, 200);
   };
 
-  const isDarkHeader = isHome && !pastHero;
-
   return (
     <header
       id="site-header"
-      className={`fixed top-0 z-50 w-full transition-all duration-300 ${
-        isDarkHeader
-          ? scrolled
-            ? 'bg-slate-950/70 backdrop-blur-xl py-2'
-            : 'bg-transparent py-4'
-          : scrolled
-            ? 'bg-white/95 backdrop-blur-md border-b border-black/5 shadow-sm py-2'
-            : 'bg-white/95 backdrop-blur-md border-b border-black/5 shadow-sm py-3'
+      className={`fixed top-0 z-50 w-full transition-all duration-300 bg-white/95 backdrop-blur-md border-b border-black/5 shadow-xs ${
+        scrolled ? 'py-2' : 'py-3'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -119,14 +109,14 @@ export function Navbar() {
           <img
             src="/images/logo.png"
             alt="Sunloop Energy"
-            className={`h-9 sm:h-10 w-auto object-contain transition-all group-hover:scale-105 ${isDarkHeader ? 'brightness-0 invert' : ''}`}
+            className="h-9 sm:h-10 w-auto object-contain transition-all group-hover:scale-105"
           />
         </Link>
 
         {/* Desktop Navigation Links */}
         <nav
           aria-label="Main navigation"
-          className={`hidden items-center gap-5 lg:gap-6 text-sm font-medium xl:flex transition-colors duration-300 ${isDarkHeader ? 'text-white/90' : 'text-slate-700'}`}
+          className="hidden items-center gap-5 lg:gap-6 text-sm font-medium xl:flex transition-colors duration-300 text-slate-700"
         >
           <Link
             href="/"
@@ -292,7 +282,7 @@ export function Navbar() {
               pathname === '/ai-portal' ? 'text-[#E86526]' : ''
             }`}
           >
-            <Bot className={`h-4 w-4 ${isDarkHeader ? 'text-white/70' : 'text-[#E86526]'}`} />
+            <Bot className="h-4 w-4 text-[#E86526]" />
             AI Portal
           </Link>
 
@@ -315,7 +305,7 @@ export function Navbar() {
 
         {/* Mobile Hamburger Button */}
         <button
-          className={`xl:hidden flex items-center justify-center h-11 w-11 rounded-lg transition shrink-0 ${isDarkHeader ? 'text-white hover:bg-white/10' : 'text-brand-ink hover:bg-slate-100'}`}
+          className="xl:hidden flex items-center justify-center h-11 w-11 rounded-lg transition shrink-0 text-brand-ink hover:bg-slate-100"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
           aria-expanded={mobileOpen}
