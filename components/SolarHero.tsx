@@ -45,10 +45,15 @@ export default function SolarHero() {
               variants={fadeUp(0.2)}
               initial="hidden"
               animate="visible"
-              className="inline-flex items-center gap-2.5 rounded-lg bg-white/10 backdrop-blur-md border border-white/15 px-4 py-2 text-xs font-semibold tracking-wide text-white/90 mb-8"
+              className="inline-flex items-center gap-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 text-xs font-semibold tracking-wide text-white shadow-lg mb-8 hover:bg-white/15 transition"
             >
-              <span className="h-2 w-2 rounded-full bg-brand-primary animate-pulse" aria-hidden="true" />
-              Solar · Storage · EV Charging · AI Portal
+              <span className="flex h-2 w-2 relative">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E86526] opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#E86526]" />
+              </span>
+              <span className="text-[#E86526] font-bold">10+ Years of Proven Excellence</span>
+              <span className="text-white/40">|</span>
+              <span className="text-white/90">A Decade of Clean Energy Leadership</span>
             </motion.div>
 
             {/* Headline */}
@@ -107,7 +112,7 @@ export default function SolarHero() {
             >
               {[
                 { value: '500+', label: 'Sites Deployed' },
-                { value: '10 Yr', label: 'Energy Expertise' },
+                { value: '10+ Yrs', label: 'Industry Leadership' },
                 { value: '24/7', label: 'AI Monitoring' },
               ].map((stat) => (
                 <div key={stat.label}>
