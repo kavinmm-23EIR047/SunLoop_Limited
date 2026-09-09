@@ -13,7 +13,8 @@ import {
   Infinity as InfinityIcon,
   CheckCircle2,
   TrendingUp,
-  Activity
+  Activity,
+  BatteryCharging
 } from 'lucide-react';
 import { Reveal } from './UI';
 
@@ -196,63 +197,105 @@ export default function EnergyDashboard() {
             </div>
 
             {/* RIGHT SIDE SYSTEM OVERVIEW DONUT CARD (Cols 4) */}
-            <div className="h-full lg:col-span-4 bg-white rounded-2xl p-6 border border-black/10 shadow-xs flex flex-col justify-between hover:shadow-card transition overflow-hidden">
-              <div>
-                <div className="flex items-center justify-between mb-4 pb-3 border-b border-black/5">
-                  <span className="text-sm font-semibold text-brand-ink">System Asset Distribution</span>
+            <div className="h-full lg:col-span-4 bg-white rounded-2xl p-5 sm:p-6 border border-black/10 shadow-xs flex flex-col justify-between hover:shadow-card transition overflow-hidden">
+              <div className="space-y-4">
+                {/* Header */}
+                <div className="flex items-center justify-between pb-3 border-b border-black/5">
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm font-semibold text-brand-ink">System Asset Distribution</span>
+                    <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-100">
+                      Live
+                    </span>
+                  </div>
                   <span className="text-xs font-semibold text-[#E86526] hover:underline cursor-pointer">
                     View Fleet →
                   </span>
                 </div>
 
-                <div className="flex items-center gap-6 my-4">
+                {/* Donut Chart + Asset Breakdown */}
+                <div className="flex items-center gap-4 sm:gap-5">
                   {/* CSS Donut Chart */}
                   <div
-                    className="relative w-28 h-28 shrink-0 rounded-full shadow-inner flex items-center justify-center" 
+                    className="relative w-24 h-24 sm:w-28 sm:h-28 shrink-0 rounded-full shadow-inner flex items-center justify-center" 
                     style={{ background: 'conic-gradient(#3b82f6 0% 55%, #10b981 55% 88%, #f59e0b 88% 94%, #ef4444 94% 100%)' }}
                     role="img"
                     aria-label="Asset distribution: 10 On-Grid Solar, 6 Hybrid, 1 Off-Grid Storage, 1 Scheduled Maintenance"
                   >
-                    <div className="w-20 h-20 bg-white rounded-full flex flex-col items-center justify-center shadow-xs">
+                    <div className="w-18 h-18 sm:w-20 sm:h-20 bg-white rounded-full flex flex-col items-center justify-center shadow-xs">
                       <span className="text-2xl font-bold text-brand-ink leading-none">18</span>
-                      <span className="text-xs font-semibold text-brand-slate tracking-wide mt-0.5">Assets</span>
+                      <span className="text-[10px] sm:text-xs font-semibold text-brand-slate tracking-wide mt-0.5">Assets</span>
                     </div>
                   </div>
                   
-                  <div className="flex-1 space-y-2 text-xs font-medium">
+                  <div className="flex-1 space-y-1.5 text-xs font-medium">
                     <div className="flex items-center justify-between pb-1 border-b border-black/5">
                       <span className="flex items-center gap-1.5 text-slate-700">
-                        <span className="h-2.5 w-2.5 rounded-full bg-blue-500 shrink-0" aria-hidden="true" /> On-Grid Solar
+                        <span className="h-2 w-2 rounded-full bg-blue-500 shrink-0" aria-hidden="true" /> On-Grid Solar
                       </span>
                       <strong className="text-brand-ink font-semibold">10</strong>
                     </div>
                     <div className="flex items-center justify-between pb-1 border-b border-black/5">
                       <span className="flex items-center gap-1.5 text-slate-700">
-                        <span className="h-2.5 w-2.5 rounded-full bg-emerald-500 shrink-0" aria-hidden="true" /> Hybrid (Solar + ESS)
+                        <span className="h-2 w-2 rounded-full bg-emerald-500 shrink-0" aria-hidden="true" /> Hybrid (Solar + ESS)
                       </span>
                       <strong className="text-brand-ink font-semibold">6</strong>
                     </div>
                     <div className="flex items-center justify-between pb-1 border-b border-black/5">
                       <span className="flex items-center gap-1.5 text-slate-700">
-                        <span className="h-2.5 w-2.5 rounded-full bg-amber-500 shrink-0" aria-hidden="true" /> Off-Grid Storage
+                        <span className="h-2 w-2 rounded-full bg-amber-500 shrink-0" aria-hidden="true" /> Off-Grid Storage
                       </span>
                       <strong className="text-brand-ink font-semibold">1</strong>
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="flex items-center gap-1.5 text-slate-700">
-                        <span className="h-2.5 w-2.5 rounded-full bg-red-500 shrink-0" aria-hidden="true" /> Scheduled Maintenance
+                        <span className="h-2 w-2 rounded-full bg-red-500 shrink-0" aria-hidden="true" /> Scheduled Maint.
                       </span>
                       <strong className="text-brand-ink font-semibold">1</strong>
                     </div>
                   </div>
                 </div>
+
+                {/* Storage & Live Telemetry Panel (Fills the gap cleanly) */}
+                <div className="bg-[#FAFAF5] rounded-xl p-3.5 border border-black/5 space-y-2.5">
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="flex items-center gap-1.5 font-semibold text-brand-ink">
+                      <BatteryCharging className="h-4 w-4 text-emerald-600" /> Storage Capacity (ESS)
+                    </span>
+                    <span className="font-bold text-emerald-600">88% Charged</span>
+                  </div>
+
+                  {/* Progress Bar */}
+                  <div className="w-full bg-black/5 h-2 rounded-full overflow-hidden">
+                    <div
+                      className="bg-gradient-to-r from-emerald-500 to-teal-500 h-full rounded-full transition-all duration-500"
+                      style={{ width: '88%' }}
+                    />
+                  </div>
+
+                  {/* Micro telemetry stats grid */}
+                  <div className="grid grid-cols-2 gap-2 pt-1 border-t border-black/5 text-[11px]">
+                    <div className="bg-white/90 rounded-lg p-2 border border-black/5 shadow-2xs">
+                      <span className="text-brand-slate block text-[10px]">Grid Sync</span>
+                      <span className="font-semibold text-brand-ink flex items-center gap-1 mt-0.5">
+                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" /> 50.02 Hz Stable
+                      </span>
+                    </div>
+                    <div className="bg-white/90 rounded-lg p-2 border border-black/5 shadow-2xs">
+                      <span className="text-brand-slate block text-[10px]">Self-Consumption</span>
+                      <span className="font-semibold text-brand-ink flex items-center gap-1 mt-0.5">
+                        <TrendingUp className="h-3 w-3 text-[#E86526]" /> 94.6% Direct
+                      </span>
+                    </div>
+                  </div>
+                </div>
               </div>
 
-              <div className="pt-3 border-t border-black/5 flex items-center justify-between text-xs text-brand-slate font-medium">
-                <span className="flex items-center gap-1 text-emerald-600 font-medium">
+              {/* Bottom Footer Bar */}
+              <div className="pt-3 mt-3 border-t border-black/5 flex items-center justify-between text-xs text-brand-slate font-medium">
+                <span className="flex items-center gap-1.5 text-emerald-600 font-medium">
                   <Activity className="h-3.5 w-3.5" aria-hidden="true" /> 99.8% System Uptime
                 </span>
-                <span>Coimbatore Grid Node</span>
+                <span className="text-[11px] text-brand-slate">Coimbatore Grid Node</span>
               </div>
             </div>
 
