@@ -16,8 +16,9 @@ import {
   MapPin,
   Building2,
   Home,
-  Waves,
-  RefreshCw
+  RefreshCw,
+  LayoutGrid,
+  ChevronRight
 } from 'lucide-react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -33,6 +34,14 @@ interface Message {
   text: string;
   time: string;
   links?: MessageLink[];
+}
+
+interface QuickTopicCard {
+  icon: React.ReactNode;
+  title: string;
+  subtitle: string;
+  query: string;
+  badge?: string;
 }
 
 // Knowledge Base Data & Intelligent Keyword Response Matcher
@@ -78,7 +87,7 @@ function getAIResponse(query: string): { text: string; links?: MessageLink[] } {
     q.includes('cubeloop')
   ) {
     return {
-      text: 'SunLoop ESS provides reliable clean energy storage: WallLoop (5–10 kWh for homes), StackLoop (15–30 kWh modular for villas & small businesses), and CubeLoop (500 kWh–2 MWh containerized for industrial plants).',
+      text: 'SunLoop ESS provides reliable clean energy storage: WallLoop (5–10 kWh for homes), StackLoop (15–30 kWh modular for villas & businesses), and CubeLoop (500 kWh–2 MWh containerized for industrial plants).',
       links: [
         { label: 'Energy Storage Products', href: '/products/energy-storage' },
         { label: 'Battery Datasheets', href: '/resources/datasheets' },
@@ -221,15 +230,16 @@ function getAIResponse(query: string): { text: string; links?: MessageLink[] } {
 
 export function RobotAssistant() {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState<'chat' | 'topics'>('chat');
   const [messages, setMessages] = useState<Message[]>([
     {
       sender: 'bot',
-      text: 'Hello! 👋 I am your SunLoop Clean Energy AI Assistant. Ask me anything about our Solar PV, Battery Storage (ESS), EV Chargers, or our factory location in Coimbatore!',
+      text: 'Hello! 👋 Welcome to SunLoop AI Support. Select any topic below or type your question about our Solar PV, ESS Storage, EV Chargers, or Coimbatore facility.',
       time: 'Just now',
       links: [
         { label: 'Solar Products', href: '/products/solar-power' },
         { label: 'Battery Storage (ESS)', href: '/products/energy-storage' },
-        { label: 'Datasheet Center', href: '/resources/datasheets' },
+        { label: 'Datasheets', href: '/resources/datasheets' },
       ],
     },
   ]);
@@ -237,27 +247,73 @@ export function RobotAssistant() {
   const [isTyping, setIsTyping] = useState(false);
   const chatBottomRef = useRef<HTMLDivElement>(null);
 
-  const quickPrompts = [
-    { label: '☀️ Solar Products', query: 'Tell me about SunLoop Solar Products' },
-    { label: '🔋 Battery Storage (ESS)', query: 'What Battery ESS systems do you have?' },
-    { label: '🚗 EV Chargers', query: 'Show me EV Charging options' },
-    { label: '🏠 Home Solar', query: 'Tell me about Home Solar Solutions and subsidies' },
-    { label: '🏭 Business & Factory', query: 'Commercial & Industrial Solar Solutions' },
-    { label: '📍 Factory & Office', query: 'What is your office and factory address?' },
-    { label: '📄 Product Datasheets', query: 'Where can I download product datasheets?' },
-    { label: '💬 WhatsApp Support', query: 'How do I contact SunLoop on WhatsApp?' },
+  // Clean, Solid Cards (No Horizontal Scrolling)
+  const solidTopicCards: QuickTopicCard[] = [
+    {
+      icon: <Sun className="h-4 w-4 text-[#E86526]" />,
+      title: 'Solar Products',
+      subtitle: 'Mono TOPCon & Inverters',
+      query: 'Tell me about SunLoop Solar Products and Inverters',
+      badge: 'Tier-1',
+    },
+    {
+      icon: <BatteryCharging className="h-4 w-4 text-emerald-600" />,
+      title: 'Battery ESS',
+      subtitle: '5 kWh to 2 MWh Storage',
+      query: 'What Battery ESS energy storage systems do you offer?',
+      badge: 'Storage',
+    },
+    {
+      icon: <Zap className="h-4 w-4 text-blue-600" />,
+      title: 'EV Chargers',
+      subtitle: 'AC Smart & DC Fast 240kW',
+      query: 'Show me SunLoop EV Charger models and specs',
+      badge: 'Fast EV',
+    },
+    {
+      icon: <Home className="h-4 w-4 text-teal-600" />,
+      title: 'Home Solar',
+      subtitle: 'PM Surya Ghar Subsidies',
+      query: 'Tell me about Home Solar Solutions and government subsidies',
+    },
+    {
+      icon: <Building2 className="h-4 w-4 text-purple-600" />,
+      title: 'Business Solar',
+      subtitle: 'Factories & 3-Year ROI',
+      query: 'Commercial & Industrial Solar Solutions for factories',
+    },
+    {
+      icon: <MapPin className="h-4 w-4 text-rose-600" />,
+      title: 'Factory & Office',
+      subtitle: 'Coimbatore & Sulur Plant',
+      query: 'What is your office and factory address in Coimbatore?',
+    },
+    {
+      icon: <FileText className="h-4 w-4 text-amber-600" />,
+      title: 'Datasheets',
+      subtitle: 'PDF Specs & Manuals',
+      query: 'Where can I download product datasheets and technical specifications?',
+    },
+    {
+      icon: <Phone className="h-4 w-4 text-emerald-600" />,
+      title: 'WhatsApp Live',
+      subtitle: '+91 733 953 6677',
+      query: 'How do I contact SunLoop on WhatsApp?',
+      badge: 'Direct',
+    },
   ];
 
   useEffect(() => {
-    if (isOpen) {
+    if (isOpen && activeTab === 'chat') {
       chatBottomRef.current?.scrollIntoView({ behavior: 'smooth' });
     }
-  }, [messages, isOpen, isTyping]);
+  }, [messages, isOpen, isTyping, activeTab]);
 
   const handleSend = (queryText?: string) => {
     const query = queryText || input;
     if (!query.trim()) return;
 
+    setActiveTab('chat');
     const newTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
     setMessages((prev) => [...prev, { sender: 'user', text: query, time: newTime }]);
     if (!queryText) setInput('');
@@ -298,7 +354,7 @@ export function RobotAssistant() {
       id="sunloop-ai-assistant"
       className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 font-sans"
     >
-      {/* Floating Chat Drawer Window */}
+      {/* Floating Chat Window */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -306,123 +362,181 @@ export function RobotAssistant() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 16, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="mb-3 w-[370px] max-w-[calc(100vw-32px)] overflow-hidden rounded-2xl border border-black/10 bg-white shadow-2xl flex flex-col"
-            style={{ maxHeight: 'min(580px, calc(100vh - 100px))' }}
+            className="mb-3 w-[380px] max-w-[calc(100vw-32px)] overflow-hidden rounded-2xl border border-black/10 bg-white shadow-2xl flex flex-col"
+            style={{ height: '540px', maxHeight: 'calc(100vh - 100px)' }}
           >
             {/* Header */}
-            <div className="flex items-center justify-between border-b border-black/10 bg-[#0F172A] p-3.5 sm:p-4 text-white">
-              <div className="flex items-center gap-3">
-                <div className="relative grid h-9 w-9 place-items-center rounded-xl bg-[#E86526] text-white font-bold shadow-xs">
-                  <Sparkles className="h-5 w-5 text-white" aria-hidden="true" />
-                  <span className="absolute -top-0.5 -right-0.5 h-2.5 w-2.5 rounded-full bg-emerald-400 border-2 border-[#0F172A]" />
+            <div className="border-b border-black/10 bg-[#0F172A] p-3.5 sm:p-4 text-white">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2.5">
+                  <div className="relative grid h-9 w-9 place-items-center rounded-xl bg-[#E86526] text-white font-bold shadow-xs">
+                    <Sparkles className="h-5 w-5 text-white" aria-hidden="true" />
+                    <span className="absolute -top-0.5 -right-0.5 h-2.5 w-2.5 rounded-full bg-emerald-400 border-2 border-[#0F172A]" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-sm leading-tight text-white">SunLoop Energy AI</h3>
+                    <p className="text-[11px] text-slate-300 flex items-center gap-1.5 mt-0.5">
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                      Live AI · Coimbatore Hub
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-semibold text-sm leading-tight text-white">SunLoop Energy AI</h3>
-                  <p className="text-[11px] text-slate-300 flex items-center gap-1.5 mt-0.5">
-                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    Online · Live Knowledge Base
-                  </p>
+
+                <div className="flex items-center gap-1">
+                  <button
+                    onClick={handleReset}
+                    title="Reset conversation"
+                    className="rounded-lg h-8 w-8 flex items-center justify-center text-slate-300 hover:bg-white/10 hover:text-white transition"
+                    aria-label="Reset chat"
+                  >
+                    <RefreshCw className="h-3.5 w-3.5" />
+                  </button>
+                  <button
+                    onClick={() => setIsOpen(false)}
+                    className="rounded-lg h-8 w-8 flex items-center justify-center text-slate-300 hover:bg-white/10 hover:text-white transition"
+                    aria-label="Close Assistant"
+                  >
+                    <X className="h-4 w-4" />
+                  </button>
                 </div>
               </div>
 
-              <div className="flex items-center gap-1">
+              {/* View Switcher Tabs (Side/Top Navigation) */}
+              <div className="grid grid-cols-2 gap-1 mt-3 bg-white/10 p-1 rounded-xl">
                 <button
-                  onClick={handleReset}
-                  title="Reset conversation"
-                  className="rounded-lg h-8 w-8 flex items-center justify-center text-slate-300 hover:bg-white/10 hover:text-white transition"
-                  aria-label="Reset chat"
+                  onClick={() => setActiveTab('chat')}
+                  className={`flex items-center justify-center gap-1.5 py-1.5 rounded-lg text-xs font-medium transition ${
+                    activeTab === 'chat'
+                      ? 'bg-white text-[#0F172A] shadow-xs'
+                      : 'text-slate-200 hover:text-white hover:bg-white/5'
+                  }`}
                 >
-                  <RefreshCw className="h-3.5 w-3.5" />
+                  <MessageSquare className="h-3.5 w-3.5" /> Live Chat
                 </button>
                 <button
-                  onClick={() => setIsOpen(false)}
-                  className="rounded-lg h-8 w-8 flex items-center justify-center text-slate-300 hover:bg-white/10 hover:text-white transition"
-                  aria-label="Close Assistant"
+                  onClick={() => setActiveTab('topics')}
+                  className={`flex items-center justify-center gap-1.5 py-1.5 rounded-lg text-xs font-medium transition ${
+                    activeTab === 'topics'
+                      ? 'bg-white text-[#0F172A] shadow-xs'
+                      : 'text-slate-200 hover:text-white hover:bg-white/5'
+                  }`}
                 >
-                  <X className="h-4 w-4" />
+                  <LayoutGrid className="h-3.5 w-3.5" /> Quick Topics
                 </button>
               </div>
             </div>
 
-            {/* Messages Scroll Area */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-3.5 bg-[#F8FAFC] text-sm min-h-[220px]">
-              {messages.map((m, idx) => (
-                <div key={idx} className={`flex gap-2 ${m.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
-                  {m.sender === 'bot' && (
-                    <div className="grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-[#E86526] text-white mt-0.5 shadow-2xs">
-                      <Sparkles className="h-3.5 w-3.5 text-white" aria-hidden="true" />
-                    </div>
-                  )}
-
-                  <div
-                    className={`max-w-[85%] rounded-2xl p-3 shadow-xs space-y-2 ${
-                      m.sender === 'user'
-                        ? 'bg-[#E86526] text-white rounded-tr-xs'
-                        : 'bg-white border border-black/10 text-slate-800 rounded-tl-xs'
-                    }`}
-                  >
-                    <p className="leading-relaxed text-[13px] whitespace-pre-line">{m.text}</p>
-
-                    {/* Bot Links & Action Buttons */}
-                    {m.links && m.links.length > 0 && (
-                      <div className="pt-1.5 flex flex-wrap gap-1.5 border-t border-black/5">
-                        {m.links.map((lnk, lIdx) => (
-                          lnk.isExternal ? (
-                            <a
-                              key={lIdx}
-                              href={lnk.href}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center gap-1 text-[11px] font-semibold text-white bg-emerald-600 hover:bg-emerald-700 px-2.5 py-1 rounded-md transition"
-                            >
-                              {lnk.label} <ExternalLink className="h-2.5 w-2.5" />
-                            </a>
-                          ) : (
-                            <Link
-                              key={lIdx}
-                              href={lnk.href}
-                              onClick={() => setIsOpen(false)}
-                              className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#E86526] bg-orange-50 hover:bg-orange-100 border border-orange-200/60 px-2.5 py-1 rounded-md transition"
-                            >
-                              {lnk.label} <ArrowRight className="h-2.5 w-2.5" />
-                            </Link>
-                          )
-                        ))}
+            {/* TAB 1: LIVE CHAT */}
+            {activeTab === 'chat' && (
+              <div className="flex-1 overflow-y-auto p-4 space-y-3.5 bg-[#F8FAFC] text-sm">
+                {messages.map((m, idx) => (
+                  <div key={idx} className={`flex gap-2 ${m.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
+                    {m.sender === 'bot' && (
+                      <div className="grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-[#E86526] text-white mt-0.5 shadow-2xs">
+                        <Sparkles className="h-3.5 w-3.5 text-white" aria-hidden="true" />
                       </div>
                     )}
 
-                    <span className={`block text-[10px] text-right ${m.sender === 'user' ? 'text-white/80' : 'text-slate-400'}`}>
-                      {m.time}
-                    </span>
+                    <div
+                      className={`max-w-[85%] rounded-2xl p-3 shadow-xs space-y-2 ${
+                        m.sender === 'user'
+                          ? 'bg-[#E86526] text-white rounded-tr-xs'
+                          : 'bg-white border border-black/10 text-slate-800 rounded-tl-xs'
+                      }`}
+                    >
+                      <p className="leading-relaxed text-[13px] whitespace-pre-line">{m.text}</p>
+
+                      {/* Bot Action Links */}
+                      {m.links && m.links.length > 0 && (
+                        <div className="pt-1.5 flex flex-wrap gap-1.5 border-t border-black/5">
+                          {m.links.map((lnk, lIdx) =>
+                            lnk.isExternal ? (
+                              <a
+                                key={lIdx}
+                                href={lnk.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1 text-[11px] font-semibold text-white bg-emerald-600 hover:bg-emerald-700 px-2.5 py-1 rounded-lg transition"
+                              >
+                                {lnk.label} <ExternalLink className="h-2.5 w-2.5" />
+                              </a>
+                            ) : (
+                              <Link
+                                key={lIdx}
+                                href={lnk.href}
+                                onClick={() => setIsOpen(false)}
+                                className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#E86526] bg-orange-50 hover:bg-orange-100 border border-orange-200/60 px-2.5 py-1 rounded-lg transition"
+                              >
+                                {lnk.label} <ArrowRight className="h-2.5 w-2.5" />
+                              </Link>
+                            )
+                          )}
+                        </div>
+                      )}
+
+                      <span
+                        className={`block text-[10px] text-right ${
+                          m.sender === 'user' ? 'text-white/80' : 'text-slate-400'
+                        }`}
+                      >
+                        {m.time}
+                      </span>
+                    </div>
                   </div>
-                </div>
-              ))}
-
-              {isTyping && (
-                <div className="flex items-center gap-2 text-slate-500 text-xs italic bg-white border border-black/5 rounded-xl px-3 py-2 w-fit">
-                  <Sparkles className="h-3.5 w-3.5 text-[#E86526] animate-spin" /> SunLoop AI is typing...
-                </div>
-              )}
-              <div ref={chatBottomRef} />
-            </div>
-
-            {/* Quick Prompts Chips */}
-            <div className="p-2 bg-white border-t border-black/5">
-              <div className="flex gap-1.5 overflow-x-auto pb-1 scrollbar-none">
-                {quickPrompts.map((qp, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => handleSend(qp.query)}
-                    className="shrink-0 rounded-lg border border-black/10 bg-slate-50 px-2.5 py-1.5 text-[11px] font-medium text-slate-700 hover:bg-[#E86526] hover:text-white hover:border-[#E86526] transition min-h-[30px]"
-                  >
-                    {qp.label}
-                  </button>
                 ))}
-              </div>
-            </div>
 
-            {/* Input Form */}
-            <div className="p-3 bg-white border-t border-black/10">
+                {isTyping && (
+                  <div className="flex items-center gap-2 text-slate-500 text-xs italic bg-white border border-black/5 rounded-xl px-3 py-2 w-fit shadow-xs">
+                    <Sparkles className="h-3.5 w-3.5 text-[#E86526] animate-spin" /> SunLoop AI is answering...
+                  </div>
+                )}
+                <div ref={chatBottomRef} />
+              </div>
+            )}
+
+            {/* TAB 2: SOLID QUICK TOPIC CARDS (Clean Grid, No Horizontal Scroll) */}
+            {activeTab === 'topics' && (
+              <div className="flex-1 overflow-y-auto p-3.5 bg-[#F8FAFC]">
+                <div className="mb-2.5 flex items-center justify-between">
+                  <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
+                    Select a Topic
+                  </span>
+                  <span className="text-[11px] text-slate-400">Tap to ask instantly</span>
+                </div>
+
+                <div className="grid grid-cols-2 gap-2">
+                  {solidTopicCards.map((card, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => handleSend(card.query)}
+                      className="flex flex-col justify-between p-3 rounded-xl bg-white border border-black/10 hover:border-[#E86526] hover:shadow-md transition text-left group"
+                    >
+                      <div className="flex items-center justify-between w-full mb-2">
+                        <div className="h-7 w-7 rounded-lg bg-slate-50 border border-black/5 flex items-center justify-center group-hover:scale-105 transition">
+                          {card.icon}
+                        </div>
+                        {card.badge && (
+                          <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-orange-50 text-[#E86526] border border-orange-100">
+                            {card.badge}
+                          </span>
+                        )}
+                      </div>
+                      <div>
+                        <strong className="block text-xs font-semibold text-slate-800 group-hover:text-[#E86526] transition leading-tight">
+                          {card.title}
+                        </strong>
+                        <span className="block text-[10px] text-slate-500 leading-snug mt-0.5 truncate">
+                          {card.subtitle}
+                        </span>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Bottom Solid Input Box with Quick Action Shortcuts */}
+            <div className="p-3 bg-white border-t border-black/10 space-y-2">
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
@@ -446,6 +560,26 @@ export function RobotAssistant() {
                   <Send className="h-4 w-4" aria-hidden="true" />
                 </button>
               </form>
+
+              {/* Direct WhatsApp Quick Shortcut Row */}
+              <div className="flex items-center justify-between text-[11px] text-slate-500 px-1">
+                <button
+                  onClick={() => setActiveTab(activeTab === 'topics' ? 'chat' : 'topics')}
+                  className="inline-flex items-center gap-1 font-medium text-[#E86526] hover:underline cursor-pointer"
+                >
+                  <LayoutGrid className="h-3 w-3" />
+                  {activeTab === 'topics' ? 'Back to Chat' : 'Browse All Topics'}
+                </button>
+
+                <a
+                  href="https://wa.me/917339536677"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 font-medium text-emerald-600 hover:text-emerald-700 hover:underline"
+                >
+                  <Phone className="h-3 w-3" /> WhatsApp Expert
+                </a>
+              </div>
             </div>
           </motion.div>
         )}
