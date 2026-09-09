@@ -45,15 +45,15 @@ export default function SolarHero() {
               variants={fadeUp(0.2)}
               initial="hidden"
               animate="visible"
-              className="inline-flex items-center gap-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 text-xs font-semibold tracking-wide text-white shadow-lg mb-8 hover:bg-white/15 transition"
+              className="inline-flex items-center gap-2.5 rounded-full bg-white text-slate-900 px-3.5 sm:px-4 py-2 text-xs font-bold shadow-2xl border border-white mb-8"
             >
-              <span className="flex h-2 w-2 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E86526] opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#E86526]" />
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#E86526] text-white text-[11px] font-extrabold tracking-wide uppercase shadow-xs">
+                <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" aria-hidden="true" />
+                10+ Years
               </span>
-              <span className="text-[#E86526] font-bold">10+ Years of Proven Excellence</span>
-              <span className="text-white/40">|</span>
-              <span className="text-white/90">A Decade of Clean Energy Leadership</span>
+              <span className="text-slate-900 font-semibold text-xs sm:text-[13px]">
+                A Decade of Proven Clean Energy Excellence
+              </span>
             </motion.div>
 
             {/* Headline */}
