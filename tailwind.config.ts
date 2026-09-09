@@ -36,10 +36,10 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'Helvetica Neue', 'Arial', 'sans-serif'],
-        display: ['Inter', 'Helvetica Neue', 'Arial', 'sans-serif'],
-        heading: ['Inter', 'Helvetica Neue', 'Arial', 'sans-serif'],
-        body: ['Inter', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        sans: ['var(--font-heading)', 'var(--font-body)', 'Inter', 'sans-serif'],
+        display: ['var(--font-heading)', 'Inter', 'sans-serif'],
+        heading: ['var(--font-heading)', 'Inter', 'sans-serif'],
+        body: ['var(--font-body)', 'Inter', 'sans-serif'],
         mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
       },
       fontSize: {

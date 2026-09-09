@@ -69,10 +69,10 @@ export default function SolarHero() {
               variants={fadeUp(0.35)}
               initial="hidden"
               animate="visible"
-              className="hero-title text-3xl sm:text-5xl md:text-6xl lg:text-7xl mb-3 sm:mb-5 font-extrabold tracking-tight leading-[1.12]"
+              className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl mb-3 sm:mb-5 font-bold tracking-tight text-white leading-[1.1]"
             >
               Powering Tomorrow,{' '}
-              <span className="hero-accent">Sustainably.</span>
+              <span className="text-[#E86526]">Sustainably.</span>
             </motion.h1>
 
             {/* Description */}

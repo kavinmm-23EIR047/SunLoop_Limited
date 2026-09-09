@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Plus_Jakarta_Sans, Public_Sans } from 'next/font/google';
+import { Plus_Jakarta_Sans, Inter } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
@@ -9,14 +9,14 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-heading',
-  weight: ['500', '700'],
+  weight: ['400', '500', '600', '700', '800'],
 });
 
-const publicSans = Public_Sans({
+const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-body',
-  weight: ['400', '500'],
+  weight: ['400', '500', '600', '700'],
 });
 
 export const metadata: Metadata = {
@@ -63,16 +63,16 @@ export const metadata: Metadata = {
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${plusJakartaSans.variable} ${publicSans.variable}`}>
+    <html lang="en" className={`${plusJakartaSans.variable} ${inter.variable}`}>
       <head>
         <link
           rel="preload"
-          href="/images/solar-hero-bg-4k.jpg"
+          href="/images/solar-hero-bg-4k.png"
           as="image"
-          type="image/jpeg"
+          type="image/png"
         />
       </head>
-      <body className={publicSans.className}>
+      <body className={inter.className}>
         <Navbar />
         {children}
         <RobotAssistant />
