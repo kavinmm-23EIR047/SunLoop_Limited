@@ -39,19 +39,20 @@ export default function SolarHero() {
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30" />
         </div>
 
-        <div className="container relative z-10 mx-auto px-6 sm:px-8 max-w-7xl pt-36 pb-20 lg:pt-44 lg:pb-24">
+        <div className="container relative z-10 mx-auto px-4 sm:px-8 max-w-7xl pt-28 pb-16 sm:pt-36 sm:pb-20 lg:pt-44 lg:pb-24">
           <div className="max-w-3xl">
+            {/* Trust Badge / Decade Pill */}
             <motion.div
               variants={fadeUp(0.2)}
               initial="hidden"
               animate="visible"
-              className="inline-flex items-center gap-2.5 rounded-full bg-white text-slate-900 px-3.5 sm:px-4 py-2 text-xs font-bold shadow-2xl border border-white mb-8"
+              className="inline-flex items-center gap-2 sm:gap-2.5 rounded-full bg-white text-slate-900 px-2.5 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs font-bold shadow-xl border border-white/90 mb-6 sm:mb-8 max-w-full"
             >
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#E86526] text-white text-[11px] font-extrabold tracking-wide uppercase shadow-xs">
+              <span className="shrink-0 inline-flex items-center gap-1 sm:gap-1.5 px-2 py-0.5 sm:px-2.5 sm:py-0.5 rounded-full bg-[#E86526] text-white text-[10px] sm:text-[11px] font-extrabold tracking-wide uppercase whitespace-nowrap shadow-xs">
                 <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" aria-hidden="true" />
                 10+ Years
               </span>
-              <span className="text-slate-900 font-semibold text-xs sm:text-[13px]">
+              <span className="text-slate-900 font-semibold text-[11px] sm:text-[13px] leading-tight">
                 A Decade of Proven Clean Energy Excellence
               </span>
             </motion.div>
@@ -61,7 +62,7 @@ export default function SolarHero() {
               variants={fadeUp(0.35)}
               initial="hidden"
               animate="visible"
-              className="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-6"
+              className="hero-title text-3xl sm:text-5xl md:text-6xl lg:text-7xl mb-4 sm:mb-6 font-extrabold tracking-tight leading-[1.12]"
             >
               Powering Tomorrow,{' '}
               <span className="hero-accent">Sustainably.</span>
@@ -72,7 +73,7 @@ export default function SolarHero() {
               variants={fadeUp(0.5)}
               initial="hidden"
               animate="visible"
-              className="text-base sm:text-lg text-white/85 leading-relaxed max-w-xl mb-10"
+              className="text-sm sm:text-base md:text-lg text-white/85 leading-relaxed max-w-xl mb-8 sm:mb-10 font-normal"
             >
               Solar power plants, energy storage systems, and EV charging
               infrastructure — designed, built, and managed through one
@@ -84,12 +85,12 @@ export default function SolarHero() {
               variants={fadeUp(0.65)}
               initial="hidden"
               animate="visible"
-              className="flex flex-wrap items-center gap-4 mb-14"
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-10 sm:mb-14 w-full sm:w-auto"
             >
               {/* Primary CTA */}
               <Link
                 href="/contact"
-                className="group inline-flex items-center gap-2.5 rounded-lg bg-brand-primary px-7 py-3.5 text-sm font-semibold text-white shadow-lg hover:bg-[#c95315] transition-all duration-300 min-h-[44px]"
+                className="group inline-flex items-center justify-center gap-2 rounded-xl bg-brand-primary px-6 py-3.5 text-sm font-semibold text-white shadow-lg hover:bg-[#c95315] transition-all duration-300 min-h-[44px]"
               >
                 Get a Quote
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -98,17 +99,18 @@ export default function SolarHero() {
               {/* Secondary CTA */}
               <Link
                 href="/solutions"
-                className="inline-flex items-center gap-2.5 rounded-lg bg-white/10 backdrop-blur-md border border-white/20 px-7 py-3.5 text-sm font-medium text-white hover:bg-white/20 transition-all duration-300 min-h-[44px]"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 px-6 py-3.5 text-sm font-medium text-white hover:bg-white/20 transition-all duration-300 min-h-[44px]"
               >
                 Explore Solutions
               </Link>
             </motion.div>
 
+            {/* Quick Stats Grid */}
             <motion.div
               variants={fadeUp(0.8)}
               initial="hidden"
               animate="visible"
-              className="flex items-center gap-8 sm:gap-10 border-t border-white/20 pt-8"
+              className="grid grid-cols-3 gap-3 sm:gap-10 border-t border-white/20 pt-6 sm:pt-8"
             >
               {[
                 { value: '500+', label: 'Sites Deployed' },
@@ -116,8 +118,8 @@ export default function SolarHero() {
                 { value: '24/7', label: 'AI Monitoring' },
               ].map((stat) => (
                 <div key={stat.label}>
-                  <div className="text-2xl sm:text-3xl font-bold text-white">{stat.value}</div>
-                  <div className="text-xs font-semibold text-white/70 tracking-wide">{stat.label}</div>
+                  <div className="text-xl sm:text-3xl font-bold text-white tracking-tight">{stat.value}</div>
+                  <div className="text-[10px] sm:text-xs font-semibold text-white/70 tracking-wide mt-0.5 leading-tight">{stat.label}</div>
                 </div>
               ))}
             </motion.div>
