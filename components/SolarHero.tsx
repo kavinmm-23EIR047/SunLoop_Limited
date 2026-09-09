@@ -81,26 +81,26 @@ export default function SolarHero() {
               AI energy management portal.
             </motion.p>
 
-            {/* CTA Buttons */}
+            {/* CTA Buttons — Horizontal Side-by-Side */}
             <motion.div
               variants={fadeUp(0.65)}
               initial="hidden"
               animate="visible"
-              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-10 sm:mb-14 w-full sm:w-auto"
+              className="flex flex-row items-center gap-2.5 sm:gap-4 mb-10 sm:mb-14 flex-wrap"
             >
               {/* Primary CTA */}
               <Link
                 href="/contact"
-                className="group inline-flex items-center justify-center gap-2 rounded-xl bg-brand-primary px-6 py-3.5 text-sm font-semibold text-white shadow-lg hover:bg-[#c95315] transition-all duration-300 min-h-[44px]"
+                className="group inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-xl bg-brand-primary px-4 sm:px-6 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold text-white shadow-lg hover:bg-[#c95315] transition-all duration-300 min-h-[44px] whitespace-nowrap"
               >
                 Get a Quote
-                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
 
               {/* Secondary CTA */}
               <Link
                 href="/solutions"
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 px-6 py-3.5 text-sm font-medium text-white hover:bg-white/20 transition-all duration-300 min-h-[44px]"
+                className="inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 px-4 sm:px-6 py-3 sm:py-3.5 text-xs sm:text-sm font-medium text-white hover:bg-white/20 transition-all duration-300 min-h-[44px] whitespace-nowrap"
               >
                 Explore Solutions
               </Link>
