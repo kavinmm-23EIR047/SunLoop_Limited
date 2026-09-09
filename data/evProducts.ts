@@ -86,18 +86,36 @@ export const evProducts: EVProductVariant[] = [
     power: '7.4 kW – 22 kW',
     output: 'Dual Output',
     voltage: '230V / 400V AC',
-    mounting: 'Ground Pedestal',
+    mounting: 'Ground-Mounted',
     keywords: ['commercial'],
+<<<<<<< HEAD
     desc: 'Smart AC charging for commercial complexes, workplaces, and retail centers with automated billing integration.',
+=======
+    desc: 'Suitable for city special charging stations, public charging stations, intercity highway charging stations, and other locations requiring special AC fast charging.',
+>>>>>>> c10e3386c4900e673439e1cf9c75bf2270169494
     specs: [
       { label: 'Series', value: 'ChargeLoop Commercial Series' },
       { label: 'Power Rating', value: '7.4 kW – 22 kW' },
-      { label: 'Output', value: 'Dual Output' },
-      { label: 'Voltage', value: '230V / 400V AC' },
-      { label: 'Mounting', value: 'Ground Pedestal' },
+      { label: 'Output', value: '1 or 2 outputs (model dependent)' },
+      { label: 'Voltage', value: 'AC220V / AC240V / AC380V ±15%' },
+      { label: 'Mounting', value: 'Ground-Mounted' },
     ],
-    tech: ['Dual Gun Simultaneous Charging', 'Commercial Billing & Payment Gateway', 'Vandal-proof Ground Pedestal', 'OCPP 1.6J / 2.0 Open Protocol'],
-    apps: ['Commercial Office Parks', 'Hotels & Resorts', 'Shopping Malls & Workplaces'],
+    tech: [
+      'Delicate appearance, simple operation, convenient installation',
+      'High efficiency, reliable and stable performance',
+      '4.3-inch / 7-inch color touch screen (optional)',
+      'Multiple charging, operation management and payment modes',
+      'Ethernet or wireless telecommunication support',
+      'RFID Card / OCPP 1.6J support (optional)',
+      'Type-2 / Type-1 connector or socket (optional)',
+      'Integrated overload protection and online data upgrade',
+    ],
+    apps: [
+      'City special charging stations',
+      'Bus, taxi, public service, sanitation and logistics vehicles',
+      'City public charging stations and private cars',
+      'Intercity highway charging stations',
+    ],
     image: '/products/EV charger/ac Dual Output.png',
     fallbackImage: '/images/ac-charging.png',
     datasheet: {
@@ -135,10 +153,11 @@ export const evProducts: EVProductVariant[] = [
     series: 'ChargeLoop DC Fast Series',
     title: 'ChargeLoop DC Fast Charger (30 kW – 240 kW)',
     power: '30 kW – 240 kW',
-    output: 'Dual / Multi Output',
-    voltage: '200–750V DC',
-    mounting: 'Ground Type',
+    output: 'Single Output',
+    voltage: 'DC200–750V / DC150–500V (JIS)',
+    mounting: 'Wall-Mounted',
     keywords: ['commercial'],
+<<<<<<< HEAD
     desc: 'High-performance DC fast charging for highways, fuel stations, malls, and fleet depots with dynamic power allocation and payment integration.',
     specs: [
       { label: 'Series', value: 'ChargeLoop DC Fast Series' },
@@ -146,9 +165,30 @@ export const evProducts: EVProductVariant[] = [
       { label: 'Output', value: 'Dual / Multi Gun Fast Output' },
       { label: 'Voltage', value: '200–750V DC' },
       { label: 'Mounting', value: 'Ground Type' },
+=======
+    desc: 'DC fast charging for city special charging stations, public charging stations, intercity highway charging stations, and other locations requiring special DC fast charging.',
+    specs: [
+      { label: 'Power Rating', value: '20 kW / 30 kW' },
+      { label: 'Output', value: 'Single Output' },
+      { label: 'Voltage', value: 'DC200–750V / DC150–500V (JIS)' },
+      { label: 'Mounting', value: 'Wall-Mounted' },
     ],
-    tech: ['Dynamic Power Allocation across Guns', '7" Touchscreen & UPI/Card Payment Integration', 'Heavy Duty Galvanized Weatherproof Enclosure', 'Sunloop AI Cloud Remote Monitoring & Management'],
-    apps: ['Highway Fast Charging Hubs', 'Fleet Depots & Commercial Facilities', 'Petrol Stations, Malls & Hotels'],
+    tech: [
+      'Delicate appearance, simple operation, convenient installation',
+      'High efficiency, reliable and stable performance',
+      '4.3-inch color touch screen (optional)',
+      'Plug & Play support',
+      'Integrated overload protection',
+      'CCS-2 / CCS-1 / CHAdeMO connector or socket (optional)',
+      'RFID card / OCPP 1.6J support (optional)',
+    ],
+    apps: [
+      'City special charging stations',
+      'Bus, taxi, public service, sanitation and logistics vehicles',
+      'City public charging stations and private cars',
+      'Intercity highway charging stations',
+>>>>>>> c10e3386c4900e673439e1cf9c75bf2270169494
+    ],
     image: '/products/EV charger/DC EV Charger.png',
     fallbackImage: '/images/ac-charging.png',
     datasheet: {

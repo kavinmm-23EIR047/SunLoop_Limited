@@ -57,7 +57,7 @@ export default function Solutions() {
                       className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent" />
-                    <span className="absolute top-4 left-4 inline-flex items-center gap-1.5 rounded-md bg-white/90 backdrop-blur-sm px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-brand-primary border border-white/50">
+                    <span className="absolute top-4 left-4 inline-flex items-center gap-1.5 rounded-md bg-white/90 backdrop-blur-sm px-2.5 py-1 text-xs font-bold uppercase tracking-wider text-brand-primary border border-white/50">
                       <Icon className="h-3.5 w-3.5" />
                       Segment 0{i + 1}
                     </span>
@@ -115,7 +115,7 @@ export default function Solutions() {
                   <div className={`h-10 w-10 rounded-lg flex items-center justify-center mb-4 ${item.dark ? 'bg-brand-primary/20 text-brand-primary' : 'bg-orange-50 border border-orange-100 text-brand-primary'}`}>
                     <item.icon className="h-5 w-5" />
                   </div>
-                  <span className="text-[10px] font-bold text-brand-primary uppercase tracking-wider block mb-2">0{i + 1}</span>
+                  <span className="text-xs font-bold text-brand-primary uppercase tracking-wider block mb-2">0{i + 1}</span>
                   <h3 className="text-sm font-bold mb-1">{item.title}</h3>
                   <p className={`text-xs leading-relaxed ${item.dark ? 'text-white/60' : 'text-slate-500'}`}>
                     {item.desc}

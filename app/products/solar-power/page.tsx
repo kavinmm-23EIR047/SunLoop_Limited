@@ -57,7 +57,7 @@ export default function SolarPowerPage() {
 
         <div className="container relative z-10 max-w-5xl mx-auto px-4">
           <Reveal className="max-w-2xl space-y-4">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight">
               Solar Power Plants
             </h1>
             <p className="text-sm sm:text-base text-white/80 leading-relaxed font-normal">
@@ -189,7 +189,7 @@ export default function SolarPowerPage() {
                             (e.target as HTMLImageElement).src = prod.fallbackImage;
                           }}
                         />
-                        <div className="absolute top-3.5 right-3.5 rounded-full bg-brand-ink px-3 py-0.5 text-[9px] font-semibold text-white shadow-xs">
+                        <div className="absolute top-3.5 right-3.5 rounded-full bg-brand-ink px-3 py-0.5 text-xs font-semibold text-white shadow-xs">
                           30-YEAR PV WARRANTY
                         </div>
                       </div>
@@ -252,7 +252,7 @@ export default function SolarPowerPage() {
                             (e.target as HTMLImageElement).src = prod.fallbackImage;
                           }}
                         />
-                        <div className="absolute top-3.5 right-3.5 rounded-full bg-brand-ink px-3 py-0.5 text-[9px] font-semibold text-white shadow-xs">
+                        <div className="absolute top-3.5 right-3.5 rounded-full bg-brand-ink px-3 py-0.5 text-xs font-semibold text-white shadow-xs">
                           30-YEAR PV WARRANTY
                         </div>
                       </div>
@@ -277,7 +277,7 @@ export default function SolarPowerPage() {
             >
               <div className="flex items-center justify-between border-b border-black/10 pb-3">
                 <div>
-                  <span className="text-[10px] font-semibold text-brand-primary uppercase">{activeModal.categoryLabel}</span>
+                  <span className="text-xs font-semibold text-brand-primary uppercase">{activeModal.categoryLabel}</span>
                   <h3 className="text-lg font-bold text-brand-ink">{activeModal.title}</h3>
                 </div>
                 <button
@@ -293,7 +293,7 @@ export default function SolarPowerPage() {
                 
                 {/* Warranties */}
                 <div className="rounded-xl bg-amber-50 border border-amber-200 p-3 space-y-1">
-                  <h4 className="text-[11px] font-bold text-amber-900 uppercase">System Warranties</h4>
+                  <h4 className="text-xs font-bold text-amber-900 uppercase">System Warranties</h4>
                   {activeModal.warranties.map((w) => (
                     <div key={w} className="flex items-center gap-2 text-amber-900 font-medium">
                       <Check className="h-3.5 w-3.5 text-amber-600 shrink-0" />
@@ -303,11 +303,11 @@ export default function SolarPowerPage() {
                 </div>
 
                 <div className="rounded-xl bg-[#FAFAF5] border border-black/[0.06] p-3.5 space-y-2">
-                  <h4 className="text-[11px] font-semibold text-brand-ink uppercase tracking-wider mb-2">Technical Parameters</h4>
+                  <h4 className="text-xs font-semibold text-brand-ink uppercase tracking-wider mb-2">Technical Parameters</h4>
                   <div className="grid grid-cols-2 gap-2.5">
                     {activeModal.specs.map((s) => (
                       <div key={s.label} className="border-b border-black/5 pb-1.5">
-                        <span className="text-[9px] text-brand-slate font-medium block">{s.label}</span>
+                        <span className="text-xs text-brand-slate font-medium block">{s.label}</span>
                         <strong className="text-brand-ink font-semibold">{s.value}</strong>
                       </div>
                     ))}
@@ -315,7 +315,7 @@ export default function SolarPowerPage() {
                 </div>
 
                 <div className="space-y-1.5">
-                  <h4 className="text-[11px] font-semibold text-brand-ink uppercase tracking-wider">Features &amp; Highlights</h4>
+                  <h4 className="text-xs font-semibold text-brand-ink uppercase tracking-wider">Features &amp; Highlights</h4>
                   {activeModal.features.map((f) => (
                     <div key={f} className="flex items-center gap-2 text-brand-ink">
                       <CheckCircle2 className="h-3.5 w-3.5 text-brand-primary shrink-0" />

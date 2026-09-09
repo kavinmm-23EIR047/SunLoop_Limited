@@ -157,10 +157,10 @@ export default function Products() {
 
                     {/* Overlay content */}
                     <div className="relative z-10 p-6 flex items-center justify-between">
-                      <span className="inline-flex items-center gap-1.5 rounded-md bg-white/90 backdrop-blur-sm px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-brand-primary">
+                      <span className="inline-flex items-center gap-1.5 rounded-md bg-white/90 backdrop-blur-sm px-3 py-1 text-xs font-bold uppercase tracking-wider text-brand-primary">
                         {product.eyebrow}
                       </span>
-                      <span className="rounded-md bg-white/90 backdrop-blur-sm px-2.5 py-1 text-[10px] font-bold text-slate-700">
+                      <span className="rounded-md bg-white/90 backdrop-blur-sm px-2.5 py-1 text-xs font-bold text-slate-700">
                         {product.range}
                       </span>
                     </div>

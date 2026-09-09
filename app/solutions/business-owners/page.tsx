@@ -49,7 +49,7 @@ export default function BusinessOwnersSolutionPage() {
               <h2 className="text-emerald-400 font-bold tracking-widest uppercase text-sm md:text-base mb-4">
                 For Businesses
               </h2>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight max-w-4xl mx-auto mb-4">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight max-w-4xl mx-auto mb-4">
                 Reduce operating costs &amp; open a new revenue stream.
               </h1>
               <p className="text-sm md:text-base text-white/90 max-w-2xl mx-auto font-normal">
@@ -122,7 +122,7 @@ export default function BusinessOwnersSolutionPage() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <Reveal className="text-center">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-neutral-900 mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-12">
               System Topology
             </h2>
             <img 
@@ -142,7 +142,7 @@ export default function BusinessOwnersSolutionPage() {
           <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-24">
             <div className="w-full md:w-1/2 space-y-6">
               <Reveal>
-                <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+                <h2 className="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight">
                   <span className="text-[#E86526]">Smart</span> Solar Module
                 </h2>
                 <h3 className="text-xl font-bold text-slate-700 mt-4">
@@ -175,7 +175,7 @@ export default function BusinessOwnersSolutionPage() {
           <div className="flex flex-col md:flex-row-reverse items-center gap-12 lg:gap-24">
             <div className="w-full md:w-1/2 space-y-6 md:pl-12">
               <Reveal>
-                <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+                <h2 className="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight">
                   <span className="text-emerald-600">Smart</span> PV Controllers
                 </h2>
                 <h3 className="text-xl font-bold text-slate-700 mt-4">
@@ -208,7 +208,7 @@ export default function BusinessOwnersSolutionPage() {
           <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-24">
             <div className="w-full md:w-1/2 space-y-6">
               <Reveal>
-                <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+                <h2 className="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight">
                   <span className="text-blue-600">Smart</span> Energy Storage
                 </h2>
                 <h3 className="text-xl font-bold text-slate-700 mt-4">
@@ -241,7 +241,7 @@ export default function BusinessOwnersSolutionPage() {
           <div className="flex flex-col md:flex-row-reverse items-center gap-12 lg:gap-24">
             <div className="w-full md:w-1/2 space-y-6 md:pl-12">
               <Reveal>
-                <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+                <h2 className="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight">
                   <span className="text-amber-500">Smart</span> EV Charger
                 </h2>
                 <h3 className="text-xl font-bold text-slate-700 mt-4">
@@ -277,7 +277,7 @@ export default function BusinessOwnersSolutionPage() {
       <section className="py-24 bg-white border-t border-slate-100">
         <div className="container mx-auto px-4 space-y-12">
           <Reveal className="text-center max-w-3xl mx-auto space-y-4">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900">
               We power a wide variety of installation types to suit every business and organization
             </h2>
             <p className="text-slate-500">From commercial rooftops to expansive industrial carports, our modular architecture adapts to any environment.</p>
@@ -320,7 +320,7 @@ export default function BusinessOwnersSolutionPage() {
                 <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-bold text-emerald-400 uppercase tracking-widest border border-white/5">
                   <MonitorSmartphone className="h-4 w-4" /> SunLoop AI Portal
                 </span>
-                <h2 className="text-4xl md:text-5xl font-extrabold mt-6 leading-tight">
+                <h2 className="text-4xl md:text-5xl font-bold mt-6 leading-tight">
                   Property on the Hand.<br/>Visibility on the Go.
                 </h2>
                 <p className="text-slate-400 text-lg leading-relaxed max-w-lg mt-4">
@@ -359,7 +359,7 @@ export default function BusinessOwnersSolutionPage() {
         <div className="absolute inset-0 bg-[#FAFAF5] opacity-50" />
         <div className="container relative z-10 mx-auto px-4 max-w-4xl text-center">
           <Reveal>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight">
               Start a green zero-carbon business today.
             </h2>
             <p className="text-slate-500 text-lg mt-4 mb-12">
