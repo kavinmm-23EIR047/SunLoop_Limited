@@ -107,8 +107,8 @@ export default function SmartMicrogridPage() {
         <div className="container mx-auto max-w-5xl px-4">
           <div className="grid items-center gap-9 md:grid-cols-2 md:gap-12">
             <motion.div
-              initial={{ opacity: 0, x: -60 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.6, ease: 'easeOut' }}
               className="space-y-4"
@@ -124,8 +124,8 @@ export default function SmartMicrogridPage() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 60 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }}
             >
@@ -148,8 +148,8 @@ export default function SmartMicrogridPage() {
             return (
               <div key={component.title} className="grid items-center gap-8 border-b border-black/[0.07] pb-16 last:border-0 last:pb-0 md:grid-cols-2 md:gap-12">
                 <motion.div
-                  initial={{ opacity: 0, x: -60 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: '-50px' }}
                   transition={{ duration: 0.6, ease: 'easeOut' }}
                   className={`space-y-4 ${index % 2 === 1 ? 'md:order-1' : ''}`}
@@ -160,8 +160,8 @@ export default function SmartMicrogridPage() {
                 </motion.div>
 
                 <motion.div
-                  initial={{ opacity: 0, x: 60 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: '-50px' }}
                   transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }}
                   className={index % 2 === 1 ? 'md:order-2' : ''}

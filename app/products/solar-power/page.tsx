@@ -31,9 +31,9 @@ export default function SolarPowerPage() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.utils.toArray<HTMLElement>('.solar-product-image').forEach((image) => {
-        gsap.fromTo(image, { autoAlpha: 0, x: 100 }, {
+        gsap.fromTo(image, { autoAlpha: 0, y: 30 }, {
           autoAlpha: 1,
-          x: 0,
+          y: 0,
           duration: 0.7,
           ease: 'power3.out',
           scrollTrigger: { trigger: image, start: 'top 86%', once: true },
@@ -44,9 +44,9 @@ export default function SolarPowerPage() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-[#FAFAF5] pt-16 pb-16 font-sans">
+    <main className="min-h-screen bg-[#FAFAF5] pb-16 font-sans overflow-x-hidden w-full max-w-full">
       {/* HERO BANNER */}
-      <section className="relative w-full h-[460px] sm:h-[560px] md:h-[640px] overflow-hidden bg-brand-ink text-white flex items-center">
+      <section className="relative w-full min-h-[460px] sm:min-h-[560px] md:min-h-[640px] pt-24 pb-14 sm:pt-28 sm:pb-20 overflow-hidden bg-brand-ink text-white flex items-center">
         <div
           className="absolute inset-0 bg-cover bg-center pointer-events-none transition-transform duration-1000"
           style={{
@@ -67,13 +67,13 @@ export default function SolarPowerPage() {
             <div className="pt-3 flex flex-wrap gap-3">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 rounded-xl bg-[#E86526] px-6 py-3 text-xs font-semibold text-white shadow-md hover:bg-[#c95315] transition"
+                className="inline-flex items-center gap-2 rounded-xl bg-[#E86526] px-5 py-3 text-xs font-semibold text-white shadow-md hover:bg-[#c95315] transition"
               >
                 Request Solar Quote <ArrowUpRight className="h-3.5 w-3.5" />
               </Link>
               <Link
                 href="/ai-portal"
-                className="inline-flex items-center gap-2 rounded-xl bg-white/10 border border-white/20 px-6 py-3 text-xs font-semibold text-white hover:bg-white/20 transition"
+                className="inline-flex items-center gap-2 rounded-xl bg-white/10 border border-white/20 px-5 py-3 text-xs font-semibold text-white hover:bg-white/20 transition"
               >
                 <Bot className="h-3.5 w-3.5 text-brand-apricot" /> Solar AI Portal
               </Link>
@@ -148,8 +148,8 @@ export default function SolarPowerPage() {
                 return (
                   <div key={prod.id} className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
                     <motion.div
-                      initial={{ opacity: 0, x: isEven ? -30 : 30 }}
-                      whileInView={{ opacity: 1, x: 0 }}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true, margin: '-40px' }}
                       transition={{ duration: 0.5, ease: 'easeOut' }}
                       className={`space-y-6 ${isEven ? 'order-1' : 'order-1 md:order-2'}`}
@@ -211,8 +211,8 @@ export default function SolarPowerPage() {
                 return (
                   <div key={prod.id} className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
                     <motion.div
-                      initial={{ opacity: 0, x: isEven ? -30 : 30 }}
-                      whileInView={{ opacity: 1, x: 0 }}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true, margin: '-40px' }}
                       transition={{ duration: 0.5, ease: 'easeOut' }}
                       className={`space-y-6 ${isEven ? 'order-1' : 'order-1 md:order-2'}`}

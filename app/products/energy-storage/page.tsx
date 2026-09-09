@@ -153,10 +153,10 @@ export default function EnergyStoragePage() {
       gsap.utils.toArray<HTMLElement>('.ess-product-image').forEach((image) => {
         gsap.fromTo(
           image,
-          { autoAlpha: 0, x: 100 },
+          { autoAlpha: 0, y: 30 },
           {
             autoAlpha: 1,
-            x: 0,
+            y: 0,
             duration: 0.7,
             ease: 'power3.out',
             scrollTrigger: {
@@ -173,9 +173,9 @@ export default function EnergyStoragePage() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-[#FAFAF5] pt-16 pb-16 font-sans">
+    <main className="min-h-screen bg-[#FAFAF5] pb-16 font-sans overflow-x-hidden w-full max-w-full">
       {/* HERO BANNER */}
-      <section className="relative w-full h-[460px] sm:h-[560px] md:h-[640px] overflow-hidden bg-brand-ink text-white flex items-center">
+      <section className="relative w-full min-h-[480px] sm:min-h-[560px] md:min-h-[640px] pt-24 pb-14 sm:pt-28 sm:pb-20 overflow-hidden bg-brand-ink text-white flex items-center">
         <div
           className="absolute inset-0 bg-cover bg-center pointer-events-none"
           style={{ backgroundImage: `url('/products/Energy Storage Cabinet.png')` }}
@@ -184,30 +184,32 @@ export default function EnergyStoragePage() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
 
         <div className="container relative z-10 max-w-5xl mx-auto px-4">
-          <Reveal className="max-w-2xl space-y-5">
-            <span className="inline-flex items-center rounded-sm bg-brand-primary px-4 py-2 text-xs font-bold uppercase tracking-widest text-white">
+          <Reveal className="max-w-2xl space-y-4 sm:space-y-5">
+            <span className="inline-flex items-center rounded-sm bg-brand-primary px-3 py-1.5 text-[11px] sm:text-xs font-bold uppercase tracking-wider text-white max-w-full">
               WallLoop · StackLoop · CubeLoop Series
             </span>
-            <h1 className="hero-title text-4xl sm:text-5xl md:text-6xl">
+            <h1 className="hero-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
               Energy Storage Systems (ESS)
             </h1>
-            <p className="hero-subtitle text-lg md:text-xl">
+            <p className="hero-subtitle text-sm sm:text-base md:text-lg leading-relaxed font-normal">
               Advanced lithium-ion and LiFePO4 battery storage systems that ensure uninterrupted power, reduce peak-demand charges, and increase energy independence.
             </p>
-            <p className="text-sm font-bold text-brand-primary uppercase tracking-wider bg-white/95 inline-block px-3 py-1 rounded-sm">
-              Capacity: 5 kWh – 500+ kWh (stackable)
-            </p>
+            <div>
+              <p className="text-xs sm:text-sm font-bold text-brand-primary uppercase tracking-wide bg-white/95 inline-block px-3 py-1.5 rounded-sm max-w-full shadow-xs">
+                Capacity: 5 kWh – 500+ kWh (stackable)
+              </p>
+            </div>
 
-            <div className="pt-3 flex flex-wrap gap-3">
+            <div className="pt-2 flex flex-wrap gap-3">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 rounded-xl bg-[#E86526] px-6 py-3 text-xs font-semibold text-white shadow-md hover:bg-[#c95315] transition"
+                className="inline-flex items-center gap-2 rounded-xl bg-[#E86526] px-5 py-3 text-xs font-semibold text-white shadow-md hover:bg-[#c95315] transition"
               >
                 Request Storage Quote <ArrowUpRight className="h-3.5 w-3.5" />
               </Link>
               <Link
                 href="/ai-portal"
-                className="inline-flex items-center gap-2 rounded-xl bg-white/10 border border-white/20 px-6 py-3 text-xs font-semibold text-white hover:bg-white/20 transition"
+                className="inline-flex items-center gap-2 rounded-xl bg-white/10 border border-white/20 px-5 py-3 text-xs font-semibold text-white hover:bg-white/20 transition"
               >
                 <Bot className="h-3.5 w-3.5 text-brand-apricot" /> Peak Shaving AI Portal
               </Link>
@@ -262,8 +264,8 @@ export default function EnergyStoragePage() {
                 return (
                   <div key={prod.id} className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
                     <motion.div
-                      initial={{ opacity: 0, x: isEven ? -30 : 30 }}
-                      whileInView={{ opacity: 1, x: 0 }}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true, margin: '-40px' }}
                       transition={{ duration: 0.5, ease: 'easeOut' }}
                       className={`space-y-6 ${isEven ? 'order-1' : 'order-1 md:order-2'}`}
@@ -320,8 +322,8 @@ export default function EnergyStoragePage() {
                 return (
                   <div key={prod.id} className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
                     <motion.div
-                      initial={{ opacity: 0, x: isEven ? -30 : 30 }}
-                      whileInView={{ opacity: 1, x: 0 }}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true, margin: '-40px' }}
                       transition={{ duration: 0.5, ease: 'easeOut' }}
                       className={`space-y-6 ${isEven ? 'order-1' : 'order-1 md:order-2'}`}

@@ -126,8 +126,8 @@ export default function SolarStorageEVChargingPage() {
             >
               {/* CONTENT COLUMN */}
               <motion.div
-                initial={{ opacity: 0, x: index % 2 === 1 ? 60 : -60 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-50px' }}
                 transition={{ duration: 0.6, ease: 'easeOut' }}
                 className={`space-y-5 ${index % 2 === 1 ? 'md:order-2' : 'md:order-1'}`}
@@ -200,8 +200,8 @@ export default function SolarStorageEVChargingPage() {
 
               {/* IMAGE COLUMN */}
               <motion.div
-                initial={{ opacity: 0, x: index % 2 === 1 ? -60 : 60 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-50px' }}
                 transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }}
                 className={index % 2 === 1 ? 'md:order-1' : 'md:order-2'}

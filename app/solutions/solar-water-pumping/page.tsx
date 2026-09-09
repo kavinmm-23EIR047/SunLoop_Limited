@@ -95,8 +95,8 @@ export default function SolarWaterPumpingPage() {
           {/* PRODUCT 1: SOLAR AC WATER PUMPING SOLUTION */}
           <div className="grid gap-10 md:grid-cols-2 items-center py-6 border-b border-black/[0.06]">
             <motion.div
-              initial={{ opacity: 0, x: -60 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.6, ease: 'easeOut' }}
               className="space-y-5"
@@ -173,8 +173,8 @@ export default function SolarWaterPumpingPage() {
 
             {/* PRODUCT 1 IMAGE CARD */}
             <motion.div
-              initial={{ opacity: 0, x: 60 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }}
               className="relative"
@@ -199,8 +199,8 @@ export default function SolarWaterPumpingPage() {
           <div className="grid gap-10 md:grid-cols-2 items-center py-6">
             {/* PRODUCT 2 IMAGE CARD */}
             <motion.div
-              initial={{ opacity: 0, x: 60 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }}
               className="relative order-2 md:order-1"
@@ -222,8 +222,8 @@ export default function SolarWaterPumpingPage() {
 
             {/* PRODUCT 2 CONTENT */}
             <motion.div
-              initial={{ opacity: 0, x: -60 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.6, ease: 'easeOut' }}
               className="space-y-5 order-1 md:order-2"

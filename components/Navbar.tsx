@@ -315,7 +315,7 @@ export function Navbar() {
 
         {/* Mobile Hamburger Button */}
         <button
-          className={`xl:hidden flex items-center justify-center h-11 w-11 rounded-lg transition ${isDarkHeader ? 'text-white hover:bg-white/10' : 'text-brand-ink hover:bg-slate-100'}`}
+          className={`xl:hidden flex items-center justify-center h-11 w-11 rounded-lg transition shrink-0 ${isDarkHeader ? 'text-white hover:bg-white/10' : 'text-brand-ink hover:bg-slate-100'}`}
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
           aria-expanded={mobileOpen}
