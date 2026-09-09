@@ -123,15 +123,9 @@ export default function SolarStoragePage() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
         <div className="absolute inset-0 flex items-center">
           <div className="container relative z-10 mx-auto max-w-5xl px-4">
-<<<<<<< HEAD
             <Reveal className="max-w-2xl space-y-5">
               <span className="inline-flex items-center gap-2 rounded-sm bg-brand-primary px-4 py-2 text-xs font-bold uppercase tracking-widest text-white">
                 <BatteryCharging className="h-4 w-4" /> 02 / Store
-=======
-            <Reveal className="max-w-2xl space-y-4">
-              <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-brand-apricot">
-                <BatteryCharging className="h-3.5 w-3.5" /> 02 / Store
->>>>>>> c10e3386c4900e673439e1cf9c75bf2270169494
               </span>
               <h1 className="hero-title text-4xl sm:text-5xl md:text-6xl">Solar &amp; Storage Solution</h1>
               <p className="hero-subtitle text-lg md:text-xl max-w-xl">A Solar &amp; Storage Solution combines photovoltaic systems with battery storage to deliver resilient, efficient, and sustainable power.</p>
@@ -446,13 +440,8 @@ export default function SolarStoragePage() {
                   <BatteryCharging className="h-6 w-6" />
                 </div>
                 <h4 className="text-xs font-bold text-brand-ink">LiFePO4 Storage</h4>
-<<<<<<< HEAD
-                <p className="text-[10px] text-brand-slate mt-0.5">WallLoop / BlockLoop / CubeLoop</p>
-                <span className="inline-block mt-2 rounded-full bg-blue-100 px-2 py-0.5 text-[9px] font-semibold text-blue-600">
-=======
-                <p className="text-xs text-brand-slate mt-0.5">WallArk / BlockArk / CubeArk</p>
+                <p className="text-xs text-brand-slate mt-0.5">WallLoop / BlockLoop / CubeLoop</p>
                 <span className="inline-block mt-2 rounded-full bg-blue-100 px-2 py-0.5 text-xs font-semibold text-blue-600">
->>>>>>> c10e3386c4900e673439e1cf9c75bf2270169494
                   Sub-10ms UPS Backup
                 </span>
               </button>
@@ -499,13 +488,8 @@ export default function SolarStoragePage() {
               )}
               {activeNode === 'battery' && (
                 <div className="space-y-2">
-<<<<<<< HEAD
-                  <span className="text-[10px] font-bold text-blue-600 uppercase">03 / LIFEPO4 ENERGY STORAGE</span>
-                  <h3 className="text-base font-bold text-brand-ink">LiFePO4 Lithium Storage Bank (WallLoop / BlockLoop / CubeLoop)</h3>
-=======
                   <span className="text-xs font-bold text-blue-600 uppercase">03 / LIFEPO4 ENERGY STORAGE</span>
-                  <h3 className="text-base font-bold text-brand-ink">LiFePO4 Lithium Storage Bank (WallArk / BlockArk / CubeArk)</h3>
->>>>>>> c10e3386c4900e673439e1cf9c75bf2270169494
+                  <h3 className="text-base font-bold text-brand-ink">LiFePO4 Lithium Storage Bank (WallLoop / BlockLoop / CubeLoop)</h3>
                   <p className="text-xs text-brand-slate font-normal leading-relaxed">
                     Stores daytime solar surplus for night consumption, emergency blackout backup, and Time-of-Use tariff arbitrage. Features smart BMS thermal balancing and remote cloud diagnostics.
                   </p>

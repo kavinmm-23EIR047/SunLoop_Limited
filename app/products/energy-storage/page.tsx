@@ -184,16 +184,11 @@ export default function EnergyStoragePage() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
 
         <div className="container relative z-10 max-w-5xl mx-auto px-4">
-<<<<<<< HEAD
           <Reveal className="max-w-2xl space-y-5">
             <span className="inline-flex items-center rounded-sm bg-brand-primary px-4 py-2 text-xs font-bold uppercase tracking-widest text-white">
               WallLoop · StackLoop · CubeLoop Series
             </span>
             <h1 className="hero-title text-4xl sm:text-5xl md:text-6xl">
-=======
-          <Reveal className="max-w-2xl space-y-4">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight">
->>>>>>> c10e3386c4900e673439e1cf9c75bf2270169494
               Energy Storage Systems (ESS)
             </h1>
             <p className="hero-subtitle text-lg md:text-xl">
@@ -423,7 +418,6 @@ export default function EnergyStoragePage() {
               </div>
 
               <div className="pt-3 border-t border-black/10 flex flex-wrap justify-end gap-3">
-<<<<<<< HEAD
                 <Link
                   href={`/resources/datasheets/${activeModal.id}`}
                   onClick={() => setActiveModal(null)}
@@ -431,8 +425,6 @@ export default function EnergyStoragePage() {
                 >
                   View Datasheet
                 </Link>
-=======
->>>>>>> c10e3386c4900e673439e1cf9c75bf2270169494
                 <Button href="/contact" onClick={() => setActiveModal(null)}>
                   Request Formal Quotation <ArrowUpRight className="ml-1 h-3.5 w-3.5" />
                 </Button>

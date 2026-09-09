@@ -316,40 +316,57 @@ export default function HomeOwnersSolutionPage() {
               Our experts are ready to design the perfect solar and storage system for your home.
             </p>
             
-            <form className="bg-white rounded-3xl p-8 md:p-12 shadow-2xl border border-black/5 text-left space-y-6">
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                const form = e.currentTarget;
+                const firstName = (form.elements.namedItem('firstName') as HTMLInputElement)?.value || '';
+                const lastName = (form.elements.namedItem('lastName') as HTMLInputElement)?.value || '';
+                const email = (form.elements.namedItem('email') as HTMLInputElement)?.value || '';
+                const phone = (form.elements.namedItem('phone') as HTMLInputElement)?.value || '';
+                const message = (form.elements.namedItem('message') as HTMLTextAreaElement)?.value || '';
+
+                const text = `*New Homeowner Solar & Storage Enquiry*\n━━━━━━━━━━━━━━━━━━━━━━━\n👤 *Name:* ${firstName} ${lastName}\n📧 *Email:* ${email}\n📞 *Phone:* ${phone}\n🏡 *Solution:* Residential Solar + ESS\n📝 *Message:* ${message || 'I would like to explore home solar options.'}\n━━━━━━━━━━━━━━━━━━━━━━━\n_Sent via Sunloop Energy_`;
+                const waUrl = `https://wa.me/917339536677?text=${encodeURIComponent(text)}`;
+                if (typeof window !== 'undefined') {
+                  window.open(waUrl, '_blank', 'noopener,noreferrer');
+                }
+              }}
+              className="bg-white rounded-3xl p-8 md:p-12 shadow-2xl border border-black/5 text-left space-y-6"
+            >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label className="text-xs font-bold text-neutral-700 uppercase">First Name</label>
-                  <input type="text" className="w-full rounded-xl bg-neutral-50 border border-neutral-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500/50" placeholder="John" />
+                  <label className="text-xs font-bold text-neutral-700 uppercase">First Name *</label>
+                  <input name="firstName" required type="text" className="w-full rounded-xl bg-neutral-50 border border-neutral-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500/50" placeholder="John" />
                 </div>
                 <div className="space-y-2">
                   <label className="text-xs font-bold text-neutral-700 uppercase">Last Name</label>
-                  <input type="text" className="w-full rounded-xl bg-neutral-50 border border-neutral-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500/50" placeholder="Doe" />
+                  <input name="lastName" type="text" className="w-full rounded-xl bg-neutral-50 border border-neutral-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500/50" placeholder="Doe" />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-xs font-bold text-neutral-700 uppercase">Email Address</label>
-                  <input type="email" className="w-full rounded-xl bg-neutral-50 border border-neutral-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500/50" placeholder="john@example.com" />
+                  <label className="text-xs font-bold text-neutral-700 uppercase">Email Address *</label>
+                  <input name="email" required type="email" className="w-full rounded-xl bg-neutral-50 border border-neutral-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500/50" placeholder="john@example.com" />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-xs font-bold text-neutral-700 uppercase">Phone Number</label>
-                  <input type="tel" className="w-full rounded-xl bg-neutral-50 border border-neutral-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500/50" placeholder="+1 (555) 000-0000" />
+                  <label className="text-xs font-bold text-neutral-700 uppercase">Phone Number *</label>
+                  <input name="phone" required type="tel" className="w-full rounded-xl bg-neutral-50 border border-neutral-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500/50" placeholder="+91 98765 43210" />
                 </div>
               </div>
               
               <div className="space-y-2">
                 <label className="text-xs font-bold text-neutral-700 uppercase">Your Message</label>
-                <textarea rows={4} className="w-full rounded-xl bg-neutral-50 border border-neutral-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500/50" placeholder="Tell us about your home and energy needs..." />
+                <textarea name="message" rows={4} className="w-full rounded-xl bg-neutral-50 border border-neutral-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500/50" placeholder="Tell us about your home and energy needs..." />
               </div>
 
               <div className="flex items-start gap-3 pt-2">
-                <input type="checkbox" id="consent" className="mt-1 h-4 w-4 rounded border-gray-300 text-orange-500 focus:ring-orange-500" />
+                <input type="checkbox" id="consent" defaultChecked required className="mt-1 h-4 w-4 rounded border-gray-300 text-orange-500 focus:ring-orange-500" />
                 <label htmlFor="consent" className="text-xs text-neutral-500 leading-relaxed">
-                  I consent to SunLoop collecting and processing my data in accordance with the Privacy Policy. I understand I can unsubscribe at any time.
+                  I consent to SunLoop contacting me regarding my enquiry via phone, email, or WhatsApp.
                 </label>
               </div>
 
-              <button type="button" className="w-full rounded-xl bg-[#E86526] px-8 py-4 text-sm font-bold text-white shadow-lg hover:bg-[#c95315] transition-colors focus:ring-4 focus:ring-orange-500/30">
-                Submit Request
+              <button type="submit" className="w-full rounded-xl bg-[#E86526] px-8 py-4 text-sm font-bold text-white shadow-lg hover:bg-[#c95315] transition-colors focus:ring-4 focus:ring-orange-500/30">
+                Submit Request &amp; Send on WhatsApp
               </button>
             </form>
           </Reveal>

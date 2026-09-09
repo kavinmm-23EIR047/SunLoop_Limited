@@ -366,44 +366,62 @@ export default function BusinessOwnersSolutionPage() {
               Our B2B engineering team is ready to design the perfect commercial energy system for your facility.
             </p>
             
-            <form className="bg-white rounded-3xl p-8 md:p-12 shadow-2xl border border-slate-100 text-left space-y-6">
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                const form = e.currentTarget;
+                const company = (form.elements.namedItem('company') as HTMLInputElement)?.value || '';
+                const position = (form.elements.namedItem('position') as HTMLInputElement)?.value || '';
+                const fullName = (form.elements.namedItem('fullName') as HTMLInputElement)?.value || '';
+                const email = (form.elements.namedItem('email') as HTMLInputElement)?.value || '';
+                const phone = (form.elements.namedItem('phone') as HTMLInputElement)?.value || '';
+                const message = (form.elements.namedItem('message') as HTMLTextAreaElement)?.value || '';
+
+                const text = `*New Commercial & Industrial (C&I) Solar/Storage Enquiry*\n━━━━━━━━━━━━━━━━━━━━━━━\n🏢 *Company:* ${company}\n👤 *Contact:* ${fullName} (${position || 'N/A'})\n📧 *Work Email:* ${email}\n📞 *Phone:* ${phone}\n⚡ *Solution:* C&I Solar PV & Storage Peak-Shaving\n📝 *Message:* ${message || 'We would like to request an industrial energy feasibility assessment.'}\n━━━━━━━━━━━━━━━━━━━━━━━\n_Sent via Sunloop Energy_`;
+                const waUrl = `https://wa.me/917339536677?text=${encodeURIComponent(text)}`;
+                if (typeof window !== 'undefined') {
+                  window.open(waUrl, '_blank', 'noopener,noreferrer');
+                }
+              }}
+              className="bg-white rounded-3xl p-8 md:p-12 shadow-2xl border border-slate-100 text-left space-y-6"
+            >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label className="text-xs font-bold text-slate-700 uppercase">Company Name</label>
-                  <input type="text" className="w-full rounded-xl bg-slate-50 border border-slate-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/50" placeholder="Acme Corp" />
+                  <label className="text-xs font-bold text-slate-700 uppercase">Company Name *</label>
+                  <input name="company" required type="text" className="w-full rounded-xl bg-slate-50 border border-slate-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/50" placeholder="Acme Corp" />
                 </div>
                 <div className="space-y-2">
                   <label className="text-xs font-bold text-slate-700 uppercase">Your Position / Title</label>
-                  <input type="text" className="w-full rounded-xl bg-slate-50 border border-slate-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/50" placeholder="Facilities Manager" />
+                  <input name="position" type="text" className="w-full rounded-xl bg-slate-50 border border-slate-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/50" placeholder="Facilities Manager" />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-xs font-bold text-slate-700 uppercase">Full Name</label>
-                  <input type="text" className="w-full rounded-xl bg-slate-50 border border-slate-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/50" placeholder="John Doe" />
+                  <label className="text-xs font-bold text-slate-700 uppercase">Full Name *</label>
+                  <input name="fullName" required type="text" className="w-full rounded-xl bg-slate-50 border border-slate-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/50" placeholder="John Doe" />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-xs font-bold text-slate-700 uppercase">Work Email</label>
-                  <input type="email" className="w-full rounded-xl bg-slate-50 border border-slate-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/50" placeholder="john@acmecorp.com" />
+                  <label className="text-xs font-bold text-slate-700 uppercase">Work Email *</label>
+                  <input name="email" required type="email" className="w-full rounded-xl bg-slate-50 border border-slate-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/50" placeholder="john@acmecorp.com" />
                 </div>
                 <div className="space-y-2 md:col-span-2">
-                  <label className="text-xs font-bold text-slate-700 uppercase">Phone Number</label>
-                  <input type="tel" className="w-full rounded-xl bg-slate-50 border border-slate-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/50" placeholder="+1 (555) 000-0000" />
+                  <label className="text-xs font-bold text-slate-700 uppercase">Phone Number *</label>
+                  <input name="phone" required type="tel" className="w-full rounded-xl bg-slate-50 border border-slate-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/50" placeholder="+91 98765 43210" />
                 </div>
               </div>
               
               <div className="space-y-2">
                 <label className="text-xs font-bold text-slate-700 uppercase">Your Message</label>
-                <textarea rows={4} className="w-full rounded-xl bg-slate-50 border border-slate-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/50" placeholder="Tell us about your commercial property and energy needs..." />
+                <textarea name="message" rows={4} className="w-full rounded-xl bg-slate-50 border border-slate-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/50" placeholder="Tell us about your commercial property and energy needs..." />
               </div>
 
               <div className="flex items-start gap-3 pt-2">
-                <input type="checkbox" id="consent" className="mt-1 h-4 w-4 rounded border-gray-300 text-emerald-600 focus:ring-emerald-500" />
+                <input type="checkbox" id="consent" defaultChecked required className="mt-1 h-4 w-4 rounded border-gray-300 text-emerald-600 focus:ring-emerald-500" />
                 <label htmlFor="consent" className="text-xs text-slate-500 leading-relaxed">
-                  I consent to SunLoop collecting and processing my data in accordance with the Privacy Policy for business correspondence. I understand I can unsubscribe at any time.
+                  I consent to SunLoop contacting me regarding my commercial enquiry via phone, email, or WhatsApp.
                 </label>
               </div>
 
-              <button type="button" className="w-full rounded-xl bg-emerald-600 px-8 py-4 text-sm font-bold text-white shadow-lg hover:bg-emerald-700 transition-colors focus:ring-4 focus:ring-emerald-500/30">
-                Submit Commercial Inquiry
+              <button type="submit" className="w-full rounded-xl bg-emerald-600 px-8 py-4 text-sm font-bold text-white shadow-lg hover:bg-emerald-700 transition-colors focus:ring-4 focus:ring-emerald-500/30">
+                Submit Commercial Inquiry &amp; Send on WhatsApp
               </button>
             </form>
           </Reveal>

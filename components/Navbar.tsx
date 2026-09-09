@@ -300,28 +300,11 @@ export function Navbar() {
             Company
           </Link>
 
-<<<<<<< HEAD
-          <Link href="/resources/datasheets" className="transition hover:text-[#E86526] whitespace-nowrap">
+          <Link href="/resources/datasheets" className="transition hover:text-[#E86526] whitespace-nowrap py-2">
             Downloads
           </Link>
 
-          {/* AI Portal Pill Button */}
-          <Link
-            href="/ai-portal"
-            className={`flex items-center gap-2 rounded-md border px-4 py-2 text-xs font-semibold shadow-xs transition ${
-              isDarkHeader
-                ? 'border-white/20 bg-white/10 text-white hover:bg-white/20'
-                : 'border-slate-200 bg-white text-slate-800 hover:border-[#E86526] hover:text-[#E86526]'
-            }`}
-          >
-            <Bot className={`h-4 w-4 ${isDarkHeader ? 'text-white' : 'text-[#E86526]'}`} />
-            AI Portal Dashboard
-          </Link>
-
-          {/* Get a Quote Solid Orange Pill */}
-=======
-          {/* Primary CTA — the only prominent button */}
->>>>>>> c10e3386c4900e673439e1cf9c75bf2270169494
+          {/* Primary CTA button */}
           <Link
             href="/contact"
             className="flex items-center gap-1.5 rounded-lg bg-[#E86526] px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#c95315] transition ml-1"
@@ -372,17 +355,6 @@ export function Navbar() {
                   <ChevronDown className={`h-4 w-4 transition-transform ${mobileSolutionsExpanded ? 'rotate-180 text-brand-primary' : ''}`} />
                 </button>
 
-<<<<<<< HEAD
-          <Link onClick={() => setMobileOpen(false)} className="rounded-md px-3 py-2.5 hover:bg-brand-bg text-brand-ink" href="/resources/datasheets">
-            Downloads
-          </Link>
-
-          <Link onClick={() => setMobileOpen(false)} className="rounded-md px-3 py-2.5 bg-brand-primary text-white text-center font-bold" href="/contact">
-            Get a Quote
-          </Link>
-        </nav>
-      )}
-=======
                 <AnimatePresence>
                   {mobileSolutionsExpanded && (
                     <motion.div
@@ -477,6 +449,14 @@ export function Navbar() {
 
               <Link
                 onClick={() => setMobileOpen(false)}
+                className="rounded-lg px-4 py-3 min-h-[44px] flex items-center hover:bg-slate-50 text-brand-ink"
+                href="/resources/datasheets"
+              >
+                Downloads
+              </Link>
+
+              <Link
+                onClick={() => setMobileOpen(false)}
                 className="rounded-lg px-4 py-3 min-h-[44px] flex items-center justify-center bg-brand-primary text-white text-center font-semibold mt-2"
                 href="/contact"
               >
@@ -486,7 +466,6 @@ export function Navbar() {
           </motion.nav>
         )}
       </AnimatePresence>
->>>>>>> c10e3386c4900e673439e1cf9c75bf2270169494
     </header>
   );
 }
