@@ -96,7 +96,7 @@ export default function Contact() {
     <main className="font-sans bg-[#F8FAFC]">
       {/* HERO SECTION */}
       <section className="pb-16 pt-36 md:pt-44 border-b border-black/[0.06] bg-white">
-        <div className="container max-w-6xl">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal className="space-y-3">
             <span className="eyebrow">Let's build what's next</span>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-brand-ink tracking-tight leading-[1.1]">
@@ -110,7 +110,7 @@ export default function Contact() {
       </section>
 
       {/* FORM & HQ CARDS */}
-      <section className="container max-w-6xl grid gap-10 py-16 md:grid-cols-[1.15fr_.85fr] md:py-24">
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid gap-10 py-16 md:grid-cols-[1.15fr_.85fr] md:py-24">
         <Reveal className="panel p-8 md:p-10 bg-white shadow-sm rounded-3xl border border-black/[0.08]">
           {sent ? (
             <div className="flex min-h-[400px] flex-col items-center justify-center text-center space-y-5">
@@ -359,7 +359,7 @@ export default function Contact() {
 
       {/* FAQ SECTION */}
       <section className="py-20 bg-white border-t border-black/[0.06]">
-        <div className="container max-w-4xl mx-auto px-4 space-y-12">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <Reveal className="text-center space-y-3">
             <span className="eyebrow justify-center">Got Questions?</span>
             <h2 className="text-3xl md:text-4xl font-bold text-brand-ink tracking-tight">
