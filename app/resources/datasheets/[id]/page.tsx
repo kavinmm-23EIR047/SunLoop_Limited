@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
-import { ProductDatasheetView } from '../../../components/ProductDatasheet';
-import { allDatasheets, getDatasheetById } from '../../../data/allProducts';
+import { ProductDatasheetView } from '../../../../components/ProductDatasheet';
+import { allDatasheets, getDatasheetById } from '../../../../data/allProducts';
 
 export function generateStaticParams() {
   return allDatasheets.map((d) => ({ id: d.id }));
