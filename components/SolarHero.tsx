@@ -23,7 +23,7 @@ const scaleIn = (delay = 0) => ({
 export default function SolarHero() {
   return (
     <>
-      <section className="relative w-full min-h-screen flex items-center overflow-hidden">
+      <section className="relative w-full min-h-[92vh] sm:min-h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <motion.img
             src="/images/solar-hero-bg-4k.png"
@@ -39,14 +39,14 @@ export default function SolarHero() {
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30" />
         </div>
 
-        <div className="container relative z-10 mx-auto px-4 sm:px-8 max-w-7xl pt-28 pb-16 sm:pt-36 sm:pb-20 lg:pt-44 lg:pb-24">
+        <div className="container relative z-10 mx-auto px-4 sm:px-8 max-w-7xl pt-20 pb-12 sm:pt-28 sm:pb-16 lg:pt-36 lg:pb-20">
           <div className="max-w-3xl">
             {/* Trust Badge / Decade Pill — Sleek Frosted Glassmorphism */}
             <motion.div
               variants={fadeUp(0.2)}
               initial="hidden"
               animate="visible"
-              className="inline-flex items-center gap-2 rounded-full bg-black/40 backdrop-blur-md border border-white/20 px-3.5 py-1.5 text-xs text-white shadow-lg mb-6 sm:mb-8 max-w-full"
+              className="inline-flex items-center gap-2 rounded-full bg-black/40 backdrop-blur-md border border-white/20 px-3.5 py-1.5 text-xs text-white shadow-lg mb-4 sm:mb-6 max-w-full"
             >
               <span className="flex h-2 w-2 rounded-full bg-[#E86526] animate-pulse shrink-0" />
               <span className="font-bold text-[#FFA07A] text-[11px] sm:text-xs tracking-wide uppercase whitespace-nowrap">
@@ -63,7 +63,7 @@ export default function SolarHero() {
               variants={fadeUp(0.35)}
               initial="hidden"
               animate="visible"
-              className="hero-title text-3xl sm:text-5xl md:text-6xl lg:text-7xl mb-4 sm:mb-6 font-extrabold tracking-tight leading-[1.12]"
+              className="hero-title text-3xl sm:text-5xl md:text-6xl lg:text-7xl mb-3 sm:mb-5 font-extrabold tracking-tight leading-[1.12]"
             >
               Powering Tomorrow,{' '}
               <span className="hero-accent">Sustainably.</span>
@@ -74,7 +74,7 @@ export default function SolarHero() {
               variants={fadeUp(0.5)}
               initial="hidden"
               animate="visible"
-              className="text-sm sm:text-base md:text-lg text-white/85 leading-relaxed max-w-xl mb-8 sm:mb-10 font-normal"
+              className="text-sm sm:text-base md:text-lg text-white/85 leading-relaxed max-w-xl mb-6 sm:mb-8 font-normal"
             >
               Solar power plants, energy storage systems, and EV charging
               infrastructure — designed, built, and managed through one
@@ -86,7 +86,7 @@ export default function SolarHero() {
               variants={fadeUp(0.65)}
               initial="hidden"
               animate="visible"
-              className="flex flex-row items-center gap-2.5 sm:gap-4 mb-10 sm:mb-14 flex-wrap"
+              className="flex flex-row items-center gap-2.5 sm:gap-4 mb-8 sm:mb-10 flex-wrap"
             >
               {/* Primary CTA */}
               <Link
@@ -111,7 +111,7 @@ export default function SolarHero() {
               variants={fadeUp(0.8)}
               initial="hidden"
               animate="visible"
-              className="grid grid-cols-3 gap-3 sm:gap-10 border-t border-white/20 pt-6 sm:pt-8"
+              className="grid grid-cols-3 gap-3 sm:gap-10 border-t border-white/20 pt-4 sm:pt-6"
             >
               {[
                 { value: '500+', label: 'Sites Deployed' },
@@ -131,15 +131,15 @@ export default function SolarHero() {
           variants={fadeIn(1.2)}
           initial="hidden"
           animate="visible"
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
+          className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1.5"
           aria-hidden="true"
         >
-          <span className="text-xs font-semibold tracking-wide text-white/60">Scroll</span>
+          <span className="text-[11px] font-semibold tracking-wide text-white/60">Scroll</span>
           <motion.div
-            animate={{ y: [0, 8, 0] }}
+            animate={{ y: [0, 6, 0] }}
             transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}
           >
-            <ChevronDown className="h-5 w-5 text-white/60" />
+            <ChevronDown className="h-4 w-4 text-white/60" />
           </motion.div>
         </motion.div>
       </section>
