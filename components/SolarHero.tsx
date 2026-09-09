@@ -26,7 +26,7 @@ export default function SolarHero() {
       <section className="relative w-full min-h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <motion.img
-            src="/images/solar-hero-bg-4k.jpg"
+            src="/images/solar-hero-bg.png"
             alt="Solar PV arrays, ESS battery containers, and EV charging infrastructure powering sustainable energy"
             className="h-full w-full object-cover object-center"
             initial={{ opacity: 0 }}
