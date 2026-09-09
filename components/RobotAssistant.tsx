@@ -352,9 +352,9 @@ export function RobotAssistant() {
   return (
     <div
       id="sunloop-ai-assistant"
-      className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 font-sans"
+      className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 font-sans flex flex-col items-end"
     >
-      {/* Floating Chat Window */}
+      {/* Floating Chat Window (Corner Anchored) */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -362,8 +362,8 @@ export function RobotAssistant() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 16, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="mb-3 w-[380px] max-w-[calc(100vw-32px)] overflow-hidden rounded-2xl border border-black/10 bg-white shadow-2xl flex flex-col"
-            style={{ height: '540px', maxHeight: 'calc(100vh - 100px)' }}
+            className="w-[360px] sm:w-[390px] max-w-[calc(100vw-32px)] overflow-hidden rounded-2xl border border-black/10 bg-white shadow-2xl flex flex-col origin-bottom-right"
+            style={{ height: 'min(560px, calc(100vh - 48px))' }}
           >
             {/* Header */}
             <div className="border-b border-black/10 bg-[#0F172A] p-3.5 sm:p-4 text-white">
@@ -585,24 +585,20 @@ export function RobotAssistant() {
         )}
       </AnimatePresence>
 
-      {/* Floating Toggle Button — Box Shape with Message Icon */}
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="relative h-13 w-13 sm:h-14 sm:w-14 rounded-2xl bg-[#E86526] hover:bg-[#d8581c] text-white shadow-2xl flex items-center justify-center transition-all duration-200 transform hover:scale-105 active:scale-95 border border-white/20"
-        aria-label={isOpen ? 'Close AI Support Chat' : 'Open AI Support Chat'}
-      >
-        {isOpen ? (
-          <X className="h-6 w-6 text-white" aria-hidden="true" />
-        ) : (
-          <>
-            <MessageSquare className="h-6 w-6 text-white" aria-hidden="true" />
-            <span className="absolute -top-1 -right-1 flex h-3.5 w-3.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-emerald-500 border-2 border-white" />
-            </span>
-          </>
-        )}
-      </button>
+      {/* Floating Toggle Button — Box Shape with Message Icon (Hidden when chat is open) */}
+      {!isOpen && (
+        <button
+          onClick={() => setIsOpen(true)}
+          className="relative h-14 w-14 sm:h-15 sm:w-15 rounded-2xl bg-[#E86526] hover:bg-[#d8581c] text-white shadow-2xl flex items-center justify-center transition-all duration-200 transform hover:scale-105 active:scale-95 border border-white/25 shrink-0"
+          aria-label="Open AI Support Chat"
+        >
+          <MessageSquare className="h-7 w-7 text-white stroke-[2.2]" aria-hidden="true" />
+          <span className="absolute -top-1 -right-1 flex h-4 w-4">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+            <span className="relative inline-flex rounded-full h-4 w-4 bg-emerald-500 border-2 border-white shadow-xs" />
+          </span>
+        </button>
+      )}
     </div>
   );
 }
