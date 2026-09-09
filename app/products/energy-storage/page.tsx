@@ -55,23 +55,25 @@ export default function EnergyStoragePage() {
       {/* HERO BANNER */}
       <section className="relative w-full h-[460px] sm:h-[560px] md:h-[640px] overflow-hidden bg-brand-ink text-white flex items-center">
         <div
-          className="absolute inset-0 bg-cover bg-center pointer-events-none transition-transform duration-1000"
-          style={{
-            backgroundImage: `url('/products/Energy Storage Cabinet.png')`,
-          }}
+          className="absolute inset-0 bg-cover bg-center pointer-events-none"
+          style={{ backgroundImage: `url('/products/Energy Storage Cabinet.png')` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 hero-overlay pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
 
         <div className="container relative z-10 max-w-5xl mx-auto px-4">
-          <Reveal className="max-w-2xl space-y-4">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          <Reveal className="max-w-2xl space-y-5">
+            <span className="inline-flex items-center rounded-sm bg-brand-primary px-4 py-2 text-xs font-bold uppercase tracking-widest text-white">
+              WallLoop · StackLoop · CubeLoop Series
+            </span>
+            <h1 className="hero-title text-4xl sm:text-5xl md:text-6xl">
               Energy Storage Systems (ESS)
             </h1>
-            <p className="text-sm sm:text-base text-white/80 leading-relaxed font-normal">
-              Advanced lithium-ion and LiFePO4 battery storage systems that ensure uninterrupted power, reduce peak-demand charges, and increase energy independence. Fully stackable and designed for seamless integration with Solar and EV systems.
+            <p className="hero-subtitle text-lg md:text-xl">
+              Advanced lithium-ion and LiFePO4 battery storage systems that ensure uninterrupted power, reduce peak-demand charges, and increase energy independence.
             </p>
-            <p className="text-xs font-bold text-[#E86526] uppercase tracking-wider">
-              Capacity: 5 kWh – 500+ kWh (stackable to meet any requirement)
+            <p className="text-sm font-bold text-brand-primary uppercase tracking-wider bg-white/95 inline-block px-3 py-1 rounded-sm">
+              Capacity: 5 kWh – 500+ kWh (stackable)
             </p>
 
             <div className="pt-3 flex flex-wrap gap-3">
@@ -293,7 +295,14 @@ export default function EnergyStoragePage() {
                 </div>
               </div>
 
-              <div className="pt-3 border-t border-black/10 flex justify-end gap-3">
+              <div className="pt-3 border-t border-black/10 flex flex-wrap justify-end gap-3">
+                <Link
+                  href={`/resources/datasheets/${activeModal.id}`}
+                  onClick={() => setActiveModal(null)}
+                  className="inline-flex items-center gap-2 rounded-sm border-2 border-brand-primary px-4 py-2 text-xs font-bold text-brand-primary hover:bg-brand-bg-subtle transition"
+                >
+                  View Datasheet
+                </Link>
                 <Button href="/contact" onClick={() => setActiveModal(null)}>
                   Request Formal Quotation <ArrowUpRight className="ml-1 h-3.5 w-3.5" />
                 </Button>

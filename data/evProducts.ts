@@ -1,5 +1,8 @@
+import type { ProductDatasheet, SpecRow } from './productTypes';
+
 export interface EVProductVariant {
   id: string;
+  modelNumber: string;
   category: 'Residential' | 'Commercial';
   type: 'AC' | 'DC';
   series: string;
@@ -10,27 +13,30 @@ export interface EVProductVariant {
   mounting: string;
   keywords: ('residential' | 'commercial')[];
   desc: string;
-  specs: { label: string; value: string }[];
+  specs: SpecRow[];
   tech: string[];
   apps: string[];
   image: string;
   fallbackImage: string;
+  datasheet: ProductDatasheet;
 }
 
 export const evProducts: EVProductVariant[] = [
   {
-    id: 'ac-ev-charger-res',
+    id: 'chargeloop-ac-res',
+    modelNumber: 'SL-EV-AC-R-22',
     category: 'Residential',
     type: 'AC',
-    series: 'Residential AC Series',
-    title: 'AC EV Charger (7.4 kW – 22 kW)',
+    series: 'ChargeLoop Residential Series',
+    title: 'ChargeLoop AC EV Charger (7.4 kW – 22 kW)',
     power: '7.4 kW – 22 kW',
     output: 'Single Output',
     voltage: '230V / 400V AC',
     mounting: 'Wall / Column Type',
     keywords: ['residential'],
-    desc: 'Smart charging for residential communities, home garages, private villas, and apartment parking with app control and dynamic load management.',
+    desc: 'Smart AC charging for residential communities, home garages, and apartment parking with app control and dynamic load management.',
     specs: [
+      { label: 'Series', value: 'ChargeLoop Residential Series' },
       { label: 'Power Rating', value: '7.4 kW – 22 kW' },
       { label: 'Output', value: 'Single Output' },
       { label: 'Voltage', value: '230V / 400V AC' },
@@ -40,20 +46,51 @@ export const evProducts: EVProductVariant[] = [
     apps: ['Private Homes & Villas', 'Residential Apartments', 'Private Garages'],
     image: '/products/EV charger/AC EV Charger.png',
     fallbackImage: '/images/dc-charging.png',
+    datasheet: {
+      modelNumber: 'SL-EV-AC-R-22',
+      series: 'ChargeLoop Residential Series',
+      category: 'ev',
+      revision: 'Rev 1.0',
+      issueDate: 'August 2026',
+      overview: 'ChargeLoop Residential AC charger for home and community EV charging with smart load balancing and OCPP cloud connectivity.',
+      electrical: [
+        { label: 'Power Rating', value: '7.4 kW / 11 kW / 22 kW selectable' },
+        { label: 'Input Voltage', value: '230V / 400V AC, 50/60 Hz' },
+        { label: 'Output Connector', value: 'Type 2 (IEC 62196)' },
+        { label: 'Efficiency', value: '≥ 94%' },
+        { label: 'Protocol', value: 'OCPP 1.6J' },
+      ],
+      mechanical: [
+        { label: 'Mounting', value: 'Wall / column mount' },
+        { label: 'Cable Length', value: '5 m standard (optional 7 m)' },
+        { label: 'Dimensions (typ.)', value: '380 × 240 × 120 mm' },
+        { label: 'Weight', value: '≈ 8 kg' },
+      ],
+      environmental: [
+        { label: 'IP Rating', value: 'IP65' },
+        { label: 'IK Rating', value: 'IK10' },
+        { label: 'Operating Temperature', value: '-25°C to +50°C' },
+      ],
+      certifications: ['IEC 61851', 'CE', 'RoHS'],
+      warranties: ['3 Years Standard Warranty', 'Extended service plans available'],
+      applications: ['Home garages', 'Residential apartments', 'Private villas'],
+    },
   },
   {
-    id: 'ac-ev-charger-com',
+    id: 'chargeloop-ac-com',
+    modelNumber: 'SL-EV-AC-C-22D',
     category: 'Commercial',
     type: 'AC',
-    series: 'Commercial AC Series',
-    title: 'AC EV Charger Commercial (7.4 kW – 22 kW)',
+    series: 'ChargeLoop Commercial Series',
+    title: 'ChargeLoop AC Commercial (7.4 kW – 22 kW)',
     power: '7.4 kW – 22 kW',
     output: 'Dual Output',
     voltage: '230V / 400V AC',
     mounting: 'Ground Pedestal',
     keywords: ['commercial'],
-    desc: 'Smart AC charging engineered for commercial complexes, workplaces, retail centers, and residential communities with automated billing integration.',
+    desc: 'Smart AC charging for commercial complexes, workplaces, and retail centers with automated billing integration.',
     specs: [
+      { label: 'Series', value: 'ChargeLoop Commercial Series' },
       { label: 'Power Rating', value: '7.4 kW – 22 kW' },
       { label: 'Output', value: 'Dual Output' },
       { label: 'Voltage', value: '230V / 400V AC' },
@@ -63,20 +100,48 @@ export const evProducts: EVProductVariant[] = [
     apps: ['Commercial Office Parks', 'Hotels & Resorts', 'Shopping Malls & Workplaces'],
     image: '/products/EV charger/ac Dual Output.png',
     fallbackImage: '/images/ac-charging.png',
+    datasheet: {
+      modelNumber: 'SL-EV-AC-C-22D',
+      series: 'ChargeLoop Commercial Series',
+      category: 'ev',
+      revision: 'Rev 1.0',
+      issueDate: 'August 2026',
+      overview: 'ChargeLoop Commercial AC dual-output pedestal charger for workplace and retail parking with integrated payment and OCPP backend.',
+      electrical: [
+        { label: 'Power Rating', value: '7.4 kW – 22 kW per gun' },
+        { label: 'Output', value: 'Dual simultaneous Type 2' },
+        { label: 'Input Voltage', value: '400V AC three-phase' },
+        { label: 'Protocol', value: 'OCPP 1.6J / 2.0' },
+        { label: 'Payment', value: 'RFID, UPI, card gateway' },
+      ],
+      mechanical: [
+        { label: 'Mounting', value: 'Ground pedestal, vandal-proof' },
+        { label: 'Display', value: '7" touchscreen (optional)' },
+      ],
+      environmental: [
+        { label: 'IP Rating', value: 'IP54 (pedestal)' },
+        { label: 'Operating Temperature', value: '-20°C to +50°C' },
+      ],
+      certifications: ['IEC 61851', 'CE', 'RoHS'],
+      warranties: ['3 Years Standard Warranty'],
+      applications: ['Office parks', 'Hotels', 'Shopping malls', 'Workplace parking'],
+    },
   },
   {
-    id: 'dc-ev-charger-com',
+    id: 'chargeloop-dc-fast',
+    modelNumber: 'SL-EV-DC-240',
     category: 'Commercial',
     type: 'DC',
-    series: 'DC Fast Charger Series',
-    title: 'DC Fast EV Charger (30 kW – 240 kW)',
+    series: 'ChargeLoop DC Fast Series',
+    title: 'ChargeLoop DC Fast Charger (30 kW – 240 kW)',
     power: '30 kW – 240 kW',
     output: 'Dual / Multi Output',
     voltage: '200–750V DC',
     mounting: 'Ground Type',
     keywords: ['commercial'],
-    desc: 'High-performance DC fast charging built for businesses and investors capitalizing on the growing EV market — ideal for fuel stations, highways, malls, hotels, and fleet depots, enabling recurring charging revenue.',
+    desc: 'High-performance DC fast charging for highways, fuel stations, malls, and fleet depots with dynamic power allocation and payment integration.',
     specs: [
+      { label: 'Series', value: 'ChargeLoop DC Fast Series' },
       { label: 'Power Rating', value: '30 kW – 240 kW' },
       { label: 'Output', value: 'Dual / Multi Gun Fast Output' },
       { label: 'Voltage', value: '200–750V DC' },
@@ -86,6 +151,34 @@ export const evProducts: EVProductVariant[] = [
     apps: ['Highway Fast Charging Hubs', 'Fleet Depots & Commercial Facilities', 'Petrol Stations, Malls & Hotels'],
     image: '/products/EV charger/DC EV Charger.png',
     fallbackImage: '/images/ac-charging.png',
+    datasheet: {
+      modelNumber: 'SL-EV-DC-240',
+      series: 'ChargeLoop DC Fast Series',
+      category: 'ev',
+      revision: 'Rev 1.0',
+      issueDate: 'August 2026',
+      overview: 'ChargeLoop DC Fast is a commercial-grade DC fast charger for public charging hubs and fleet operations with multi-gun dynamic power allocation.',
+      electrical: [
+        { label: 'Power Rating', value: '30 kW – 240 kW total' },
+        { label: 'Output Voltage', value: '200 – 750 V DC' },
+        { label: 'Connectors', value: 'CCS2 / CHAdeMO (configurable)' },
+        { label: 'Efficiency', value: '≥ 95%' },
+        { label: 'Protocol', value: 'OCPP 1.6J / 2.0' },
+      ],
+      mechanical: [
+        { label: 'Enclosure', value: 'Galvanized steel, outdoor rated' },
+        { label: 'Display', value: '7" color touchscreen' },
+        { label: 'Cable Management', value: 'Retractable / overhead options' },
+      ],
+      environmental: [
+        { label: 'IP Rating', value: 'IP54' },
+        { label: 'Operating Temperature', value: '-30°C to +50°C' },
+        { label: 'Humidity', value: '5% – 95% RH' },
+      ],
+      certifications: ['IEC 61851', 'IEC 62196', 'CE'],
+      warranties: ['2 Years Standard Warranty', 'On-site service SLA available'],
+      applications: ['Highway corridors', 'Fleet depots', 'Petrol station retrofit', 'Commercial parking monetization'],
+    },
   },
 ];
 
@@ -94,4 +187,3 @@ export const getResidentialEVProducts = (): EVProductVariant[] =>
 
 export const getCommercialEVProducts = (): EVProductVariant[] =>
   evProducts.filter((p) => p.keywords.includes('commercial'));
-

@@ -43,21 +43,21 @@ export default function Products() {
     <main className="min-h-screen bg-white pb-8 font-sans">
 
       {/* ═══ HERO HEADER ═══ */}
-      <section className="bg-slate-950 text-white relative overflow-hidden">
+      <section className="bg-brand-ink text-white relative overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src="/images/solar-hero-bg.png"
             alt="Sunloop Energy Products"
-            className="h-full w-full object-cover object-center opacity-20"
+            className="h-full w-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent" />
+          <div className="absolute inset-0 hero-overlay" />
         </div>
         <div className="container relative z-10 pt-36 pb-16 md:pt-44 md:pb-24">
-          <p className="eyebrow mb-3 text-brand-primary">Clean Energy Hardware Portfolio</p>
-          <h1 className="max-w-3xl text-4xl font-bold leading-tight md:text-6xl text-white">
-            Products Built for a <span className="text-brand-primary">Better Energy</span> Future.
+          <p className="eyebrow mb-4 text-white bg-brand-primary inline-block px-4 py-2 rounded-sm">Clean Energy Hardware Portfolio</p>
+          <h1 className="hero-title max-w-3xl text-4xl md:text-6xl">
+            Products Built for a <span className="hero-accent">Better Energy</span> Future.
           </h1>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/70 font-normal">
+          <p className="hero-subtitle mt-6 max-w-2xl text-lg md:text-xl">
             Explore Sunloop&apos;s Solar Power Plants, Energy Storage Systems (ESS), and EV Charging Infrastructure — all connected through the Sunloop AI Portal.
           </p>
         </div>

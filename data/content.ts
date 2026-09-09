@@ -22,9 +22,23 @@ export const portalFeatures = [
 ];
 
 export const contact = {
-  hq: 'Coimbatore, Tamil Nadu, India',
+  hq: 'Srinivasa Nagar, Coimbatore, Tamil Nadu 641015',
+  office: {
+    title: 'Corporate Office',
+    address: 'Srinivasa Nagar, Coimbatore, Tamil Nadu 641015',
+    mapUrl: 'https://maps.app.goo.gl/p9DcucVo1WqTbRVz9',
+  },
+  factory: {
+    title: 'Factory & Manufacturing Unit',
+    address: 'A43, Sulur Industrial Estate, Kadampadi, Tamil Nadu 641401',
+    mapUrl: 'https://maps.app.goo.gl/QVYxNZsSDzScwU7K8',
+  },
   website: 'www.sunloopenergy.com',
   email: 'info@sunloopenergy.com',
-  phone: '+91 (0422) 298-7654',
+  phone: '+91 733 953 6677',
+  phoneRaw: '+917339536677',
+  whatsappUrl: 'https://wa.me/917339536677',
+  instagramUrl: 'https://www.instagram.com',
 };
+
 

@@ -1,8 +1,8 @@
 'use client';
 
 import { FormEvent, useState } from 'react';
-import { ArrowUpRight, Check, MapPin, Plus, Minus, Mail, Phone, Clock, MessageSquare } from 'lucide-react';
-import { Reveal, SectionTitle } from '../../components/UI';
+import { ArrowUpRight, Check, MapPin, Plus, Minus, Mail, Phone, Clock, MessageSquare, Building2, Factory } from 'lucide-react';
+import { Reveal } from '../../components/UI';
 import { contact } from '../../data/content';
 
 const faqs = [
@@ -99,7 +99,7 @@ export default function Contact() {
                   <span>Phone Number</span>
                   <input
                     className="w-full rounded-xl border border-black/10 bg-[#F8FAFC] px-4 py-3 text-xs font-normal text-brand-ink outline-none focus:border-brand-primary focus:bg-white focus:ring-2 focus:ring-orange-500/20 transition"
-                    placeholder="+91 98765 43210"
+                    placeholder="+91 733 953 6677"
                   />
                 </label>
                 <label className="text-xs font-bold text-brand-ink space-y-1.5">
@@ -145,7 +145,7 @@ export default function Contact() {
           <div className="rounded-3xl bg-brand-ink p-8 md:p-10 text-white shadow-[0_20px_50px_rgba(36,36,36,0.25)] relative overflow-hidden flex flex-col justify-between h-full border border-white/10">
             <div className="relative z-10 space-y-8">
               <div>
-                <span className="eyebrow text-[#E86526]">HEADQUARTERS</span>
+                <span className="eyebrow text-[#E86526]">GET IN TOUCH</span>
                 <h2 className="mt-3 text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
                   Come build a greener tomorrow with us.
                 </h2>
@@ -157,8 +157,34 @@ export default function Contact() {
                     <MapPin className="h-5 w-5" />
                   </div>
                   <div>
-                    <strong className="block text-white font-bold text-sm mb-0.5">Primary Location</strong>
-                    <span className="text-white/70 leading-relaxed block">{contact.hq}</span>
+                    <strong className="block text-white font-bold text-sm mb-0.5">Corporate Office</strong>
+                    <span className="text-white/70 leading-relaxed block">{contact.office.address}</span>
+                    <a
+                      href={contact.office.mapUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-xs text-[#E86526] font-semibold hover:underline mt-1"
+                    >
+                      View on Google Maps <ArrowUpRight className="h-3.5 w-3.5" />
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex gap-4 items-start">
+                  <div className="grid h-10 w-10 place-items-center rounded-xl bg-white/10 text-[#E86526] shrink-0 border border-white/10">
+                    <Factory className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <strong className="block text-white font-bold text-sm mb-0.5">Factory &amp; Manufacturing Unit</strong>
+                    <span className="text-white/70 leading-relaxed block">{contact.factory.address}</span>
+                    <a
+                      href={contact.factory.mapUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-xs text-[#E86526] font-semibold hover:underline mt-1"
+                    >
+                      View on Google Maps <ArrowUpRight className="h-3.5 w-3.5" />
+                    </a>
                   </div>
                 </div>
 
@@ -168,7 +194,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <strong className="block text-white font-bold text-sm mb-0.5">Email Support</strong>
-                    <a href="mailto:info@sunloopenergy.com" className="text-white/70 hover:text-white transition">{contact.email}</a>
+                    <a href={`mailto:${contact.email}`} className="text-white/70 hover:text-white transition">{contact.email}</a>
                   </div>
                 </div>
 
@@ -177,8 +203,16 @@ export default function Contact() {
                     <Phone className="h-5 w-5" />
                   </div>
                   <div>
-                    <strong className="block text-white font-bold text-sm mb-0.5">Direct Line</strong>
-                    <a href="tel:+914222987654" className="text-white/70 hover:text-white transition">{contact.phone}</a>
+                    <strong className="block text-white font-bold text-sm mb-0.5">Direct Line &amp; WhatsApp</strong>
+                    <a href={`tel:${contact.phoneRaw}`} className="text-white/70 hover:text-white transition block font-mono">{contact.phone}</a>
+                    <a
+                      href={contact.whatsappUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-xs text-emerald-400 font-semibold hover:underline mt-1"
+                    >
+                      Chat on WhatsApp <ArrowUpRight className="h-3.5 w-3.5" />
+                    </a>
                   </div>
                 </div>
               </div>
@@ -187,7 +221,7 @@ export default function Contact() {
             <div className="relative z-10 pt-8 border-t border-white/10 mt-8">
               <div className="flex items-center gap-3">
                 <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span className="text-xs text-white/60 font-medium">Engineers active mon–sat (9am–7pm IST)</span>
+                <span className="text-xs text-white/60 font-medium">Engineers active Mon–Sat (9:00 AM – 7:00 PM IST)</span>
               </div>
             </div>
           </div>

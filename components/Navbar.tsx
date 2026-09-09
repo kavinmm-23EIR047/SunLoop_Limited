@@ -274,6 +274,10 @@ export function Navbar() {
             Company
           </Link>
 
+          <Link href="/resources/datasheets" className="transition hover:text-[#E86526] whitespace-nowrap">
+            Downloads
+          </Link>
+
           {/* AI Portal Pill Button */}
           <Link
             href="/ai-portal"
@@ -376,6 +380,10 @@ export function Navbar() {
 
           <Link onClick={() => setMobileOpen(false)} className="rounded-md px-3 py-2.5 hover:bg-brand-bg text-brand-ink" href="/company">
             Company
+          </Link>
+
+          <Link onClick={() => setMobileOpen(false)} className="rounded-md px-3 py-2.5 hover:bg-brand-bg text-brand-ink" href="/resources/datasheets">
+            Downloads
           </Link>
 
           <Link onClick={() => setMobileOpen(false)} className="rounded-md px-3 py-2.5 bg-brand-primary text-white text-center font-bold" href="/contact">
