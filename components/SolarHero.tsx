@@ -41,19 +41,20 @@ export default function SolarHero() {
 
         <div className="container relative z-10 mx-auto px-4 sm:px-8 max-w-7xl pt-28 pb-16 sm:pt-36 sm:pb-20 lg:pt-44 lg:pb-24">
           <div className="max-w-3xl">
-            {/* Trust Badge / Decade Pill */}
+            {/* Trust Badge / Decade Pill — Sleek Frosted Glassmorphism */}
             <motion.div
               variants={fadeUp(0.2)}
               initial="hidden"
               animate="visible"
-              className="inline-flex items-center gap-2 sm:gap-2.5 rounded-full bg-white text-slate-900 px-2.5 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs font-bold shadow-xl border border-white/90 mb-6 sm:mb-8 max-w-full"
+              className="inline-flex items-center gap-2 rounded-full bg-black/40 backdrop-blur-md border border-white/20 px-3.5 py-1.5 text-xs text-white shadow-lg mb-6 sm:mb-8 max-w-full"
             >
-              <span className="shrink-0 inline-flex items-center gap-1 sm:gap-1.5 px-2 py-0.5 sm:px-2.5 sm:py-0.5 rounded-full bg-[#E86526] text-white text-[10px] sm:text-[11px] font-extrabold tracking-wide uppercase whitespace-nowrap shadow-xs">
-                <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" aria-hidden="true" />
+              <span className="flex h-2 w-2 rounded-full bg-[#E86526] animate-pulse shrink-0" />
+              <span className="font-bold text-[#FFA07A] text-[11px] sm:text-xs tracking-wide uppercase whitespace-nowrap">
                 10+ Years
               </span>
-              <span className="text-slate-900 font-semibold text-[11px] sm:text-[13px] leading-tight">
-                A Decade of Proven Clean Energy Excellence
+              <span className="text-white/30 text-[10px]">|</span>
+              <span className="text-white/90 font-medium text-[11px] sm:text-xs truncate">
+                A Decade of Clean Energy Excellence
               </span>
             </motion.div>
 
