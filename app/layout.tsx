@@ -1,23 +1,8 @@
 import type { Metadata } from 'next';
-import { Plus_Jakarta_Sans, Inter } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 import { RobotAssistant } from '../components/RobotAssistant';
-
-const plusJakartaSans = Plus_Jakarta_Sans({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-heading',
-  weight: ['400', '500', '600', '700', '800'],
-});
-
-const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-body',
-  weight: ['400', '500', '600', '700'],
-});
 
 export const metadata: Metadata = {
   title: {
@@ -25,7 +10,7 @@ export const metadata: Metadata = {
     template: '%s · Sunloop Energy',
   },
   description:
-    'Solar power plants, energy storage systems, and EV charging infrastructure — connected through one AI energy management portal. Designed, built, and managed by Sunloop Energy.',
+    'Solar power plants, energy storage systems and EV charging infrastructure connected through one AI energy management portal. Designed, built and managed by Sunloop Energy.',
   keywords: [
     'solar power',
     'energy storage',
@@ -35,13 +20,14 @@ export const metadata: Metadata = {
     'Sunloop Energy',
   ],
   icons: {
-    icon: '/images/logo.png',
-    apple: '/images/logo.png',
+    icon: '/favicon-loop.png?v=6',
+    shortcut: '/favicon-loop.png?v=6',
+    apple: '/favicon-loop.png?v=6',
   },
   openGraph: {
     title: 'Sunloop Energy — Intelligent Energy Infrastructure',
     description:
-      'Solar power plants, energy storage systems, and EV charging infrastructure — connected through one AI energy management portal.',
+      'Solar power plants, energy storage systems and EV charging infrastructure connected through one AI energy management portal.',
     url: 'https://www.sunloopenergy.com',
     siteName: 'Sunloop Energy',
     images: [
@@ -63,7 +49,7 @@ export const metadata: Metadata = {
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${plusJakartaSans.variable} ${inter.variable}`}>
+    <html lang="en">
       <head>
         <link
           rel="preload"
@@ -72,7 +58,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           type="image/png"
         />
       </head>
-      <body className={inter.className}>
+      <body>
         <Navbar />
         {children}
         <RobotAssistant />

@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowRight, Sun, BatteryCharging, Zap, Cpu, ChevronDown } from 'lucide-react';
@@ -21,6 +21,68 @@ const scaleIn = (delay = 0) => ({
 });
 
 export default function SolarHero() {
+  const mobileSliderRef = useRef<HTMLDivElement | null>(null);
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [sliderPaused, setSliderPaused] = useState(false);
+
+  const scrollToSlide = useCallback((index: number) => {
+    const slider = mobileSliderRef.current;
+    if (!slider) return;
+
+    const slides = Array.from(slider.querySelectorAll<HTMLElement>('[data-solution-slide]'));
+    if (!slides.length) return;
+
+    const nextIndex = (index + slides.length) % slides.length;
+    const slide = slides[nextIndex];
+    const left = slide.offsetLeft - slides[0].offsetLeft - (slider.clientWidth - slide.clientWidth) / 2;
+
+    slider.scrollTo({ left, behavior: 'smooth' });
+    setActiveSlide(nextIndex);
+  }, []);
+
+  useEffect(() => {
+    if (sliderPaused) return;
+
+    const timer = window.setInterval(() => {
+      setActiveSlide((current) => {
+        const slider = mobileSliderRef.current;
+        const slides = slider?.querySelectorAll<HTMLElement>('[data-solution-slide]');
+        if (!slider || !slides?.length) return 0;
+
+        const nextIndex = (current + 1) % slides.length;
+        const slide = slides[nextIndex];
+        const left = slide.offsetLeft - slides[0].offsetLeft - (slider.clientWidth - slide.clientWidth) / 2;
+        slider.scrollTo({ left, behavior: 'smooth' });
+        return nextIndex;
+      });
+    }, 4500);
+
+    return () => window.clearInterval(timer);
+  }, [sliderPaused]);
+
+  const handleSliderScroll = useCallback(() => {
+    const slider = mobileSliderRef.current;
+    if (!slider) return;
+
+    const slides = Array.from(slider.querySelectorAll<HTMLElement>('[data-solution-slide]'));
+    if (!slides.length) return;
+
+    const sliderCenter = slider.getBoundingClientRect().left + slider.clientWidth / 2;
+    let nearestIndex = 0;
+    let nearestDistance = Number.POSITIVE_INFINITY;
+
+    slides.forEach((slide, index) => {
+      const slideCenter = slide.getBoundingClientRect().left + slide.clientWidth / 2;
+      const distance = Math.abs(sliderCenter - slideCenter);
+      if (distance < nearestDistance) {
+        nearestDistance = distance;
+        nearestIndex = index;
+      }
+    });
+
+    setActiveSlide(nearestIndex);
+  }, []);
+
   return (
     <>
       <section className="relative w-full min-h-[85vh] sm:min-h-screen flex items-center overflow-hidden">
@@ -82,9 +144,7 @@ export default function SolarHero() {
               animate="visible"
               className="text-sm sm:text-base md:text-lg text-white/85 leading-relaxed max-w-xl mb-6 sm:mb-8 font-normal"
             >
-              Solar power plants, energy storage systems, and EV charging
-              infrastructure — designed, built, and managed through one
-              AI energy management portal.
+              We design, build and manage solar power plants, energy storage systems and EV charging infrastructure through one AI energy management portal.
             </motion.p>
 
             {/* CTA Buttons — Horizontal Side-by-Side */}
@@ -157,73 +217,297 @@ export default function SolarHero() {
             </div>
           </motion.div>
 
-          {/* 4 CORE PILLARS RADIUS CARDS */}
+          {/* SOLUTIONS — DESKTOP COLLAGE, TABLET GRID, MOBILE SLIDER */}
           <motion.div
             variants={scaleIn(0.15)}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"
+            viewport={{ once: true, amount: 0.15 }}
           >
-            {[
-              {
-                icon: Sun,
-                title: 'Smart Solar Solutions',
-                desc: 'High-efficiency solar power plants for homes, commercial rooftops, and utility-scale projects.',
-                href: '/products/solar-power',
-                badge: 'Solar PV',
-              },
-              {
-                icon: BatteryCharging,
-                title: 'Energy Storage Systems',
-                desc: 'Reliable and modular lithium battery storage (5 kWh to 2 MWh) for 24/7 uninterrupted power.',
-                href: '/products/energy-storage',
-                badge: 'LiFePO4 ESS',
-              },
-              {
-                icon: Zap,
-                title: 'EV Charging Infrastructure',
-                desc: 'Fast AC & DC charging solutions (7.4 kW to 240 kW) engineered for residential and commercial fleets.',
-                href: '/products/ev-charging',
-                badge: 'OCPP 1.6J',
-              },
-              {
-                icon: Cpu,
-                title: 'AI Energy Management',
-                desc: 'Intelligent monitoring, remote optimization, and peak-shaving control with real-time analytics.',
-                href: '/ai-portal',
-                badge: 'Cloud AI',
-              },
-            ].map((feature) => (
+            <div className="mb-6 flex items-end justify-between gap-4 sm:mb-8">
+              <div>
+                <span className="mb-2 block text-xs font-semibold uppercase tracking-[0.2em] text-[#E86526]">
+                  What We Do
+                </span>
+                <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl lg:text-4xl">
+                  Intelligent Energy Solutions
+                </h2>
+                <p className="mt-2 max-w-xl text-sm leading-6 text-slate-500 sm:text-base">
+                  Integrated solar, energy storage, EV charging and AI-powered energy management.
+                </p>
+              </div>
               <Link
-                key={feature.title}
-                href={feature.href}
-                className="group relative flex flex-col justify-between p-6 rounded-2xl sm:rounded-3xl bg-white border border-black/[0.08] hover:border-[#E86526] shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1.5"
+                href="/solutions"
+                className="hidden shrink-0 items-center gap-2 text-sm font-semibold text-[#E86526] transition hover:gap-3 sm:inline-flex"
               >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="h-12 w-12 rounded-2xl bg-orange-50 border border-orange-200/60 flex items-center justify-center text-[#E86526] group-hover:bg-[#E86526] group-hover:text-white transition-all duration-300 shadow-2xs">
-                      <feature.icon className="h-6 w-6" />
+                View All Solutions
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+
+            {(() => {
+              const features = [
+                {
+                  icon: Sun,
+                  title: 'Smart Solar Solutions',
+                  desc: 'High-efficiency solar power plants for homes, commercial rooftops and utility-scale projects.',
+                  href: '/products/solar-power',
+                  badge: 'Solar PV',
+                  image: '/images/residential-solar-pv-system-solution.png',
+                },
+                {
+                  icon: BatteryCharging,
+                  title: 'Energy Storage Systems',
+                  desc: 'Reliable and modular lithium battery storage (5 kWh to 2 MWh) for 24/7 uninterrupted power.',
+                  href: '/products/energy-storage',
+                  badge: 'LiFePO4 ESS',
+                  image: '/images/C&I Solar + Energy Storage Solution.png',
+                },
+                {
+                  icon: Zap,
+                  title: 'EV Charging Infrastructure',
+                  desc: 'Fast AC and DC charging solutions (7.4 kW to 240 kW) for residential and commercial fleets.',
+                  href: '/products/ev-charging',
+                  badge: 'OCPP 1.6J',
+                  image: '/images/commercial-solar-storage-ev-charging-solution.png',
+                },
+                {
+                  icon: Cpu,
+                  title: 'AI Energy Management',
+                  desc: 'AI-powered monitoring, remote optimization and peak-shaving control with real-time analytics.',
+                  href: '/ai-portal',
+                  badge: 'Cloud AI',
+                  image: '/images/ai-portal-robot-card.png',
+                },
+              ];
+
+              return (
+                <>
+                  {/* DESKTOP: LARGE FEATURE + THREE RIGHT-HAND BANNERS */}
+                  <div className="hidden grid-cols-3 gap-4 lg:grid lg:h-[500px] lg:grid-rows-3">
+                    <Link
+                      href={features[0].href}
+                      className="group relative col-span-2 row-span-3 flex min-h-0 flex-col justify-between overflow-hidden rounded-[24px] bg-slate-900 p-6 xl:p-7"
+                    >
+                      <img
+                        src={features[0].image}
+                        alt={features[0].title}
+                        loading="lazy"
+                        className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.04]"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5" />
+
+                      <div className="relative z-10 flex items-center justify-between">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#E86526] text-white">
+                          <Sun className="h-6 w-6" />
+                        </div>
+                        <span className="rounded-full bg-white/95 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-800">
+                          Solar PV
+                        </span>
+                      </div>
+
+                      <div className="relative z-10 mt-auto max-w-lg pt-8">
+                        <span className="mb-3 block text-xs font-semibold uppercase tracking-[0.18em] text-orange-300">
+                          Clean energy for tomorrow
+                        </span>
+                        <h3 className="max-w-md text-3xl font-semibold leading-tight tracking-tight text-white xl:text-4xl">
+                          Smart Solar<br />Solutions
+                        </h3>
+                        <p className="mt-3 max-w-md text-sm leading-5 text-white/85">
+                          {features[0].desc}
+                        </p>
+                        <div className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-white">
+                          Explore Solution
+                          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                        </div>
+                      </div>
+                    </Link>
+
+                    <div className="col-span-1 row-span-3 flex min-h-0 flex-col gap-3">
+                      {features.slice(1).map((feature) => (
+                        <Link
+                          key={feature.title}
+                          href={feature.href}
+                          className="group relative flex min-h-0 flex-1 flex-col justify-between overflow-hidden rounded-[20px] bg-[#F1F0EB] p-4 xl:p-5"
+                        >
+                          <div className="absolute inset-0">
+                            <img
+                              src={feature.image}
+                              alt={feature.title}
+                              loading="lazy"
+                              className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10" />
+                          </div>
+
+                          <div className="relative z-10 flex items-center justify-between gap-3">
+                            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#E86526] text-white shadow-sm">
+                              <feature.icon className="h-5 w-5" />
+                            </div>
+                            <span className="rounded-full bg-white/95 px-2.5 py-1 text-[9px] font-bold uppercase tracking-wide text-slate-800">
+                              {feature.badge}
+                            </span>
+                          </div>
+
+                          <div className="relative z-10 mt-2 max-w-[78%]">
+                            <h3 className="text-base font-semibold leading-snug tracking-tight text-white xl:text-lg">
+                              {feature.title}
+                            </h3>
+                            <p className="mt-1 line-clamp-2 text-xs leading-4 text-white/85">
+                              {feature.desc}
+                            </p>
+                            <div className="mt-2 inline-flex items-center gap-2 text-xs font-semibold text-white">
+                              Explore Solution
+                              <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                            </div>
+                          </div>
+                        </Link>
+                      ))}
                     </div>
-                    <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 uppercase tracking-wide group-hover:bg-orange-50 group-hover:text-[#E86526] transition-colors">
-                      {feature.badge}
-                    </span>
                   </div>
 
-                  <strong className="block text-base font-bold text-slate-900 mb-2 group-hover:text-[#E86526] transition-colors">
-                    {feature.title}
-                  </strong>
-                  <p className="text-xs sm:text-sm text-slate-500 leading-relaxed font-normal">
-                    {feature.desc}
-                  </p>
-                </div>
+                  {/* TABLET: TWO-COLUMN IMAGE GRID */}
+                  <div className="hidden grid-cols-2 gap-4 sm:grid lg:hidden">
+                    {features.map((feature, index) => (
+                      <Link
+                        key={feature.title}
+                        href={feature.href}
+                        className={`group relative flex min-h-[220px] flex-col justify-between overflow-hidden rounded-[20px] bg-slate-100 p-4 ${index === 0 ? 'col-span-2 min-h-[280px]' : ''}`}
+                      >
+                        <img
+                          src={feature.image}
+                          alt={feature.title}
+                          loading="lazy"
+                          className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10" />
 
-                <div className="pt-4 mt-4 border-t border-black/5 flex items-center justify-between text-xs font-bold text-[#E86526]">
-                  <span>Explore Solution</span>
-                  <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-1" />
-                </div>
-              </Link>
-            ))}
+                        <div className="relative z-10 flex items-center justify-between gap-3">
+                          <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#E86526] text-white">
+                            <feature.icon className="h-5 w-5" />
+                          </div>
+                          <span className="rounded-full bg-white/90 px-2.5 py-1 text-[10px] font-bold uppercase text-slate-700">
+                            {feature.badge}
+                          </span>
+                        </div>
+
+                        <div className="relative z-10 mt-6 max-w-sm text-white">
+                          <h3 className="text-xl font-semibold leading-tight sm:text-2xl">
+                            {feature.title}
+                          </h3>
+                          <p className="mt-2 text-sm leading-6 text-white/85">
+                            {feature.desc}
+                          </p>
+                          <div className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-white">
+                            Explore Solution
+                            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                          </div>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+
+                  {/* MOBILE: HORIZONTAL SWIPEABLE BANNERS */}
+                  <div className="-mx-4 sm:hidden">
+                    <div
+                      ref={mobileSliderRef}
+                      onScroll={handleSliderScroll}
+                      onTouchStart={() => setSliderPaused(true)}
+                      onTouchEnd={() => setSliderPaused(false)}
+                      onMouseEnter={() => setSliderPaused(true)}
+                      onMouseLeave={() => setSliderPaused(false)}
+                      className="flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+                      aria-label="Energy solutions. Swipe horizontally to explore."
+                    >
+                      {features.map((feature, index) => (
+                        <Link
+                          key={feature.title}
+                          href={feature.href}
+                          data-solution-slide
+                          className="group relative flex h-[260px] w-[84vw] max-w-[360px] shrink-0 snap-center flex-col justify-between overflow-hidden rounded-[20px] bg-slate-100 p-4"
+                        >
+                          <img
+                            src={feature.image}
+                            alt={feature.title}
+                            loading="lazy"
+                            className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-500 group-active:scale-[1.02]"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/5" />
+
+                          <div className="relative z-10 flex items-center justify-between gap-3">
+                            <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#E86526] text-white">
+                              <feature.icon className="h-5 w-5" />
+                            </div>
+                            <span className="rounded-full bg-white/95 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wide text-slate-700">
+                              {feature.badge}
+                            </span>
+                          </div>
+
+                          <div className="relative z-10 mt-auto max-w-[310px] pt-5">
+                            <span className="mb-2 block text-[10px] font-semibold uppercase tracking-[0.16em] text-orange-300">
+                              Solution 0{index + 1}
+                            </span>
+                            <h3 className="text-xl font-semibold leading-tight tracking-tight text-white">
+                              {feature.title}
+                            </h3>
+                            <p className="mt-2 line-clamp-2 text-sm leading-6 text-white/85">
+                              {feature.desc}
+                            </p>
+                            <div className="mt-3 flex items-center justify-between border-t border-white/25 pt-3 text-sm font-semibold text-white">
+                              Explore Solution
+                              <ArrowRight className="h-4 w-4" />
+                            </div>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+
+                    <div className="mt-1 flex items-center justify-center gap-4">
+                      <button
+                        type="button"
+                        onClick={() => scrollToSlide(activeSlide - 1)}
+                        aria-label="Previous solution"
+                        className="flex h-8 w-8 items-center justify-center rounded-full text-slate-600 transition hover:bg-orange-50 hover:text-[#E86526]"
+                      >
+                        <ArrowRight className="h-4 w-4 rotate-180" />
+                      </button>
+
+                      <div className="flex items-center justify-center gap-1.5" aria-label={`Slide ${activeSlide + 1} of ${features.length}`}>
+                        {features.map((feature, index) => (
+                          <button
+                            key={feature.title}
+                            type="button"
+                            onClick={() => scrollToSlide(index)}
+                            aria-label={`Go to ${feature.title}`}
+                            aria-current={activeSlide === index ? 'true' : undefined}
+                            className={`h-2 rounded-full transition-all duration-300 ${activeSlide === index ? 'w-6 bg-[#E86526]' : 'w-2 bg-slate-300 hover:bg-slate-400'}`}
+                          />
+                        ))}
+                      </div>
+
+                      <button
+                        type="button"
+                        onClick={() => scrollToSlide(activeSlide + 1)}
+                        aria-label="Next solution"
+                        className="flex h-8 w-8 items-center justify-center rounded-full text-slate-600 transition hover:bg-orange-50 hover:text-[#E86526]"
+                      >
+                        <ArrowRight className="h-4 w-4" />
+                      </button>
+                    </div>
+
+                    <div className="mt-5 flex justify-center">
+                      <Link
+                        href="/solutions"
+                        className="inline-flex items-center gap-2 text-sm font-semibold text-[#E86526]"
+                      >
+                        View All Solutions
+                        <ArrowRight className="h-4 w-4" />
+                      </Link>
+                    </div>
+                  </div>
+                </>
+              );
+            })()}
           </motion.div>
         </div>
       </section>

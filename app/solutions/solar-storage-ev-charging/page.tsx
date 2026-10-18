@@ -27,7 +27,7 @@ const integratedSolutions = [
     title: 'Residential Solar + Storage + EV Charging Solution',
     badge: 'Residential All-In-One',
     capacity: '3kW - 15kW PV · 5kWh - 20kWh ESS · 7.4kW - 22kW EV',
-    description: 'Sunloop’s all-in-one home energy solution integrates PV inverters, energy storage systems, and EV chargers, enabling your home to be fully powered by clean energy—day or night, rain or shine.',
+    description: 'Sunloop’s all-in-one home energy solution integrates PV inverters, energy storage systems and EV chargers, helping your home use clean energy day and night.',
     image: '/images/Residential Solar + Storage + EV Charging Solution.png',
     fallbackImage: '/images/residential-energy.png',
     imageAlt: 'Residential solar, storage and EV charging solution',
@@ -54,7 +54,7 @@ const integratedSolutions = [
     title: 'Commercial Solar + Storage + EV Charging Solution',
     badge: 'Commercial Microgrid Hub',
     capacity: '30kW - 500kW PV · 50kWh - 1000kWh ESS · 30kW - 240kW DC',
-    description: 'Reduce traditional energy consumption and lower charging costs by providing customers with a one-stop zero-carbon charging station that integrates solar generation, energy storage, and EV charging, enabling higher returns.',
+    description: 'Reduce energy use and charging costs with a single site that combines solar generation, battery storage and EV charging.',
     image: '/images/Commercial Solar + Storage + EV Charging Solution.png',
     fallbackImage: '/images/commercial-energy.png',
     imageAlt: 'Commercial solar, storage and EV charging solution',
@@ -102,7 +102,7 @@ export default function SolarStorageEVChargingPage() {
             <Reveal className="max-w-2xl space-y-4">
               <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-brand-apricot"><Zap className="h-3.5 w-3.5" /> 03 / Charge</span>
               <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">Solar &amp; Storage &amp; EV Charging Solution</h1>
-              <p className="text-sm leading-relaxed text-white/90 md:text-base">A smart, future-proof energy ecosystem that unifies clean solar generation, battery storage, and EV charging infrastructure.</p>
+              <p className="text-sm leading-relaxed text-white/90 md:text-base">An AI-enabled energy ecosystem that unifies solar generation, battery storage and EV charging infrastructure.</p>
             </Reveal>
           </div>
         </div>

@@ -24,7 +24,7 @@ const solarPVSolutions = [
   {
     number: '03',
     title: 'Utility-Scale PV Power Plant Solutions',
-    description: 'Designed to adapt to diverse environments such as deserts, plateaus, and coastal regions, our solutions enhance power generation efficiency while reducing O&M costs. With lower LCOE and advanced grid-forming capabilities, we empower the stable operation of the next-generation power system.',
+    description: 'Designed to adapt to diverse environments such as deserts, plateaus and coastal regions, our solutions enhance power generation efficiency while reducing O&M costs. With lower LCOE and advanced grid-forming capabilities, we support the stable operation of the next-generation power system.',
     image: '/images/solar-hero-bg-realistic.png',
     imageAlt: 'Utility-scale solar PV power plant',
   },

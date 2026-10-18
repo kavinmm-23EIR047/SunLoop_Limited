@@ -8,7 +8,7 @@ import { Reveal } from '../../../components/UI';
 const microgridComponents = [
   {
     title: 'High Efficiency Solar Module',
-    description: 'N Type HJT or TOPCon PV modules with high power, high efficiency, and excellent low-light performance. These advantages enable greater installation capacity, higher energy yields, and enhanced reliability with superior fire resistance and minimized hot spot risks. Combined with shorter construction periods, lower costs, and full lifecycle services, SunEvo delivers maximized investment returns for C&I clients.',
+    description: 'N-type HJT and TOPCon solar modules for commercial and industrial sites. They are selected for strong output, dependable low-light performance, and straightforward installation.',
     image: '/images/microgrid-solar-modules.png',
     imageAlt: 'High-efficiency solar modules at a microgrid site',
     icon: Sun,

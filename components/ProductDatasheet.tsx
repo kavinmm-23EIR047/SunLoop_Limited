@@ -40,7 +40,7 @@ export function ProductDatasheetView({ entry }: { entry: DatasheetEntry }) {
   return (
     <article className="datasheet-page min-h-screen bg-white pt-20 sm:pt-24 font-sans">
       {/* Toolbar */}
-      <div className="no-print sticky top-16 sm:top-20 z-40 border-b border-black/10 bg-white/95 backdrop-blur-md shadow-xs">
+      <div className="no-print sticky top-0 z-40 border-b border-black/10 bg-white/95 backdrop-blur-md shadow-xs">
         <div className="container mx-auto px-4 sm:px-6 flex flex-wrap items-center justify-between gap-2.5 py-3">
           <Link href="/resources/datasheets" className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#E86526] hover:underline">
             <ArrowLeft className="h-4 w-4" /> Back to Downloads

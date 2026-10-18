@@ -99,7 +99,7 @@ export function Navbar() {
   return (
     <header
       id="site-header"
-      className={`fixed top-0 z-50 w-full transition-all duration-300 bg-white/95 backdrop-blur-md border-b border-black/5 shadow-xs ${
+      className={`relative z-50 w-full transition-all duration-300 bg-white/95 backdrop-blur-md border-b border-black/5 shadow-xs ${
         scrolled ? 'py-2' : 'py-3'
       }`}
     >

@@ -62,7 +62,7 @@ export default function DatasheetsPage() {
       </section>
 
       {/* Category tabs — SunArk download page */}
-      <section className="border-b border-brand-border bg-white sticky top-16 sm:top-20 z-30">
+      <section className="sticky top-0 z-30 border-b border-brand-border bg-white">
         <div className="container py-3 overflow-x-auto">
           <div className="flex gap-1 min-w-max">
             {categoryTabs.map((tab) => (

@@ -58,20 +58,21 @@ export default function ConnectedJourneyScrollShowcase() {
       </div>
 
       <div className="container relative z-10 mx-auto max-w-6xl px-4">
-        <div className="mx-auto mb-16 max-w-3xl space-y-4 text-center md:mb-24">
+        <div className="mx-auto mb-10 max-w-3xl space-y-4 text-center md:mb-14">
           <span className="eyebrow inline-block">Why Sunloop</span>
           <h2 className="text-3xl text-brand-ink sm:text-4xl md:text-5xl font-bold leading-tight">One Connected Energy Ecosystem</h2>
           <p className="mx-auto max-w-2xl text-sm leading-relaxed text-brand-slate md:text-base">
-            We don't sell isolated products. We build one connected ecosystem that scales with you — start with a single system today, and expand into a fully integrated Solar + Storage + EV microgrid whenever you're ready.
+            We don't sell isolated products. We build one connected ecosystem that scales with you — start with a single system today and expand into a fully integrated solar, storage and EV microgrid whenever you're ready.
           </p>
         </div>
 
         <div className="relative mx-auto max-w-2xl pb-10">
           {stages.map((stage, index) => {
             const Icon = stage.icon;
-            const stickyTop = `calc(12vh + ${index * 24}px)`;
+            const stackOffset = index * 18;
+            const stickyTop = `calc(12vh + ${stackOffset}px)`;
             const isLast = index === stages.length - 1;
-            const lastCardMargin = `max(0px, calc(100vh - 12vh - ${index * 24}px - 450px))`;
+            const lastCardMargin = `max(0px, calc(100vh - 12vh - ${stackOffset}px - 450px))`;
             
             return (
               <div
@@ -80,11 +81,11 @@ export default function ConnectedJourneyScrollShowcase() {
                 style={{
                   top: stickyTop,
                   zIndex: index,
-                  marginBottom: isLast ? lastCardMargin : '40vh',
+                  marginBottom: isLast ? lastCardMargin : '48vh',
                 }}
               >
                 <article
-                  className={`flex min-h-[380px] flex-col justify-between rounded-[2rem] border p-8 shadow-[0_24px_70px_rgba(15,23,42,0.12)] sm:p-12 transition-transform duration-500 ease-out hover:scale-[1.01] ${
+                  className={`flex min-h-[380px] flex-col justify-between rounded-[2rem] border p-8 shadow-[0_24px_70px_rgba(15,23,42,0.12)] sm:p-12 lg:h-[430px] transition-transform duration-500 ease-out hover:scale-[1.01] ${
                     stage.isDark ? 'border-brand-ink bg-brand-ink text-white' : 'border-black/10 bg-white text-brand-ink'
                   }`}
                 >

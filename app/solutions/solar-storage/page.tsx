@@ -26,7 +26,7 @@ const storageSolutions = [
     title: 'Residential Solar + Storage System Solution',
     badge: 'Residential ESS',
     capacity: '3kW - 15kW PV · 5kWh - 20kWh Battery',
-    description: 'Sunloop Smart Home PV and Energy Storage System provides an all-in-one solution that covers power generation, energy storage, charging, and power consumption. With efficiency and safety at its core, it delivers clean energy to more households, empowering a better, smarter, and more sustainable future.',
+    description: 'Sunloop Smart Home PV and Energy Storage System provides an all-in-one solution that covers power generation, energy storage, charging and power consumption. With efficiency and safety at its core, it delivers clean energy to more households.',
     image: '/images/Residential Solar + Storage System Solution.jpg',
     fallbackImage: '/images/residential-energy.png',
     imageAlt: 'Residential solar and battery storage system',
@@ -52,7 +52,7 @@ const storageSolutions = [
     title: 'C&I Solar + Energy Storage Solution',
     badge: 'Commercial ESS',
     capacity: '30kW - 500kW PV · 50kWh - 1000kWh Storage',
-    description: 'Maximize energy utilization efficiency with an intelligent solar-plus-storage hybrid system. Seamlessly integrate solar power, batteries, and the grid to achieve uninterrupted power supply, reduced energy costs, and sustainable energy management.',
+    description: 'Maximize energy utilization efficiency with an intelligent solar-plus-storage hybrid system. Integrate solar power, batteries and the grid to achieve uninterrupted power supply, reduced energy costs and sustainable energy management.',
     image: '/images/C&I Solar + Energy Storage Solution.png',
     fallbackImage: '/images/commercial-energy.png',
     imageAlt: 'Commercial solar and energy storage system',
@@ -78,7 +78,7 @@ const storageSolutions = [
     title: 'Utility-Scale Solar + Energy Storage Solution',
     badge: 'Utility ESS Container',
     capacity: '100kW - 5MW · 100kWh - 10MWh Container',
-    description: 'By integrating solar and storage, the system enhances renewable energy utilization and ensures stable and reliable grid support. Containerized LiFePO4 battery banks stabilize utility grid frequency and deliver megawatt-scale power backup.',
+    description: 'By integrating solar and storage, the system enhances renewable energy utilization and ensures stable grid support. Containerized LiFePO4 battery banks stabilize utility grid frequency and deliver megawatt-scale backup power.',
     image: '/images/Utility-Scale Solar + Energy Storage Solution.jpg',
     fallbackImage: '/images/microgrid-battery-container.png',
     imageAlt: 'Utility-scale solar and energy storage solution',
@@ -128,7 +128,7 @@ export default function SolarStoragePage() {
                 <BatteryCharging className="h-4 w-4" /> 02 / Store
               </span>
               <h1 className="hero-title text-4xl sm:text-5xl md:text-6xl">Solar &amp; Storage Solution</h1>
-              <p className="hero-subtitle text-lg md:text-xl max-w-xl">A Solar &amp; Storage Solution combines photovoltaic systems with battery storage to deliver resilient, efficient, and sustainable power.</p>
+              <p className="hero-subtitle text-lg md:text-xl max-w-xl">A Solar and Storage Solution combines photovoltaic systems with battery storage to deliver resilient, efficient and sustainable power.</p>
             </Reveal>
           </div>
         </div>

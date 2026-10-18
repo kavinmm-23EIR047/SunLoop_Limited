@@ -16,21 +16,33 @@ import {
   Bus,
   ShoppingCart,
   MapPin,
-  Car
+  Car,
+  ChevronLeft,
+  ChevronRight
 } from 'lucide-react';
 import { Reveal, Button } from '../../../components/UI';
 
 const INSTALLATION_TYPES = [
-  { title: 'Schools', icon: School, img: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=600' },
-  { title: 'Medical Facilities', icon: Hospital, img: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=600' },
-  { title: 'Factories', icon: Factory, img: 'https://images.unsplash.com/photo-1565514020179-026b92b84bb6?q=80&w=600' },
-  { title: 'Transportation', icon: Bus, img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=600' },
-  { title: 'Malls', icon: ShoppingCart, img: 'https://images.unsplash.com/photo-1519567281023-8324687593c6?q=80&w=600' },
-  { title: 'Stadiums', icon: MapPin, img: 'https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=600' },
-  { title: 'Carports', icon: Car, img: 'https://images.unsplash.com/photo-1620023616223-9c8dfb6cf2c2?q=80&w=600' },
+  { title: 'Schools', icon: School, img: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=900', fallback: '/images/commercial-industrial-solar-pv-system-solution.jpg' },
+  { title: 'Medical Facilities', icon: Hospital, img: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=900', fallback: '/images/ci-solar-energy-storage-solution.png' },
+  { title: 'Factories', icon: Factory, img: '/images/commercial-energy.png', fallback: '/images/commercial-industrial-solar-pv-system-solution.jpg' },
+  { title: 'Transportation', icon: Bus, img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=900', fallback: '/images/ac-charging.png' },
+  { title: 'Malls', icon: ShoppingCart, img: 'https://images.unsplash.com/photo-1519567281023-8324687593c6?q=80&w=900', fallback: '/images/commercial-solar-storage-ev-charging-solution.png' },
+  { title: 'Stadiums', icon: MapPin, img: 'https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=900', fallback: '/images/commercial-industrial-solar-pv-system-solution.jpg' },
+  { title: 'Carports', icon: Car, img: 'https://images.unsplash.com/photo-1620023616223-9c8dfb6cf2c2?q=80&w=900', fallback: '/images/ac-charging.png' },
 ];
 
 export default function BusinessOwnersSolutionPage() {
+  const galleryRef = React.useRef<HTMLDivElement>(null);
+  const scrollGallery = (direction: -1 | 1) => {
+    const track = galleryRef.current;
+    const card = track?.querySelector<HTMLElement>('[data-gallery-card]');
+    if (!track || !card) return;
+
+    const gap = Number.parseFloat(window.getComputedStyle(track).columnGap) || 16;
+    track.scrollBy({ left: direction * (card.offsetWidth + gap), behavior: 'smooth' });
+  };
+
   return (
     <main className="min-h-screen bg-white pt-[64px] font-sans overflow-hidden">
       
@@ -274,38 +286,59 @@ export default function BusinessOwnersSolutionPage() {
       </section>
 
       {/* 3. INSTALLATION TYPES GALLERY */}
-      <section className="py-24 bg-white border-t border-slate-100">
-        <div className="container mx-auto px-4 space-y-12">
-          <Reveal className="text-center max-w-3xl mx-auto space-y-4">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900">
-              We power a wide variety of installation types to suit every business and organization
-            </h2>
-            <p className="text-slate-500">From commercial rooftops to expansive industrial carports, our modular architecture adapts to any environment.</p>
-          </Reveal>
+      <section className="border-t border-slate-100 bg-white py-16 md:py-20">
+        <div className="container mx-auto space-y-8 px-4 md:space-y-10">
+          <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+            <Reveal className="max-w-3xl space-y-4">
+              <h2 className="text-3xl font-bold text-slate-900 md:text-4xl">
+                We power a wide variety of installation types to suit every business and organization
+              </h2>
+              <p className="text-slate-500">From commercial rooftops to expansive industrial carports, our modular architecture adapts to any environment.</p>
+            </Reveal>
+            <div className="flex shrink-0 gap-2 self-end sm:self-auto">
+              <button type="button" onClick={() => scrollGallery(-1)} aria-label="Previous installation types" className="grid h-11 w-11 place-items-center rounded-full border border-slate-200 bg-white text-slate-700 transition hover:border-emerald-500 hover:text-emerald-600">
+                <ChevronLeft className="h-5 w-5" aria-hidden="true" />
+              </button>
+              <button type="button" onClick={() => scrollGallery(1)} aria-label="Next installation types" className="grid h-11 w-11 place-items-center rounded-full border border-slate-200 bg-white text-slate-700 transition hover:border-emerald-500 hover:text-emerald-600">
+                <ChevronRight className="h-5 w-5" aria-hidden="true" />
+              </button>
+            </div>
+          </div>
 
           <Reveal>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-              {INSTALLATION_TYPES.map((type, idx) => (
-                <div key={type.title} className="group relative overflow-hidden rounded-2xl aspect-square shadow-md border border-slate-200">
-                  <img src={type.img} alt={type.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4 flex items-center gap-3">
-                    <div className="bg-white/20 backdrop-blur-md p-2 rounded-lg border border-white/30">
-                      <type.icon className="h-5 w-5 text-white" />
+            <div
+              ref={galleryRef}
+              role="region"
+              aria-label="Business installation examples"
+              className="flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain scroll-smooth pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:gap-5 lg:gap-6"
+            >
+              {INSTALLATION_TYPES.map((type) => (
+                <article data-gallery-card key={type.title} className="group relative aspect-square w-[78vw] shrink-0 snap-start overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-md sm:w-[300px] lg:w-[calc((100%_-_4.5rem)_/_4)]">
+                  <img
+                    src={type.img}
+                    alt={`${type.title} clean energy installation example`}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    onError={(e) => { (e.currentTarget as HTMLImageElement).src = type.fallback; }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/20 to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4 flex items-center gap-3 sm:bottom-5 sm:left-5">
+                    <div className="rounded-lg border border-white/30 bg-white/20 p-2 backdrop-blur-md">
+                      <type.icon className="h-5 w-5 text-white" aria-hidden="true" />
                     </div>
-                    <span className="font-bold text-white tracking-wide">{type.title}</span>
+                    <span className="font-bold tracking-wide text-white">{type.title}</span>
                   </div>
-                </div>
+                </article>
               ))}
-              
-              {/* Extra block for layout balancing if needed, or link to contact */}
-              <div className="group relative overflow-hidden rounded-2xl aspect-square shadow-md bg-emerald-50 border border-emerald-100 flex flex-col items-center justify-center text-center p-6 hover:bg-emerald-100 transition-colors">
-                <div className="bg-emerald-500 p-4 rounded-full text-white mb-4 shadow-lg">
-                  <ArrowRight className="h-6 w-6" />
-                </div>
-                <h4 className="font-bold text-emerald-900">Custom Solution?</h4>
-                <p className="text-xs text-emerald-700 mt-2">Contact our engineering team to map out your unique facility.</p>
-              </div>
+
+              <Link href="/contact" className="group flex aspect-square w-[78vw] shrink-0 snap-start flex-col items-center justify-center rounded-2xl border border-emerald-100 bg-emerald-50 p-6 text-center shadow-sm transition-colors hover:bg-emerald-100 sm:w-[300px] lg:w-[calc((100%_-_4.5rem)_/_4)]">
+                <span className="mb-4 grid h-14 w-14 place-items-center rounded-full bg-emerald-500 text-white shadow-lg transition-transform group-hover:translate-x-1">
+                  <ArrowRight className="h-6 w-6" aria-hidden="true" />
+                </span>
+                <h3 className="font-bold text-emerald-900">Custom Solution?</h3>
+                <p className="mt-2 text-xs text-emerald-700">Contact our engineering team to map out your unique facility.</p>
+              </Link>
             </div>
           </Reveal>
         </div>

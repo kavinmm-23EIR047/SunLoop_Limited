@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef } from 'react';
 import Link from 'next/link';
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import {
   ArrowUpRight,
   Zap,
@@ -13,7 +13,7 @@ import {
   Sliders,
   ArrowRight,
   TrendingUp,
-  Server
+  Server,
 } from 'lucide-react';
 
 interface ProductItem {
@@ -36,7 +36,7 @@ const productsList: ProductItem[] = [
     eyebrow: '01 / Generate',
     title: 'Solar Power Plants',
     tagline: 'Rooftop · Ground-Mounted · Utility-Scale',
-    desc: 'End-to-end solar PV design, installation, and maintenance — from 3 kW residential rooftops to multi-megawatt utility-scale plants for industrial and commercial clients.',
+    desc: 'End-to-end solar PV design, installation and maintenance for residential rooftops, industrial sites and utility-scale projects.',
     image: '/images/solar-panels.png',
     fallbackImage: '/images/residential-energy.png',
     spec1: { title: '3 kW to 1 MW+', desc: 'Rooftop & Ground-Mounted' },
@@ -49,7 +49,7 @@ const productsList: ProductItem[] = [
     eyebrow: '02 / Store',
     title: 'Energy Storage Systems (ESS)',
     tagline: 'Wall-Mounted · Trolley-Type · Containerized',
-    desc: 'Lithium-ion and LiFePO4 battery storage from 5 kWh to 500+ kWh, stackable for backup power, peak-demand shaving, and full energy independence.',
+    desc: 'Lithium-ion and LiFePO4 battery storage from 5 kWh to 500+ kWh for backup power, peak-demand shaving and energy independence.',
     image: '/images/energy-storage.png',
     fallbackImage: '/images/commercial-energy.png',
     spec1: { title: '5 kWh to 500+ kWh', desc: 'Stackable Capacity' },
@@ -62,7 +62,7 @@ const productsList: ProductItem[] = [
     eyebrow: '03 / Drive',
     title: 'EV Charging Infrastructure',
     tagline: 'AC Chargers · DC Fast Chargers',
-    desc: 'AC chargers (7.4–22 kW) for homes and communities, DC fast chargers (30–240 kW) for commercial hubs and fleet depots — all with remote monitoring and payment integration.',
+    desc: 'AC chargers for homes and communities plus DC fast chargers for commercial hubs and fleets with remote monitoring and payment integration.',
     image: '/images/ac-charging.png',
     fallbackImage: '/images/dc-charging.png',
     spec1: { title: '7.4 kW to 240 kW', desc: 'AC + DC Fast Charging' },
@@ -72,143 +72,36 @@ const productsList: ProductItem[] = [
   },
 ];
 
-function ScrollRevealCard({ item, index }: { item: ProductItem; index: number }) {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start end', 'end start'],
-  });
-
-  const [isDesktop, setIsDesktop] = useState(false);
-  useEffect(() => {
-    const check = () => setIsDesktop(window.innerWidth >= 1024);
-    check();
-    window.addEventListener('resize', check);
-    return () => window.removeEventListener('resize', check);
-  }, []);
-
-  const rawImageX = useTransform(scrollYProgress, [0.15, 0.45], [0, -40]);
-  const imageX = useSpring(rawImageX, { stiffness: 100, damping: 24 });
-
-  const rawContentOpacity = useTransform(scrollYProgress, [0.1, 0.35], [0.4, 1]);
-  const contentOpacity = useSpring(rawContentOpacity, { stiffness: 100, damping: 24 });
-
-  const rawContentY = useTransform(scrollYProgress, [0.1, 0.35], [20, 0]);
-  const contentY = useSpring(rawContentY, { stiffness: 100, damping: 24 });
-
+function PinnedProductStage({ item, index, progress }: { item: ProductItem; index: number; progress: ReturnType<typeof useScroll>['scrollYProgress'] }) {
+  const start = index / productsList.length;
+  const end = (index + 1) / productsList.length;
+  const opacityRange = index === 0 ? [0, end - 0.025, end] : [start - 0.01, start, start + 0.006, end - 0.025, end];
+  const opacityValues = index === 0 ? [1, 1, 0] : [0, 0, 1, 1, 0];
+  const imageOpacity = useTransform(progress, opacityRange, opacityValues);
   return (
-    <section
-      ref={containerRef}
-      className="relative min-h-[auto] lg:min-h-[85vh] w-full bg-white border-b border-black/5 flex items-center justify-center py-12 sm:py-16 lg:py-24"
-    >
-      {/* Background: Subtle scattered light energy icons */}
-      <div className="pointer-events-none absolute inset-0 select-none z-0 overflow-hidden" aria-hidden="true">
-        <svg className="absolute top-[10%] left-[5%] h-16 w-16 text-orange-200/40 rotate-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}><circle cx="12" cy="12" r="5" /><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" /></svg>
-        <svg className="absolute top-[60%] right-[8%] h-20 w-20 text-orange-100/30 -rotate-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={0.8}><circle cx="12" cy="12" r="5" /><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" /></svg>
-        <svg className="absolute top-[25%] right-[15%] h-14 w-14 text-emerald-200/30 rotate-[20deg]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}><rect x="2" y="7" width="18" height="10" rx="2" /><path d="M22 11v2M6 11v2M10 11v2M14 11v2" /></svg>
-        <svg className="absolute bottom-[15%] left-[12%] h-12 w-12 text-emerald-100/25 -rotate-[15deg]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}><rect x="2" y="7" width="18" height="10" rx="2" /><path d="M22 11v2M6 11v2M10 11v2" /></svg>
-        <svg className="absolute top-[45%] left-[50%] h-24 w-24 text-slate-200/20 rotate-[8deg]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={0.8}><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" /></svg>
-        <svg className="absolute bottom-[30%] right-[35%] h-10 w-10 text-purple-200/20 -rotate-[22deg]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" /></svg>
-        <div className="absolute top-[18%] left-[40%] h-3 w-3 rounded-full bg-orange-200/20" />
-        <div className="absolute top-[70%] left-[25%] h-2 w-2 rounded-full bg-emerald-200/20" />
-        <div className="absolute bottom-[20%] right-[20%] h-2.5 w-2.5 rounded-full bg-slate-200/30" />
-      </div>
+    <>
+      <motion.div style={{ opacity: imageOpacity }} className="absolute inset-x-0 top-[3%] mx-auto flex h-[44vh] w-[min(86vw,760px)] items-center justify-center lg:inset-x-auto lg:left-[5vw] lg:top-[8%] lg:h-[66vh] lg:w-[46vw]" aria-hidden="true">
+        <img src={item.image} alt="" className="h-full w-full object-contain drop-shadow-[0_18px_35px_rgba(15,23,42,0.14)]" loading={index === 0 ? 'eager' : 'lazy'} onError={(e) => { (e.target as HTMLImageElement).src = item.fallbackImage; }} />
+      </motion.div>
+      <motion.div style={{ opacity: imageOpacity }} className="absolute inset-x-5 bottom-[4vh] space-y-3 text-left sm:inset-x-10 lg:inset-x-auto lg:right-[7vw] lg:top-[18%] lg:w-[38vw] lg:space-y-4">
+        <div className="flex flex-wrap items-center gap-2"><span className="inline-flex items-center gap-1.5 rounded-lg border border-orange-100 bg-orange-50 px-3 py-1.5 text-xs font-semibold tracking-wide text-[#E86526]"><span className="h-1.5 w-1.5 rounded-full bg-[#E86526]" />{item.eyebrow}</span><span className="text-xs font-medium tracking-wide text-slate-400">{item.tagline}</span></div>
+        <h3 className="text-2xl font-bold leading-tight tracking-tight text-brand-ink sm:text-3xl lg:text-4xl">{item.title}</h3>
+        <p className="text-sm leading-relaxed text-slate-600 sm:text-base">{item.desc}</p>
+        <div className="grid grid-cols-2 gap-2 pt-1 sm:gap-3">{[item.spec1, item.spec2].map((spec) => <div key={spec.title} className="rounded-lg border border-black/10 bg-white p-3 shadow-sm"><strong className="block text-xs font-semibold text-brand-ink sm:text-sm">{spec.title}</strong><span className="text-[10px] font-medium text-slate-500 sm:text-xs">{spec.desc}</span></div>)}</div>
+        <Link href={item.ctaLink} className="inline-flex min-h-[44px] items-center gap-2 rounded-lg bg-[#E86526] px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-[#c95315]">{item.ctaText}<ArrowUpRight className="h-4 w-4" aria-hidden="true" /></Link>
+      </motion.div>
+    </>
+  );
+}
 
-      {/* Content Canvas */}
-      <div className="container max-w-6xl relative z-10 mx-auto px-4 sm:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-
-          {/* LEFT PRODUCT IMAGE */}
-          <div className="lg:col-span-6 flex items-center justify-center">
-            <motion.div
-              style={{ x: isDesktop ? imageX : 0 }}
-              className="relative w-full max-w-[280px] sm:max-w-sm lg:max-w-lg flex items-center justify-center mx-auto"
-            >
-              <div className="absolute inset-0 bg-[#E86526]/10 blur-3xl rounded-full pointer-events-none hidden lg:block" aria-hidden="true" />
-
-              <div className="relative h-[220px] sm:h-[300px] lg:h-[400px] w-full flex items-center justify-center">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="h-full w-full object-contain object-center drop-shadow-[0_15px_30px_rgba(15,23,42,0.12)]"
-                  loading="lazy"
-                  onError={(e) => {
-                    (e.target as HTMLElement).setAttribute('src', item.fallbackImage);
-                  }}
-                />
-              </div>
-            </motion.div>
-          </div>
-
-          {/* RIGHT REVEALED CONTENT PANEL */}
-          <motion.div
-            style={{
-              opacity: contentOpacity,
-              y: contentY,
-            }}
-            className="lg:col-span-6 space-y-4 text-left"
-          >
-            {/* Header Badges */}
-            <div className="flex flex-wrap items-center gap-2.5">
-              <span className="inline-flex items-center gap-1.5 rounded-lg bg-orange-50 px-3 py-1.5 text-xs font-semibold tracking-wide text-[#E86526] border border-orange-100">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#E86526]" aria-hidden="true" />
-                {item.eyebrow}
-              </span>
-              <span className="text-xs font-medium tracking-wide text-slate-400">
-                {item.tagline}
-              </span>
-            </div>
-
-            {/* Title & Description */}
-            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-brand-ink leading-tight">
-              {item.title}
-            </h3>
-
-            <p className="text-sm sm:text-base font-normal text-slate-600 leading-relaxed">
-              {item.desc}
-            </p>
-
-            {/* Spec Cards */}
-            <div className="grid grid-cols-2 gap-3 pt-1">
-              <div className="rounded-lg border border-black/10 bg-white p-3.5 shadow-xs">
-                <div className="flex items-start gap-2.5">
-                  <div className="p-2 rounded-lg bg-orange-50 text-[#E86526] border border-orange-100 shrink-0">
-                    <Zap className="h-4 w-4" aria-hidden="true" />
-                  </div>
-                  <div>
-                    <strong className="block text-sm font-semibold text-brand-ink">{item.spec1.title}</strong>
-                    <span className="text-xs text-slate-500 font-medium">{item.spec1.desc}</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="rounded-lg border border-black/10 bg-white p-3.5 shadow-xs">
-                <div className="flex items-start gap-2.5">
-                  <div className="rounded-lg border border-black/10 bg-brand-ink p-2 text-white shrink-0">
-                    <ShieldCheck className="h-4 w-4" aria-hidden="true" />
-                  </div>
-                  <div>
-                    <strong className="block text-sm font-semibold text-brand-ink">{item.spec2.title}</strong>
-                    <span className="text-xs text-slate-500 font-medium">{item.spec2.desc}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Action Button */}
-            <div className="pt-2">
-              <Link
-                href={item.ctaLink}
-                className="inline-flex items-center gap-2 rounded-lg bg-[#E86526] px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-[#c95315] transition-all min-h-[44px]"
-              >
-                {item.ctaText}
-                <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-              </Link>
-            </div>
-          </motion.div>
-
-        </div>
+function PinnedProductShowcase() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ['start start', 'end end'] });
+  return (
+    <section ref={sectionRef} className="relative h-[320vh] bg-white">
+      <div className="sticky top-16 flex h-[calc(100svh-4rem)] items-center overflow-hidden">
+        <div className="pointer-events-none absolute inset-0" aria-hidden="true"><div className="absolute left-[7%] top-[20%] h-24 w-24 rounded-full bg-orange-100/40 blur-3xl" /><div className="absolute bottom-[15%] right-[12%] h-32 w-32 rounded-full bg-emerald-100/30 blur-3xl" /></div>
+        {productsList.map((item, index) => <PinnedProductStage key={item.id} item={item} index={index} progress={scrollYProgress} />)}
       </div>
     </section>
   );
@@ -217,14 +110,14 @@ function ScrollRevealCard({ item, index }: { item: ProductItem; index: number })
 {/* AI PORTAL DASHBOARD SECTION */}
 function AIPortalDashboardSection() {
   return (
-    <section className="readable-ui relative overflow-hidden border-t border-black/10 bg-slate-950 px-4 sm:px-8 py-16 sm:py-24 text-white">
+    <section className="readable-ui relative overflow-hidden border-t border-black/10 bg-slate-950 px-4 pb-28 pt-12 text-white sm:px-8 sm:py-16 md:py-20">
       <div className="pointer-events-none absolute -right-24 top-10 h-72 w-72 rounded-full bg-orange-500/20 blur-3xl" aria-hidden="true" />
 
       <div className="container relative z-10 mx-auto max-w-6xl">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+        <div className="grid grid-cols-1 items-start gap-8 md:grid-cols-[0.82fr_1.18fr] lg:grid-cols-12 lg:items-center lg:gap-10">
 
           {/* LEFT COLUMN */}
-          <div className="lg:col-span-5 space-y-5 text-left">
+          <div className="space-y-5 text-left md:col-span-1 lg:col-span-5">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/20 text-[#E86526] text-xs font-medium tracking-wide">
               <Sparkles className="h-3.5 w-3.5 text-[#E86526]" aria-hidden="true" />
               Sunloop Energy Intelligence
@@ -258,7 +151,7 @@ function AIPortalDashboardSection() {
                 <div>
                   <h3 className="text-sm font-semibold text-white">AI-Powered Optimization</h3>
                   <p className="text-xs leading-normal text-slate-400 mt-0.5">
-                    Automated peak shaving, daily performance reports, and energy consumption tracking.
+                    Automated peak shaving, daily performance reports and energy consumption tracking.
                   </p>
                 </div>
               </div>
@@ -270,7 +163,7 @@ function AIPortalDashboardSection() {
                 <div>
                   <h3 className="text-sm font-semibold text-white">Predictive Maintenance Alerts</h3>
                   <p className="text-xs leading-normal text-slate-400 mt-0.5">
-                    Instant fault detection and notifications to keep your clean energy ecosystem running 24/7.
+                    Instant fault detection and alerts to keep your clean energy systems running 24/7.
                   </p>
                 </div>
               </div>
@@ -288,7 +181,7 @@ function AIPortalDashboardSection() {
           </div>
 
           {/* RIGHT COLUMN */}
-          <div className="lg:col-span-7">
+          <div className="min-w-0 md:col-span-1 lg:col-span-7">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -301,7 +194,7 @@ function AIPortalDashboardSection() {
                   <span className="h-2.5 w-2.5 rounded-full bg-[#E86526]" aria-hidden="true" />
                   <span className="h-2.5 w-2.5 rounded-full bg-white/50" aria-hidden="true" />
                   <span className="h-2.5 w-2.5 rounded-full bg-white/25" aria-hidden="true" />
-                  <span className="ml-2 text-xs font-mono text-white/50">portal.sunloopenergy.com/dashboard</span>
+                  <span className="ml-2 hidden text-xs font-mono text-white/50 lg:inline">portal.sunloopenergy.com/dashboard</span>
                 </div>
                 <div className="flex items-center gap-1.5 font-mono text-xs text-[#E86526]">
                   <span className="h-2 w-2 animate-pulse rounded-full bg-[#E86526]" aria-hidden="true" />
@@ -309,7 +202,7 @@ function AIPortalDashboardSection() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 mb-3">
+              <div className="mb-3 grid grid-cols-1 gap-2.5 lg:grid-cols-3">
                 <div className="rounded-xl border border-white/10 bg-black/20 p-3">
                   <div className="mb-1 text-xs font-medium tracking-wide text-white/50">Total Solar Generation</div>
                   <div className="text-lg font-bold text-white flex items-baseline gap-1">
@@ -383,6 +276,7 @@ function AIPortalDashboardSection() {
               </div>
 
             </motion.div>
+
           </div>
 
         </div>
@@ -394,9 +288,7 @@ function AIPortalDashboardSection() {
 export default function ProductStickyShowcase() {
   return (
     <div className="w-full bg-white">
-      {productsList.map((item, index) => (
-        <ScrollRevealCard key={item.id} item={item} index={index} />
-      ))}
+      <PinnedProductShowcase />
       <AIPortalDashboardSection />
     </div>
   );
