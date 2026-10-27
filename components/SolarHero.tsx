@@ -87,15 +87,15 @@ export default function SolarHero() {
     <>
       <section className="relative w-full min-h-[85vh] sm:min-h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <picture>
+          <picture className="absolute inset-0 block h-full w-full">
             <source
               media="(max-width: 768px)"
               srcSet="/images/solar-hero-bg-mobile.jpg"
             />
             <motion.img
               src="/images/solar-hero-bg-4k.png"
-              alt="Solar PV arrays, ESS battery containers, and EV charging infrastructure powering sustainable energy"
-              className="h-full w-full object-cover object-center"
+              alt="Sunloop Energy solar carport canopy, BESS container, and EV charging plaza along Avinashi Road bypass in Coimbatore"
+              className="absolute inset-0 h-full w-full object-cover object-center"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, ease: 'easeOut' }}
@@ -337,26 +337,26 @@ export default function SolarHero() {
                               loading="lazy"
                               className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10" />
+                            <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/30" />
                           </div>
 
                           <div className="relative z-10 flex items-center justify-between gap-3">
-                            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#E86526] text-white shadow-sm">
+                            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-[#E86526] shadow-sm">
                               <feature.icon className="h-5 w-5" />
                             </div>
-                            <span className="rounded-full bg-white/95 px-2.5 py-1 text-[9px] font-bold uppercase tracking-wide text-slate-800">
+                            <span className="rounded-full bg-white/90 px-2.5 py-1 text-[9px] font-bold uppercase tracking-wide text-slate-600">
                               {feature.badge}
                             </span>
                           </div>
 
                           <div className="relative z-10 mt-2 max-w-[78%]">
-                            <h3 className="text-base font-semibold leading-snug tracking-tight text-white xl:text-lg">
+                            <h3 className="text-base font-semibold leading-snug tracking-tight text-slate-900 xl:text-lg">
                               {feature.title}
                             </h3>
-                            <p className="mt-1 line-clamp-2 text-xs leading-4 text-white/85">
+                            <p className="mt-1 line-clamp-2 text-xs leading-4 text-slate-600">
                               {feature.desc}
                             </p>
-                            <div className="mt-2 inline-flex items-center gap-2 text-xs font-semibold text-white">
+                            <div className="mt-2 inline-flex items-center gap-2 text-xs font-semibold text-[#E86526]">
                               Explore Solution
                               <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
                             </div>
@@ -380,10 +380,10 @@ export default function SolarHero() {
                           loading="lazy"
                           className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10" />
+                        <div className={`absolute inset-0 ${index === 0 ? 'bg-gradient-to-t from-black/85 via-black/25 to-black/5' : 'bg-gradient-to-t from-white via-white/85 to-white/20'}`} />
 
                         <div className="relative z-10 flex items-center justify-between gap-3">
-                          <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#E86526] text-white">
+                          <div className={`flex h-11 w-11 items-center justify-center rounded-xl ${index === 0 ? 'bg-[#E86526] text-white' : 'bg-white text-[#E86526]'}`}>
                             <feature.icon className="h-5 w-5" />
                           </div>
                           <span className="rounded-full bg-white/90 px-2.5 py-1 text-[10px] font-bold uppercase text-slate-700">
@@ -391,14 +391,14 @@ export default function SolarHero() {
                           </span>
                         </div>
 
-                        <div className="relative z-10 mt-6 max-w-sm text-white">
+                        <div className={`relative z-10 mt-6 max-w-sm ${index === 0 ? 'text-white' : 'text-slate-900'}`}>
                           <h3 className="text-xl font-semibold leading-tight sm:text-2xl">
                             {feature.title}
                           </h3>
-                          <p className="mt-2 text-sm leading-6 text-white/85">
+                          <p className={`mt-2 text-sm leading-6 ${index === 0 ? 'text-white/85' : 'text-slate-600'}`}>
                             {feature.desc}
                           </p>
-                          <div className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-white">
+                          <div className={`mt-3 inline-flex items-center gap-2 text-sm font-semibold ${index === 0 ? 'text-white' : 'text-[#E86526]'}`}>
                             Explore Solution
                             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                           </div>

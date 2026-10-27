@@ -10,6 +10,7 @@ import { Reveal } from '../components/UI';
 import SolarHero from '../components/SolarHero';
 import ProductStickyShowcase from '../components/ProductStickyShowcase';
 import ConnectedJourneyScrollShowcase from '../components/ConnectedJourneyScrollShowcase';
+import { PartnerCtaIllustration } from '../components/PartnerCtaIllustration';
 
 export default function Home() {
   return (
@@ -117,38 +118,7 @@ export default function Home() {
         <div className="container-wide">
           <Reveal className="relative overflow-hidden rounded-xl bg-brand-ink p-8 text-white shadow-xl sm:p-12 md:p-16 2xl:p-24">
             <div className="pointer-events-none absolute -bottom-32 -right-20 h-96 w-96 rounded-full bg-brand-primary/20 blur-3xl" aria-hidden="true" />
-            <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-60" aria-hidden="true">
-              <svg className="absolute inset-0 h-full w-full" viewBox="0 0 1400 520" fill="none" preserveAspectRatio="xMidYMid slice">
-                <defs>
-                  <linearGradient id="solar-panel" x1="0" y1="0" x2="1" y2="1">
-                    <stop stopColor="#E86526" stopOpacity=".22" />
-                    <stop offset="1" stopColor="#E86526" stopOpacity=".04" />
-                  </linearGradient>
-                </defs>
-
-                <g stroke="#fff" strokeLinecap="round" strokeLinejoin="round">
-                  <g strokeWidth="2">
-                    <path d="m-32 384 274-72 242 87-278 78-238-93Z" fill="url(#solar-panel)" />
-                    <path d="m-32 384 238 93 278-78m-430-45 242 91m-105-127 243 91m-419 53 272-73m-190 104 274-77" opacity=".9" />
-                    <path d="m65 431-5 54m215-111 14 83m-131-74-2 76" stroke="#E86526" />
-                  </g>
-                  <path d="M0 493c220-24 386-16 560-3s329 20 482-1 250-23 358-7" stroke="#E86526" strokeWidth="3" />
-                </g>
-
-                <g stroke="#fff" strokeLinecap="round" strokeLinejoin="round">
-                  <g strokeWidth="3">
-                    <path d="m1140 168-13 352m13-352-3-105m3 105-78 45m78-45 77 43" />
-                    <circle cx="1140" cy="168" r="7" fill="#E86526" stroke="#E86526" />
-                    <path d="m1285 260-8 260m8-260-2-79m2 79-59 34m59-34 58 33" />
-                    <circle cx="1285" cy="260" r="6" fill="#E86526" stroke="#E86526" />
-                  </g>
-                  <g strokeWidth="2">
-                    <path d="m1015 282-8 238m8-238-2-72m2 72-53 30m53-30 52 29" />
-                    <circle cx="1015" cy="282" r="5" fill="#E86526" stroke="#E86526" />
-                  </g>
-                </g>
-              </svg>
-            </div>
+            <PartnerCtaIllustration />
             <div className="relative z-10 mx-auto max-w-4xl space-y-6 text-center">
               <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs sm:text-sm font-semibold tracking-wide text-white">
                 <Sparkles className="h-4 w-4 text-brand-primary" aria-hidden="true" /> Launching Partners
