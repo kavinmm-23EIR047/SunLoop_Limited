@@ -21,15 +21,15 @@ import {
   ChevronRight
 } from 'lucide-react';
 import { Reveal, Button } from '../../../components/UI';
+import { SolutionHero } from '../../../components/SolutionHero';
 
 const INSTALLATION_TYPES = [
-  { title: 'Schools', icon: School, img: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=900', fallback: '/images/commercial-industrial-solar-pv-system-solution.jpg' },
-  { title: 'Medical Facilities', icon: Hospital, img: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=900', fallback: '/images/ci-solar-energy-storage-solution.png' },
-  { title: 'Factories', icon: Factory, img: '/images/commercial-energy.png', fallback: '/images/commercial-industrial-solar-pv-system-solution.jpg' },
-  { title: 'Transportation', icon: Bus, img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=900', fallback: '/images/ac-charging.png' },
-  { title: 'Malls', icon: ShoppingCart, img: 'https://images.unsplash.com/photo-1519567281023-8324687593c6?q=80&w=900', fallback: '/images/commercial-solar-storage-ev-charging-solution.png' },
-  { title: 'Stadiums', icon: MapPin, img: 'https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=900', fallback: '/images/commercial-industrial-solar-pv-system-solution.jpg' },
-  { title: 'Carports', icon: Car, img: 'https://images.unsplash.com/photo-1620023616223-9c8dfb6cf2c2?q=80&w=900', fallback: '/images/ac-charging.png' },
+  { title: 'Schools', icon: School, img: '/images/india-installation-schools.jpg', fallback: '/images/commercial-industrial-solar-pv-system-solution.jpg' },
+  { title: 'Medical Facilities', icon: Hospital, img: '/images/india-installation-hospitals.jpg', fallback: '/images/ci-solar-energy-storage-solution.png' },
+  { title: 'Factories', icon: Factory, img: '/images/india-installation-factories.jpg', fallback: '/images/commercial-industrial-solar-pv-system-solution.jpg' },
+  { title: 'Transportation', icon: Bus, img: '/images/india-installation-transportation.jpg', fallback: '/images/ac-charging.png' },
+  { title: 'Malls', icon: ShoppingCart, img: '/images/india-installation-malls.jpg', fallback: '/images/commercial-solar-storage-ev-charging-solution.png' },
+  { title: 'Carports', icon: Car, img: '/images/india-installation-carports.jpg', fallback: '/images/ac-charging.png' },
 ];
 
 export default function BusinessOwnersSolutionPage() {
@@ -44,33 +44,16 @@ export default function BusinessOwnersSolutionPage() {
   };
 
   return (
-    <main className="min-h-screen bg-white pt-[64px] font-sans overflow-hidden">
-      
-      <section className="relative w-full">
-        {/* Native Image for perfect scaling on desktop */}
-        <img
-          src="/images/commercial-solar-storage-ev-charging-solution.png"
-          alt="Commercial Solar Solution"
-          className="w-full h-[500px] lg:h-auto lg:max-h-[90vh] object-cover"
-        />
-        <div className="absolute inset-0 bg-black/40" />
-        
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="container relative z-10 mx-auto px-4 text-center">
-            <Reveal>
-              <h2 className="text-emerald-400 font-bold tracking-widest uppercase text-sm md:text-base mb-4">
-                For Businesses
-              </h2>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight max-w-4xl mx-auto mb-4">
-                Reduce operating costs &amp; open a new revenue stream.
-              </h1>
-              <p className="text-sm md:text-base text-white/90 max-w-2xl mx-auto font-normal">
-                Sunloop's commercial ecosystem combines Rooftop or Ground-Mounted Solar, scalable ESS, and DC Fast EV Charging.
-              </p>
-            </Reveal>
-          </div>
-        </div>
-      </section>
+    <main className="min-h-screen bg-white font-sans overflow-hidden">
+      <SolutionHero
+        image="/images/india-solar-storage-ev-hero.jpg"
+        imageAlt="Commercial solar, storage and EV charging solution"
+        eyebrow="For Businesses"
+        title="Reduce operating costs & open a new revenue stream."
+        description="Sunloop's commercial ecosystem combines rooftop or ground-mounted solar, scalable ESS and DC fast EV charging."
+        icon={Building2}
+        metric="Solar / ESS / DC fast charging"
+      />
 
       {/* FEATURE CARDS */}
       <section className="py-16 bg-white">
@@ -99,7 +82,7 @@ export default function BusinessOwnersSolutionPage() {
                 </div>
                 <h4 className="text-xl font-bold text-slate-900">Energize Your Earnings</h4>
                 <p className="text-sm text-slate-600 leading-relaxed">
-                  ESS integration supplies emergency power during outages and ensures total power security.
+                  ESS integration provides backup power during outages and improves energy resilience.
                 </p>
               </div>
 
@@ -110,7 +93,7 @@ export default function BusinessOwnersSolutionPage() {
                 </div>
                 <h4 className="text-xl font-bold text-slate-900">Industry-leading Protection</h4>
                 <p className="text-sm text-slate-600 leading-relaxed">
-                  System-level safety protection from PV arrays to ESS, guaranteeing personnel and property safety.
+                  System-level protection across the PV array and ESS helps keep people and property safe.
                 </p>
               </div>
 
@@ -158,7 +141,7 @@ export default function BusinessOwnersSolutionPage() {
                   <span className="text-[#E86526]">Smart</span> Solar Module
                 </h2>
                 <h3 className="text-xl font-bold text-slate-700 mt-4">
-                  A Wonderful Option for Your Life
+                  A Smarter Choice for Your Business
                 </h3>
                 <p className="text-slate-500 text-lg leading-relaxed max-w-lg mt-2">
                   Smart Module Controllers monitor your commercial PV arrays in real-time, giving you total visibility over your facility's generation.
@@ -210,7 +193,7 @@ export default function BusinessOwnersSolutionPage() {
                   src="/products/Energy Storage Cabinet.png" 
                   alt="Commercial Inverter" 
                   className="w-full h-auto max-h-[600px] object-contain rounded-3xl shadow-2xl border border-white/50 bg-white p-4"
-                  onError={(e) => { (e.target as HTMLElement).setAttribute('src', '/images/C&I Solar + Energy Storage Solution.png'); }}
+                  onError={(e) => { (e.target as HTMLElement).setAttribute('src', '/images/india-hero-ess-banner.jpg'); }}
                 />
               </Reveal>
             </div>
@@ -375,10 +358,10 @@ export default function BusinessOwnersSolutionPage() {
                 <div className="relative">
                   <div className="absolute inset-0 bg-blue-500/20 blur-[100px] rounded-full" />
                   <img 
-                    src="/images/connected-portal.png" 
+                    src="/images/sunloop-ai-app-dashboard.jpg" 
                     alt="SunLoop AI Dashboard Mockup" 
                     className="relative z-10 w-full max-w-md rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-slate-700"
-                    onError={(e) => { (e.target as HTMLElement).setAttribute('src', '/images/ai-portal-robot-card.png'); }}
+                    onError={(e) => { (e.target as HTMLElement).setAttribute('src', '/images/india-hero-ai-banner.jpg'); }}
                   />
                 </div>
               </Reveal>

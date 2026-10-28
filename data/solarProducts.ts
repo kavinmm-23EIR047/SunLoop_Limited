@@ -20,8 +20,8 @@ export interface SolarProductVariant {
 
 export const solarPVIntro = {
   title: 'Solar Power Plants',
-  subtitle: 'Complete end-to-end solar PV design, installation, and maintenance for residential, commercial, and utility-scale clients.',
-  desc: 'We deliver end-to-end Solar Power Plant solutions — design, engineering, installation, commissioning, and long-term maintenance — using high-efficiency panels and inverters tailored to your scale and site conditions.',
+  subtitle: 'Complete end-to-end solar PV design, installation and maintenance for residential, commercial and utility-scale clients.',
+  desc: 'We deliver end-to-end Solar Power Plant solutions — design, engineering, installation, commissioning and long-term maintenance — using high-efficiency panels and inverters tailored to your scale and site conditions.',
 };
 
 export const solarProducts: SolarProductVariant[] = [
@@ -100,7 +100,7 @@ export const solarProducts: SolarProductVariant[] = [
       { label: 'Efficiency', value: 'High Yield Monocrystalline PV Modules' },
       { label: 'Net Metering', value: 'Full Grid Export & Billing Support' },
     ],
-    desc: 'SolarLoop On-Grid Residential PV Kits are the most cost-effective clean power solution for households seeking utility bill reduction through net metering.',
+    desc: 'SolarLoop On-Grid Residential PV Kits provide a cost-effective clean power solution for households seeking to reduce utility bills through net metering.',
     warranties: [
       '30 Years Product Warranty for PV Module',
       '15 Years Product Warranty for Mounting System',
@@ -210,7 +210,7 @@ export const solarProducts: SolarProductVariant[] = [
       { label: 'Capacity Range', value: '5 kW to 500 kW' },
       { label: 'Application', value: 'Commercial Buildings, Malls & Factories' },
     ],
-    desc: 'SolarLoop Hybrid Commercial systems act as complete microgrid solutions with integrated battery storage, peak shaving, and zero-emission operation.',
+    desc: 'SolarLoop Hybrid Commercial systems act as complete microgrid solutions with integrated battery storage, peak shaving and zero-emission operation.',
     warranties: [
       '30 Years Product Warranty for PV Module',
       '15 Years Product Warranty for Mounting System',
@@ -316,7 +316,7 @@ export const solarProducts: SolarProductVariant[] = [
       { label: 'Capacity Range', value: '5 kW to 500 kW' },
       { label: 'Reliability', value: 'Heavy Duty 24/7 Power Continuity' },
     ],
-    desc: 'Custom-engineered SolarLoop Off-Grid commercial systems sized to match peak load demands for mining, agriculture, resorts, and remote industrial sites.',
+    desc: 'Custom-engineered SolarLoop Off-Grid commercial systems sized to match peak load demands for mining, agriculture, resorts and remote industrial sites.',
     warranties: [
       '30 Years Product Warranty for PV Module',
       '15 Years Product Warranty for Mounting System',

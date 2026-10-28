@@ -18,6 +18,7 @@ import {
   Activity
 } from 'lucide-react';
 import { Reveal, Button } from '../../../components/UI';
+import { SolutionHero } from '../../../components/SolutionHero';
 import { essProducts, ESSProduct } from '../../../data/essProducts';
 
 const storageSolutions = [
@@ -26,7 +27,7 @@ const storageSolutions = [
     title: 'Residential Solar + Storage System Solution',
     badge: 'Residential ESS',
     capacity: '3kW - 15kW PV · 5kWh - 20kWh Battery',
-    description: 'Sunloop Smart Home PV and Energy Storage System provides an all-in-one solution that covers power generation, energy storage, charging and power consumption. With efficiency and safety at its core, it delivers clean energy to more households.',
+    description: 'A complete home system for solar generation, battery storage and reliable backup power.',
     image: '/images/Residential Solar + Storage System Solution.jpg',
     fallbackImage: '/images/residential-energy.png',
     imageAlt: 'Residential solar and battery storage system',
@@ -52,8 +53,8 @@ const storageSolutions = [
     title: 'C&I Solar + Energy Storage Solution',
     badge: 'Commercial ESS',
     capacity: '30kW - 500kW PV · 50kWh - 1000kWh Storage',
-    description: 'Maximize energy utilization efficiency with an intelligent solar-plus-storage hybrid system. Integrate solar power, batteries and the grid to achieve uninterrupted power supply, reduced energy costs and sustainable energy management.',
-    image: '/images/C&I Solar + Energy Storage Solution.png',
+    description: 'Combine solar, battery storage and grid power for reliable operations and lower energy costs.',
+    image: '/images/india-hero-ess-banner.jpg',
     fallbackImage: '/images/commercial-energy.png',
     imageAlt: 'Commercial solar and energy storage system',
     specs: [
@@ -63,7 +64,7 @@ const storageSolutions = [
       { label: 'Optimization', value: 'Automated TOD Peak Shaving' },
     ],
     features: [
-      'Intelligent solar, battery, and utility grid power blending',
+      'Intelligent solar, battery and utility grid power blending',
       'Time-of-Use (TOD) tariff arbitrage & peak demand charge shaving',
       'Smart HVAC thermal liquid cooling & multi-tier fire safety',
       'Scalable parallel cabinet expansion for enterprise microgrids',
@@ -78,7 +79,7 @@ const storageSolutions = [
     title: 'Utility-Scale Solar + Energy Storage Solution',
     badge: 'Utility ESS Container',
     capacity: '100kW - 5MW · 100kWh - 10MWh Container',
-    description: 'By integrating solar and storage, the system enhances renewable energy utilization and ensures stable grid support. Containerized LiFePO4 battery banks stabilize utility grid frequency and deliver megawatt-scale backup power.',
+    description: 'Utility-scale solar and battery storage designed to improve grid stability and renewable energy output.',
     image: '/images/Utility-Scale Solar + Energy Storage Solution.jpg',
     fallbackImage: '/images/microgrid-battery-container.png',
     imageAlt: 'Utility-scale solar and energy storage solution',
@@ -104,6 +105,8 @@ const storageSolutions = [
 export default function SolarStoragePage() {
   const [activeNode, setActiveNode] = useState<string>('battery');
   const [hardwareFilter, setHardwareFilter] = useState<'all' | 'residential' | 'commercial'>('all');
+  const [expandedDetails, setExpandedDetails] = useState<string[]>([]);
+  const [expandedProductDetails, setExpandedProductDetails] = useState<string[]>([]);
 
   const filteredESSProducts = essProducts.filter((product) => {
     if (hardwareFilter === 'all') return true;
@@ -111,30 +114,19 @@ export default function SolarStoragePage() {
   });
 
   return (
-    <main className="min-h-screen bg-[#FAFAF5] pb-16 pt-16 font-sans">
-      <section className="relative w-full">
-        {/* Native Image for perfect scaling on desktop */}
-        <img
-          src="/images/hero-ess.png"
-          alt="Solar & Storage Solution"
-          className="w-full h-[500px] lg:h-auto lg:max-h-[90vh] object-cover"
-        />
-        <div className="absolute inset-0 hero-overlay" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
-        <div className="absolute inset-0 flex items-center">
-          <div className="container relative z-10 mx-auto max-w-5xl px-4">
-            <Reveal className="max-w-2xl space-y-5">
-              <span className="inline-flex items-center gap-2 rounded-sm bg-brand-primary px-4 py-2 text-xs font-bold uppercase tracking-widest text-white">
-                <BatteryCharging className="h-4 w-4" /> 02 / Store
-              </span>
-              <h1 className="hero-title text-4xl sm:text-5xl md:text-6xl">Solar &amp; Storage Solution</h1>
-              <p className="hero-subtitle text-lg md:text-xl max-w-xl">A Solar and Storage Solution combines photovoltaic systems with battery storage to deliver resilient, efficient and sustainable power.</p>
-            </Reveal>
-          </div>
-        </div>
-      </section>
+    <main className="min-h-screen bg-[#FAFAF5] pb-16 font-sans">
+      <SolutionHero
+        image="/images/india-solar-storage-hero.jpg"
+        fallbackImage="/images/hero-ess.png"
+        imageAlt="Solar and battery storage installation"
+        eyebrow="02 / Store"
+        title="Solar &amp; Storage Solution"
+        description="A unified solar and battery ecosystem that delivers resilient backup, lower energy costs and more efficient use of every unit generated."
+        icon={BatteryCharging}
+        metric="Residential, commercial and utility-scale storage configurations"
+      />
       <section className="py-14 md:py-20 overflow-hidden">
-        <div className="container mx-auto max-w-5xl space-y-16 px-4">
+        <div className="container mx-auto max-w-7xl space-y-14 px-4 sm:px-6 lg:px-8">
           <Reveal className="text-center max-w-2xl mx-auto space-y-3">
             <span className="eyebrow inline-block">INTEGRATED ENERGY SYSTEMS</span>
             <h2 className="text-2xl md:text-3xl font-bold text-brand-ink">
@@ -148,7 +140,7 @@ export default function SolarStoragePage() {
           {storageSolutions.map((solution, index) => (
             <div
               key={solution.number}
-              className="grid items-center gap-8 border-b border-black/[0.07] pb-16 last:border-0 last:pb-0 md:grid-cols-2 md:gap-12"
+              className="grid items-center gap-6 border-b border-black/[0.07] pb-14 last:border-0 last:pb-0 md:grid-cols-[1.02fr_0.98fr] md:gap-8 lg:gap-10"
             >
               {/* CONTENT COLUMN */}
               <motion.div
@@ -156,7 +148,7 @@ export default function SolarStoragePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-50px' }}
                 transition={{ duration: 0.6, ease: 'easeOut' }}
-                className={`space-y-5 ${index % 2 === 1 ? 'md:order-2' : 'md:order-1'}`}
+                className={`flex flex-col justify-center space-y-2 rounded-3xl border border-orange-100/80 bg-white/90 p-3 shadow-sm sm:p-4 ${index % 2 === 1 ? 'md:order-2' : 'md:order-1'}`}
               >
                 <div className="space-y-1.5">
                   <div className="flex items-center gap-2">
@@ -168,19 +160,19 @@ export default function SolarStoragePage() {
                     </span>
                   </div>
 
-                  <h2 className="text-2xl font-bold leading-tight tracking-tight text-brand-ink md:text-3xl">
+                  <h2 className="text-xl font-bold leading-tight tracking-tight text-brand-ink sm:text-2xl">
                     {solution.title}
                   </h2>
                 </div>
 
-                <p className="text-xs sm:text-sm leading-relaxed text-brand-slate font-normal">
+                <p className="line-clamp-2 text-xs leading-relaxed text-brand-slate sm:text-sm">
                   {solution.description}
                 </p>
 
                 {/* SPECS GRID */}
                 <div className="grid grid-cols-2 gap-2.5 pt-1">
-                  {solution.specs.map((s) => (
-                    <div key={s.label} className="rounded-xl border border-black/[0.06] bg-white p-3 shadow-2xs">
+                  {solution.specs.slice(0, expandedDetails.includes(solution.number) ? undefined : 2).map((s) => (
+                    <div key={s.label} className="rounded-xl border border-black/[0.06] bg-white px-3 py-2 shadow-2xs">
                       <span className="block text-xs font-semibold text-brand-slate uppercase">{s.label}</span>
                       <strong className="block text-xs font-semibold text-brand-ink mt-0.5">{s.value}</strong>
                     </div>
@@ -188,7 +180,7 @@ export default function SolarStoragePage() {
                 </div>
 
                 {/* WARRANTIES */}
-                <div className="rounded-xl bg-amber-50 border border-amber-200/70 p-3 space-y-1">
+                {expandedDetails.includes(solution.number) && <div className="rounded-xl bg-amber-50 border border-amber-200/70 p-3 space-y-1">
                   <span className="text-xs font-bold text-amber-900 uppercase block">System Warranties</span>
                   {solution.warranties.map((w) => (
                     <div key={w} className="flex items-center gap-2 text-xs text-amber-950 font-medium">
@@ -196,22 +188,33 @@ export default function SolarStoragePage() {
                       <span>{w}</span>
                     </div>
                   ))}
-                </div>
+                </div>}
 
                 {/* FEATURES LIST */}
                 <div className="space-y-2 pt-1">
-                  {solution.features.map((f) => (
+                  {solution.features.slice(0, expandedDetails.includes(solution.number) ? undefined : 1).map((f) => (
                     <div key={f} className="flex items-center gap-2 text-xs text-brand-ink font-medium">
                       <CheckCircle2 className="h-4 w-4 text-brand-primary shrink-0" />
                       <span>{f}</span>
                     </div>
                   ))}
+                  {solution.specs.length > 2 || solution.features.length > 2 || solution.warranties.length > 0 ? (
+                    <button
+                      type="button"
+                      onClick={() => setExpandedDetails((current) => current.includes(solution.number)
+                        ? current.filter((number) => number !== solution.number)
+                        : [...current, solution.number])}
+                      className="pt-1 text-left text-xs font-semibold text-brand-primary hover:text-[#c95315]"
+                    >
+                      {expandedDetails.includes(solution.number) ? 'See less' : 'See more details'}
+                    </button>
+                  ) : null}
                 </div>
 
                 <div className="pt-3 flex items-center gap-4">
                   <Link
                     href="/contact"
-                    className="inline-flex items-center gap-2 rounded-xl bg-[#E86526] px-6 py-3 text-xs font-semibold text-white shadow-md hover:bg-[#c95315] transition"
+                    className="inline-flex items-center gap-2 rounded-xl bg-[#E86526] px-5 py-2.5 text-xs font-semibold text-white shadow-md hover:bg-[#c95315] transition"
                   >
                     Request System Quote <ArrowUpRight className="h-3.5 w-3.5" />
                   </Link>
@@ -230,18 +233,18 @@ export default function SolarStoragePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-50px' }}
                 transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }}
-                className={index % 2 === 1 ? 'md:order-1' : 'md:order-2'}
+                className={`w-full ${index % 2 === 1 ? 'md:order-1' : 'md:order-2'}`}
               >
-                <div className="group relative aspect-[4/3] overflow-hidden rounded-2xl border border-black/[0.07] bg-white shadow-md">
+                <div className="group relative aspect-video w-full overflow-hidden rounded-3xl border border-orange-100/80 shadow-md">
                   <img
                     src={solution.image}
                     alt={solution.imageAlt}
-                    className="h-full w-full object-cover group-hover:scale-103 transition-transform duration-500"
+                    className="absolute inset-0 h-full w-full object-contain object-center"
                     onError={(e) => {
                       (e.target as HTMLElement).setAttribute('src', solution.fallbackImage);
                     }}
                   />
-                  <span className="absolute left-4 top-4 rounded-full bg-brand-ink px-3 py-1 text-xs font-bold text-white shadow-sm uppercase">
+                  <span className="absolute left-4 top-4 rounded-xl border border-orange-100 bg-[#FFF7F2] px-3 py-1.5 text-xs font-bold text-brand-primary shadow-sm uppercase">
                     SOLUTION {solution.number}
                   </span>
                 </div>
@@ -262,7 +265,7 @@ export default function SolarStoragePage() {
               Lithium Battery ESS Products
             </h2>
             <p className="text-xs md:text-sm text-brand-slate font-normal">
-              High-performance LiFePO4 storage packs engineered for 24/7 backup security, peak shaving, and energy autonomy.
+              High-performance LiFePO4 storage packs engineered for 24/7 backup security, peak shaving and energy autonomy.
             </p>
 
             {/* FILTER BUTTONS */}
@@ -290,34 +293,34 @@ export default function SolarStoragePage() {
           <div className="space-y-10">
             {filteredESSProducts.map((product, idx) => (
               <Reveal key={product.id} className="h-full">
-                <div className="grid gap-8 md:grid-cols-2 items-center rounded-2xl border border-black/10 bg-[#FAFAF5] p-6 sm:p-8 shadow-2xs hover:shadow-md transition">
+                <div className="grid items-stretch overflow-hidden rounded-3xl border border-orange-200/80 bg-white/85 shadow-sm backdrop-blur-sm transition hover:shadow-md md:grid-cols-2">
                   {/* TEXT DETAILS */}
-                  <div className={`space-y-4 ${idx % 2 === 1 ? 'md:order-2' : 'md:order-1'}`}>
-                    <div className="flex items-center justify-between">
-                      <span className="rounded-md bg-orange-100 px-2.5 py-0.5 text-xs font-bold text-[#E86526] uppercase">
+                  <div className={`flex flex-col justify-center gap-3 p-5 sm:p-7 ${idx % 2 === 1 ? 'md:order-2' : 'md:order-1'}`}>
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span className="rounded-lg border border-orange-200 bg-[#FFF7F2] px-2.5 py-1 text-xs font-bold text-brand-primary uppercase">
                         {product.series}
                       </span>
-                      <span className="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">
+                      <span className="rounded-lg border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-700">
                         Grade A LiFePO4
                       </span>
                     </div>
 
                     <div className="space-y-1">
-                      <h3 className="text-xl sm:text-2xl font-bold text-brand-ink">
+                      <h3 className="text-xl font-semibold leading-tight text-brand-ink sm:text-2xl">
                         {product.title}
                       </h3>
                       <p className="text-xs font-semibold text-[#E86526]">
                         {product.voltage ? `Voltage: ${product.voltage} · ` : ''}Capacity: {product.capacity}
                       </p>
-                      <p className="text-xs sm:text-sm text-brand-slate leading-relaxed font-normal pt-1">
+                      <p className="line-clamp-2 pt-1 text-xs leading-relaxed text-brand-slate sm:text-sm">
                         {product.desc}
                       </p>
                     </div>
 
                     {/* SPECS GRID */}
                     <div className="grid grid-cols-2 gap-2 pt-1">
-                      {product.specs?.map((s) => (
-                        <div key={s.label} className="rounded-lg bg-white border border-black/5 p-2.5 text-xs shadow-2xs">
+                      {product.specs?.slice(0, expandedProductDetails.includes(product.id) ? undefined : 4).map((s) => (
+                        <div key={s.label} className="rounded-xl border border-orange-100 bg-[#FFFCF9] p-2.5 text-xs">
                           <span className="text-xs text-brand-slate block font-medium uppercase">{s.label}</span>
                           <strong className="text-brand-ink font-semibold mt-0.5 block">{s.value}</strong>
                         </div>
@@ -326,15 +329,26 @@ export default function SolarStoragePage() {
 
                     {/* FEATURES */}
                     <div className="space-y-1.5 pt-1">
-                      {product.features?.map((f) => (
+                      {product.features?.slice(0, expandedProductDetails.includes(product.id) ? undefined : 3).map((f) => (
                         <div key={f} className="flex items-center gap-2 text-xs text-brand-ink">
                           <CheckCircle2 className="h-3.5 w-3.5 text-[#E86526] shrink-0" />
                           <span>{f}</span>
                         </div>
                       ))}
+                      {(product.features?.length ?? 0) > 3 && (
+                        <button
+                          type="button"
+                          onClick={() => setExpandedProductDetails((current) => current.includes(product.id)
+                            ? current.filter((id) => id !== product.id)
+                            : [...current, product.id])}
+                          className="pt-1 text-left text-xs font-semibold text-brand-primary hover:text-[#c95315]"
+                        >
+                          {expandedProductDetails.includes(product.id) ? 'See less' : 'See more details'}
+                        </button>
+                      )}
                     </div>
 
-                    <div className="pt-3 border-t border-black/5 flex items-center justify-between">
+                    <div className="mt-1 flex flex-wrap items-center justify-between gap-3 border-t border-orange-100 pt-3">
                       <Link
                         href="/products/energy-storage"
                         className="inline-flex items-center gap-1 text-xs font-bold text-[#E86526] hover:underline"
@@ -343,7 +357,7 @@ export default function SolarStoragePage() {
                       </Link>
                       <Link
                         href="/contact"
-                        className="rounded-lg bg-[#E86526] px-5 py-2 text-xs font-semibold text-white hover:bg-[#c95315] transition shadow-2xs"
+                        className="rounded-xl bg-brand-primary px-5 py-2.5 text-xs font-semibold text-white shadow-sm transition hover:bg-[#c95315]"
                       >
                         Get Battery Quote
                       </Link>
@@ -351,17 +365,17 @@ export default function SolarStoragePage() {
                   </div>
 
                   {/* PRODUCT IMAGE */}
-                  <div className={`relative ${idx % 2 === 1 ? 'md:order-1' : 'md:order-2'}`}>
-                    <div className="group relative h-[280px] sm:h-[340px] w-full p-6 flex items-center justify-center bg-white rounded-xl border border-black/5">
+                  <div className={`relative min-h-[20rem] bg-gradient-to-br from-orange-100/80 via-[#FFF7F2]/80 to-white/80 ${idx % 2 === 1 ? 'md:order-1' : 'md:order-2'}`}>
+                    <div className="group relative flex h-full min-h-[20rem] w-full items-center justify-center p-6 sm:p-8">
                       <img
                         src={product.image}
                         alt={product.title}
-                        className="h-full w-full object-contain drop-shadow-[0_4px_25px_rgba(120,120,120,0.15)] group-hover:scale-105 transition-transform duration-500"
+                        className="max-h-[22rem] w-auto max-w-full object-contain drop-shadow-[0_8px_24px_rgba(26,26,26,0.16)] transition-transform duration-500 group-hover:scale-[1.03]"
                         onError={(e) => {
                           (e.target as HTMLElement).setAttribute('src', product.fallbackImage || '/images/energy-storage.png');
                         }}
                       />
-                      <div className="absolute top-4 right-4 rounded-full bg-brand-ink px-3 py-1 text-xs font-bold text-white shadow-md uppercase">
+                      <div className="absolute left-5 top-5 rounded-lg border border-orange-200 bg-[#FFF7F2] px-3 py-1.5 text-xs font-bold text-brand-primary shadow-sm uppercase">
                         {product.categoryLabel}
                       </div>
                     </div>
@@ -482,7 +496,7 @@ export default function SolarStoragePage() {
                   <span className="text-xs font-bold text-brand-primary uppercase">02 / SMART HYBRID INVERTER</span>
                   <h3 className="text-base font-bold text-brand-ink">Intelligent Bi-Directional Hybrid Inverter</h3>
                   <p className="text-xs text-brand-slate font-normal leading-relaxed">
-                    Dynamically coordinates power flow between PV strings, battery storage, and the grid. Handles ultra-fast power transfer during utility blackouts without interruption.
+                    Dynamically coordinates power flow between PV strings, battery storage and the grid. Handles ultra-fast power transfer during utility blackouts without interruption.
                   </p>
                 </div>
               )}
@@ -491,7 +505,7 @@ export default function SolarStoragePage() {
                   <span className="text-xs font-bold text-blue-600 uppercase">03 / LIFEPO4 ENERGY STORAGE</span>
                   <h3 className="text-base font-bold text-brand-ink">LiFePO4 Lithium Storage Bank (WallLoop / BlockLoop / CubeLoop)</h3>
                   <p className="text-xs text-brand-slate font-normal leading-relaxed">
-                    Stores daytime solar surplus for night consumption, emergency blackout backup, and Time-of-Use tariff arbitrage. Features smart BMS thermal balancing and remote cloud diagnostics.
+                    Stores daytime solar surplus for night consumption, emergency blackout backup and Time-of-Use tariff arbitrage. Features smart BMS thermal balancing and remote cloud diagnostics.
                   </p>
                 </div>
               )}

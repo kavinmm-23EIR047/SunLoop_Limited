@@ -16,68 +16,20 @@ import {
   Award
 } from 'lucide-react';
 import { Reveal, Button } from '../../../components/UI';
+import { SolutionHero } from '../../../components/SolutionHero';
 
 export default function SolarWaterPumpingPage() {
   return (
-    <main className="min-h-screen bg-[#FAFAF5] pt-16 pb-16 font-sans">
-      {/* BREADCRUMB NAVIGATION */}
-      <div className="bg-white border-b border-black/[0.06] py-3.5">
-        <div className="container max-w-5xl mx-auto px-4 flex items-center gap-2 text-xs font-semibold text-brand-slate">
-          <Link href="/" className="hover:text-brand-primary transition">Home</Link>
-          <ChevronRight className="h-3.5 w-3.5 text-black/30" />
-          <Link href="/solutions" className="hover:text-brand-primary transition">Solutions</Link>
-          <ChevronRight className="h-3.5 w-3.5 text-black/30" />
-          <span className="text-brand-ink font-bold">Solar Water Pumping Solution</span>
-        </div>
-      </div>
-
-      {/* HERO BANNER */}
-      <section className="relative w-full">
-        {/* Native Image for perfect scaling on desktop */}
-        <img
-          src="/images/Solar AC Water Pumping Solution.png"
-          alt="Solar Water Pumping Solution"
-          className="w-full h-[500px] lg:h-auto lg:max-h-[90vh] object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/30 pointer-events-none" />
-        <div className="absolute inset-0 flex items-center">
-          <div className="container relative z-10 max-w-5xl mx-auto px-4">
-            <Reveal className="max-w-2xl space-y-4">
-              <span className="inline-flex items-center gap-2 rounded-full bg-cyan-500/20 border border-cyan-400/30 px-3.5 py-1 text-xs font-bold text-cyan-300 uppercase tracking-wider">
-                <Droplets className="h-3.5 w-3.5" /> OFF-GRID WATER SOLUTIONS
-              </span>
-
-              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight leading-tight">
-                Solar Water Pumping Solution
-              </h1>
-
-              <p className="text-xs sm:text-sm text-white/90 font-normal leading-relaxed">
-                Sunloop Solar Water Pumping Systems harness clean solar radiation to drive electric water pumps for agriculture, livestock watering, drinking water supply, and remote crop irrigation—eliminating expensive grid line extensions and noisy diesel generators.
-              </p>
-
-              <div className="flex items-center gap-3 pt-2">
-                <div className="rounded-xl border border-white/15 bg-white/10 backdrop-blur-xs px-3.5 py-1.5 text-xs">
-                  <span className="text-white/60 text-xs block">SYSTEM TYPE</span>
-                  <strong className="text-cyan-300 font-semibold">AC &amp; DC Solar Pumping</strong>
-                </div>
-                <div className="rounded-xl border border-white/15 bg-white/10 backdrop-blur-xs px-3.5 py-1.5 text-xs">
-                  <span className="text-white/60 text-xs block">APPLICATIONS</span>
-                  <strong className="text-white font-semibold">Agriculture, Livestock &amp; Drinking</strong>
-                </div>
-              </div>
-
-            <div className="pt-3 flex flex-wrap gap-3">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 rounded-xl bg-[#E86526] px-6 py-3 text-xs font-semibold text-white shadow-md hover:bg-[#c95315] transition"
-              >
-                Request Pumping Quote <ArrowUpRight className="h-3.5 w-3.5" />
-              </Link>
-            </div>
-          </Reveal>
-        </div>
-        </div>
-      </section>
+    <main className="min-h-screen bg-[#FAFAF5] pb-16 font-sans">
+      <SolutionHero
+        image="/images/Solar AC Water Pumping Solution.png"
+        imageAlt="Solar water pumping solution"
+        eyebrow="Off-grid water solutions"
+        title="Solar Water Pumping Solution"
+        description="Reliable solar-powered pumping for agriculture, livestock, drinking water and remote irrigation—without costly grid extensions or diesel operations."
+        icon={Droplets}
+        metric="AC & DC pumps from 0.75 kW to 110 kW"
+      />
 
       {/* SOLUTIONS CATALOG SECTION */}
       <section className="py-14 md:py-20">
@@ -117,7 +69,7 @@ export default function SolarWaterPumpingPage() {
               </div>
 
               <p className="text-xs sm:text-sm text-brand-slate leading-relaxed font-normal">
-                Engineered for high-volume water lifting, deep-well pumping, and large-scale agricultural irrigation. Sunloop Solar AC Pumping Systems utilize smart Variable Frequency Drives (VFD) to power three-phase AC pumps directly from solar PV modules, guaranteeing a consistent and reliable off-grid water supply for commercial farms and municipal water projects.
+                Sunloop Solar AC Pumping Systems are engineered for high-volume water lifting, deep-well pumping and large-scale agricultural irrigation. Smart variable frequency drives (VFDs) power three-phase AC pumps directly from solar PV modules, ensuring a consistent and reliable off-grid water supply for commercial farms and municipal water projects.
               </p>
 
               {/* SPECS GRID */}
@@ -244,7 +196,7 @@ export default function SolarWaterPumpingPage() {
               </div>
 
               <p className="text-xs sm:text-sm text-brand-slate leading-relaxed font-normal">
-                Specially designed for small to medium-scale water lifting requirements. Powered by brushless permanent magnet DC motors (BLDC), Sunloop Solar DC Pumping Systems offer high torque and low energy losses. Ideal for livestock watering, farm crop irrigation, household domestic water supply, garden watering, and small water filtration plants.
+                Designed for small to medium-scale water-lifting needs, Sunloop Solar DC Pumping Systems use brushless permanent-magnet DC motors (BLDC) to deliver high torque with low energy losses. They are ideal for livestock watering, crop irrigation, household water supply, garden watering and small water filtration plants.
               </p>
 
               {/* SPECS GRID */}

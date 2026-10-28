@@ -36,10 +36,10 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'Arial', 'sans-serif'],
-        display: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
-        heading: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
-        body: ['Inter', 'Arial', 'sans-serif'],
+        sans: ['Outfit', 'Plus Jakarta Sans', 'Segoe UI', 'sans-serif'],
+        display: ['Outfit', 'Plus Jakarta Sans', 'Segoe UI', 'sans-serif'],
+        heading: ['Outfit', 'Plus Jakarta Sans', 'Segoe UI', 'sans-serif'],
+        body: ['Outfit', 'Plus Jakarta Sans', 'Segoe UI', 'sans-serif'],
         mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
       },
       fontSize: {

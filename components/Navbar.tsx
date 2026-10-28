@@ -15,14 +15,16 @@ import {
   Sun,
   BatteryCharging,
   ArrowRight,
+  Droplets,
+  Grid2X2,
 } from 'lucide-react';
 
 const solutionServices = [
-  { title: 'Solar PV Solution', href: '/solutions/solar-pv' },
-  { title: 'Solar & Storage Solution', href: '/solutions/solar-storage' },
-  { title: 'Solar + Storage + EV Charging', href: '/solutions/solar-storage-ev-charging' },
-  { title: 'Solar Water Pumping', href: '/solutions/solar-water-pumping' },
-  { title: 'Smart Microgrid Solution', href: '/solutions/smart-microgrid' },
+  { title: 'Solar PV Solution', href: '/solutions/solar-pv', icon: Sun },
+  { title: 'Solar & Storage Solution', href: '/solutions/solar-storage', icon: BatteryCharging },
+  { title: 'Solar + Storage + EV Charging', href: '/solutions/solar-storage-ev-charging', icon: Zap },
+  { title: 'Solar Water Pumping', href: '/solutions/solar-water-pumping', icon: Droplets },
+  { title: 'Smart Microgrid Solution', href: '/solutions/smart-microgrid', icon: Grid2X2 },
 ];
 
 const productServices = [
@@ -154,7 +156,7 @@ export function Navbar() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 8, scale: 0.98 }}
                   transition={{ duration: 0.15 }}
-                  className="absolute left-0 top-full z-50 mt-2 w-72 overflow-hidden rounded-xl border border-black/10 bg-white p-1.5 text-left shadow-xl"
+                  className="absolute left-0 top-full z-50 mt-2 w-56 overflow-hidden rounded-xl border border-black/10 bg-white p-1.5 text-left shadow-xl"
                   role="menu"
                 >
                   <div className="space-y-0.5">
@@ -169,11 +171,11 @@ export function Navbar() {
                         {solution.title}
                       </Link>
                     ))}
-                    <div className="border-t border-black/5 my-0.5 pt-0.5">
+                    <div className="my-0.5 border-t border-black/5 pt-0.5">
                       <Link
                         href="/solutions"
                         onClick={() => setSolutionsOpen(false)}
-                        className="block w-full rounded-lg px-4 py-2.5 text-sm font-semibold text-[#E86526] hover:bg-orange-50/80 transition"
+                        className="block w-full rounded-lg px-4 py-2.5 text-sm font-semibold text-[#E86526] transition hover:bg-orange-50/80"
                         role="menuitem"
                       >
                         All Solutions →
@@ -354,16 +356,27 @@ export function Navbar() {
                       transition={{ duration: 0.15 }}
                       className="ml-4 mt-1 space-y-0.5 border-l-2 border-brand-primary/20 py-1 pl-4 overflow-hidden"
                     >
-                      {solutionServices.map((solution) => (
-                        <Link
-                          key={solution.title}
-                          href={solution.href}
-                          onClick={() => setMobileOpen(false)}
-                          className="block w-full rounded-lg py-2.5 px-3 min-h-[44px] flex items-center text-sm text-brand-ink hover:bg-orange-50/50 hover:text-brand-primary"
-                        >
-                          {solution.title}
-                        </Link>
-                      ))}
+                      {solutionServices.map((solution) => {
+                        const Icon = solution.icon;
+                        return (
+                          <Link
+                            key={solution.title}
+                            href={solution.href}
+                            onClick={() => setMobileOpen(false)}
+                            className="flex min-h-[44px] w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-brand-ink hover:bg-orange-50/50 hover:text-brand-primary"
+                          >
+                            <Icon className="h-4 w-4 shrink-0 text-brand-primary" />
+                            {solution.title}
+                          </Link>
+                        );
+                      })}
+                      <Link
+                        href="/solutions"
+                        onClick={() => setMobileOpen(false)}
+                        className="flex min-h-[44px] w-full items-center justify-between rounded-lg px-3 py-2.5 text-sm font-bold text-brand-primary"
+                      >
+                        View all solutions <ArrowRight className="h-4 w-4" />
+                      </Link>
                     </motion.div>
                   )}
                 </AnimatePresence>

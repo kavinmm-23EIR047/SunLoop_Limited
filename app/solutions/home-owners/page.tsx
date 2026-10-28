@@ -9,39 +9,23 @@ import {
   Cpu,
   LayoutTemplate,
   ArrowRight,
-  Smartphone
+  Smartphone,
 } from 'lucide-react';
 import { Reveal, Button } from '../../../components/UI';
+import { SolutionHero } from '../../../components/SolutionHero';
 
 export default function HomeOwnersSolutionPage() {
   return (
-    <main className="min-h-screen bg-white pt-[64px] font-sans overflow-hidden">
-      
-      <section className="relative w-full">
-        {/* Native Image for perfect scaling on desktop */}
-        <img
-          src="/images/residential-solar-storage-ev-charging-solution.png"
-          alt="Residential Solar Solution"
-          className="w-full h-[500px] lg:h-auto lg:max-h-[90vh] object-cover"
-        />
-        <div className="absolute inset-0 bg-black/40" />
-        
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="container relative z-10 mx-auto px-4 text-center">
-            <Reveal>
-              <h2 className="text-brand-primary font-bold tracking-widest uppercase text-sm md:text-base mb-4">
-                For Homeowners
-              </h2>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight max-w-4xl mx-auto mb-4">
-                Turn your home into a self-sufficient energy system.
-              </h1>
-              <p className="text-sm md:text-base text-white/90 max-w-2xl mx-auto font-normal">
-                Sunloop's residential package pairs Rooftop Solar, Wall-Mounted ESS, and an AC EV Charger — all managed from a single app.
-              </p>
-            </Reveal>
-          </div>
-        </div>
-      </section>
+    <main className="min-h-screen bg-white font-sans overflow-hidden">
+      <SolutionHero
+        image="/images/residential-solar-storage-ev-charging-solution.png"
+        imageAlt="Residential solar, storage and EV charging solution"
+        eyebrow="For Homeowners"
+        title="Turn your home into a self-sufficient energy system."
+        description="Rooftop solar, home battery storage and EV charging managed together from one app."
+        icon={LayoutTemplate}
+        metric="Solar / home storage / EV charging"
+      />
 
       {/* FEATURE CARDS */}
       <section className="py-16 bg-white">
@@ -57,9 +41,9 @@ export default function HomeOwnersSolutionPage() {
                 <div className="h-16 w-16 mx-auto rounded-2xl bg-orange-50 flex items-center justify-center text-brand-primary">
                   <Banknote className="h-8 w-8" />
                 </div>
-                <h4 className="text-xl font-bold text-slate-900">Cost Saving</h4>
+                <h4 className="text-xl font-bold text-slate-900">Cost Savings</h4>
                 <p className="text-sm text-slate-600 leading-relaxed">
-                  Save electricity cost and reduce your dependence on the grid.
+                  Save on electricity costs and reduce your reliance on the grid.
                 </p>
               </div>
 
@@ -70,7 +54,7 @@ export default function HomeOwnersSolutionPage() {
                 </div>
                 <h4 className="text-xl font-bold text-slate-900">Enhanced Safety</h4>
                 <p className="text-sm text-slate-600 leading-relaxed">
-                  Meet the higher safety standard, ensure personnel and property safety.
+                  Meet higher safety standards and help protect people and property.
                 </p>
               </div>
 
@@ -92,7 +76,7 @@ export default function HomeOwnersSolutionPage() {
                 </div>
                 <h4 className="text-xl font-bold text-slate-900">Less is More</h4>
                 <p className="text-sm text-slate-600 leading-relaxed">
-                  Modern design fit with your home style with elegance.
+                  A modern design that blends elegantly with your home.
                 </p>
               </div>
 
@@ -129,7 +113,7 @@ export default function HomeOwnersSolutionPage() {
                   <span className="text-[#E86526]">Smart</span> Solar Module
                 </h2>
                 <h3 className="text-xl font-bold text-neutral-700 mt-4">
-                  A Wonderful Option for Your Life
+                  A Smarter Choice for Your Home
                 </h3>
                 <p className="text-neutral-500 text-lg leading-relaxed max-w-lg mt-2">
                   Smart Module Controllers monitor your PV modules in real time to give you the visibility and confidence you deserve.
@@ -272,7 +256,7 @@ export default function HomeOwnersSolutionPage() {
                   Visibility on the Go
                 </h3>
                 <p className="text-neutral-400 text-lg leading-relaxed max-w-lg mt-4">
-                  The Sunloop Portal provides real-time visibility and AI-driven control over your energy generation, storage, and consumption from anywhere in the world.
+                  The Sunloop Portal provides real-time visibility and AI-driven control over your energy generation, storage and consumption from anywhere in the world.
                 </p>
                 <div className="mt-10">
                   <Link
@@ -287,16 +271,14 @@ export default function HomeOwnersSolutionPage() {
             
             <div className="w-full lg:w-1/2 flex justify-center">
               <Reveal>
-                <div className="relative">
-                  <div className="absolute inset-0 bg-emerald-500/20 blur-[100px] rounded-full" />
+                <div className="relative w-full max-w-lg lg:max-w-xl group">
+                  <div className="absolute inset-0 bg-gradient-to-tr from-orange-500/20 via-emerald-500/20 to-cyan-500/20 blur-[90px] rounded-3xl" />
                   <img 
-                    src="/images/ai-portal-robot-card.png" 
-                    alt="SunLoop App Mockup Dashboard" 
-                    className="relative z-10 w-[280px] md:w-[320px] rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-4 border-neutral-800"
-                    onError={(e) => { (e.target as HTMLElement).setAttribute('src', 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=600'); }}
+                    src="/images/sunloop-ai-app-dashboard.jpg" 
+                    alt="SunLoop AI Portal & Mobile App Dashboard showing live solar generation, battery storage and EV charging telemetry" 
+                    className="relative z-10 w-full rounded-2xl sm:rounded-3xl shadow-[0_25px_60px_rgba(0,0,0,0.6)] border border-white/10 transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                    onError={(e) => { (e.target as HTMLElement).setAttribute('src', '/images/india-hero-ai-banner.jpg'); }}
                   />
-                  <div className="absolute -top-6 -right-6 h-12 w-12 bg-orange-500 rounded-full animate-ping opacity-75" />
-                  <div className="absolute -bottom-6 -left-6 h-8 w-8 bg-emerald-500 rounded-full animate-ping opacity-75 delay-700" />
                 </div>
               </Reveal>
             </div>

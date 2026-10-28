@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -80,11 +80,18 @@ html {
 	}
 }
 
+body,
+button,
+input,
+select,
+textarea {
+	font-family: 'Outfit', 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
+}
+
 body {
 	margin: 0;
 	background: var(--color-bg);
 	color: var(--color-ink);
-	font-family: 'Inter', var(--font-body, Arial), sans-serif;
 	font-weight: 400;
 	line-height: 1.65;
 	-webkit-font-smoothing: antialiased;
@@ -105,33 +112,36 @@ main {
 /* ─── Typography Hierarchy ─── */
 h1, h2, h3, h4, h5, h6,
 nav, nav a, header a, button, .btn, .eyebrow, [role="menuitem"], .cta-text {
-	font-family: 'Plus Jakarta Sans', var(--font-heading, 'Inter'), sans-serif;
+	font-family: inherit;
 }
 
 h1, h2, h3, h4, h5, h6 {
 	color: inherit;
 	line-height: 1.2;
+	font-family: 'Outfit', 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
 }
 
 h1 {
-	font-weight: 700;
-	letter-spacing: -0.02em;
+	font-weight: 300 !important;
+	letter-spacing: -0.035em;
 }
 h2 {
-	font-weight: 700;
-	letter-spacing: -0.01em;
+	font-weight: 300 !important;
+	letter-spacing: -0.025em;
 }
 h3 {
-	font-weight: 600;
+	font-weight: 500;
 }
 h4 {
-	font-weight: 600;
+	font-weight: 500;
 }
 h5, h6 {
-	font-weight: 600;
+	font-weight: 500;
 }
 
 p {
+	font-family: 'Outfit', 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
+	font-weight: 400;
 	margin: 0 0 1rem;
 }
 p:last-child {
@@ -251,6 +261,22 @@ a {
 	border-color: var(--color-border-hover);
 }
 
+/* Consistent warm card surfaces for light-themed cards only (never dark containers or opacity utility classes) */
+main div[class~="bg-white"][class*="rounded-"][class*="border"][class*="p-"]:not([class*="dark"]):not([class*="bg-slate"]):not([class*="bg-black"]):not([class*="bg-[#"]),
+main article[class~="bg-white"][class*="rounded-"][class*="border"][class*="p-"]:not([class*="dark"]):not([class*="bg-slate"]):not([class*="bg-black"]):not([class*="bg-[#"]),
+main a[class~="bg-white"][class*="rounded-"][class*="border"][class*="p-"]:not([class*="dark"]):not([class*="bg-slate"]):not([class*="bg-black"]):not([class*="bg-[#"]) {
+	background-image: linear-gradient(145deg, #ffffff 0%, #fffaf6 100%);
+	border-color: rgba(232, 101, 38, 0.14);
+	box-shadow: 0 8px 24px -20px rgba(26, 26, 26, 0.34);
+}
+
+main div[class~="bg-white"][class*="rounded-"][class*="border"][class*="p-"]:not([class*="dark"]):not([class*="bg-slate"]):not([class*="bg-black"]):not([class*="bg-[#"]):hover,
+main article[class~="bg-white"][class*="rounded-"][class*="border"][class*="p-"]:not([class*="dark"]):not([class*="bg-slate"]):not([class*="bg-black"]):not([class*="bg-[#"]):hover,
+main a[class~="bg-white"][class*="rounded-"][class*="border"][class*="p-"]:not([class*="dark"]):not([class*="bg-slate"]):not([class*="bg-black"]):not([class*="bg-[#"]):hover {
+	border-color: rgba(232, 101, 38, 0.38);
+	box-shadow: 0 14px 30px -22px rgba(232, 101, 38, 0.42);
+}
+
 /* ─── Button System ─── */
 .soft-btn {
 	display: inline-flex;
@@ -261,7 +287,7 @@ a {
 	padding: 12px 24px;
 	min-height: 44px;
 	font-weight: 600;
-	font-family: 'Inter', var(--font-body, Arial), sans-serif;
+	font-family: 'Outfit', 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
 	font-size: 0.875rem;
 	line-height: 1.25;
 	letter-spacing: 0.01em;
@@ -365,12 +391,101 @@ a {
 	color: var(--color-ink);
 }
 
+@page {
+	size: A4 portrait;
+	margin: 12mm;
+}
+
+.datasheet-section {
+	break-inside: avoid;
+	page-break-inside: avoid;
+}
+
+.datasheet-section-title {
+	margin: 0 0 0.5rem;
+	border-bottom: 1px solid #dedbd7;
+	padding-bottom: 0.35rem;
+	color: var(--color-primary);
+	font-size: 0.72rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+.datasheet-page h1 {
+	font-weight: 600 !important;
+	letter-spacing: -0.015em;
+}
+
+.datasheet-page .datasheet-section-title {
+	font-weight: 700 !important;
+}
+
+.datasheet-table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 0.72rem;
+	line-height: 1.35;
+}
+
+.datasheet-table th,
+.datasheet-table td {
+	border: 1px solid #dedbd7;
+	padding: 0.38rem 0.55rem;
+	text-align: left;
+	vertical-align: top;
+}
+
+.datasheet-table th {
+	width: 34%;
+	font-weight: 600;
+	color: #555;
+}
+
+.datasheet-table td {
+	font-weight: 400;
+	color: #1a1a1a;
+}
+
 @media print {
+	html,
+	body {
+		width: auto !important;
+		height: auto !important;
+		overflow: visible !important;
+		background: #ffffff !important;
+		-webkit-print-color-adjust: exact;
+		print-color-adjust: exact;
+	}
+	body:has(.datasheet-page) #site-header,
+	body:has(.datasheet-page) #sunloop-ai-assistant,
+	body:has(.datasheet-page) > footer {
+		display: none !important;
+	}
 	.datasheet-page {
-		padding: 0;
+		min-height: 0 !important;
+		margin: 0 !important;
+		padding: 0 !important;
+		background: #ffffff !important;
 	}
 	.no-print {
 		display: none !important;
+	}
+	.datasheet-sheet {
+		width: auto !important;
+		max-width: none !important;
+		margin: 0 !important;
+		border: 0 !important;
+		padding: 0 !important;
+		box-shadow: none !important;
+	}
+	.datasheet-section,
+	.datasheet-table tr {
+		break-inside: avoid;
+		page-break-inside: avoid;
+	}
+	.datasheet-table thead {
+		display: table-header-group;
 	}
 }
 

@@ -46,39 +46,47 @@ export default function SolarPowerPage() {
   return (
     <main className="min-h-screen bg-[#FAFAF5] pb-16 font-sans overflow-x-hidden w-full max-w-full">
       {/* HERO BANNER */}
-      <section className="relative w-full min-h-[460px] sm:min-h-[560px] md:min-h-[640px] pt-24 pb-14 sm:pt-28 sm:pb-20 overflow-hidden bg-brand-ink text-white flex items-center">
-        <div
-          className="absolute inset-0 bg-cover bg-center pointer-events-none transition-transform duration-1000"
-          style={{
-            backgroundImage: `url('/products/Solar power/30-500kW Hybrid Commercial Solar System Kits.png')`,
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent pointer-events-none" />
+      <section className="relative w-full pt-28 pb-16 sm:pt-32 sm:pb-20 overflow-hidden bg-brand-ink text-white">
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-brand-ink to-slate-900 pointer-events-none" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="container relative z-10 max-w-5xl mx-auto px-4">
-          <Reveal className="max-w-2xl space-y-4">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight">
-              Solar Power Plants
-            </h1>
-            <p className="text-sm sm:text-base text-white/80 leading-relaxed font-normal">
-              We deliver end-to-end Solar Power Plant solutions — design, engineering, installation, commissioning, and long-term maintenance — using high-efficiency panels and inverters tailored to your scale and site conditions.
-            </p>
+        <div className="container relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            <Reveal className="lg:col-span-7 space-y-4 sm:space-y-5">
+              <span className="inline-flex items-center rounded-sm bg-brand-primary px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-white">
+                Turnkey Solar Generation Solutions
+              </span>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
+                Solar Power Plants
+              </h1>
+              <p className="text-sm sm:text-base text-white/80 leading-relaxed font-normal max-w-2xl">
+                We deliver end-to-end Solar Power Plant solutions — design, engineering, installation, commissioning and long-term maintenance — using high-efficiency panels and inverters tailored to your scale and site conditions.
+              </p>
 
-            <div className="pt-3 flex flex-wrap gap-3">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 rounded-xl bg-[#E86526] px-5 py-3 text-xs font-semibold text-white shadow-md hover:bg-[#c95315] transition"
-              >
-                Request Solar Quote <ArrowUpRight className="h-3.5 w-3.5" />
-              </Link>
-              <Link
-                href="/ai-portal"
-                className="inline-flex items-center gap-2 rounded-xl bg-white/10 border border-white/20 px-5 py-3 text-xs font-semibold text-white hover:bg-white/20 transition"
-              >
-                <Bot className="h-3.5 w-3.5 text-brand-apricot" /> Solar AI Portal
-              </Link>
+              <div className="pt-3 flex flex-wrap gap-3">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 rounded-xl bg-[#E86526] px-5 py-3 text-xs font-semibold text-white shadow-md hover:bg-[#c95315] transition"
+                >
+                  Request Solar Quote <ArrowUpRight className="h-3.5 w-3.5" />
+                </Link>
+                <Link
+                  href="/ai-portal"
+                  className="inline-flex items-center gap-2 rounded-xl bg-white/10 border border-white/20 px-5 py-3 text-xs font-semibold text-white hover:bg-white/20 transition"
+                >
+                  <Bot className="h-3.5 w-3.5 text-brand-apricot" /> Solar AI Portal
+                </Link>
+              </div>
+            </Reveal>
+
+            <div className="lg:col-span-5 flex items-center justify-center">
+              <img
+                src="/products/Solar power/30-500kW Hybrid Commercial Solar System Kits.png"
+                alt="Sunloop Commercial Solar Power System Kits"
+                className="w-auto h-auto max-h-[440px] sm:max-h-[500px] object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.6)]"
+              />
             </div>
-          </Reveal>
+          </div>
         </div>
       </section>
 

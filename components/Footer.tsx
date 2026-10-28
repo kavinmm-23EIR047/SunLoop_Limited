@@ -56,28 +56,21 @@ export function Footer() {
               Join the Sunloop Energy Ecosystem
             </h3>
             <p className="text-sm text-brand-slate leading-relaxed">
-              Subscribe for commercial tariff savings insights, solar yield analytics, and next-generation battery storage updates.
+              Connect with our team on WhatsApp for product updates, clean-energy news and support.
             </p>
           </div>
 
-          <div className="w-full lg:w-[360px] shrink-0">
-            <form onSubmit={(e) => e.preventDefault()} className="flex flex-col sm:flex-row items-center gap-2.5">
-              <div className="relative w-full">
-                <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-brand-slate" aria-hidden="true" />
-                <input
-                  type="email"
-                  placeholder="Enter your email address"
-                  className="w-full rounded-xl border border-black/10 bg-[#FAFAFA] pl-10 pr-3 py-3 text-sm text-brand-ink placeholder-brand-slate/70 focus:border-[#E86526] focus:bg-white focus:outline-none transition shadow-2xs min-h-[44px]"
-                />
-              </div>
-              <button
-                type="submit"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 rounded-xl bg-[#E86526] px-5 py-3 text-sm font-bold text-white shadow-sm hover:bg-[#d45214] active:scale-[0.98] transition shrink-0 min-h-[44px]"
-              >
-                <span>Subscribe</span>
-                <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </button>
-            </form>
+          <div className="w-full lg:w-auto shrink-0">
+            <a
+              href={`${contact.whatsappUrl}?text=${encodeURIComponent("Hi, I'd like to join the Sunloop Energy ecosystem.")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-[#E86526] px-6 py-3 text-sm font-bold text-white shadow-sm transition hover:bg-[#d45214] active:scale-[0.98]"
+            >
+              <WhatsAppIcon className="h-4 w-4" />
+              <span>Join on WhatsApp</span>
+              <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+            </a>
           </div>
           
         </div>
@@ -99,7 +92,7 @@ export function Footer() {
             </Link>
 
             <p className="text-sm text-brand-slate font-normal leading-relaxed">
-              Engineering intelligent clean energy ecosystems — Solar Power Plants, Battery Energy Storage Systems (BESS), and EV Fast Chargers, connected through the Sunloop AI Portal.
+              Engineering intelligent clean energy ecosystems — Solar Power Plants, Battery Energy Storage Systems (BESS) and EV Fast Chargers, connected through the Sunloop AI Portal.
             </p>
 
             <div className="space-y-2 pt-1">

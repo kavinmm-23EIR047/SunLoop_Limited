@@ -2,12 +2,12 @@ export const brand = {
   name: 'Sunloop Energy',
   tagline: 'Powering Tomorrow, Sustainably.',
   subtag: 'Clean. Intelligent. Integrated.',
-  campaign: 'Pathway to Sustainable Future!',
+  campaign: 'A Pathway to a Sustainable Future',
   mantra: 'Generate. Store. Drive.',
   positioning: 'AI Energy Management Portal',
 };
 
-export const about = `Sunloop Energy is a next-generation clean energy company founded in 2016 in Coimbatore, Tamil Nadu, by a team dedicated to transforming how energy is generated, stored, and consumed. We design and deploy Solar Power Plants, Energy Storage Systems, and EV Charging Infrastructure — all connected through our proprietary AI Energy Management Portal.`;
+export const about = `Sunloop Energy is a next-generation clean energy company founded in 2016 in Coimbatore, Tamil Nadu, by a team dedicated to transforming how energy is generated, stored and consumed. We design and deploy Solar Power Plants, Energy Storage Systems and EV Charging Infrastructure — all connected through our proprietary AI Energy Management Portal.`;
 
 export const portalFeatures = [
   'Live monitoring across all connected assets',

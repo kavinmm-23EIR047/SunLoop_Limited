@@ -15,6 +15,7 @@ import {
   TrendingUp,
   Server,
 } from 'lucide-react';
+import { AIPortalLiveDashboard } from './AIPortalLiveDashboard';
 
 interface ProductItem {
   id: string;
@@ -37,8 +38,8 @@ const productsList: ProductItem[] = [
     title: 'Solar Power Plants',
     tagline: 'Rooftop · Ground-Mounted · Utility-Scale',
     desc: 'End-to-end solar PV design, installation and maintenance for residential rooftops, industrial sites and utility-scale projects.',
-    image: '/images/solar-panels.png',
-    fallbackImage: '/images/residential-energy.png',
+    image: '/images/india-solar-power-plant.jpg',
+    fallbackImage: '/images/solar-panels.png',
     spec1: { title: '3 kW to 1 MW+', desc: 'Rooftop & Ground-Mounted' },
     spec2: { title: 'High Yield', desc: 'AI Asset Telemetry' },
     ctaText: 'Explore Solar Power',
@@ -50,8 +51,8 @@ const productsList: ProductItem[] = [
     title: 'Energy Storage Systems (ESS)',
     tagline: 'Wall-Mounted · Trolley-Type · Containerized',
     desc: 'Lithium-ion and LiFePO4 battery storage from 5 kWh to 500+ kWh for backup power, peak-demand shaving and energy independence.',
-    image: '/images/energy-storage.png',
-    fallbackImage: '/images/commercial-energy.png',
+    image: '/images/india-energy-storage.jpg',
+    fallbackImage: '/images/energy-storage.png',
     spec1: { title: '5 kWh to 500+ kWh', desc: 'Stackable Capacity' },
     spec2: { title: 'Peak Shaving', desc: 'Automated AI Optimization' },
     ctaText: 'Explore Energy Storage',
@@ -63,8 +64,8 @@ const productsList: ProductItem[] = [
     title: 'EV Charging Infrastructure',
     tagline: 'AC Chargers · DC Fast Chargers',
     desc: 'AC chargers for homes and communities plus DC fast chargers for commercial hubs and fleets with remote monitoring and payment integration.',
-    image: '/images/ac-charging.png',
-    fallbackImage: '/images/dc-charging.png',
+    image: '/images/india-ev-charging.jpg',
+    fallbackImage: '/images/ac-charging.png',
     spec1: { title: '7.4 kW to 240 kW', desc: 'AC + DC Fast Charging' },
     spec2: { title: 'AI Connected', desc: 'Remote Monitoring & Billing' },
     ctaText: 'Explore EV Charging',
@@ -80,8 +81,22 @@ function PinnedProductStage({ item, index, progress }: { item: ProductItem; inde
   const imageOpacity = useTransform(progress, opacityRange, opacityValues);
   return (
     <>
-      <motion.div style={{ opacity: imageOpacity }} className="absolute inset-x-0 top-[3%] mx-auto flex h-[44vh] w-[min(86vw,760px)] items-center justify-center lg:inset-x-auto lg:left-[5vw] lg:top-[8%] lg:h-[66vh] lg:w-[46vw]" aria-hidden="true">
-        <img src={item.image} alt="" className="h-full w-full object-contain drop-shadow-[0_18px_35px_rgba(15,23,42,0.14)]" loading={index === 0 ? 'eager' : 'lazy'} onError={(e) => { (e.target as HTMLImageElement).src = item.fallbackImage; }} />
+      <motion.div
+        style={{ opacity: imageOpacity }}
+        className="absolute inset-x-0 top-[3%] mx-auto flex h-[44vh] w-[min(86vw,760px)] items-center justify-center lg:inset-x-auto lg:left-[5vw] lg:top-[8%] lg:h-[66vh] lg:w-[46vw]"
+        aria-hidden="true"
+      >
+        <div className="relative h-full w-full max-h-[520px] max-w-[640px] overflow-hidden rounded-2xl sm:rounded-3xl border border-black/10 shadow-[0_20px_50px_rgba(0,0,0,0.12)] bg-slate-100 group">
+          <img
+            src={item.image}
+            alt={item.title}
+            className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+            loading={index === 0 ? 'eager' : 'lazy'}
+            onError={(e) => {
+              (e.target as HTMLImageElement).src = item.fallbackImage;
+            }}
+          />
+        </div>
       </motion.div>
       <motion.div style={{ opacity: imageOpacity }} className="absolute inset-x-5 bottom-[4vh] space-y-3 text-left sm:inset-x-10 lg:inset-x-auto lg:right-[7vw] lg:top-[18%] lg:w-[38vw] lg:space-y-4">
         <div className="flex flex-wrap items-center gap-2"><span className="inline-flex items-center gap-1.5 rounded-lg border border-orange-100 bg-orange-50 px-3 py-1.5 text-xs font-semibold tracking-wide text-[#E86526]"><span className="h-1.5 w-1.5 rounded-full bg-[#E86526]" />{item.eyebrow}</span><span className="text-xs font-medium tracking-wide text-slate-400">{item.tagline}</span></div>
@@ -110,173 +125,111 @@ function PinnedProductShowcase() {
 {/* AI PORTAL DASHBOARD SECTION */}
 function AIPortalDashboardSection() {
   return (
-    <section className="readable-ui relative overflow-hidden border-t border-black/10 bg-slate-950 px-4 pb-28 pt-12 text-white sm:px-8 sm:py-16 md:py-20">
+    <section className="relative overflow-hidden border-t border-black/10 bg-slate-950 px-4 py-8 text-white sm:px-6 sm:py-10 md:py-12">
       <div className="pointer-events-none absolute -right-24 top-10 h-72 w-72 rounded-full bg-orange-500/20 blur-3xl" aria-hidden="true" />
 
       <div className="container relative z-10 mx-auto max-w-6xl">
-        <div className="grid grid-cols-1 items-start gap-8 md:grid-cols-[0.82fr_1.18fr] lg:grid-cols-12 lg:items-center lg:gap-10">
+        <div className="grid grid-cols-1 items-stretch gap-6 lg:grid-cols-12 lg:gap-8">
 
-          {/* LEFT COLUMN */}
-          <div className="space-y-5 text-left md:col-span-1 lg:col-span-5">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/20 text-[#E86526] text-xs font-medium tracking-wide">
-              <Sparkles className="h-3.5 w-3.5 text-[#E86526]" aria-hidden="true" />
-              Sunloop Energy Intelligence
-            </div>
-
-            <h2 className="text-3xl leading-tight text-white sm:text-4xl lg:text-5xl font-bold">
-              Sunloop <span className="text-[#E86526]">AI Portal</span>
-            </h2>
-
-            <p className="text-sm sm:text-base leading-relaxed text-slate-400">
-              Every Sunloop system — Solar, ESS, or EV — connects to the same AI Energy Management Portal, giving you live telemetry, predictive maintenance alerts, and daily performance reports from one dashboard.
-            </p>
-
-            <div className="space-y-3.5 pt-1">
-              <div className="flex items-start gap-3">
-                <div className="p-2 rounded-xl bg-white/5 border border-white/10 text-[#E86526] shrink-0">
-                  <Activity className="h-4 w-4" aria-hidden="true" />
-                </div>
-                <div>
-                  <h3 className="text-sm font-semibold text-white">Live Monitoring & Telemetry</h3>
-                  <p className="text-xs leading-normal text-slate-400 mt-0.5">
-                    Real-time status across all connected Solar, ESS, and EV charging assets.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="p-2 rounded-xl bg-white/5 border border-white/10 text-[#E86526] shrink-0">
-                  <BarChart3 className="h-4 w-4" aria-hidden="true" />
-                </div>
-                <div>
-                  <h3 className="text-sm font-semibold text-white">AI-Powered Optimization</h3>
-                  <p className="text-xs leading-normal text-slate-400 mt-0.5">
-                    Automated peak shaving, daily performance reports and energy consumption tracking.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="p-2 rounded-xl bg-white/5 border border-white/10 text-[#E86526] shrink-0">
-                  <ShieldCheck className="h-4 w-4" aria-hidden="true" />
-                </div>
-                <div>
-                  <h3 className="text-sm font-semibold text-white">Predictive Maintenance Alerts</h3>
-                  <p className="text-xs leading-normal text-slate-400 mt-0.5">
-                    Instant fault detection and alerts to keep your clean energy systems running 24/7.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="pt-2">
-              <Link
-                href="/ai-portal"
-                className="inline-flex items-center gap-2 rounded-lg bg-[#E86526] px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-[#c95315] transition min-h-[44px]"
-              >
-                See the AI Portal
-                <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </Link>
-            </div>
-          </div>
-
-          {/* RIGHT COLUMN */}
-          <div className="min-w-0 md:col-span-1 lg:col-span-7">
+          {/* LEFT COLUMN: Clean & Simple to Showcase the Clean Graph */}
+          <div className="flex h-full flex-col justify-center space-y-4 text-left lg:col-span-5">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-              className="relative rounded-2xl border border-white/10 bg-brand-ink p-3 shadow-2xl sm:p-4"
+              viewport={{ once: true }}
+              transition={{ duration: 0.4 }}
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E86526] text-white text-xs font-semibold shadow-sm"
             >
-              <div className="flex items-center justify-between pb-2.5 mb-3 border-b border-white/10 px-1">
-                <div className="flex items-center gap-2">
-                  <span className="h-2.5 w-2.5 rounded-full bg-[#E86526]" aria-hidden="true" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-white/50" aria-hidden="true" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-white/25" aria-hidden="true" />
-                  <span className="ml-2 hidden text-xs font-mono text-white/50 lg:inline">portal.sunloopenergy.com/dashboard</span>
-                </div>
-                <div className="flex items-center gap-1.5 font-mono text-xs text-[#E86526]">
-                  <span className="h-2 w-2 animate-pulse rounded-full bg-[#E86526]" aria-hidden="true" />
-                  System Live
-                </div>
-              </div>
-
-              <div className="mb-3 grid grid-cols-1 gap-2.5 lg:grid-cols-3">
-                <div className="rounded-xl border border-white/10 bg-black/20 p-3">
-                  <div className="mb-1 text-xs font-medium tracking-wide text-white/50">Total Solar Generation</div>
-                  <div className="text-lg font-bold text-white flex items-baseline gap-1">
-                    124.5 <span className="text-xs text-orange-400 font-normal">kW</span>
-                  </div>
-                  <div className="mt-1.5 flex items-center gap-1 text-xs font-medium text-[#E86526]">
-                    <TrendingUp className="h-3 w-3" aria-hidden="true" /> +12% higher than yesterday
-                  </div>
-                </div>
-
-                <div className="rounded-xl border border-white/10 bg-black/20 p-3">
-                  <div className="mb-1 text-xs font-medium tracking-wide text-white/50">ESS Battery Buffer</div>
-                  <div className="text-lg font-bold text-white flex items-baseline gap-1">
-                    98 <span className="text-xs font-normal text-white/40">%</span>
-                  </div>
-                  <div className="mt-1.5 flex items-center gap-1 text-xs font-medium text-emerald-400">
-                    <Zap className="h-3 w-3" aria-hidden="true" /> 5.2 kW Input Power
-                  </div>
-                </div>
-
-                <div className="rounded-xl border border-white/10 bg-black/20 p-3">
-                  <div className="mb-1 text-xs font-medium tracking-wide text-white/50">EV Charger Status</div>
-                  <div className="text-lg font-bold text-white flex items-baseline gap-1">
-                    7.4 <span className="text-xs font-normal text-white/40">kW AC</span>
-                  </div>
-                  <div className="mt-1.5 flex items-center gap-1 text-xs font-medium text-white/50">
-                    <Server className="h-3 w-3" aria-hidden="true" /> Active Session
-                  </div>
-                </div>
-              </div>
-
-              <div className="relative overflow-hidden rounded-xl border border-white/10 bg-black/20 p-3.5">
-                <div className="flex items-center justify-between mb-3">
-                  <div>
-                    <h3 className="text-sm font-semibold text-white">Live Generation & Consumption</h3>
-                    <p className="text-xs text-white/50 mt-0.5">Real-time telemetry stream</p>
-                  </div>
-                  <div className="flex gap-1">
-                    <span className="rounded bg-white/10 px-1.5 py-0.5 font-mono text-xs text-white/70">24H</span>
-                    <span className="rounded bg-[#E86526]/20 px-1.5 py-0.5 font-mono text-xs text-[#E86526]">Live</span>
-                  </div>
-                </div>
-
-                <div className="h-28 w-full relative flex items-end pt-2">
-                  <svg className="w-full h-full overflow-visible" viewBox="0 0 400 100" preserveAspectRatio="none" aria-hidden="true">
-                    <defs>
-                      <linearGradient id="gradientLine" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stopColor="#E86526" stopOpacity="0.4" />
-                        <stop offset="100%" stopColor="#E86526" stopOpacity="0" />
-                      </linearGradient>
-                    </defs>
-                    <path
-                      d="M 0 80 Q 50 30, 100 60 T 200 40 T 300 10 T 400 30 L 400 100 L 0 100 Z"
-                      fill="url(#gradientLine)"
-                    />
-                    <path
-                      d="M 0 80 Q 50 30, 100 60 T 200 40 T 300 10 T 400 30"
-                      fill="none"
-                      stroke="#E86526"
-                      strokeWidth="2.5"
-                    />
-                  </svg>
-                </div>
-
-                <div className="mt-2.5 flex items-center justify-between border-t border-white/10 pt-2.5 text-xs text-white/50">
-                  <span className="flex items-center gap-1">
-                    <Sliders className="h-3 w-3 text-orange-400" aria-hidden="true" /> Peak Shaving Active
-                  </span>
-                  <span className="font-mono font-medium text-[#E86526]">AI Portal Synchronized</span>
-                </div>
-              </div>
-
+              <Sparkles className="h-3.5 w-3.5 text-white" aria-hidden="true" />
+              Sunloop Energy AI
             </motion.div>
 
+            <motion.h2
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: 0.05 }}
+              className="text-2xl leading-tight text-white sm:text-3xl lg:text-4xl font-bold tracking-tight"
+            >
+              Sunloop <span className="text-[#E86526]">AI Portal</span>
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: 0.1 }}
+              className="text-sm sm:text-base leading-relaxed text-slate-300 font-normal"
+            >
+              Real-time telemetry, automated peak shaving and predictive maintenance alerts synchronized across every connected Solar, ESS and EV asset.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.15 }}
+              className="space-y-2.5 pt-1"
+            >
+              <div className="flex items-center gap-3">
+                <div className="p-2 rounded-xl bg-[#E86526] text-white shrink-0 shadow-sm shadow-orange-500/30">
+                  <Activity className="h-4 w-4 text-white" aria-hidden="true" />
+                </div>
+                <div>
+                  <h3 className="text-sm font-semibold text-white">Live Monitoring &amp; Instant Telemetry</h3>
+                  <p className="text-xs text-slate-400">Sub-second generation and consumption stream.</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <div className="p-2 rounded-xl bg-[#E86526] text-white shrink-0 shadow-sm shadow-orange-500/30">
+                  <BarChart3 className="h-4 w-4 text-white" aria-hidden="true" />
+                </div>
+                <div>
+                  <h3 className="text-sm font-semibold text-white">Automated Peak Shaving &amp; Storage AI</h3>
+                  <p className="text-xs text-slate-400">Lowers grid tariff charges during peak hours.</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <div className="p-2 rounded-xl bg-[#E86526] text-white shrink-0 shadow-sm shadow-orange-500/30">
+                  <ShieldCheck className="h-4 w-4 text-white" aria-hidden="true" />
+                </div>
+                <div>
+                  <h3 className="text-sm font-semibold text-white">24/7 Predictive Fault Diagnostics</h3>
+                  <p className="text-xs text-slate-400">Continuous remote health tracking and zero downtime.</p>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: 0.2 }}
+              className="pt-1"
+            >
+              <Link
+                href="/ai-portal"
+                className="inline-flex items-center gap-2 rounded-xl bg-[#E86526] px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-orange-500/25 hover:bg-[#c95315] hover:shadow-orange-500/35 transition-all duration-300 min-h-[42px] group"
+              >
+                See the AI Portal
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+              </Link>
+            </motion.div>
+          </div>
+
+          {/* RIGHT COLUMN: AI PORTAL LIVE DASHBOARD (Clean Graph Showcase) */}
+          <div className="h-full min-w-0 lg:col-span-7">
+            <motion.div
+              initial={{ opacity: 0, y: 20, scale: 0.99 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              className="h-full"
+            >
+              <AIPortalLiveDashboard />
+            </motion.div>
           </div>
 
         </div>

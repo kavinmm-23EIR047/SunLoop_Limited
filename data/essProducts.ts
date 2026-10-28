@@ -33,7 +33,7 @@ export const essProducts: ESSProduct[] = [
     specs: [
       { label: 'System Type', value: 'Wall-Mounted ESS' },
       { label: 'Series', value: 'WallLoop Series' },
-      { label: 'Best For', value: 'Homes — compact, space-saving, easy install' },
+      { label: 'Best For', value: 'Compact, space-saving systems for homes with easy installation' },
       { label: 'Capacity Range', value: '5 kWh to 20 kWh' },
       { label: 'Chemistry', value: 'LiFePO4 (Grade A Cells)' },
     ],
@@ -52,7 +52,7 @@ export const essProducts: ESSProduct[] = [
       category: 'ess',
       revision: 'Rev 1.0',
       issueDate: 'August 2026',
-      overview: 'WallLoop is a residential wall-mounted LiFePO4 energy storage system engineered for solar self-consumption, UPS backup, and peak-load management. Modular 5–20 kWh capacity with parallel expansion to 15 units.',
+      overview: 'WallLoop is a residential wall-mounted LiFePO4 energy storage system engineered for solar self-consumption, UPS backup and peak-load management. Modular 5–20 kWh capacity with parallel expansion to 15 units.',
       electrical: [
         { label: 'Nominal Voltage', value: '48V / 51.2V DC' },
         { label: 'Capacity Range', value: '5 kWh – 20 kWh (expandable)' },
@@ -93,11 +93,11 @@ export const essProducts: ESSProduct[] = [
     specs: [
       { label: 'System Type', value: 'Trolley-Type / Cabinet ESS' },
       { label: 'Series', value: 'StackLoop Series' },
-      { label: 'Best For', value: 'Commercial & Industrial — mobile, scalable' },
+      { label: 'Best For', value: 'Mobile, scalable systems for commercial and industrial sites' },
       { label: 'Capacity Range', value: '30 kWh to 500 kWh' },
       { label: 'Chemistry', value: 'LiFePO4 Grade A High-Density Pack' },
     ],
-    desc: 'Mobile and scalable StackLoop energy storage units designed for commercial complexes, industrial sites, and factories requiring flexible backup and peak shaving.',
+    desc: 'Mobile and scalable StackLoop energy storage units designed for commercial complexes, industrial sites and factories requiring flexible backup and peak shaving.',
     features: [
       'Mobile & Modular Chassis for Quick Deployment',
       'Integrated Smart HVAC & Thermal Safety Control',
@@ -112,7 +112,7 @@ export const essProducts: ESSProduct[] = [
       category: 'ess',
       revision: 'Rev 1.0',
       issueDate: 'August 2026',
-      overview: 'StackLoop is a commercial-grade modular ESS cabinet for C&I peak shaving, demand charge reduction, and microgrid backup. Scalable from 30 kWh to 500 kWh with integrated thermal management.',
+      overview: 'StackLoop is a commercial-grade modular ESS cabinet for C&I peak shaving, demand charge reduction and microgrid backup. Scalable from 30 kWh to 500 kWh with integrated thermal management.',
       electrical: [
         { label: 'Voltage Range', value: '384V – 1000V DC' },
         { label: 'Capacity Range', value: '30 kWh – 500 kWh' },
@@ -155,7 +155,7 @@ export const essProducts: ESSProduct[] = [
       { label: 'Capacity Range', value: '500+ kWh (up to 10 MWh)' },
       { label: 'Enclosure', value: '20ft / 40ft ISO Standard Container' },
     ],
-    desc: 'High-capacity, grid-integrated CubeLoop containerized energy storage deployments built for utility substations, large industrial complexes, and microgrid stabilization.',
+    desc: 'High-capacity, grid-integrated CubeLoop containerized energy storage deployments built for utility substations, large industrial complexes and microgrid stabilization.',
     features: [
       '20ft / 40ft ISO Standard Modular Container Architecture',
       'Liquid Thermal Cooling for Extended Life & Optimal Safety',
@@ -170,7 +170,7 @@ export const essProducts: ESSProduct[] = [
       category: 'ess',
       revision: 'Rev 1.0',
       issueDate: 'August 2026',
-      overview: 'CubeLoop is a utility-scale containerized BESS platform for grid frequency regulation, peak load shifting, and microgrid stabilization. ISO container modular design from 500 kWh to 10+ MWh.',
+      overview: 'CubeLoop is a utility-scale containerized BESS platform for grid frequency regulation, peak load shifting and microgrid stabilization. ISO container modular design from 500 kWh to 10+ MWh.',
       electrical: [
         { label: 'Power Scale', value: '100 kW – 5,000 kW (5 MW)' },
         { label: 'Storage Scale', value: '500 kWh – 10,000 kWh (10 MWh)' },

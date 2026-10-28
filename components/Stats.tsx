@@ -27,13 +27,13 @@ export default function SunloopWaySection() {
           <div className="mt-2 h-[3px] w-8 rounded-full bg-orange-600" aria-hidden="true" />
           <h2 className="mt-5 text-3xl sm:text-4xl font-bold tracking-tight text-neutral-900 leading-tight">
             We Didn't Just Start Today. <br />
-            <span className="text-orange-600">We've Been Powering Progress for Over a Decade.</span>
+            <span className="text-orange-600">We've Been Powering Progress for 10 Years.</span>
           </h2>
           <p className="mt-6 text-sm md:text-base leading-relaxed text-neutral-600 font-normal">
-            Sunloop Energy was started in 2016 by a dynamic team dedicated to transforming the way clean energy is generated, stored, managed, and consumed.
+            Sunloop Energy was founded in 2016 by a team dedicated to transforming how clean energy is generated, stored, managed and consumed.
           </p>
           <p className="mt-4 text-sm md:text-base leading-relaxed text-neutral-600">
-            Headquartered in Coimbatore, Tamil Nadu, we specialize in delivering intelligent solar power plants, lithium ESS energy storage, and smart EV charging infrastructure — all unified through our AI Energy Portal.
+            Based in Coimbatore, Tamil Nadu, we specialize in intelligent solar power plants, lithium energy storage systems (ESS) and smart EV charging infrastructure, all connected through our AI Energy Portal.
           </p>
           <a
             href="/company"
@@ -54,7 +54,7 @@ export default function SunloopWaySection() {
             />
             <img
               src="/images/ev-card-illustration.png"
-              alt="Illustration of an EV charging at a residential charging station"
+              alt="Illustration of an electric vehicle charging at a home charging station"
               className="absolute -bottom-1 right-0 h-[105%] w-[58%] object-contain object-right-bottom mix-blend-multiply"
               loading="lazy"
             />
@@ -117,7 +117,7 @@ export default function SunloopWaySection() {
         >
           {/* Full background image */}
           <img
-            src="/images/ai-portal-robot-card.png"
+            src="/images/sunloop-ai-app-dashboard.jpg"
             alt="Sunloop AI Portal interface showing real-time energy monitoring"
             className="absolute inset-0 h-full w-full object-cover"
             loading="lazy"
@@ -128,14 +128,14 @@ export default function SunloopWaySection() {
           <div className="relative z-10 p-5 max-w-[60%]">
             <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-2.5 py-1 text-xs font-medium tracking-wide text-white">
               <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" aria-hidden="true" />
-              Robot Bot Online
+              Live AI Telemetry
             </span>
 
             <h3 className="mt-3 text-lg font-bold tracking-tight text-white sm:text-xl">
               AI Portal Platform
             </h3>
             <p className="mt-1.5 text-xs text-neutral-400 leading-relaxed">
-              Real-time telemetry and autonomous robot control for smarter operations.
+              Real-time telemetry and smart energy analytics for intelligent operations.
             </p>
 
             <a

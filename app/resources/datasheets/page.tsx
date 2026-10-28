@@ -49,10 +49,10 @@ export default function DatasheetsPage() {
   });
 
   return (
-    <main className="min-h-screen bg-white pt-20 sm:pt-24 font-sans">
+    <main className="min-h-screen bg-white font-sans">
       {/* SunArk-style page header */}
       <section className="border-b-4 border-brand-primary bg-brand-bg-subtle">
-        <div className="container py-10 md:py-14">
+        <div className="container py-7 md:py-9">
           <p className="eyebrow mb-2">Downloads</p>
           <h1 className="text-3xl md:text-4xl font-extrabold text-brand-ink">All Products</h1>
           <p className="mt-3 text-base text-brand-slate max-w-2xl">
@@ -63,7 +63,7 @@ export default function DatasheetsPage() {
 
       {/* Category tabs — SunArk download page */}
       <section className="sticky top-0 z-30 border-b border-brand-border bg-white">
-        <div className="container py-3 overflow-x-auto">
+        <div className="container py-2 overflow-x-auto">
           <div className="flex gap-1 min-w-max">
             {categoryTabs.map((tab) => (
               <button
@@ -83,8 +83,8 @@ export default function DatasheetsPage() {
       </section>
 
       {/* Series filter pills */}
-      <section className="container py-6">
-        <div className="flex flex-wrap gap-2 mb-6">
+      <section className="container py-4">
+        <div className="mb-4 flex flex-wrap gap-2">
           {seriesFilters.map((f) => (
             <button
               key={f.id}
@@ -105,26 +105,26 @@ export default function DatasheetsPage() {
           placeholder="Search model number or product name..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          className="w-full max-w-md rounded-sm border-2 border-brand-border px-4 py-2.5 text-sm focus:outline-none focus:border-brand-primary mb-8"
+          className="mb-5 w-full max-w-md rounded-lg border border-brand-border px-4 py-2.5 text-sm focus:border-brand-primary focus:outline-none"
         />
 
         {/* Product grid — SunArk card layout */}
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {filtered.map((d) => (
             <article
               key={d.id}
-              className="group flex flex-col rounded-sm border-2 border-brand-border bg-white overflow-hidden hover:border-brand-primary transition shadow-sm hover:shadow-card"
+              className="group flex flex-col overflow-hidden rounded-xl border border-brand-border bg-white transition hover:border-brand-primary hover:shadow-card"
             >
-              <div className="bg-brand-bg-subtle p-5 flex items-center justify-center h-40 border-b border-brand-border">
+              <div className="flex h-36 items-center justify-center border-b border-brand-border bg-brand-bg-subtle p-4">
                 <img src={d.image} alt={d.title} className="max-h-full max-w-full object-contain group-hover:scale-105 transition duration-300" />
               </div>
-              <div className="p-4 flex flex-col flex-1">
-                <h2 className="text-base font-extrabold text-brand-ink font-mono">{d.modelNumber}</h2>
+              <div className="flex flex-1 flex-col p-4">
+                <h2 className="font-mono text-sm font-bold text-brand-ink">{d.modelNumber}</h2>
                 <p className="text-xs font-bold text-brand-primary uppercase mt-1">{d.series}</p>
                 <p className="text-sm text-brand-slate mt-2 flex-1 leading-snug">{d.title}</p>
                 <Link
                   href={`/resources/datasheets/${d.id}`}
-                  className="mt-4 inline-flex items-center justify-center gap-2 rounded-sm bg-brand-primary px-4 py-2.5 text-xs font-bold text-white hover:bg-brand-secondary transition"
+                  className="mt-3 inline-flex items-center justify-center gap-2 rounded-lg bg-brand-primary px-4 py-2.5 text-xs font-bold text-white transition hover:bg-brand-secondary"
                 >
                   <FileText className="h-3.5 w-3.5" /> View Datasheet
                 </Link>
@@ -139,7 +139,7 @@ export default function DatasheetsPage() {
       </section>
 
       {/* Loop Series overview */}
-      <section className="border-t border-brand-border bg-brand-bg-subtle py-12">
+      <section className="border-t border-brand-border bg-brand-bg-subtle py-8">
         <div className="container">
           <h2 className="text-xl font-extrabold text-brand-ink mb-6">Loop Series Product Lines</h2>
           <div className="grid gap-4 md:grid-cols-3">

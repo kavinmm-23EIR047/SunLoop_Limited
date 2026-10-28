@@ -51,14 +51,14 @@ const stages: StageCardData[] = [
 
 export default function ConnectedJourneyScrollShowcase() {
   return (
-    <section className="relative overflow-clip bg-white border-y border-black/5 py-16 md:py-32">
+    <section className="relative overflow-clip bg-white border-y border-black/5 py-10 md:py-14 lg:py-16">
       {/* Background Watermark */}
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center select-none opacity-[0.03]" aria-hidden="true">
         <span className="font-sans text-[12vw] font-black tracking-tighter text-brand-ink">ecosystem</span>
       </div>
 
       <div className="container relative z-10 mx-auto max-w-6xl px-4">
-        <div className="mx-auto mb-10 max-w-3xl space-y-4 text-center md:mb-14">
+        <div className="mx-auto mb-6 max-w-3xl space-y-3 text-center md:mb-8">
           <span className="eyebrow inline-block">Why Sunloop</span>
           <h2 className="text-3xl text-brand-ink sm:text-4xl md:text-5xl font-bold leading-tight">One Connected Energy Ecosystem</h2>
           <p className="mx-auto max-w-2xl text-sm leading-relaxed text-brand-slate md:text-base">
@@ -66,7 +66,7 @@ export default function ConnectedJourneyScrollShowcase() {
           </p>
         </div>
 
-        <div className="relative mx-auto max-w-2xl pb-10">
+        <div className="relative mx-auto max-w-2xl pb-4">
           {stages.map((stage, index) => {
             const Icon = stage.icon;
             const stackOffset = index * 18;

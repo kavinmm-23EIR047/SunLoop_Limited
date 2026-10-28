@@ -5,12 +5,12 @@ import { Reveal } from '../../components/UI';
 
 export const metadata = {
   title: 'Privacy Policy · Sunloop Energy',
-  description: 'Learn how Sunloop Energy Limited collects, protects, and handles your personal and enterprise telemetry data.',
+  description: 'Learn how Sunloop Energy Limited collects, protects and handles your personal and enterprise telemetry data.',
 };
 
 export default function PrivacyPolicyPage() {
   return (
-    <main className="readable-ui min-h-screen bg-[#FAFAF5] text-brand-ink pt-28 pb-20 font-sans">
+    <main className="readable-ui min-h-screen bg-[#FAFAF5] text-brand-ink pt-12 pb-20 font-sans">
       <div className="container mx-auto max-w-4xl px-4 sm:px-6 space-y-8">
         
         {/* Breadcrumb */}
@@ -45,7 +45,7 @@ export default function PrivacyPolicyPage() {
                   1. Introduction &amp; Scope
                 </h2>
                 <p>
-                  Sunloop Energy Limited (&ldquo;Sunloop&rdquo;, &ldquo;we&rdquo;, &ldquo;our&rdquo;, or &ldquo;us&rdquo;) is committed to safeguarding the privacy and security of individuals, clients, and partners who interact with our website, solar systems, battery storage telemetry, and IoT AI Portal services.
+                  Sunloop Energy Limited (&ldquo;Sunloop&rdquo;, &ldquo;we&rdquo;, &ldquo;our&rdquo;, or &ldquo;us&rdquo;) is committed to safeguarding the privacy and security of individuals, clients and partners who interact with our website, solar systems, battery storage telemetry and IoT AI Portal services.
                 </p>
               </section>
 
@@ -54,9 +54,9 @@ export default function PrivacyPolicyPage() {
                   2. Information We Collect
                 </h2>
                 <ul className="list-disc pl-5 space-y-1 text-slate-600">
-                  <li><strong>Contact &amp; Inquiry Information:</strong> Name, phone number, email address, property type, and location provided via consultation and quotation forms.</li>
-                  <li><strong>System &amp; Telemetry Data:</strong> Real-time solar inverter metrics, battery charge states (SOC), power generation kW, EV charging logs, and grid synchronization parameters for AI monitoring.</li>
-                  <li><strong>Technical Usage Data:</strong> IP address, device type, browser settings, and page interaction timestamps gathered to improve portal performance.</li>
+                  <li><strong>Contact &amp; Inquiry Information:</strong> Name, phone number, email address, property type and location provided via consultation and quotation forms.</li>
+                  <li><strong>System &amp; Telemetry Data:</strong> Real-time solar inverter metrics, battery charge states (SOC), power generation kW, EV charging logs and grid synchronization parameters for AI monitoring.</li>
+                  <li><strong>Technical Usage Data:</strong> IP address, device type, browser settings and page interaction timestamps gathered to improve portal performance.</li>
                 </ul>
               </section>
 
@@ -66,8 +66,8 @@ export default function PrivacyPolicyPage() {
                 </h2>
                 <p>We process collected information for legitimate commercial and engineering purposes, including:</p>
                 <ul className="list-disc pl-5 space-y-1 text-slate-600">
-                  <li>Delivering engineering feasibility assessments, quotations, and subsidy calculations.</li>
-                  <li>Optimizing battery dispatch, solar string yields, and fault detection algorithms.</li>
+                  <li>Delivering engineering feasibility assessments, quotations and subsidy calculations.</li>
+                  <li>Optimizing battery dispatch, solar string yields and fault detection algorithms.</li>
                   <li>Providing 24/7 technical maintenance support and warranty fulfillment.</li>
                   <li>Ensuring compliance with Indian electrical grid safety standards (CEA / TANGEDCO).</li>
                 </ul>
@@ -78,7 +78,7 @@ export default function PrivacyPolicyPage() {
                   4. Data Protection &amp; Confidentiality
                 </h2>
                 <p>
-                  We implement robust technical and organizational security measures, including 256-bit SSL encryption, restricted role-based database access, and ISO 9001:2015 certified data handling practices. We do not sell or monetize personal or telemetry data to third parties.
+                  We implement robust technical and organizational security measures, including 256-bit SSL encryption, restricted role-based database access and ISO 9001:2015 certified data handling practices. We do not sell or monetize personal or telemetry data to third parties.
                 </p>
               </section>
 

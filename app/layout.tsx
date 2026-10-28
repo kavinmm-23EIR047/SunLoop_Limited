@@ -35,7 +35,7 @@ export const metadata: Metadata = {
         url: '/images/solar-hero-bg.png',
         width: 1200,
         height: 630,
-        alt: 'Sunloop Energy — Solar, Storage, and EV Charging Infrastructure',
+        alt: 'Sunloop Energy — Solar, Storage and EV Charging Infrastructure',
       },
     ],
     locale: 'en_IN',

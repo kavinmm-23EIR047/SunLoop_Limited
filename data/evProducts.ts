@@ -34,7 +34,7 @@ export const evProducts: EVProductVariant[] = [
     voltage: '230V / 400V AC',
     mounting: 'Wall / Column Type',
     keywords: ['residential'],
-    desc: 'Smart AC charging for residential communities, home garages, and apartment parking with app control and dynamic load management.',
+    desc: 'Smart AC charging for residential communities, home garages and apartment parking with app control and dynamic load management.',
     specs: [
       { label: 'Series', value: 'ChargeLoop Residential Series' },
       { label: 'Power Rating', value: '7.4 kW – 22 kW' },
@@ -88,7 +88,7 @@ export const evProducts: EVProductVariant[] = [
     voltage: '230V / 400V AC',
     mounting: 'Ground-Mounted',
     keywords: ['commercial'],
-    desc: 'Smart AC charging for commercial complexes, workplaces, and retail centers with automated billing integration.',
+    desc: 'Smart AC charging for commercial complexes, workplaces and retail centers with automated billing integration.',
     specs: [
       { label: 'Series', value: 'ChargeLoop Commercial Series' },
       { label: 'Power Rating', value: '7.4 kW – 22 kW' },
@@ -97,7 +97,7 @@ export const evProducts: EVProductVariant[] = [
       { label: 'Mounting', value: 'Ground-Mounted' },
     ],
     tech: [
-      'Delicate appearance, simple operation, convenient installation',
+      'Refined design, simple operation and easy installation',
       'High efficiency, reliable and stable performance',
       '4.3-inch / 7-inch color touch screen (optional)',
       'Multiple charging, operation management and payment modes',
@@ -107,9 +107,9 @@ export const evProducts: EVProductVariant[] = [
       'Integrated overload protection and online data upgrade',
     ],
     apps: [
-      'City special charging stations',
+      'Dedicated urban charging stations',
       'Bus, taxi, public service, sanitation and logistics vehicles',
-      'City public charging stations and private cars',
+      'Public charging stations and private vehicles in cities',
       'Intercity highway charging stations',
     ],
     image: '/products/EV charger/ac Dual Output.png',
@@ -153,7 +153,7 @@ export const evProducts: EVProductVariant[] = [
     voltage: '200–750V DC',
     mounting: 'Ground Type',
     keywords: ['commercial'],
-    desc: 'High-performance DC fast charging for highways, fuel stations, malls, and fleet depots with dynamic power allocation and payment integration.',
+    desc: 'High-performance DC fast charging for highways, fuel stations, malls and fleet depots with dynamic power allocation and payment integration.',
     specs: [
       { label: 'Series', value: 'ChargeLoop DC Fast Series' },
       { label: 'Power Rating', value: '30 kW – 240 kW' },
@@ -162,7 +162,7 @@ export const evProducts: EVProductVariant[] = [
       { label: 'Mounting', value: 'Ground Type' },
     ],
     tech: [
-      'Delicate appearance, simple operation, convenient installation',
+      'Refined design, simple operation and easy installation',
       'High efficiency, reliable and stable performance',
       '4.3-inch / 7-inch color touch screen (optional)',
       'Plug & Play and dynamic load sharing',
@@ -171,7 +171,7 @@ export const evProducts: EVProductVariant[] = [
       'RFID card / OCPP 1.6J / 2.0 support',
     ],
     apps: [
-      'City special charging stations',
+      'Dedicated urban charging stations',
       'Bus, taxi, fleet depots and logistics vehicles',
       'City public charging stations and highway corridors',
       'Commercial retail monetization hubs',

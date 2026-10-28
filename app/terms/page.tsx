@@ -5,12 +5,12 @@ import { Reveal } from '../../components/UI';
 
 export const metadata = {
   title: 'Terms & Conditions · Sunloop Energy',
-  description: 'Terms of service, engineering contracts, and warranty policies for Sunloop Energy Limited products and solar solutions.',
+  description: 'Terms of service, engineering contracts and warranty policies for Sunloop Energy Limited products and solar solutions.',
 };
 
 export default function TermsPage() {
   return (
-    <main className="readable-ui min-h-screen bg-[#FAFAF5] text-brand-ink pt-28 pb-20 font-sans">
+    <main className="readable-ui min-h-screen bg-[#FAFAF5] text-brand-ink pt-12 pb-20 font-sans">
       <div className="container mx-auto max-w-4xl px-4 sm:px-6 space-y-8">
         
         {/* Breadcrumb */}
@@ -45,7 +45,7 @@ export default function TermsPage() {
                   1. Agreement to Terms
                 </h2>
                 <p>
-                  By accessing our website, purchasing solar PV equipment, energy storage systems (ESS), or commissioning engineering installation works from Sunloop Energy Limited, you agree to be bound by these Terms &amp; Conditions and standard EPC project agreements.
+                  By accessing our website, purchasing solar PV equipment or energy storage systems (ESS), or commissioning engineering and installation work from Sunloop Energy Limited, you agree to be bound by these Terms &amp; Conditions and standard EPC project agreements.
                 </p>
               </section>
 
@@ -54,7 +54,7 @@ export default function TermsPage() {
                   2. Quotations, Feasibility &amp; Orders
                 </h2>
                 <p>
-                  Engineering estimates provided via online forms or WhatsApp are preliminary. Formal contractual commitments require an on-site structural and electrical feasibility survey conducted by Sunloop certified engineers.
+                  Engineering estimates provided through online forms or WhatsApp are preliminary. Formal contractual commitments require an on-site structural and electrical feasibility survey conducted by engineers certified by Sunloop.
                 </p>
               </section>
 
@@ -74,7 +74,7 @@ export default function TermsPage() {
                   4. Intellectual Property
                 </h2>
                 <p>
-                  All software algorithms, AI telemetry models, circuit schematics, brand trademarks, and documentation published on this website are the intellectual property of Sunloop Energy Limited.
+                  All software algorithms, AI telemetry models, circuit schematics, brand trademarks and documentation published on this website are the intellectual property of Sunloop Energy Limited.
                 </p>
               </section>
 

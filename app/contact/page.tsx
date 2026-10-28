@@ -8,11 +8,11 @@ import { contact } from '../../data/content';
 const faqs = [
   {
     q: 'What solar & energy storage systems do you engineer?',
-    a: 'We design and deploy turnkey Solar PV plants (3 kW to MW+ scale), LiFePO4 Lithium Battery ESS (5 kWh to 1000 kWh+), and AC/DC EV Fast Charging Hubs for homes, commercial complexes, and industrial facilities.'
+    a: 'We design and deploy turnkey Solar PV plants (3 kW to MW+ scale), LiFePO4 Lithium Battery ESS (5 kWh to 1000 kWh+) and AC/DC EV Fast Charging Hubs for homes, commercial complexes and industrial facilities.'
   },
   {
-    q: 'How does the AI Portal Energy Dashboard work?',
-    a: 'Our AI Portal provides 24/7 real-time telemetry, automated Time-of-Day tariff peak shaving, remote string diagnostics, and intelligent EV load balancing from a unified web interface.'
+    q: 'How does the AI Portal dashboard work?',
+    a: 'Our AI Portal provides 24/7 system monitoring, time-of-use tariff optimization, peak shaving, remote string diagnostics and intelligent EV load balancing through a unified web interface.'
   },
   {
     q: 'What is the typical ROI payback period for commercial solar & ESS?',
@@ -20,11 +20,11 @@ const faqs = [
   },
   {
     q: 'Are your EV charging stations compatible with all EV models?',
-    a: 'Yes, our AC Wallbox and DC Fast Chargers support standard Type 2, CCS2, and OCPP 1.6/2.0 open protocol billing gateways — compatible with all EV cars, buses, and commercial fleets.'
+    a: 'Yes. Our AC wallbox and DC fast chargers support standard Type 2 and CCS2 connectors, along with OCPP 1.6/2.0 billing protocols. They are compatible with electric cars, buses and commercial fleet vehicles.'
   },
   {
-    q: 'How can I request a site audit or commercial quote?',
-    a: 'You can submit the inquiry form on this page or email us directly at info@sunloopenergy.com. Our engineering team will prepare a detailed solar yield and tariff saving report within 24 hours.'
+    q: 'How can I request a site audit or a commercial quote?',
+    a: 'You can submit the inquiry form on this page or email us at info@sunloopenergy.com. Our engineering team will prepare a detailed solar yield and tariff savings report within 24 hours.'
   }
 ];
 
@@ -95,7 +95,7 @@ export default function Contact() {
   return (
     <main className="font-sans bg-[#F8FAFC]">
       {/* HERO SECTION */}
-      <section className="pb-16 pt-36 md:pt-44 border-b border-black/[0.06] bg-white">
+      <section className="pb-16 pt-16 md:pt-20 border-b border-black/[0.06] bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal className="space-y-3">
             <span className="eyebrow">Let's build what's next</span>
@@ -161,7 +161,7 @@ export default function Contact() {
                 <span className="eyebrow">Get in touch</span>
                 <h2 className="text-2xl sm:text-3xl font-bold text-brand-ink tracking-tight">Let's talk energy.</h2>
                 <p className="text-xs text-brand-slate">
-                  Fill out your requirement and you will be connected directly to our engineering team on WhatsApp.
+                  Share your requirements, and we’ll connect you with our engineering team on WhatsApp.
                 </p>
               </div>
 
@@ -366,7 +366,7 @@ export default function Contact() {
               Frequently Asked Questions
             </h2>
             <p className="text-sm text-brand-slate font-normal max-w-xl mx-auto leading-relaxed">
-              Everything you need to know about our solar PV systems, battery storage, and AI telemetry platform.
+              Everything you need to know about our solar PV systems, battery storage and AI telemetry platform.
             </p>
           </Reveal>
 

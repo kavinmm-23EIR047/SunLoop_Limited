@@ -52,14 +52,11 @@ export default function Products() {
           />
           <div className="absolute inset-0 hero-overlay" />
         </div>
-        <div className="container relative z-10 pt-36 pb-16 md:pt-44 md:pb-24">
+        <div className="container relative z-10 pt-16 pb-16 md:pt-20 md:pb-24">
           <p className="eyebrow mb-4 text-white bg-brand-primary inline-block px-4 py-2 rounded-sm">Clean Energy Hardware Portfolio</p>
           <h1 className="hero-title max-w-3xl text-4xl md:text-6xl">
             Products Built for a <span className="hero-accent">Better Energy</span> Future.
           </h1>
-          <p className="hero-subtitle mt-6 max-w-2xl text-lg md:text-xl">
-            Explore Sunloop&apos;s Solar Power Plants, Energy Storage Systems (ESS), and EV Charging Infrastructure — all connected through the Sunloop AI Portal.
-          </p>
         </div>
       </section>
 

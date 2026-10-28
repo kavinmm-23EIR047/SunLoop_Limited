@@ -319,7 +319,7 @@ export default function EnergyDashboard() {
                   Built Today. Ready for Tomorrow.
                 </strong>
                 <p className="text-xs text-brand-slate leading-normal">
-                  Scalable, reliable, and future-ready clean energy systems.
+                  Scalable, reliable and future-ready clean energy systems.
                 </p>
               </div>
             </div>

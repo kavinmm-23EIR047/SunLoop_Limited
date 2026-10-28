@@ -5,12 +5,13 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Sun } from 'lucide-react';
 import { Reveal } from '../../../components/UI';
+import { SolutionHero } from '../../../components/SolutionHero';
 
 const solarPVSolutions = [
   {
     number: '01',
     title: 'Residential Solar PV System Solution',
-    description: 'Transform your home into a powerhouse with Sunloop’s residential PV system, harnessing the power of the sun to provide sustainable and green electricity for your life.',
+    description: 'Transform your home with Sunloop’s residential PV system, which harnesses solar energy to provide clean, sustainable electricity.',
     image: '/images/Residential Solar PV System Solution.png',
     imageAlt: 'Residential rooftop solar PV system',
   },
@@ -32,30 +33,16 @@ const solarPVSolutions = [
 
 export default function SolarPVSolutionPage() {
   return (
-    <main className="min-h-screen bg-[#FAFAF5] pb-16 pt-16 font-sans">
-      <section className="relative w-full">
-        {/* Native Image for perfect scaling on desktop */}
-        <img
-          src="/images/solar-panels.png"
-          alt="Solar PV System Solutions"
-          className="w-full h-[500px] lg:h-auto lg:max-h-[90vh] object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/65 to-black/30" />
-
-        <div className="absolute inset-0 flex items-center">
-          <div className="container relative z-10 mx-auto max-w-5xl px-4">
-            <Reveal className="max-w-2xl space-y-4">
-              <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-brand-apricot">
-                <Sun className="h-3.5 w-3.5" /> Solar PV Solutions
-              </span>
-              <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">Solar PV System Solutions</h1>
-              <p className="text-sm leading-relaxed text-white/90 md:text-base">
-                Clean, reliable solar power systems designed for homes, businesses, industry, and utility-scale generation.
-              </p>
-            </Reveal>
-          </div>
-        </div>
-      </section>
+    <main className="min-h-screen bg-[#FAFAF5] pb-16 font-sans">
+      <SolutionHero
+        image="/images/solar-panels.png"
+        imageAlt="Solar PV System Solutions"
+        eyebrow="01 / Generate"
+        title="Solar PV System Solutions"
+        description="Clean, reliable solar power systems engineered for homes, businesses, industry and utility-scale generation."
+        icon={Sun}
+        metric="From 3 kW rooftop systems to multi-megawatt solar plants"
+      />
 
       <section className="py-14 md:py-20 overflow-hidden">
         <div className="container mx-auto max-w-5xl space-y-16 px-4">

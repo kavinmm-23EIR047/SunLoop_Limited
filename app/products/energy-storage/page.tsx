@@ -175,52 +175,58 @@ export default function EnergyStoragePage() {
   return (
     <main className="min-h-screen bg-[#FAFAF5] pb-16 font-sans overflow-x-hidden w-full max-w-full">
       {/* HERO BANNER */}
-      <section className="relative w-full min-h-[480px] sm:min-h-[560px] md:min-h-[640px] pt-24 pb-14 sm:pt-28 sm:pb-20 overflow-hidden bg-brand-ink text-white flex items-center">
-        <div
-          className="absolute inset-0 bg-cover bg-center pointer-events-none"
-          style={{ backgroundImage: `url('/products/Energy Storage Cabinet.png')` }}
-        />
-        <div className="absolute inset-0 hero-overlay pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
+      <section className="relative w-full pt-28 pb-16 sm:pt-32 sm:pb-20 overflow-hidden bg-brand-ink text-white">
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-brand-ink to-slate-900 pointer-events-none" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="container relative z-10 max-w-5xl mx-auto px-4">
-          <Reveal className="max-w-2xl space-y-4 sm:space-y-5">
-            <span className="inline-flex items-center rounded-sm bg-brand-primary px-3 py-1.5 text-[11px] sm:text-xs font-bold uppercase tracking-wider text-white max-w-full">
-              WallLoop · StackLoop · CubeLoop Series
-            </span>
-            <h1 className="hero-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
-              Energy Storage Systems (ESS)
-            </h1>
-            <p className="hero-subtitle text-sm sm:text-base md:text-lg leading-relaxed font-normal">
-              Advanced lithium-ion and LiFePO4 battery storage systems that ensure uninterrupted power, reduce peak-demand charges, and increase energy independence.
-            </p>
-            <div>
-              <p className="text-xs sm:text-sm font-bold text-brand-primary uppercase tracking-wide bg-white/95 inline-block px-3 py-1.5 rounded-sm max-w-full shadow-xs">
-                Capacity: 5 kWh – 500+ kWh (stackable)
+        <div className="container relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            <Reveal className="lg:col-span-7 space-y-4 sm:space-y-5">
+              <span className="inline-flex items-center rounded-sm bg-brand-primary px-3 py-1.5 text-[11px] sm:text-xs font-bold uppercase tracking-wider text-white max-w-full">
+                WallLoop · StackLoop · CubeLoop Series
+              </span>
+              <h1 className="hero-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                Energy Storage Systems (ESS)
+              </h1>
+              <p className="hero-subtitle text-sm sm:text-base md:text-lg leading-relaxed font-normal text-white/85 max-w-2xl">
+                Advanced lithium-ion and LiFePO4 battery storage systems that ensure uninterrupted power, reduce peak-demand charges and increase energy independence.
               </p>
-            </div>
+              <div>
+                <p className="text-xs sm:text-sm font-bold text-brand-primary uppercase tracking-wide bg-white/95 inline-block px-3 py-1.5 rounded-sm max-w-full shadow-xs">
+                  Capacity: 5 kWh – 500+ kWh (stackable)
+                </p>
+              </div>
 
-            <div className="pt-2 flex flex-wrap gap-3">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 rounded-xl bg-[#E86526] px-5 py-3 text-xs font-semibold text-white shadow-md hover:bg-[#c95315] transition"
-              >
-                Request Storage Quote <ArrowUpRight className="h-3.5 w-3.5" />
-              </Link>
-              <Link
-                href="/ai-portal"
-                className="inline-flex items-center gap-2 rounded-xl bg-white/10 border border-white/20 px-5 py-3 text-xs font-semibold text-white hover:bg-white/20 transition"
-              >
-                <Bot className="h-3.5 w-3.5 text-brand-apricot" /> Peak Shaving AI Portal
-              </Link>
+              <div className="pt-2 flex flex-wrap gap-3">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 rounded-xl bg-[#E86526] px-5 py-3 text-xs font-semibold text-white shadow-md hover:bg-[#c95315] transition"
+                >
+                  Request Storage Quote <ArrowUpRight className="h-3.5 w-3.5" />
+                </Link>
+                <Link
+                  href="/ai-portal"
+                  className="inline-flex items-center gap-2 rounded-xl bg-white/10 border border-white/20 px-5 py-3 text-xs font-semibold text-white hover:bg-white/20 transition"
+                >
+                  <Bot className="h-3.5 w-3.5 text-brand-apricot" /> Peak Shaving AI Portal
+                </Link>
+              </div>
+            </Reveal>
+
+            <div className="lg:col-span-5 flex items-center justify-center">
+              <img
+                src="/products/Energy Storage Cabinet.png"
+                alt="Sunloop Energy Storage Cabinet"
+                className="w-auto h-auto max-h-[440px] sm:max-h-[500px] object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.6)]"
+              />
             </div>
-          </Reveal>
+          </div>
         </div>
       </section>
 
       {/* ESS SYSTEM TYPES TABLE */}
       <section className="py-12 bg-[#FAFAF5] border-b border-black/5">
-        <div className="container max-w-5xl mx-auto px-4 space-y-6">
+        <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           <h2 className="text-2xl font-bold text-brand-ink">Energy Storage System Configurations</h2>
           <div className="overflow-x-auto rounded-2xl border border-black/10 bg-white shadow-xs">
             <table className="w-full text-left text-xs sm:text-sm">
@@ -233,7 +239,7 @@ export default function EnergyStoragePage() {
               <tbody className="divide-y divide-black/5 font-medium text-brand-slate">
                 <tr>
                   <td className="p-4 font-bold text-brand-ink">Wall-Mounted ESS</td>
-                  <td className="p-4">Homes — compact, space-saving, easy install</td>
+                  <td className="p-4">Compact, space-saving systems for homes with easy installation</td>
                 </tr>
                 <tr>
                   <td className="p-4 font-bold text-brand-ink">Trolley-Type ESS</td>
@@ -251,7 +257,7 @@ export default function EnergyStoragePage() {
 
       {/* CATALOG SECTION WITH GROUPED CATEGORIES */}
       <section className="py-14 md:py-20 bg-white">
-        <div ref={catalogRef} className="container max-w-5xl mx-auto px-4 space-y-24">
+        <div ref={catalogRef} className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24">
           
           {/* RESIDENTIAL ESS GROUP */}
           <div className="space-y-12">

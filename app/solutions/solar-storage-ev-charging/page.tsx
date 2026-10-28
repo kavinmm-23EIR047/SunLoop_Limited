@@ -19,6 +19,7 @@ import {
   Activity
 } from 'lucide-react';
 import { Reveal, Button } from '../../../components/UI';
+import { SolutionHero } from '../../../components/SolutionHero';
 import { evProducts, EVProductVariant } from '../../../data/evProducts';
 
 const integratedSolutions = [
@@ -27,7 +28,7 @@ const integratedSolutions = [
     title: 'Residential Solar + Storage + EV Charging Solution',
     badge: 'Residential All-In-One',
     capacity: '3kW - 15kW PV · 5kWh - 20kWh ESS · 7.4kW - 22kW EV',
-    description: 'Sunloop’s all-in-one home energy solution integrates PV inverters, energy storage systems and EV chargers, helping your home use clean energy day and night.',
+    description: 'Solar power, battery backup and EV charging coordinated for clean, reliable home energy.',
     image: '/images/Residential Solar + Storage + EV Charging Solution.png',
     fallbackImage: '/images/residential-energy.png',
     imageAlt: 'Residential solar, storage and EV charging solution',
@@ -54,7 +55,7 @@ const integratedSolutions = [
     title: 'Commercial Solar + Storage + EV Charging Solution',
     badge: 'Commercial Microgrid Hub',
     capacity: '30kW - 500kW PV · 50kWh - 1000kWh ESS · 30kW - 240kW DC',
-    description: 'Reduce energy use and charging costs with a single site that combines solar generation, battery storage and EV charging.',
+    description: 'Combine solar generation, battery storage and EV charging to lower site energy costs.',
     image: '/images/Commercial Solar + Storage + EV Charging Solution.png',
     fallbackImage: '/images/commercial-energy.png',
     imageAlt: 'Commercial solar, storage and EV charging solution',
@@ -81,6 +82,7 @@ const integratedSolutions = [
 export default function SolarStorageEVChargingPage() {
   const [activeNode, setActiveNode] = useState<string>('ev');
   const [hardwareFilter, setHardwareFilter] = useState<'all' | 'Residential' | 'Commercial'>('all');
+  const [expandedDetails, setExpandedDetails] = useState<string[]>([]);
 
   const filteredEVProducts = evProducts.filter((product) => {
     if (hardwareFilter === 'all') return true;
@@ -88,41 +90,33 @@ export default function SolarStorageEVChargingPage() {
   });
 
   return (
-    <main className="min-h-screen bg-[#FAFAF5] pb-16 pt-16 font-sans">
-      <section className="relative w-full">
-        {/* Native Image for perfect scaling on desktop */}
-        <img
-          src="/images/ecosystem-hero.png"
-          alt="Solar & Storage & EV Charging Solution"
-          className="w-full h-[500px] lg:h-auto lg:max-h-[90vh] object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/65 to-black/30" />
-        <div className="absolute inset-0 flex items-center">
-          <div className="container relative z-10 mx-auto max-w-5xl px-4">
-            <Reveal className="max-w-2xl space-y-4">
-              <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-brand-apricot"><Zap className="h-3.5 w-3.5" /> 03 / Charge</span>
-              <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">Solar &amp; Storage &amp; EV Charging Solution</h1>
-              <p className="text-sm leading-relaxed text-white/90 md:text-base">An AI-enabled energy ecosystem that unifies solar generation, battery storage and EV charging infrastructure.</p>
-            </Reveal>
-          </div>
-        </div>
-      </section>
+    <main className="min-h-screen bg-[#FAFAF5] pb-16 font-sans">
+      <SolutionHero
+        image="/images/india-solar-storage-ev-hero.jpg"
+        fallbackImage="/images/ecosystem-hero.png"
+        imageAlt="Solar carport, battery storage and EV charging plaza"
+        eyebrow="03 / Charge"
+        title="Solar + Storage + EV Charging Solutions"
+        description="One intelligent ecosystem that generates clean power, protects operations with battery backup and keeps homes and fleets moving."
+        icon={Zap}
+        metric="AC home charging to 240 kW commercial DC fast charging"
+      />
       <section className="py-14 md:py-20 overflow-hidden">
-        <div className="container mx-auto max-w-5xl space-y-16 px-4">
+        <div className="container mx-auto max-w-7xl space-y-14 px-4 sm:px-6 lg:px-8">
           <Reveal className="text-center max-w-2xl mx-auto space-y-3">
             <span className="eyebrow inline-block">UNIFIED ENERGY ECOSYSTEM</span>
             <h2 className="text-2xl md:text-3xl font-bold text-brand-ink">
               Solar + Storage + Charging Solutions
             </h2>
             <p className="text-xs md:text-sm text-brand-slate font-normal">
-              Complete zero-carbon generation, storage, and mobility charging ecosystems for homes, corporate campuses, fleet hubs, and public charging plazas.
+              Complete zero-carbon generation, storage and mobility charging ecosystems for homes, corporate campuses, fleet hubs and public charging plazas.
             </p>
           </Reveal>
 
           {integratedSolutions.map((solution, index) => (
             <div
               key={solution.number}
-              className="grid items-center gap-8 border-b border-black/[0.07] pb-16 last:border-0 last:pb-0 md:grid-cols-2 md:gap-12"
+              className="grid items-center gap-6 border-b border-black/[0.07] pb-14 last:border-0 last:pb-0 md:grid-cols-[1.02fr_0.98fr] md:gap-8 lg:gap-10"
             >
               {/* CONTENT COLUMN */}
               <motion.div
@@ -130,7 +124,7 @@ export default function SolarStorageEVChargingPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-50px' }}
                 transition={{ duration: 0.6, ease: 'easeOut' }}
-                className={`space-y-5 ${index % 2 === 1 ? 'md:order-2' : 'md:order-1'}`}
+                className={`flex flex-col justify-center space-y-2 rounded-3xl border border-orange-100/80 bg-white/90 p-3 shadow-sm sm:p-4 ${index % 2 === 1 ? 'md:order-2' : 'md:order-1'}`}
               >
                 <div className="space-y-1.5">
                   <div className="flex items-center gap-2">
@@ -142,19 +136,19 @@ export default function SolarStorageEVChargingPage() {
                     </span>
                   </div>
 
-                  <h2 className="text-2xl font-bold leading-tight tracking-tight text-brand-ink md:text-3xl">
+                  <h2 className="text-xl font-bold leading-tight tracking-tight text-brand-ink sm:text-2xl">
                     {solution.title}
                   </h2>
                 </div>
 
-                <p className="text-xs sm:text-sm leading-relaxed text-brand-slate font-normal">
+                <p className="line-clamp-2 text-xs leading-relaxed text-brand-slate sm:text-sm">
                   {solution.description}
                 </p>
 
                 {/* SPECS GRID */}
                 <div className="grid grid-cols-2 gap-2.5 pt-1">
-                  {solution.specs.map((s) => (
-                    <div key={s.label} className="rounded-xl border border-black/[0.06] bg-white p-3 shadow-2xs">
+                  {solution.specs.slice(0, expandedDetails.includes(solution.number) ? undefined : 2).map((s) => (
+                    <div key={s.label} className="rounded-xl border border-black/[0.06] bg-white px-3 py-2 shadow-2xs">
                       <span className="block text-xs font-semibold text-brand-slate uppercase">{s.label}</span>
                       <strong className="block text-xs font-semibold text-brand-ink mt-0.5">{s.value}</strong>
                     </div>
@@ -162,7 +156,7 @@ export default function SolarStorageEVChargingPage() {
                 </div>
 
                 {/* WARRANTIES */}
-                <div className="rounded-xl bg-amber-50 border border-amber-200/70 p-3 space-y-1">
+                {expandedDetails.includes(solution.number) && <div className="rounded-xl bg-amber-50 border border-amber-200/70 p-3 space-y-1">
                   <span className="text-xs font-bold text-amber-900 uppercase block">Ecosystem Warranties</span>
                   {solution.warranties.map((w) => (
                     <div key={w} className="flex items-center gap-2 text-xs text-amber-950 font-medium">
@@ -170,22 +164,33 @@ export default function SolarStorageEVChargingPage() {
                       <span>{w}</span>
                     </div>
                   ))}
-                </div>
+                </div>}
 
                 {/* FEATURES LIST */}
                 <div className="space-y-2 pt-1">
-                  {solution.features.map((f) => (
+                  {solution.features.slice(0, expandedDetails.includes(solution.number) ? undefined : 1).map((f) => (
                     <div key={f} className="flex items-center gap-2 text-xs text-brand-ink font-medium">
                       <CheckCircle2 className="h-4 w-4 text-brand-primary shrink-0" />
                       <span>{f}</span>
                     </div>
                   ))}
+                  {solution.specs.length > 2 || solution.features.length > 2 || solution.warranties.length > 0 ? (
+                    <button
+                      type="button"
+                      onClick={() => setExpandedDetails((current) => current.includes(solution.number)
+                        ? current.filter((number) => number !== solution.number)
+                        : [...current, solution.number])}
+                      className="pt-1 text-left text-xs font-semibold text-brand-primary hover:text-[#c95315]"
+                    >
+                      {expandedDetails.includes(solution.number) ? 'See less' : 'See more details'}
+                    </button>
+                  ) : null}
                 </div>
 
                 <div className="pt-3 flex items-center gap-4">
                   <Link
                     href="/contact"
-                    className="inline-flex items-center gap-2 rounded-xl bg-[#E86526] px-6 py-3 text-xs font-semibold text-white shadow-md hover:bg-[#c95315] transition"
+                    className="inline-flex items-center gap-2 rounded-xl bg-[#E86526] px-5 py-2.5 text-xs font-semibold text-white shadow-md hover:bg-[#c95315] transition"
                   >
                     Request System Quote <ArrowUpRight className="h-3.5 w-3.5" />
                   </Link>
@@ -204,18 +209,18 @@ export default function SolarStorageEVChargingPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-50px' }}
                 transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }}
-                className={index % 2 === 1 ? 'md:order-1' : 'md:order-2'}
+                className={`w-full ${index % 2 === 1 ? 'md:order-1' : 'md:order-2'}`}
               >
-                <div className="group relative aspect-[4/3] overflow-hidden rounded-2xl border border-black/[0.07] bg-white shadow-md">
+                <div className="group relative aspect-[3/2] w-full overflow-hidden rounded-3xl border border-orange-100/80 shadow-md">
                   <img
                     src={solution.image}
                     alt={solution.imageAlt}
-                    className="h-full w-full object-cover group-hover:scale-103 transition-transform duration-500"
+                    className="absolute inset-0 h-full w-full object-contain object-center"
                     onError={(e) => {
                       (e.target as HTMLElement).setAttribute('src', solution.fallbackImage);
                     }}
                   />
-                  <span className="absolute left-4 top-4 rounded-full bg-brand-ink px-3 py-1 text-xs font-bold text-white shadow-sm uppercase">
+                  <span className="absolute left-4 top-4 rounded-xl border border-orange-100 bg-[#FFF7F2] px-3 py-1.5 text-xs font-bold text-brand-primary shadow-sm uppercase">
                     SOLUTION {solution.number}
                   </span>
                 </div>
@@ -465,7 +470,7 @@ export default function SolarStorageEVChargingPage() {
                   <span className="text-xs font-bold text-emerald-600 uppercase">03 / SMART EV DISPENSER</span>
                   <h3 className="text-base font-bold text-brand-ink">AC Wallbox &amp; Super DC Fast Chargers</h3>
                   <p className="text-xs text-brand-slate font-normal leading-relaxed">
-                    Delivers clean solar power directly into electric vehicle batteries with dynamic load balancing, multi-gun power sharing, and fast charging speeds up to 240kW.
+                    Delivers clean solar power directly into electric vehicle batteries with dynamic load balancing, multi-gun power sharing and fast charging speeds up to 240kW.
                   </p>
                 </div>
               )}
@@ -474,7 +479,7 @@ export default function SolarStorageEVChargingPage() {
                   <span className="text-xs font-bold text-brand-primary uppercase">04 / SUNLOOP AI PORTAL TELEMETRY</span>
                   <h3 className="text-base font-bold text-brand-ink">AI Cloud Optimization &amp; Revenue Gateway</h3>
                   <p className="text-xs text-brand-slate font-normal leading-relaxed">
-                    Provides 24/7 telemetric monitoring, app user authentication, dynamic solar prioritization, automated tariff arbitrage, and commercial charging billing.
+                    Provides 24/7 telemetric monitoring, app user authentication, dynamic solar prioritization, automated tariff arbitrage and commercial charging billing.
                   </p>
                 </div>
               )}

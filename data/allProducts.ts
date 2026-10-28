@@ -79,7 +79,7 @@ export function getDatasheetsByCategory(category: 'solar' | 'ess' | 'ev' | 'all'
 export const loopSeriesOverview = [
   {
     name: 'SolarLoop',
-    description: 'Residential and commercial solar PV system kits — hybrid, on-grid, and off-grid configurations.',
+    description: 'Residential and commercial solar PV system kits — hybrid, on-grid and off-grid configurations.',
     products: solarProducts.length,
     href: '/products/solar-power',
   },
@@ -91,7 +91,7 @@ export const loopSeriesOverview = [
   },
   {
     name: 'ChargeLoop',
-    description: 'AC and DC EV charging infrastructure for residential, commercial, and highway fast-charging deployments.',
+    description: 'AC and DC EV charging infrastructure for residential, commercial and highway fast-charging deployments.',
     products: evProducts.length,
     href: '/products/ev-charging',
   },
