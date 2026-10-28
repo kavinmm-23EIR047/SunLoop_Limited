@@ -20,6 +20,7 @@ import {
   LayoutGrid,
   ChevronRight,
   CheckCircle2,
+  User,
 } from 'lucide-react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -355,7 +356,7 @@ export function RobotAssistant() {
         },
       ]);
       setIsTyping(false);
-    }, 450);
+    }, 650);
   };
 
   const handleReset = () => {
@@ -464,19 +465,19 @@ export function RobotAssistant() {
             {activeTab === 'chat' && (
               <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-[#F8FAFC]">
                 {messages.map((m, idx) => (
-                  <div key={idx} className={`flex gap-2.5 ${m.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
-                    {/* Bot Avatar Icon */}
+                  <div key={idx} className={`flex gap-2.5 items-end ${m.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
+                    {/* Bot Avatar DP: Robot Mascot with Blinking Eyes */}
                     {m.sender === 'bot' && (
-                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#E86526] to-[#C2410C] text-white mt-0.5 shadow-sm">
-                        <Sparkles className="h-4 w-4 text-white" aria-hidden="true" />
+                      <div className="relative flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#E86526] to-[#C2410C] p-0.5 text-white mb-0.5 shadow-sm ring-1 ring-orange-500/20 overflow-hidden">
+                        <DancingRobotMascot size="xs" isDancing={false} />
                       </div>
                     )}
 
                     <div
-                      className={`max-w-[85%] rounded-2xl p-4 shadow-sm space-y-2.5 ${
+                      className={`max-w-[82%] rounded-2xl p-3.5 sm:p-4 shadow-sm space-y-2.5 ${
                         m.sender === 'user'
-                          ? 'bg-[#E86526] text-white rounded-tr-xs'
-                          : 'bg-white border border-slate-200/90 text-slate-800 rounded-tl-xs'
+                          ? 'bg-[#E86526] text-white rounded-br-xs'
+                          : 'bg-white border border-slate-200/90 text-slate-800 rounded-bl-xs'
                       }`}
                     >
                       {/* Message Content: Clean, Readable Text */}
@@ -521,12 +522,42 @@ export function RobotAssistant() {
                         {m.time}
                       </span>
                     </div>
+
+                    {/* User DP: Symmetrical Avatar for User Messages */}
+                    {m.sender === 'user' && (
+                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-slate-800 text-white mb-0.5 shadow-sm ring-1 ring-slate-700/60">
+                        <User className="h-4 w-4 text-slate-200" aria-hidden="true" />
+                      </div>
+                    )}
                   </div>
                 ))}
 
+                {/* ChatGPT-Style 3-Dot Animated Loading Wave */}
                 {isTyping && (
-                  <div className="flex items-center gap-2.5 text-slate-600 text-xs font-medium bg-white border border-slate-200/80 rounded-xl px-3.5 py-2.5 w-fit shadow-xs">
-                    <Sparkles className="h-4 w-4 text-[#E86526] animate-spin" /> SunLoop AI is answering...
+                  <div className="flex gap-2.5 items-end justify-start">
+                    {/* Bot Avatar DP */}
+                    <div className="relative flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#E86526] to-[#C2410C] p-0.5 text-white mb-0.5 shadow-sm ring-1 ring-orange-500/20 overflow-hidden">
+                      <DancingRobotMascot size="xs" isDancing={false} />
+                    </div>
+
+                    {/* ChatGPT Style 3-Dot Bouncing Wave Bubble */}
+                    <div className="flex items-center gap-1.5 bg-white border border-slate-200/90 rounded-2xl rounded-bl-xs px-4 py-3 shadow-sm">
+                      <motion.span
+                        className="h-2 w-2 rounded-full bg-[#E86526]"
+                        animate={{ y: [0, -5, 0], opacity: [0.35, 1, 0.35] }}
+                        transition={{ duration: 0.8, repeat: Infinity, ease: 'easeInOut', delay: 0 }}
+                      />
+                      <motion.span
+                        className="h-2 w-2 rounded-full bg-[#E86526]"
+                        animate={{ y: [0, -5, 0], opacity: [0.35, 1, 0.35] }}
+                        transition={{ duration: 0.8, repeat: Infinity, ease: 'easeInOut', delay: 0.18 }}
+                      />
+                      <motion.span
+                        className="h-2 w-2 rounded-full bg-[#E86526]"
+                        animate={{ y: [0, -5, 0], opacity: [0.35, 1, 0.35] }}
+                        transition={{ duration: 0.8, repeat: Infinity, ease: 'easeInOut', delay: 0.36 }}
+                      />
+                    </div>
                   </div>
                 )}
                 <div ref={chatBottomRef} />

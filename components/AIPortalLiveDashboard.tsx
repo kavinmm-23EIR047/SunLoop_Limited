@@ -221,7 +221,7 @@ export function AIPortalLiveDashboard({
           ======================================================== */}
         <div className="relative flex-1 overflow-hidden rounded-xl border border-slate-800 bg-[#0B101E] p-3 sm:p-4">
         {/* Chart Header & Interactive Filter Tabs */}
-        <div className="mb-3 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mb-3 flex flex-col gap-2 lg:flex-row lg:items-center lg:justify-between">
           <div className="min-w-0">
             <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
               <h4 className="text-xs font-bold tracking-tight text-white sm:text-sm">

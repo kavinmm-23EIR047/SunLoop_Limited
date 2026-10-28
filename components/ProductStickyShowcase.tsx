@@ -129,10 +129,10 @@ function AIPortalDashboardSection() {
       <div className="pointer-events-none absolute -right-24 top-10 h-72 w-72 rounded-full bg-orange-500/20 blur-3xl" aria-hidden="true" />
 
       <div className="container relative z-10 mx-auto max-w-6xl">
-        <div className="grid grid-cols-1 items-stretch gap-6 lg:grid-cols-12 lg:gap-8">
+        <div className="grid grid-cols-1 items-stretch gap-6 md:grid-cols-[0.9fr_1.1fr] lg:grid-cols-12 lg:gap-8">
 
           {/* LEFT COLUMN: Clean & Simple to Showcase the Clean Graph */}
-          <div className="flex h-full flex-col justify-center space-y-4 text-left lg:col-span-5">
+          <div className="flex h-full flex-col justify-center space-y-4 text-left md:col-span-1 lg:col-span-5">
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -175,8 +175,8 @@ function AIPortalDashboardSection() {
                 <div className="p-2 rounded-xl bg-[#E86526] text-white shrink-0 shadow-sm shadow-orange-500/30">
                   <Activity className="h-4 w-4 text-white" aria-hidden="true" />
                 </div>
-                <div>
-                  <h3 className="text-sm font-semibold text-white">Live Monitoring &amp; Instant Telemetry</h3>
+                <div className="min-w-0 flex-1">
+                  <h3 className="break-words text-sm font-semibold leading-snug text-white">Live Monitoring &amp; Instant Telemetry</h3>
                   <p className="text-xs text-slate-400">Sub-second generation and consumption stream.</p>
                 </div>
               </div>
@@ -185,8 +185,8 @@ function AIPortalDashboardSection() {
                 <div className="p-2 rounded-xl bg-[#E86526] text-white shrink-0 shadow-sm shadow-orange-500/30">
                   <BarChart3 className="h-4 w-4 text-white" aria-hidden="true" />
                 </div>
-                <div>
-                  <h3 className="text-sm font-semibold text-white">Automated Peak Shaving &amp; Storage AI</h3>
+                <div className="min-w-0 flex-1">
+                  <h3 className="break-words text-sm font-semibold leading-snug text-white">Automated Peak Shaving &amp; Storage AI</h3>
                   <p className="text-xs text-slate-400">Lowers grid tariff charges during peak hours.</p>
                 </div>
               </div>
@@ -195,8 +195,8 @@ function AIPortalDashboardSection() {
                 <div className="p-2 rounded-xl bg-[#E86526] text-white shrink-0 shadow-sm shadow-orange-500/30">
                   <ShieldCheck className="h-4 w-4 text-white" aria-hidden="true" />
                 </div>
-                <div>
-                  <h3 className="text-sm font-semibold text-white">24/7 Predictive Fault Diagnostics</h3>
+                <div className="min-w-0 flex-1">
+                  <h3 className="break-words text-sm font-semibold leading-snug text-white">24/7 Predictive Fault Diagnostics</h3>
                   <p className="text-xs text-slate-400">Continuous remote health tracking and zero downtime.</p>
                 </div>
               </div>
@@ -220,7 +220,7 @@ function AIPortalDashboardSection() {
           </div>
 
           {/* RIGHT COLUMN: AI PORTAL LIVE DASHBOARD (Clean Graph Showcase) */}
-          <div className="h-full min-w-0 lg:col-span-7">
+          <div className="h-full min-w-0 md:col-span-1 lg:col-span-7">
             <motion.div
               initial={{ opacity: 0, y: 20, scale: 0.99 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
