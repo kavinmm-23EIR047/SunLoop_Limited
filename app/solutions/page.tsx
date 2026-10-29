@@ -63,7 +63,7 @@ const solutionCards = [
 export default function Solutions() {
   return (
     <main className="min-h-screen bg-[#FAFAF5] font-sans">
-      <section className="relative isolate h-[58vh] min-h-[26rem] max-h-[40rem] overflow-hidden bg-brand-ink text-white">
+      <section className="relative isolate h-[64vh] min-h-[29rem] max-h-[44rem] overflow-hidden bg-brand-ink text-white">
         <img
           src="/images/ecosystem-hero.png"
           alt="Sunloop integrated energy solutions"
@@ -91,17 +91,17 @@ export default function Solutions() {
           </p>
         </Reveal>
 
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-6">
+        <div className="space-y-6">
           {solutionCards.map((solution, index) => {
             const Icon = solution.icon;
             return (
-              <Reveal key={solution.href} delay={index * 0.06} className={index < 3 ? 'lg:col-span-2' : 'lg:col-span-3'}>
+              <Reveal key={solution.href} delay={index * 0.06}>
                 <Link
                   href={solution.href}
-                  className="group flex h-full overflow-hidden rounded-2xl border border-black/[0.07] bg-white shadow-[0_18px_55px_-42px_rgba(15,23,42,0.55)] transition duration-300 hover:-translate-y-1 hover:border-brand-primary/25 hover:shadow-xl"
+                  className="group grid overflow-hidden rounded-[1.6rem] border border-brand-primary/15 bg-white shadow-[0_18px_55px_-42px_rgba(15,23,42,0.55)] transition duration-300 hover:-translate-y-0.5 hover:border-brand-primary/35 hover:shadow-xl md:min-h-[22rem] md:grid-cols-[1.02fr_0.98fr]"
                 >
-                  <div className="grid w-full md:grid-cols-[40%_60%] lg:flex lg:flex-col">
-                    <div className="relative min-h-56 overflow-hidden lg:h-64">
+                  <div className="grid w-full md:contents">
+                    <div className="relative order-2 min-h-56 overflow-hidden md:order-2 md:min-h-[22rem]">
                       <img
                         src={solution.image}
                         alt=""
@@ -113,11 +113,11 @@ export default function Solutions() {
                         0{index + 1} · {solution.label}
                       </div>
                     </div>
-                    <div className="flex flex-1 flex-col p-6 sm:p-7">
-                      <p className="text-xs font-bold uppercase tracking-[0.12em] text-brand-primary">{solution.shortTitle}</p>
-                      <h2 className="mt-2 text-xl font-bold leading-tight text-brand-ink sm:text-2xl">{solution.title}</h2>
-                      <p className="mt-3 text-sm leading-relaxed text-brand-slate">{solution.description}</p>
-                      <span className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-brand-ink transition group-hover:text-brand-primary">
+                    <div className="order-1 flex flex-1 flex-col p-5 sm:p-7 md:order-1 md:justify-center lg:p-9">
+                      <p className="inline-flex w-fit rounded-md bg-brand-primary/10 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.08em] text-brand-primary">{solution.shortTitle}</p>
+                      <h2 className="mt-4 text-2xl font-semibold leading-tight tracking-tight text-brand-ink sm:text-3xl">{solution.title}</h2>
+                      <p className="mt-3 text-sm leading-relaxed text-brand-slate sm:text-base">{solution.description}</p>
+                      <span className="mt-6 inline-flex w-fit items-center gap-2 rounded-xl bg-brand-primary px-5 py-3 text-sm font-semibold text-white shadow-sm transition group-hover:bg-brand-primary/90">
                         Explore solution <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                       </span>
                     </div>

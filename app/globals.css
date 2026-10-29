@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -128,6 +126,14 @@ h1 {
 h2 {
 	font-weight: 300 !important;
 	letter-spacing: -0.025em;
+}
+
+.home-hero-title {
+	font-weight: 800 !important;
+}
+
+.solution-hero-title {
+	font-weight: 700 !important;
 }
 h3 {
 	font-weight: 500;
@@ -531,4 +537,41 @@ main a[class~="bg-white"][class*="rounded-"][class*="border"][class*="p-"]:not([
 	clip: rect(0, 0, 0, 0);
 	white-space: nowrap;
 	border-width: 0;
+}
+
+/* ─── High-Performance Hardware-Accelerated Skeleton Shimmer ─── */
+@keyframes skeleton-pulse {
+	0%, 100% { opacity: 0.55; }
+	50% { opacity: 1; }
+}
+
+.skeleton-neutral {
+	background-color: #e5e7eb;
+	animation: skeleton-pulse 1.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.skeleton-neutral { animation: none; }
+}
+
+@keyframes stats-border-pulse {
+	0%, 100% {
+		border-color: rgba(232, 101, 38, 0.3);
+		box-shadow: 0 15px 40px rgba(0, 0, 0, 0.07), 0 0 0 0 rgba(232, 101, 38, 0.04);
+	}
+	50% {
+		border-color: rgba(232, 101, 38, 0.75);
+		box-shadow: 0 15px 40px rgba(0, 0, 0, 0.07), 0 0 12px 1px rgba(232, 101, 38, 0.16);
+	}
+}
+
+.stats-border-pulse {
+	animation: stats-border-pulse 3s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.stats-border-pulse {
+		animation: none;
+		border-color: rgba(232, 101, 38, 0.55);
+	}
 }

@@ -249,7 +249,7 @@ export default function EVChargingPage() {
   return (
     <main className="min-h-screen bg-[#FAFAF5] pb-8 font-sans overflow-x-hidden w-full max-w-full">
       {/* HERO BANNER */}
-      <section className="relative w-full pt-28 pb-16 sm:pt-32 sm:pb-20 overflow-hidden bg-brand-ink text-white">
+      <section className="relative flex min-h-[720px] w-full items-center overflow-hidden bg-brand-ink text-white pt-28 pb-16 sm:pt-32 sm:pb-20">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-brand-ink to-slate-900 pointer-events-none" />
         <div className="absolute top-0 right-0 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -286,7 +286,7 @@ export default function EVChargingPage() {
               <img
                 src="/products/EV charger/DC EV Charger.png"
                 alt="Sunloop EV Charger"
-                className="w-auto h-auto max-h-[460px] sm:max-h-[520px] object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.6)]"
+                className="w-auto h-auto max-h-[440px] sm:max-h-[500px] object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.6)]"
               />
             </div>
           </div>

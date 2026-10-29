@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { motion } from 'framer-motion';
 import { CarFront, Sparkles, Sun, Zap } from 'lucide-react';
 
 interface StageCardData {
@@ -51,7 +52,7 @@ const stages: StageCardData[] = [
 
 export default function ConnectedJourneyScrollShowcase() {
   return (
-    <section className="relative overflow-clip bg-white border-y border-black/5 py-10 md:py-14 lg:py-16">
+    <section className="relative overflow-clip border-y border-black/5 bg-white py-8 md:py-12 lg:py-14">
       {/* Background Watermark */}
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center select-none opacity-[0.03]" aria-hidden="true">
         <span className="font-sans text-[12vw] font-black tracking-tighter text-brand-ink">ecosystem</span>
@@ -66,13 +67,12 @@ export default function ConnectedJourneyScrollShowcase() {
           </p>
         </div>
 
-        <div className="relative mx-auto max-w-2xl pb-4">
+        <div className="relative mx-auto max-w-2xl">
           {stages.map((stage, index) => {
             const Icon = stage.icon;
-            const stackOffset = index * 18;
+            const stackOffset = index * 14;
             const stickyTop = `calc(12vh + ${stackOffset}px)`;
             const isLast = index === stages.length - 1;
-            const lastCardMargin = `max(0px, calc(100vh - 12vh - ${stackOffset}px - 450px))`;
             
             return (
               <div
@@ -81,29 +81,33 @@ export default function ConnectedJourneyScrollShowcase() {
                 style={{
                   top: stickyTop,
                   zIndex: index,
-                  marginBottom: isLast ? lastCardMargin : '48vh',
+                  marginBottom: isLast ? 0 : 'clamp(180px, 30vh, 360px)',
                 }}
               >
-                <article
-                  className={`flex min-h-[380px] flex-col justify-between rounded-[2rem] border p-8 shadow-[0_24px_70px_rgba(15,23,42,0.12)] sm:p-12 lg:h-[430px] transition-transform duration-500 ease-out hover:scale-[1.01] ${
+                <motion.article
+                  initial={{ opacity: 0, y: 22, scale: 0.985 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.45, delay: index * 0.04, ease: [0.22, 1, 0.36, 1] }}
+                  className={`flex min-h-[350px] flex-col justify-between rounded-[1.5rem] border p-6 shadow-[0_20px_55px_rgba(15,23,42,0.12)] transition-transform duration-500 ease-out hover:scale-[1.01] sm:min-h-[380px] sm:rounded-[2rem] sm:p-9 lg:h-[410px] ${
                     stage.isDark ? 'border-brand-ink bg-brand-ink text-white' : 'border-black/10 bg-white text-brand-ink'
                   }`}
                 >
                   <div>
-                    <div className="mb-6 flex items-center justify-between">
-                      <span className="text-5xl font-bold text-brand-primary">{stage.num}</span>
-                      <div className={`grid h-14 w-14 place-items-center rounded-2xl border shadow-sm ${stage.isDark ? 'border-white/10 bg-white/10 text-brand-primary' : 'border-orange-100 bg-orange-50 text-brand-primary'}`}>
-                        <Icon className="h-6 w-6" aria-hidden="true" />
+                    <div className="mb-5 flex items-center justify-between sm:mb-6">
+                      <span className="text-4xl font-bold text-brand-primary sm:text-5xl">{stage.num}</span>
+                      <div className={`grid h-12 w-12 place-items-center rounded-xl border shadow-sm sm:h-14 sm:w-14 sm:rounded-2xl ${stage.isDark ? 'border-white/10 bg-white/10 text-brand-primary' : 'border-orange-100 bg-orange-50 text-brand-primary'}`}>
+                        <Icon className="h-5 w-5 sm:h-6 sm:w-6" aria-hidden="true" />
                       </div>
                     </div>
-                    <span className="mb-3 block text-xs font-semibold tracking-wide text-brand-primary">{stage.eyebrow}</span>
-                    <h3 className={`mb-4 text-2xl sm:text-3xl font-semibold leading-tight tracking-tight ${stage.isDark ? 'text-white' : 'text-brand-ink'}`}>{stage.title}</h3>
+                    <span className="mb-2 block text-xs font-semibold tracking-wide text-brand-primary sm:mb-3">{stage.eyebrow}</span>
+                    <h3 className={`mb-3 text-xl font-semibold leading-tight tracking-tight sm:mb-4 sm:text-3xl ${stage.isDark ? 'text-white' : 'text-brand-ink'}`}>{stage.title}</h3>
                     <p className={`text-sm sm:text-base leading-relaxed ${stage.isDark ? 'text-white/80' : 'text-brand-slate'}`}>{stage.desc}</p>
                   </div>
-                  <div className={`mt-10 border-t pt-5 text-xs sm:text-sm font-semibold tracking-wide leading-relaxed text-brand-primary ${stage.isDark ? 'border-white/10' : 'border-black/10'}`}>
+                  <div className={`mt-6 border-t pt-4 text-xs font-semibold tracking-wide leading-relaxed text-brand-primary sm:mt-8 sm:pt-5 sm:text-sm ${stage.isDark ? 'border-white/10' : 'border-black/10'}`}>
                     {stage.foot}
                   </div>
-                </article>
+                </motion.article>
               </div>
             );
           })}

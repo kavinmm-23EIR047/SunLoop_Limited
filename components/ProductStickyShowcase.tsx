@@ -1,19 +1,15 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React from 'react';
 import Link from 'next/link';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import {
   ArrowUpRight,
-  Zap,
   Activity,
   ShieldCheck,
   BarChart3,
   Sparkles,
-  Sliders,
   ArrowRight,
-  TrendingUp,
-  Server,
 } from 'lucide-react';
 import { AIPortalLiveDashboard } from './AIPortalLiveDashboard';
 
@@ -73,50 +69,54 @@ const productsList: ProductItem[] = [
   },
 ];
 
-function PinnedProductStage({ item, index, progress }: { item: ProductItem; index: number; progress: ReturnType<typeof useScroll>['scrollYProgress'] }) {
-  const start = index / productsList.length;
-  const end = (index + 1) / productsList.length;
-  const opacityRange = index === 0 ? [0, end - 0.025, end] : [start - 0.01, start, start + 0.006, end - 0.025, end];
-  const opacityValues = index === 0 ? [1, 1, 0] : [0, 0, 1, 1, 0];
-  const imageOpacity = useTransform(progress, opacityRange, opacityValues);
-  return (
-    <>
-      <motion.div
-        style={{ opacity: imageOpacity }}
-        className="absolute inset-x-0 top-[3%] mx-auto flex h-[44vh] w-[min(86vw,760px)] items-center justify-center lg:inset-x-auto lg:left-[5vw] lg:top-[8%] lg:h-[66vh] lg:w-[46vw]"
-        aria-hidden="true"
-      >
-        <div className="relative h-full w-full max-h-[520px] max-w-[640px] overflow-hidden rounded-2xl sm:rounded-3xl border border-black/10 shadow-[0_20px_50px_rgba(0,0,0,0.12)] bg-slate-100 group">
-          <img
-            src={item.image}
-            alt={item.title}
-            className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
-            loading={index === 0 ? 'eager' : 'lazy'}
-            onError={(e) => {
-              (e.target as HTMLImageElement).src = item.fallbackImage;
-            }}
-          />
-        </div>
-      </motion.div>
-      <motion.div style={{ opacity: imageOpacity }} className="absolute inset-x-5 bottom-[4vh] space-y-3 text-left sm:inset-x-10 lg:inset-x-auto lg:right-[7vw] lg:top-[18%] lg:w-[38vw] lg:space-y-4">
-        <div className="flex flex-wrap items-center gap-2"><span className="inline-flex items-center gap-1.5 rounded-lg border border-orange-100 bg-orange-50 px-3 py-1.5 text-xs font-semibold tracking-wide text-[#E86526]"><span className="h-1.5 w-1.5 rounded-full bg-[#E86526]" />{item.eyebrow}</span><span className="text-xs font-medium tracking-wide text-slate-400">{item.tagline}</span></div>
-        <h3 className="text-2xl font-bold leading-tight tracking-tight text-brand-ink sm:text-3xl lg:text-4xl">{item.title}</h3>
-        <p className="text-sm leading-relaxed text-slate-600 sm:text-base">{item.desc}</p>
-        <div className="grid grid-cols-2 gap-2 pt-1 sm:gap-3">{[item.spec1, item.spec2].map((spec) => <div key={spec.title} className="rounded-lg border border-black/10 bg-white p-3 shadow-sm"><strong className="block text-xs font-semibold text-brand-ink sm:text-sm">{spec.title}</strong><span className="text-[10px] font-medium text-slate-500 sm:text-xs">{spec.desc}</span></div>)}</div>
-        <Link href={item.ctaLink} className="inline-flex min-h-[44px] items-center gap-2 rounded-lg bg-[#E86526] px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-[#c95315]">{item.ctaText}<ArrowUpRight className="h-4 w-4" aria-hidden="true" /></Link>
-      </motion.div>
-    </>
-  );
-}
-
 function PinnedProductShowcase() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ['start start', 'end end'] });
   return (
-    <section ref={sectionRef} className="relative h-[320vh] bg-white">
-      <div className="sticky top-16 flex h-[calc(100svh-4rem)] items-center overflow-hidden">
-        <div className="pointer-events-none absolute inset-0" aria-hidden="true"><div className="absolute left-[7%] top-[20%] h-24 w-24 rounded-full bg-orange-100/40 blur-3xl" /><div className="absolute bottom-[15%] right-[12%] h-32 w-32 rounded-full bg-emerald-100/30 blur-3xl" /></div>
-        {productsList.map((item, index) => <PinnedProductStage key={item.id} item={item} index={index} progress={scrollYProgress} />)}
+    <section className="bg-white py-6 md:py-9 lg:py-10">
+      <div className="container-wide mx-auto max-w-6xl space-y-10 px-4 md:space-y-12 lg:space-y-14">
+        {productsList.map((item, index) => (
+          <motion.article
+            key={item.id}
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.45, delay: index * 0.04, ease: [0.22, 1, 0.36, 1] }}
+            className="grid items-center gap-6 md:grid-cols-2 md:gap-8 lg:gap-12"
+          >
+            <div className={`group relative aspect-[16/10] overflow-hidden rounded-2xl border border-black/10 bg-slate-100 shadow-[0_16px_40px_rgba(0,0,0,0.1)] ${index % 2 === 1 ? 'md:order-2' : ''}`}>
+              <img
+                src={item.image}
+                alt={item.title}
+                className="h-full w-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+                loading={index === 0 ? 'eager' : 'lazy'}
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = item.fallbackImage;
+                }}
+              />
+            </div>
+
+            <div className={`space-y-4 text-left ${index % 2 === 1 ? 'md:order-1' : ''}`}>
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="inline-flex items-center gap-1.5 rounded-lg border border-orange-100 bg-orange-50 px-3 py-1.5 text-xs font-semibold tracking-wide text-[#E86526]">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#E86526]" />{item.eyebrow}
+                </span>
+                <span className="text-xs font-medium tracking-wide text-slate-400">{item.tagline}</span>
+              </div>
+              <h3 className="text-2xl font-bold leading-tight tracking-tight text-brand-ink sm:text-3xl lg:text-4xl">{item.title}</h3>
+              <p className="text-sm leading-relaxed text-slate-600 sm:text-base">{item.desc}</p>
+              <div className="grid grid-cols-2 gap-2 sm:gap-3">
+                {[item.spec1, item.spec2].map((spec) => (
+                  <div key={spec.title} className="rounded-lg border border-black/10 bg-white p-3 shadow-sm">
+                    <strong className="block text-xs font-semibold text-brand-ink sm:text-sm">{spec.title}</strong>
+                    <span className="text-[10px] font-medium text-slate-500 sm:text-xs">{spec.desc}</span>
+                  </div>
+                ))}
+              </div>
+              <Link href={item.ctaLink} className="inline-flex min-h-[44px] items-center gap-2 rounded-lg bg-[#E86526] px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-[#c95315]">
+                {item.ctaText}<ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+            </div>
+          </motion.article>
+        ))}
       </div>
     </section>
   );
@@ -138,7 +138,7 @@ function AIPortalDashboardSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4 }}
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E86526] text-white text-xs font-semibold shadow-sm"
+              className="inline-flex w-fit max-w-full self-start items-center gap-2 px-3 py-1 rounded-full bg-[#E86526] text-white text-xs font-semibold shadow-sm"
             >
               <Sparkles className="h-3.5 w-3.5 text-white" aria-hidden="true" />
               Sunloop Energy AI

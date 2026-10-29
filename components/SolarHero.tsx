@@ -123,7 +123,7 @@ export default function SolarHero() {
   return (
     <>
       <section
-        className="relative flex min-h-[430px] w-full items-center overflow-hidden sm:min-h-[62vh] lg:min-h-[62vh]"
+        className="relative flex min-h-[calc(100svh-4rem)] w-full items-center overflow-hidden sm:min-h-[68vh] lg:min-h-[68vh]"
         role="region"
         aria-label="Featured clean energy solutions"
         aria-roledescription="carousel"
@@ -135,11 +135,11 @@ export default function SolarHero() {
         }}
       >
         <div className="absolute inset-0 z-0">
-          <AnimatePresence initial={false}>
+          <AnimatePresence>
             <motion.picture
               key={heroSlides[activeHeroSlide].image}
               className="absolute inset-0 block h-full w-full"
-              initial={{ opacity: 0, scale: 1.015 }}
+              initial={{ opacity: 0, scale: 1.025 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.8, ease: 'easeInOut' }}
@@ -158,65 +158,69 @@ export default function SolarHero() {
           </AnimatePresence>
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/35 to-transparent md:via-black/25" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-black/35 sm:hidden" />
         </div>
 
-        <div className="container relative z-10 mx-auto max-w-7xl px-4 py-10 sm:px-8 sm:py-12 lg:py-12">
-          <div className="mx-0 max-w-2xl text-left">
-            <div className="mb-5 flex flex-wrap items-center gap-2 sm:mb-6">
+        <div className="container relative z-10 mx-auto max-w-7xl px-4 py-6 sm:px-8 sm:py-12 lg:py-12">
+          <div className="mx-auto flex min-h-[calc(100svh-7rem)] w-full max-w-2xl flex-col justify-center gap-6 text-center sm:mx-0 sm:min-h-0 sm:justify-start sm:gap-0 sm:text-left">
+            <div className="flex flex-wrap items-center justify-center gap-2 sm:mb-6 sm:justify-start">
               <motion.span
-                variants={fadeUp(0)}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.35 }}
-                className="inline-flex items-center gap-2 rounded-full border border-white/70 bg-white/90 px-3.5 py-1.5 text-xs font-semibold text-brand-ink shadow-lg backdrop-blur-md"
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.45, ease: 'easeOut', delay: 0.05 }}
+                className="inline-flex items-center gap-1.5 rounded-full border border-white/70 bg-white/90 px-3.5 py-1.5 text-[11px] font-semibold text-brand-ink shadow-lg backdrop-blur-md sm:gap-2 sm:px-3.5 sm:py-1.5 sm:text-xs"
               >
                 <span className="h-2 w-2 shrink-0 rounded-full bg-brand-primary" />
                 10+ years in clean energy
               </motion.span>
-              <span className="inline-flex items-center rounded-full border border-white/30 bg-black/25 px-3.5 py-1.5 text-xs font-semibold text-white shadow-sm backdrop-blur-md">
+              <motion.span
+                key={activeHeroSlide}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, ease: 'easeOut', delay: 0.12 }}
+                className="inline-flex items-center rounded-full border border-white/30 bg-black/25 px-3.5 py-1.5 text-[11px] font-semibold text-white shadow-sm backdrop-blur-md sm:px-3.5 sm:py-1.5 sm:text-xs"
+              >
                 {heroSlides[activeHeroSlide].label}
-              </span>
+              </motion.span>
             </div>
 
             {/* Headline */}
-            <motion.h1
-              variants={fadeUp(0.12)}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.35 }}
-              className="mb-4 text-4xl font-bold leading-[1.04] tracking-tight text-white drop-shadow-sm sm:text-5xl md:text-6xl lg:text-7xl"
-            >
-              Clean energy for a{' '}
-              <span className="text-[#FF874A]">brighter future.</span>
-            </motion.h1>
-
-            {/* CTA Buttons — Horizontal Side-by-Side */}
+            <div className="py-0 sm:my-0 sm:py-0">
+              <motion.h1
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, ease: 'easeOut', delay: 0.25 }}
+                className="home-hero-title mb-0 whitespace-normal text-[clamp(2.25rem,9vw,3.1rem)] font-extrabold leading-[1.05] tracking-tight text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)] sm:mb-4 sm:text-5xl sm:leading-[1.04] md:text-6xl lg:text-7xl"
+              >
+                Clean energy for a<span className="hidden sm:inline">{' '}</span><br className="sm:hidden" />
+                <motion.span
+                  key={activeHeroSlide}
+                  initial={{ opacity: 0, x: -8 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.45, ease: 'easeOut', delay: 0.4 }}
+                  className="inline-block text-[#FF874A]"
+                >
+                  brighter future.
+                </motion.span>
+              </motion.h1>
+              <motion.p
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.45, ease: 'easeOut', delay: 0.48 }}
+                className="mx-auto mt-5 w-full max-w-[32ch] whitespace-normal break-words px-2 text-center text-sm font-medium leading-6 text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] sm:hidden"
+              >
+                Powering smarter mobility and sustainable spaces.
+              </motion.p>
+            </div>
+            <div className="flex flex-col items-center sm:items-start">
             <motion.div
-              variants={fadeUp(0.36)}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.35 }}
-              className="flex flex-row items-center gap-2.5 sm:gap-4 flex-wrap"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, ease: 'easeOut', delay: 0.58 }}
+              className="mb-4 flex flex-wrap items-center justify-center gap-2 sm:mb-6 sm:justify-start"
+              role="group"
+              aria-label="Choose hero image"
             >
-              {/* Primary CTA */}
-              <Link
-                href="/contact"
-                className="group inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-xl bg-brand-primary px-5 sm:px-6 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold text-white shadow-lg hover:bg-[#c95315] transition-all duration-300 min-h-[44px] whitespace-nowrap"
-              >
-                Get a Quote
-                <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </Link>
-
-              {/* Secondary CTA */}
-              <Link
-                href="/solutions"
-                className="inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 px-5 sm:px-6 py-3 sm:py-3.5 text-xs sm:text-sm font-medium text-white hover:bg-white/20 transition-all duration-300 min-h-[44px] whitespace-nowrap"
-              >
-                Explore Solutions
-              </Link>
-            </motion.div>
-
-            <div className="mt-6 flex flex-wrap items-center gap-2" role="group" aria-label="Choose hero image">
               {heroSlides.map((slide, index) => (
                 <button
                   key={slide.image}
@@ -224,13 +228,36 @@ export default function SolarHero() {
                   onClick={() => setActiveHeroSlide(index)}
                   aria-label={`Show slide ${index + 1}: ${slide.label}`}
                   aria-pressed={activeHeroSlide === index}
-                  className={`h-2.5 rounded-full border border-white/70 transition-all ${activeHeroSlide === index ? 'w-8 bg-brand-primary' : 'w-2.5 bg-white/70 hover:bg-white'}`}
+                  className={`h-1.5 rounded-full border border-white/70 transition-all duration-300 ${activeHeroSlide === index ? 'w-7 bg-brand-primary' : 'w-1.5 bg-white/70 hover:bg-white'}`}
                 />
               ))}
-              <span className="ml-1 text-[11px] font-semibold tracking-wide text-white/90">
+              <span className="ml-1 text-[10px] font-medium tracking-wide text-white/85">
                 {String(activeHeroSlide + 1).padStart(2, '0')} / {String(heroSlides.length).padStart(2, '0')}
               </span>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45, ease: 'easeOut', delay: 0.72 }}
+              className="flex w-full flex-row flex-nowrap items-center justify-center gap-2 sm:w-auto sm:justify-start sm:gap-4"
+            >
+              <Link
+                href="/contact"
+                className="group inline-flex min-h-12 flex-1 items-center justify-center gap-1.5 whitespace-nowrap rounded-xl bg-brand-primary px-3 py-3 text-[13px] font-semibold text-white shadow-lg transition-all duration-300 hover:bg-[#c95315] sm:min-h-[44px] sm:flex-none sm:gap-2 sm:px-6 sm:py-3.5 sm:text-sm"
+              >
+                Get a Quote
+                <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1 sm:h-4 sm:w-4" />
+              </Link>
+              <Link
+                href="/solutions"
+                className="inline-flex min-h-12 flex-1 items-center justify-center gap-1.5 whitespace-nowrap rounded-xl border border-white/20 bg-white/10 px-3 py-3 text-[13px] font-medium text-white backdrop-blur-md transition-all duration-300 hover:bg-white/20 sm:min-h-[44px] sm:flex-none sm:gap-2 sm:px-6 sm:py-3.5 sm:text-sm"
+              >
+                Explore Solutions
+              </Link>
+            </motion.div>
+
             </div>
+
           </div>
         </div>
 
@@ -253,7 +280,7 @@ export default function SolarHero() {
       </section>
 
       {/* CONNECTED RADIUS CARDS SECTION (OUTSIDE HERO) */}
-      <section className="relative z-20 bg-[#FAFAF7] pt-2 pb-8 sm:pb-12 border-b border-black/5">
+      <section className="relative z-20 bg-[#FAFAF7] pt-2 pb-6 sm:pb-8 border-b border-black/5">
         <div className="container mx-auto max-w-7xl px-4 sm:px-8">
           
           {/* CONNECTED FLOATING STATS RADIUS BAR */}
@@ -262,19 +289,19 @@ export default function SolarHero() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            className="relative -mt-14 sm:-mt-16 z-30 mb-8 sm:mb-12 rounded-2xl sm:rounded-3xl bg-white border border-black/10 shadow-[0_15px_40px_rgba(0,0,0,0.07)] p-4 sm:p-7 grid grid-cols-3 divide-x divide-black/10"
+            className="stats-border-pulse relative -mt-14 sm:-mt-16 z-30 mb-6 sm:mb-8 rounded-2xl sm:rounded-3xl bg-white border border-orange-200 shadow-[0_15px_40px_rgba(0,0,0,0.07)] p-4 sm:p-7 grid grid-cols-3 divide-x divide-black/10"
           >
             <div className="px-2 sm:px-6 text-center sm:text-left">
-              <div className="text-xl sm:text-3xl font-extrabold text-[#E86526] tracking-tight"><CountUp end={500} suffix="+" /></div>
-              <div className="text-[11px] sm:text-xs font-bold text-slate-700 mt-0.5 uppercase tracking-wide">Sites Deployed</div>
+              <div className="text-2xl sm:text-3xl font-medium text-[#E86526] tracking-tight"><CountUp end={500} suffix="+" /></div>
+              <div className="mt-0.5 whitespace-nowrap text-[9px] font-medium uppercase tracking-normal text-slate-700 sm:text-xs sm:tracking-wide">Sites Deployed</div>
             </div>
             <div className="px-2 sm:px-6 text-center sm:text-left">
-              <div className="text-xl sm:text-3xl font-extrabold text-slate-900 tracking-tight"><CountUp end={10} suffix="+ Yrs" /></div>
-              <div className="text-[11px] sm:text-xs font-bold text-slate-700 mt-0.5 uppercase tracking-wide">Industry Leadership</div>
+              <div className="text-2xl sm:text-3xl font-medium text-slate-900 tracking-tight"><CountUp end={10} suffix="+ Yrs" /></div>
+              <div className="mt-0.5 whitespace-nowrap text-[9px] font-medium uppercase tracking-normal text-slate-700 sm:text-xs sm:tracking-wide">Industry Leadership</div>
             </div>
             <div className="px-2 sm:px-6 text-center sm:text-left">
-              <div className="text-xl sm:text-3xl font-extrabold text-emerald-600 tracking-tight"><CountUp end={24} suffix="/7" /></div>
-              <div className="text-[11px] sm:text-xs font-bold text-slate-700 mt-0.5 uppercase tracking-wide">AI Monitoring</div>
+              <div className="text-2xl sm:text-3xl font-medium text-emerald-600 tracking-tight"><CountUp end={24} suffix="/7" /></div>
+              <div className="mt-0.5 whitespace-nowrap text-[9px] font-medium uppercase tracking-normal text-slate-700 sm:text-xs sm:tracking-wide">AI Monitoring</div>
             </div>
           </motion.div>
 

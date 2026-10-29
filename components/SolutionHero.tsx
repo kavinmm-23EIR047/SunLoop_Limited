@@ -20,8 +20,12 @@ export function SolutionHero({
   icon: LucideIcon;
   metric?: string;
 }) {
+  const accentStart = title.lastIndexOf(' ') + 1;
+  const titlePrefix = title.slice(0, accentStart);
+  const titleAccent = title.slice(accentStart);
+
   return (
-    <section className="relative h-[58vh] min-h-[26rem] max-h-[40rem] w-full overflow-hidden">
+    <section className="relative h-[68vh] min-h-[28rem] max-h-[42rem] w-full overflow-hidden">
       <img
         src={image}
         alt={imageAlt}
@@ -29,7 +33,8 @@ export function SolutionHero({
         onError={fallbackImage ? (event) => { event.currentTarget.src = fallbackImage; } : undefined}
       />
 
-      <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/30 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/45 to-black/15" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/10" />
 
       <div className="relative z-10 mx-auto flex h-full w-full items-center px-4 py-8 text-left sm:px-6 md:px-8 lg:px-10">
         <div className="w-full max-w-7xl">
@@ -39,8 +44,8 @@ export function SolutionHero({
               {eyebrow}
             </span>
 
-            <h1 className="max-w-3xl text-left text-4xl font-bold leading-[1.08] tracking-tight text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.65)] sm:text-5xl lg:text-6xl">
-              {title}
+            <h1 className="solution-hero-title max-w-3xl text-left text-4xl leading-[1.08] tracking-tight text-white drop-shadow-[0_3px_18px_rgba(0,0,0,0.85)] sm:text-5xl lg:text-6xl">
+              {titlePrefix}<span className="text-[#FF874A]">{titleAccent}</span>
             </h1>
           </Reveal>
         </div>

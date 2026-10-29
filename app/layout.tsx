@@ -1,8 +1,23 @@
 import type { Metadata } from 'next';
+import { Outfit, Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 import { RobotAssistant } from '../components/RobotAssistant';
+
+const outfit = Outfit({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-outfit',
+  display: 'swap',
+});
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800'],
+  variable: '--font-jakarta',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: {
@@ -49,7 +64,7 @@ export const metadata: Metadata = {
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${outfit.variable} ${plusJakartaSans.variable}`}>
       <head>
         <link
           rel="preload"
@@ -58,7 +73,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           type="image/png"
         />
       </head>
-      <body>
+      <body className="font-sans antialiased text-brand-ink bg-white">
         <Navbar />
         {children}
         <RobotAssistant />
