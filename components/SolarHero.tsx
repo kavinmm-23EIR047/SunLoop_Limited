@@ -8,23 +8,23 @@ import { CountUp } from './CountUp';
 
 const heroSlides = [
   {
-    image: '/images/solar-hero-bg-4k.png',
-    mobileImage: '/images/solar-hero-bg-mobile.jpg',
+    image: '/images/solar-hero-bg.webp',
+    mobileImage: '/images/solar-hero-bg-mobile.webp',
     alt: 'Sunloop solar carport, energy storage and EV charging hub',
     label: 'Solar / Storage / EV charging',
   },
   {
-    image: '/images/india-solar-storage-ev-hero.jpg',
+    image: '/images/india-solar-storage-ev-hero.webp',
     alt: 'Integrated solar, battery storage and EV charging installation',
     label: 'Integrated energy systems',
   },
   {
-    image: '/images/india-hero-ess-banner.jpg',
+    image: '/images/india-hero-ess-banner.webp',
     alt: 'Commercial solar installation with battery energy storage',
     label: 'Solar + battery storage',
   },
   {
-    image: '/images/india-hero-ev-banner.jpg',
+    image: '/images/india-hero-ev-banner.webp',
     alt: 'EV charging infrastructure powered by clean energy',
     label: 'Clean EV charging',
   },
@@ -51,6 +51,27 @@ export default function SolarHero() {
   const [sliderPaused, setSliderPaused] = useState(false);
   const [activeHeroSlide, setActiveHeroSlide] = useState(0);
   const [heroPaused, setHeroPaused] = useState(false);
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      heroSlides.forEach((slide, index) => {
+        if (index === activeHeroSlide) return;
+        const image = new window.Image();
+        image.decoding = 'async';
+        image.fetchPriority = 'low';
+        image.src = slide.image;
+
+        if (slide.mobileImage) {
+          const mobileImage = new window.Image();
+          mobileImage.decoding = 'async';
+          mobileImage.fetchPriority = 'low';
+          mobileImage.src = slide.mobileImage;
+        }
+      });
+    }, 700);
+
+    return () => window.clearTimeout(timer);
+  }, [activeHeroSlide]);
 
   useEffect(() => {
     if (heroPaused || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -135,7 +156,7 @@ export default function SolarHero() {
         }}
       >
         <div className="absolute inset-0 z-0">
-          <AnimatePresence>
+          <AnimatePresence initial={false}>
             <motion.picture
               key={heroSlides[activeHeroSlide].image}
               className="absolute inset-0 block h-full w-full"
@@ -151,6 +172,7 @@ export default function SolarHero() {
                 src={heroSlides[activeHeroSlide].image}
                 alt={heroSlides[activeHeroSlide].alt}
                 className="absolute inset-0 h-full w-full object-cover object-center"
+                loading="eager"
                 fetchPriority={activeHeroSlide === 0 ? 'high' : 'auto'}
                 decoding="async"
               />
@@ -349,7 +371,7 @@ export default function SolarHero() {
                   desc: 'Reliable and modular lithium battery storage (5 kWh to 2 MWh) for 24/7 uninterrupted power.',
                   href: '/products/energy-storage',
                   badge: 'LiFePO4 ESS',
-                  image: '/images/india-hero-ess-banner.jpg',
+                  image: '/images/india-hero-ess-banner.webp',
                 },
                 {
                   icon: Zap,
@@ -357,7 +379,7 @@ export default function SolarHero() {
                   desc: 'Fast AC and DC charging solutions (7.4 kW to 240 kW) for residential and commercial fleets.',
                   href: '/products/ev-charging',
                   badge: 'OCPP 1.6J',
-                  image: '/images/india-hero-ev-banner.jpg',
+                  image: '/images/india-hero-ev-banner.webp',
                 },
                 {
                   icon: Cpu,

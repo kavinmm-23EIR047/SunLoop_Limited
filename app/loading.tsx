@@ -14,8 +14,20 @@ function LoadingSectionHeading() {
 export default function HomeLoading() {
   return (
     <main className="min-w-0 overflow-clip bg-white font-sans" aria-label="Loading homepage" aria-busy="true">
-      <section className="relative min-h-[560px] overflow-hidden bg-neutral-50 md:min-h-[680px]">
-        <SkeletonBox className="absolute inset-0 h-full w-full rounded-none" />
+      <section className="relative min-h-[560px] overflow-hidden bg-neutral-900 md:min-h-[680px]">
+        <picture className="absolute inset-0 block h-full w-full" aria-hidden="true">
+          <source media="(max-width: 768px)" srcSet="/images/solar-hero-bg-mobile.webp" />
+          <img
+            src="/images/solar-hero-bg.webp"
+            alt=""
+            fetchPriority="high"
+            decoding="async"
+            className="h-full w-full object-cover object-center"
+          />
+        </picture>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/35 to-transparent md:via-black/25" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-black/35 sm:hidden" />
         <div className="container relative z-10 mx-auto flex min-h-[560px] max-w-7xl items-center px-4 py-10 md:min-h-[680px] md:px-8">
           <div className="w-full max-w-2xl space-y-6">
             <div className="flex flex-wrap gap-2">

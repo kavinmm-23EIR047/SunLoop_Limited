@@ -54,7 +54,7 @@ const storageSolutions = [
     badge: 'Commercial ESS',
     capacity: '30kW - 500kW PV · 50kWh - 1000kWh Storage',
     description: 'Combine solar, battery storage and grid power for reliable operations and lower energy costs.',
-    image: '/images/india-hero-ess-banner.jpg',
+    image: '/images/india-hero-ess-banner.webp',
     fallbackImage: '/images/commercial-energy.png',
     imageAlt: 'Commercial solar and energy storage system',
     specs: [

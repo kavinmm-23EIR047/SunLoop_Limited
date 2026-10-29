@@ -46,7 +46,7 @@ export default function BusinessOwnersSolutionPage() {
   return (
     <main className="min-h-screen bg-white font-sans overflow-hidden">
       <SolutionHero
-        image="/images/india-solar-storage-ev-hero.jpg"
+        image="/images/india-solar-storage-ev-hero.webp"
         imageAlt="Commercial solar, storage and EV charging solution"
         eyebrow="For Businesses"
         title="Reduce operating costs & open a new revenue stream."
@@ -193,7 +193,7 @@ export default function BusinessOwnersSolutionPage() {
                   src="/products/Energy Storage Cabinet.png" 
                   alt="Commercial Inverter" 
                   className="w-full h-auto max-h-[600px] object-contain rounded-3xl shadow-2xl border border-white/50 bg-white p-4"
-                  onError={(e) => { (e.target as HTMLElement).setAttribute('src', '/images/india-hero-ess-banner.jpg'); }}
+                  onError={(e) => { (e.target as HTMLElement).setAttribute('src', '/images/india-hero-ess-banner.webp'); }}
                 />
               </Reveal>
             </div>

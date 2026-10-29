@@ -68,9 +68,16 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <link
           rel="preload"
-          href="/images/solar-hero-bg-4k.png"
+          href="/images/solar-hero-bg.webp"
           as="image"
-          type="image/png"
+          type="image/webp"
+        />
+        <link
+          rel="preload"
+          href="/images/solar-hero-bg-mobile.webp"
+          as="image"
+          type="image/webp"
+          media="(max-width: 768px)"
         />
       </head>
       <body className="font-sans antialiased text-brand-ink bg-white">

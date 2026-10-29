@@ -92,7 +92,7 @@ export default function SolarStorageEVChargingPage() {
   return (
     <main className="min-h-screen bg-[#FAFAF5] pb-16 font-sans">
       <SolutionHero
-        image="/images/india-solar-storage-ev-hero.jpg"
+        image="/images/india-solar-storage-ev-hero.webp"
         fallbackImage="/images/ecosystem-hero.png"
         imageAlt="Solar carport, battery storage and EV charging plaza"
         eyebrow="03 / Charge"
