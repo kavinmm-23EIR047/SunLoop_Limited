@@ -182,7 +182,7 @@ export default function EnergyStoragePage() {
         <div className="container relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             <Reveal className="lg:col-span-7 space-y-4 sm:space-y-5">
-              <span className="inline-flex items-center rounded-sm bg-brand-primary px-3 py-1.5 text-[11px] sm:text-xs font-bold uppercase tracking-wider text-white max-w-full">
+              <span className="inline-flex items-center rounded-sm bg-brand-primary px-3 py-1.5 text-[11px] sm:text-xs font-bold uppercase tracking-wider text-white whitespace-nowrap">
                 WallLoop · StackLoop · CubeLoop Series
               </span>
               <h1 className="hero-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
@@ -192,7 +192,7 @@ export default function EnergyStoragePage() {
                 Advanced lithium-ion and LiFePO4 battery storage systems that ensure uninterrupted power, reduce peak-demand charges and increase energy independence.
               </p>
               <div>
-                <p className="text-xs sm:text-sm font-bold text-brand-primary uppercase tracking-wide bg-white/95 inline-block px-3 py-1.5 rounded-sm max-w-full shadow-xs">
+                <p className="text-xs sm:text-sm font-bold text-brand-primary uppercase tracking-wide bg-white/95 inline-block px-3 py-1.5 rounded-sm shadow-xs whitespace-nowrap">
                   Capacity: 5 kWh – 500+ kWh (stackable)
                 </p>
               </div>

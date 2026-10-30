@@ -53,7 +53,7 @@ export default function SolarPowerPage() {
         <div className="container relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             <Reveal className="lg:col-span-7 space-y-4 sm:space-y-5">
-              <span className="inline-flex items-center rounded-sm bg-brand-primary px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-white">
+              <span className="inline-flex items-center rounded-sm bg-brand-primary px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-white whitespace-nowrap">
                 Turnkey Solar Generation Solutions
               </span>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">

@@ -54,11 +54,13 @@ export default function SolarWaterPumpingPage() {
               className="space-y-5"
             >
               <div className="space-y-1.5">
-                <div className="flex items-center gap-2">
-                  <span className="rounded-md bg-cyan-100 px-2.5 py-0.5 text-xs font-bold text-cyan-800 uppercase">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-cyan-200 bg-cyan-50 px-3 py-1 text-xs font-semibold text-cyan-800 shadow-2xs whitespace-nowrap shrink-0">
+                    <span className="h-1.5 w-1.5 rounded-full bg-cyan-600" />
                     AC Solar Pumping Series
                   </span>
-                  <span className="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200/80 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700 shadow-2xs whitespace-nowrap shrink-0">
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
                     0.75kW – 110kW Heavy Duty
                   </span>
                 </div>
@@ -181,11 +183,13 @@ export default function SolarWaterPumpingPage() {
               className="space-y-5 order-1 md:order-2"
             >
               <div className="space-y-1.5">
-                <div className="flex items-center gap-2">
-                  <span className="rounded-md bg-amber-100 px-2.5 py-0.5 text-xs font-bold text-amber-800 uppercase">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-800 shadow-2xs whitespace-nowrap shrink-0">
+                    <span className="h-1.5 w-1.5 rounded-full bg-amber-600" />
                     DC Solar Pumping Series
                   </span>
-                  <span className="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200/80 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700 shadow-2xs whitespace-nowrap shrink-0">
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
                     24V – 110V Compact DC
                   </span>
                 </div>

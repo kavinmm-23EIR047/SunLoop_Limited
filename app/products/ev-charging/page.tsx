@@ -298,7 +298,7 @@ export default function EVChargingPage() {
           <h2 className="text-2xl font-bold text-brand-ink">EV Charger Infrastructure Categories</h2>
           <div className="grid gap-6 md:grid-cols-2">
             <div className="rounded-2xl border border-black/10 bg-white p-6 space-y-3 shadow-xs">
-              <span className="inline-block rounded-xl bg-orange-50 border border-orange-100 px-3 py-1 text-xs font-bold text-brand-primary">
+              <span className="inline-block rounded-xl bg-orange-50 border border-orange-100 px-3 py-1 text-xs font-semibold text-brand-primary whitespace-nowrap">
                 AC EV CHARGERS
               </span>
               <h3 className="text-xl font-bold text-brand-ink">AC EV Chargers — 7.4 kW to 22 kW</h3>
@@ -308,7 +308,7 @@ export default function EVChargingPage() {
             </div>
 
             <div className="rounded-2xl border border-black/10 bg-white p-6 space-y-3 shadow-xs">
-              <span className="inline-block rounded-xl bg-emerald-50 border border-emerald-100 px-3 py-1 text-xs font-bold text-emerald-600">
+              <span className="inline-block rounded-xl bg-emerald-50 border border-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-600 whitespace-nowrap">
                 DC FAST CHARGERS
               </span>
               <h3 className="text-xl font-bold text-brand-ink">DC Fast EV Chargers — 30 kW to 240 kW</h3>

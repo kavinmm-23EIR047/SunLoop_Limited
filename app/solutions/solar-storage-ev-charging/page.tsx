@@ -126,12 +126,14 @@ export default function SolarStorageEVChargingPage() {
                 transition={{ duration: 0.6, ease: 'easeOut' }}
                 className={`flex flex-col justify-center space-y-2 rounded-3xl border border-orange-100/80 bg-white/90 p-3 shadow-sm sm:p-4 ${index % 2 === 1 ? 'md:order-2' : 'md:order-1'}`}
               >
-                <div className="space-y-1.5">
-                  <div className="flex items-center gap-2">
-                    <span className="rounded-md bg-orange-100 px-2.5 py-0.5 text-xs font-bold text-brand-primary uppercase">
+                <div className="space-y-2">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-orange-200 bg-[#FFF6F0] px-3 py-1 text-xs font-semibold text-[#E86526] shadow-2xs whitespace-nowrap shrink-0">
+                      <span className="h-1.5 w-1.5 rounded-full bg-[#E86526]" />
                       {solution.badge}
                     </span>
-                    <span className="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200/80 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700 shadow-2xs whitespace-nowrap shrink-0">
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
                       {solution.capacity}
                     </span>
                   </div>
@@ -272,11 +274,13 @@ export default function SolarStorageEVChargingPage() {
                 <div className="grid gap-8 md:grid-cols-2 items-center rounded-2xl border border-black/10 bg-[#FAFAF5] p-6 sm:p-8 shadow-2xs hover:shadow-md transition">
                   {/* TEXT DETAILS */}
                   <div className={`space-y-4 ${idx % 2 === 1 ? 'md:order-2' : 'md:order-1'}`}>
-                    <div className="flex items-center justify-between">
-                      <span className="rounded-md bg-emerald-100 px-2.5 py-0.5 text-xs font-bold text-emerald-800 uppercase">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-800 shadow-2xs whitespace-nowrap shrink-0">
+                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-600" />
                         {product.series}
                       </span>
-                      <span className="text-xs font-bold text-brand-primary bg-orange-50 px-2 py-0.5 rounded">
+                      <span className="inline-flex items-center gap-1.5 rounded-full border border-orange-200/80 bg-[#FFF6F0] px-3 py-1 text-xs font-semibold text-[#E86526] shadow-2xs whitespace-nowrap shrink-0">
+                        <span className="h-1.5 w-1.5 rounded-full bg-[#E86526]" />
                         {product.output}
                       </span>
                     </div>
@@ -340,7 +344,7 @@ export default function SolarStorageEVChargingPage() {
                           (e.target as HTMLElement).setAttribute('src', product.fallbackImage || '/images/ac-charging.png');
                         }}
                       />
-                      <div className="absolute top-4 right-4 rounded-full bg-brand-ink px-3 py-1 text-xs font-bold text-white shadow-md uppercase">
+                      <div className="absolute top-4 right-4 rounded-full bg-brand-ink px-3.5 py-1 text-xs font-semibold text-white shadow-md whitespace-nowrap">
                         {product.category} {product.type} CHARGER
                       </div>
                     </div>
@@ -382,7 +386,7 @@ export default function SolarStorageEVChargingPage() {
                 </div>
                 <h4 className="text-xs font-bold text-brand-ink">Solar PV Canopy</h4>
                 <p className="text-xs text-brand-slate mt-0.5">TOPCon / Glass-Glass</p>
-                <span className="inline-block mt-2 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-600">
+                <span className="inline-block mt-2 rounded-full bg-amber-100 px-2.5 py-0.5 text-xs font-semibold text-amber-600 whitespace-nowrap">
                   Clean Generation
                 </span>
               </button>
@@ -401,7 +405,7 @@ export default function SolarStorageEVChargingPage() {
                 </div>
                 <h4 className="text-xs font-bold text-brand-ink">LiFePO4 Storage</h4>
                 <p className="text-xs text-brand-slate mt-0.5">Buffer &amp; Backup ESS</p>
-                <span className="inline-block mt-2 rounded-full bg-blue-100 px-2 py-0.5 text-xs font-semibold text-blue-600">
+                <span className="inline-block mt-2 rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-semibold text-blue-600 whitespace-nowrap">
                   Peak Shaving Active
                 </span>
               </button>
@@ -420,7 +424,7 @@ export default function SolarStorageEVChargingPage() {
                 </div>
                 <h4 className="text-xs font-bold text-brand-ink">Smart EV Charger</h4>
                 <p className="text-xs text-brand-slate mt-0.5">AC Wallbox &amp; DC Fast</p>
-                <span className="inline-block mt-2 rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-semibold text-emerald-600">
+                <span className="inline-block mt-2 rounded-full bg-emerald-100 px-2.5 py-0.5 text-xs font-semibold text-emerald-600 whitespace-nowrap">
                   Subsecond Balancing
                 </span>
               </button>
@@ -439,7 +443,7 @@ export default function SolarStorageEVChargingPage() {
                 </div>
                 <h4 className="text-xs font-bold text-brand-ink">Sunloop AI Portal</h4>
                 <p className="text-xs text-brand-slate mt-0.5">OCPP 1.6J Cloud Portal</p>
-                <span className="inline-block mt-2 rounded-full bg-orange-100 px-2 py-0.5 text-xs font-semibold text-brand-primary">
+                <span className="inline-block mt-2 rounded-full bg-orange-100 px-2.5 py-0.5 text-xs font-semibold text-brand-primary whitespace-nowrap">
                   Live Dispatch &amp; Billing
                 </span>
               </button>

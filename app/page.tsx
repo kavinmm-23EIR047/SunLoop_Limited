@@ -120,16 +120,16 @@ export default function Home() {
 
                 {/* Capability Feature Pills */}
                 <div className="flex flex-wrap gap-2 pt-1">
-                  <span className="inline-flex items-center gap-1.5 rounded-lg border border-orange-200/80 bg-white px-3 py-1.5 text-xs font-medium text-slate-800 shadow-2xs">
+                  <span className="inline-flex items-center gap-1.5 rounded-lg border border-orange-200/80 bg-white px-3 py-1.5 text-xs font-medium text-slate-800 shadow-2xs whitespace-nowrap shrink-0">
                     <Sun className="h-3.5 w-3.5 text-[#E86526]" /> Rooftop Solar PV
                   </span>
-                  <span className="inline-flex items-center gap-1.5 rounded-lg border border-orange-200/80 bg-white px-3 py-1.5 text-xs font-medium text-slate-800 shadow-2xs">
+                  <span className="inline-flex items-center gap-1.5 rounded-lg border border-orange-200/80 bg-white px-3 py-1.5 text-xs font-medium text-slate-800 shadow-2xs whitespace-nowrap shrink-0">
                     <BatteryCharging className="h-3.5 w-3.5 text-[#E86526]" /> Home Lithium ESS
                   </span>
-                  <span className="inline-flex items-center gap-1.5 rounded-lg border border-orange-200/80 bg-white px-3 py-1.5 text-xs font-medium text-slate-800 shadow-2xs">
+                  <span className="inline-flex items-center gap-1.5 rounded-lg border border-orange-200/80 bg-white px-3 py-1.5 text-xs font-medium text-slate-800 shadow-2xs whitespace-nowrap shrink-0">
                     <Car className="h-3.5 w-3.5 text-[#E86526]" /> EV Charger Ready
                   </span>
-                  <span className="inline-flex items-center gap-1.5 rounded-lg border border-orange-200/80 bg-white px-3 py-1.5 text-xs font-medium text-slate-800 shadow-2xs">
+                  <span className="inline-flex items-center gap-1.5 rounded-lg border border-orange-200/80 bg-white px-3 py-1.5 text-xs font-medium text-slate-800 shadow-2xs whitespace-nowrap shrink-0">
                     <Smartphone className="h-3.5 w-3.5 text-[#E86526]" /> Smart AI App
                   </span>
                 </div>
@@ -182,13 +182,13 @@ export default function Home() {
 
                 {/* Capability Feature Pills */}
                 <div className="flex flex-wrap gap-2 pt-1">
-                  <span className="inline-flex items-center gap-1.5 rounded-lg border border-orange-200/80 bg-white px-3 py-1.5 text-xs font-medium text-slate-800 shadow-2xs">
+                  <span className="inline-flex items-center gap-1.5 rounded-lg border border-orange-200/80 bg-white px-3 py-1.5 text-xs font-medium text-slate-800 shadow-2xs whitespace-nowrap shrink-0">
                     <Building2 className="h-3.5 w-3.5 text-[#E86526]" /> C&amp;I Solar
                   </span>
-                  <span className="inline-flex items-center gap-1.5 rounded-lg border border-orange-200/80 bg-white px-3 py-1.5 text-xs font-medium text-slate-800 shadow-2xs">
+                  <span className="inline-flex items-center gap-1.5 rounded-lg border border-orange-200/80 bg-white px-3 py-1.5 text-xs font-medium text-slate-800 shadow-2xs whitespace-nowrap shrink-0">
                     <Car className="h-3.5 w-3.5 text-[#E86526]" /> Fleet EV Hubs
                   </span>
-                  <span className="inline-flex items-center gap-1.5 rounded-lg border border-orange-200/80 bg-white px-3 py-1.5 text-xs font-medium text-slate-800 shadow-2xs">
+                  <span className="inline-flex items-center gap-1.5 rounded-lg border border-orange-200/80 bg-white px-3 py-1.5 text-xs font-medium text-slate-800 shadow-2xs whitespace-nowrap shrink-0">
                     <BarChart3 className="h-3.5 w-3.5 text-[#E86526]" /> Peak Shaving
                   </span>
                 </div>
@@ -243,13 +243,13 @@ export default function Home() {
 
                     {/* Capability Feature Pills */}
                     <div className="flex flex-wrap gap-2 pt-1">
-                      <span className="inline-flex items-center gap-1.5 rounded-lg border border-orange-200/80 bg-white px-3 py-1.5 text-xs font-medium text-slate-800 shadow-2xs">
+                      <span className="inline-flex items-center gap-1.5 rounded-lg border border-orange-200/80 bg-white px-3 py-1.5 text-xs font-medium text-slate-800 shadow-2xs whitespace-nowrap shrink-0">
                         <Sun className="h-3.5 w-3.5 text-[#E86526]" /> Multi-MW Solar
                       </span>
-                      <span className="inline-flex items-center gap-1.5 rounded-lg border border-orange-200/80 bg-white px-3 py-1.5 text-xs font-medium text-slate-800 shadow-2xs">
+                      <span className="inline-flex items-center gap-1.5 rounded-lg border border-orange-200/80 bg-white px-3 py-1.5 text-xs font-medium text-slate-800 shadow-2xs whitespace-nowrap shrink-0">
                         <BatteryCharging className="h-3.5 w-3.5 text-[#E86526]" /> Container BESS
                       </span>
-                      <span className="inline-flex items-center gap-1.5 rounded-lg border border-orange-200/80 bg-white px-3 py-1.5 text-xs font-medium text-slate-800 shadow-2xs">
+                      <span className="inline-flex items-center gap-1.5 rounded-lg border border-orange-200/80 bg-white px-3 py-1.5 text-xs font-medium text-slate-800 shadow-2xs whitespace-nowrap shrink-0">
                         <Radio className="h-3.5 w-3.5 text-[#E86526]" /> SCADA Microgrid
                       </span>
                     </div>

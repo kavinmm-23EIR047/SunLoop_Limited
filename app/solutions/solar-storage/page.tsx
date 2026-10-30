@@ -150,12 +150,14 @@ export default function SolarStoragePage() {
                 transition={{ duration: 0.6, ease: 'easeOut' }}
                 className={`flex flex-col justify-center space-y-2 rounded-3xl border border-orange-100/80 bg-white/90 p-3 shadow-sm sm:p-4 ${index % 2 === 1 ? 'md:order-2' : 'md:order-1'}`}
               >
-                <div className="space-y-1.5">
-                  <div className="flex items-center gap-2">
-                    <span className="rounded-md bg-orange-100 px-2.5 py-0.5 text-xs font-bold text-brand-primary uppercase">
+                <div className="space-y-2">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-orange-200 bg-[#FFF6F0] px-3 py-1 text-xs font-semibold text-[#E86526] shadow-2xs whitespace-nowrap shrink-0">
+                      <span className="h-1.5 w-1.5 rounded-full bg-[#E86526]" />
                       {solution.badge}
                     </span>
-                    <span className="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200/80 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700 shadow-2xs whitespace-nowrap shrink-0">
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
                       {solution.capacity}
                     </span>
                   </div>
@@ -244,7 +246,7 @@ export default function SolarStoragePage() {
                       (e.target as HTMLElement).setAttribute('src', solution.fallbackImage);
                     }}
                   />
-                  <span className="absolute left-4 top-4 rounded-xl border border-orange-100 bg-[#FFF7F2] px-3 py-1.5 text-xs font-bold text-brand-primary shadow-sm uppercase">
+                  <span className="absolute left-4 top-4 rounded-full border border-orange-200 bg-[#FFF7F2]/95 backdrop-blur-xs px-3.5 py-1 text-xs font-semibold text-brand-primary shadow-sm whitespace-nowrap">
                     SOLUTION {solution.number}
                   </span>
                 </div>
@@ -297,10 +299,12 @@ export default function SolarStoragePage() {
                   {/* TEXT DETAILS */}
                   <div className={`flex flex-col justify-center gap-3 p-5 sm:p-7 ${idx % 2 === 1 ? 'md:order-2' : 'md:order-1'}`}>
                     <div className="flex flex-wrap items-center gap-2">
-                      <span className="rounded-lg border border-orange-200 bg-[#FFF7F2] px-2.5 py-1 text-xs font-bold text-brand-primary uppercase">
+                      <span className="inline-flex items-center gap-1.5 rounded-full border border-orange-200 bg-[#FFF6F0] px-3 py-1 text-xs font-semibold text-[#E86526] shadow-2xs whitespace-nowrap shrink-0">
+                        <span className="h-1.5 w-1.5 rounded-full bg-[#E86526]" />
                         {product.series}
                       </span>
-                      <span className="rounded-lg border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-700">
+                      <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200/80 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700 shadow-2xs whitespace-nowrap shrink-0">
+                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
                         Grade A LiFePO4
                       </span>
                     </div>
@@ -375,7 +379,7 @@ export default function SolarStoragePage() {
                           (e.target as HTMLElement).setAttribute('src', product.fallbackImage || '/images/energy-storage.png');
                         }}
                       />
-                      <div className="absolute left-5 top-5 rounded-lg border border-orange-200 bg-[#FFF7F2] px-3 py-1.5 text-xs font-bold text-brand-primary shadow-sm uppercase">
+                      <div className="absolute left-5 top-5 rounded-full border border-orange-200 bg-[#FFF7F2]/95 backdrop-blur-xs px-3.5 py-1 text-xs font-semibold text-brand-primary shadow-sm whitespace-nowrap">
                         {product.categoryLabel}
                       </div>
                     </div>
@@ -417,7 +421,7 @@ export default function SolarStoragePage() {
                 </div>
                 <h4 className="text-xs font-bold text-brand-ink">Solar PV Array</h4>
                 <p className="text-xs text-brand-slate mt-0.5">TOPCon / Bifacial PV</p>
-                <span className="inline-block mt-2 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-600">
+                <span className="inline-block mt-2 rounded-full bg-amber-100 px-2.5 py-0.5 text-xs font-semibold text-amber-600 whitespace-nowrap">
                   Clean Generation
                 </span>
               </button>
@@ -436,7 +440,7 @@ export default function SolarStoragePage() {
                 </div>
                 <h4 className="text-xs font-bold text-brand-ink">Hybrid Inverter</h4>
                 <p className="text-xs text-brand-slate mt-0.5">Multi-MPPT Controller</p>
-                <span className="inline-block mt-2 rounded-full bg-orange-100 px-2 py-0.5 text-xs font-semibold text-brand-primary">
+                <span className="inline-block mt-2 rounded-full bg-orange-100 px-2.5 py-0.5 text-xs font-semibold text-brand-primary whitespace-nowrap">
                   Bi-Directional
                 </span>
               </button>
@@ -455,7 +459,7 @@ export default function SolarStoragePage() {
                 </div>
                 <h4 className="text-xs font-bold text-brand-ink">LiFePO4 Storage</h4>
                 <p className="text-xs text-brand-slate mt-0.5">WallLoop / BlockLoop / CubeLoop</p>
-                <span className="inline-block mt-2 rounded-full bg-blue-100 px-2 py-0.5 text-xs font-semibold text-blue-600">
+                <span className="inline-block mt-2 rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-semibold text-blue-600 whitespace-nowrap">
                   Sub-10ms UPS Backup
                 </span>
               </button>
@@ -474,7 +478,7 @@ export default function SolarStoragePage() {
                 </div>
                 <h4 className="text-xs font-bold text-brand-ink">Load &amp; Grid Export</h4>
                 <p className="text-xs text-brand-slate mt-0.5">Building &amp; Utility Grid</p>
-                <span className="inline-block mt-2 rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-semibold text-emerald-600">
+                <span className="inline-block mt-2 rounded-full bg-emerald-100 px-2.5 py-0.5 text-xs font-semibold text-emerald-600 whitespace-nowrap">
                   Peak Shaving Active
                 </span>
               </button>
